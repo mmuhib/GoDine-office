@@ -33,7 +33,7 @@ public class AppGlobal extends Application{
     private String state = "";
     private String zipcode = "";
     private String mobileNotification = "";
-    private String miles ="0";
+    private String miles ="";
     private int membershipId = -1;
     private String memberType = "";
     private String memberExpiryDate = "";

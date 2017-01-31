@@ -17,6 +17,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.helpshift.support.ApiConfig;
+import com.helpshift.support.Support;
 import com.netreadystaging.godine.R;
 import com.netreadystaging.godine.activities.main.MainPageActivity;
 import com.netreadystaging.godine.controllers.ErrorController;
@@ -36,6 +38,7 @@ import in.technobuff.helper.http.HttpResponseCallback;
 public class ContactPageFragment extends Fragment {
 
     View view ;
+    TextView help;
     Button sendmesage;
     EditText editmessage;
     String message;
@@ -52,6 +55,16 @@ public class ContactPageFragment extends Fragment {
     }
 
     private void setupView() {
+        help= (TextView) view.findViewById(R.id.help);
+        help.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ApiConfig.Builder configBuilder = new ApiConfig.Builder();
+                configBuilder.setRequireEmail(true);
+                Support.showFAQs(getActivity()
+                        , configBuilder.build());
+            }
+        });
         sendmesage= (Button) view.findViewById(R.id.sendmessage);
         editmessage= (EditText) view.findViewById(R.id.editmessage);
         message=editmessage.getText().toString();

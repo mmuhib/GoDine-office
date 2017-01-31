@@ -128,7 +128,13 @@ public class LoginActivity extends AppBaseActivity {
                                             appGlobal.setState(state);
                                             appGlobal.setZipcode(zipcode);
                                             appGlobal.setMobileNotification(mobileNotification);
-                                            appGlobal.setMiles(miles);
+                                            if(miles.equalsIgnoreCase(""))
+                                            {
+                                                appGlobal.setMiles("25");
+                                            }
+                                            else {
+                                                appGlobal.setMiles(miles);
+                                            }
                                             appGlobal.setMembershipId(membershipId);
                                             appGlobal.setMemberType(memberType);
                                             appGlobal.setMemberExpiryDate(memberExpiryDate); ;

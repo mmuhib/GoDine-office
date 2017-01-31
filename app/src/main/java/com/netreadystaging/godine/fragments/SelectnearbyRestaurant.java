@@ -128,34 +128,57 @@ public class SelectnearbyRestaurant extends Fragment  implements GoogleApiClient
                 if (success) {
                     JSONArray jsonArray = null;
                     try {
-
+                        String Result="";
+                        String Message="";
                         jsonArray = new JSONArray(data);
                         if (jsonArray.length() > 0) {
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject jsonObjects = jsonArray.getJSONObject(i);
-                                Restaurant restaurantObj = new Restaurant();
-                                // String Id=jsonObjects.getString("Id");
-                                restaurantObj.setId(jsonObjects.getString("Id"));
-                                restaurantObj.setImage(jsonObjects.getString("RestaurantImage"));
-                                restaurantObj.setName(jsonObjects.getString("Name"));
-                                restaurantObj.setReview(jsonObjects.getString("NumberOfReviews"));
-                                restaurantObj.setAddress(jsonObjects.getString("Address"));
-                                StringBuffer Area = new StringBuffer();
-                                Area.append(jsonObjects.getString("Region"));
-                                Area.append("," + jsonObjects.getString("City"));
-                                Area.append("," + jsonObjects.getString("PostalCode"));
-                                restaurantObj.setArea("" + Area);
-                                restaurantObj.setRestaurantCusine(jsonObjects.getString("RestaurantCuisine"));
-                                restaurantObj.setLunch(jsonObjects.getString("RestaurantAverageLunch"));
-                                restaurantObj.setDinner(jsonObjects.getString("RestaurantAverageDinner"));
-                                restaurantObj.setRating((float) jsonObjects.getDouble("Rating"));
-                                double lat = jsonObjects.getDouble("Latitude");
-                                double lng = jsonObjects.getDouble("Longitude");
-                                long miles = calculateMiles(lat, lng);
-                                restaurantObj.setMiles(miles);
-                                int availableOffers = jsonObjects.getInt("IsOfferAvailable");
-                                restaurantObj.setOffers(availableOffers);
-                                nearbylist.add(restaurantObj);
+                                Result=jsonObjects.getString("Result");
+                                Message=jsonObjects.getString("Message");
+                                if(Result.equalsIgnoreCase("Success")) {
+                                    Restaurant restaurantObj = new Restaurant();
+                                    // String Id=jsonObjects.getString("Id");
+                                    restaurantObj.setId(jsonObjects.getString("Id"));
+                                    restaurantObj.setImage(jsonObjects.getString("RestaurantImage"));
+                                    restaurantObj.setName(jsonObjects.getString("Name"));
+                                    restaurantObj.setReview(jsonObjects.getString("NumberOfReviews"));
+                                    restaurantObj.setAddress(jsonObjects.getString("Address"));
+                                    StringBuffer Area = new StringBuffer();
+                                    Area.append(jsonObjects.getString("Region"));
+                                    Area.append("," + jsonObjects.getString("City"));
+                                    Area.append("," + jsonObjects.getString("PostalCode"));
+                                    restaurantObj.setArea("" + Area);
+                                    restaurantObj.setRestaurantCusine(jsonObjects.getString("RestaurantCuisine"));
+                                    restaurantObj.setLunch(jsonObjects.getString("RestaurantAverageLunch"));
+                                    restaurantObj.setDinner(jsonObjects.getString("RestaurantAverageDinner"));
+                                    restaurantObj.setRating((float) jsonObjects.getDouble("Rating"));
+                                    double lat = jsonObjects.getDouble("Latitude");
+                                    double lng = jsonObjects.getDouble("Longitude");
+                                    long miles = calculateMiles(lat, lng);
+                                    restaurantObj.setMiles(miles);
+                                    int availableOffers = jsonObjects.getInt("IsOfferAvailable");
+                                    restaurantObj.setOffers(availableOffers);
+                                    nearbylist.add(restaurantObj);
+                                }
+                                    else
+                                {
+                                    AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                                    builder.setTitle("Info");
+                                    builder.setCancelable(false);
+                                    builder.setMessage(Message);
+                                    builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            dialog.dismiss();
+                                            MemberVerification frag=new MemberVerification();
+                                            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.flContent,frag).commit();
+                                        }
+                                    });
+                                    builder.create();
+                                    builder.show();
+                                    }
+                                adapter.notifyDataSetChanged();
                             }
                         } else {
                             AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
@@ -174,7 +197,6 @@ public class SelectnearbyRestaurant extends Fragment  implements GoogleApiClient
                             builder.show();
                         }
                         adapter.notifyDataSetChanged();
-
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
