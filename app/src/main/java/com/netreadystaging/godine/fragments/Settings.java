@@ -24,6 +24,8 @@ import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.helpshift.support.ApiConfig;
+import com.helpshift.support.Support;
 import com.netreadystaging.godine.R;
 import com.netreadystaging.godine.activities.main.BrowserActivity;
 import com.netreadystaging.godine.activities.main.MainPageActivity;
@@ -78,8 +80,10 @@ public class Settings extends Fragment implements View.OnClickListener {
             customersupport.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
-             //       getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.flContent,)
+                    ApiConfig.Builder configBuilder = new ApiConfig.Builder();
+                    configBuilder.setRequireEmail(true);
+                    Support.showFAQs(getActivity()
+                            , configBuilder.build());
                 }
             });
         settingmiles= (Spinner) view.findViewById(R.id.settingmiles);

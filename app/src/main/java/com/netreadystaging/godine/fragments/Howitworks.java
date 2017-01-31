@@ -12,10 +12,13 @@ import android.text.Spanned;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.helpshift.support.ApiConfig;
+import com.helpshift.support.Support;
 import com.netreadystaging.godine.R;
 import com.netreadystaging.godine.activities.main.MainPageActivity;
 import com.netreadystaging.godine.utils.Utility;
@@ -45,6 +48,7 @@ public class Howitworks extends Fragment implements View.OnClickListener{
         view = inflater.inflate(R.layout.how_it_works, container, false);
         Activity activity = getActivity();
         howit_works= (TextView) view.findViewById(R.id.howitworkstext);
+
         nothanks=(TextView) view.findViewById(R.id.nothanks);
         back= (ImageView) view.findViewById(R.id.ivBack);
         back.setOnClickListener(this);
@@ -73,6 +77,16 @@ public class Howitworks extends Fragment implements View.OnClickListener{
             ((MainPageActivity)getActivity()).leftCenterButton.setVisibility(View.GONE);
             setupToolBar();
         }
+        final Button faqButton = (Button)view.findViewById(R.id.faqButton);
+        faqButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ApiConfig.Builder configBuilder = new ApiConfig.Builder();
+                configBuilder.setRequireEmail(true);
+                Support.showFAQs(getActivity()
+                        , configBuilder.build());
+            }
+        });
         return view;
     }
 
@@ -95,4 +109,5 @@ public class Howitworks extends Fragment implements View.OnClickListener{
         bottomToolBar.setVisibility(View.VISIBLE);
         ((MainPageActivity)getActivity()).leftCenterButton.setVisibility(View.VISIBLE);
     }
+
 }

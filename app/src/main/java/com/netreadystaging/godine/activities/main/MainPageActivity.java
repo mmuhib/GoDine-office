@@ -16,6 +16,9 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.helpshift.support.ApiConfig;
+import com.helpshift.support.Support;
 import com.netreadystaging.godine.R;
 import com.netreadystaging.godine.activities.AppBaseActivity;
 import com.netreadystaging.godine.activities.onboard.LoginActivity;
@@ -306,7 +309,18 @@ public class MainPageActivity extends AppBaseActivity implements DrawerLocker {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 //                if(currentPageIndex != i)
 //                {
-                selectDrawerItem(i);
+                if(i== DrawerConstant.GOT_QUESTIONS)
+                {
+                    mDrawer.closeDrawers();
+                    ApiConfig.Builder configBuilder = new ApiConfig.Builder();
+                    configBuilder.setRequireEmail(true);
+                    Support.showFAQs(MainPageActivity.this
+                            , configBuilder.build());
+
+                }
+                else {
+                    selectDrawerItem(i);
+                }
 //                    currentPageIndex =  i ;
 //                }
             }
@@ -346,7 +360,11 @@ public class MainPageActivity extends AppBaseActivity implements DrawerLocker {
             case DrawerConstant.VERIFICATION :fragmentClass = VerificationPageFragment.class ; break;
             case DrawerConstant.FEEDBACK :fragmentClass = FeedBackPageFragment.class ; break ;
             case DrawerConstant.HOW_IT_WORKS :fragmentClass =Howitworks.class ; break;
-            case DrawerConstant.GOT_QUESTIONS :fragmentClass = FeedBackPageFragment.class ; break ;
+            case DrawerConstant.GOT_QUESTIONS :
+            {
+
+            }
+            break ;
 
             default:logoutSession();return ;
         }

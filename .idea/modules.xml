@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/FilterHelper-release/FilterHelper-release.iml" filepath="$PROJECT_DIR$/FilterHelper-release/FilterHelper-release.iml" />
-      <module fileurl="file://$PROJECT_DIR$/GoDine-New.iml" filepath="$PROJECT_DIR$/GoDine-New.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GoDine-Final.iml" filepath="$PROJECT_DIR$/GoDine-Final.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/cfab-release/cfab-release.iml" filepath="$PROJECT_DIR$/cfab-release/cfab-release.iml" />
       <module fileurl="file://$PROJECT_DIR$/gd_helper-release/gd_helper-release.iml" filepath="$PROJECT_DIR$/gd_helper-release/gd_helper-release.iml" />
