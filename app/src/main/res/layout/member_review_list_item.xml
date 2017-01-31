@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/memberDetailsContainer"
+        android:background="@color/limed_spruce"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <ImageView
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:id="@+id/ivMemberPicture"
+            android:layout_margin="10dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@mipmap/ic_launcher"
+            />
+        <LinearLayout
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/ivMemberPicture"
+            android:layout_toEndOf="@+id/ivMemberPicture"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:text="Manish Gaurav"
+                android:textColor="#fff"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:padding="3dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvMemberName"/>
+
+            <TextView
+                android:padding="3dp"
+                android:textColor="#fff"
+                android:textSize="16sp"
+                android:text="Review Date : 9/22/2016 11:09:33 AM"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvMemberReviewDate"/>
+            <TextView
+                android:padding="3dp"
+                android:textColor="#fff"
+                android:textSize="16sp"
+                android:text="Los Angles,California"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvMemberPlace"
+                />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <com.netreadystaging.godine.views.RatingCardView
+        android:visibility="visible"
+        android:id="@+id/memberRatingCard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

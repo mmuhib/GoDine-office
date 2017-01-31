@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="D:\Android\workspace\Git_code\GoDine-New\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.0.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="0874286cc2fd88d54fdf130e9d5372730da6de97">
+        <dex dex="D:\Android\workspace\Git_code\GoDine-New\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-24.0.0_b8489ca4d32dd4b4fa491289a3728ba0d0660fab.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Android\workspace\Git_code\GoDine-New\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.0.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="3bd97cfefd783e9de1dd1c30574a6adb44b4409b">
+        <dex dex="D:\Android\workspace\Git_code\GoDine-New\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-24.0.0_97bc47f858ea761a9b1293326a382e94f120c06b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Android\workspace\Git_code\GoDine-New\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\libs\internal_impl-24.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="fcaf463e10e69c1923ccf1edeba3b4196d239e00">
+        <dex dex="D:\Android\workspace\Git_code\GoDine-New\app\build\intermediates\pre-dexed\debug\internal_impl-24.0.0_c962307e4914a448c80e331c9e5aea5117473583.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Android\workspace\Git_code\GoDine-New\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.0.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="894922f67adeaaef51f077a29e315da21a3382d3">
+        <dex dex="D:\Android\workspace\Git_code\GoDine-New\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-24.0.0_56d12bdde1f718ced104103957871e3a7249c690.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Android\workspace\Git_code\GoDine-New\app\build\intermediates\exploded-aar\com.android.support\design\24.0.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="fc29308a7a8f6d4407b34634eb48fb8b817f9b23">
+        <dex dex="D:\Android\workspace\Git_code\GoDine-New\app\build\intermediates\pre-dexed\debug\com.android.support-design-24.0.0_71afbad54c4942e58082263dddb0f72facd06867.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Android\workspace\Git_code\GoDine-New\app\build\intermediates\exploded-aar\GoDine-New\cfab-release\unspecified\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="abccc64cbf910d77993176eedabdfa2ed8130c65">
+        <dex dex="D:\Android\workspace\Git_code\GoDine-New\app\build\intermediates\pre-dexed\debug\GoDine-New-cfab-release-unspecified_401847791db0433c9b2b6a44a4b46beab9f5d09a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.0.0\support-annotations-24.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="2943c74db6d4346ab8c6531adac91fa05c137c40">
+        <dex dex="D:\Android\workspace\Git_code\GoDine-New\app\build\intermediates\pre-dexed\debug\support-annotations-24.0.0_d6267d108258454c1b7083440e9338e477d733ce.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Android\workspace\Git_code\GoDine-New\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.5.87\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="dd9247ea0fabe8ee479638c4b4a23e93752be256">
+        <dex dex="D:\Android\workspace\Git_code\GoDine-New\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-6.5.87_e010bdad7d8fbcab3adb37f0933849acf4136446.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\lenovo\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="D:\Android\workspace\Git_code\GoDine-New\app\build\intermediates\pre-dexed\debug\picasso-2.5.2_08ed79868f1ec893b338f1d2abe1328ebd861fbf.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Android\workspace\Git_code\GoDine-New\app\build\intermediates\exploded-aar\GoDine-New\FilterHelper-release\unspecified\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="184194a24f8d389a85f41d2f46afc06a3455e635">
+        <dex dex="D:\Android\workspace\Git_code\GoDine-New\app\build\intermediates\pre-dexed\debug\GoDine-New-FilterHelper-release-unspecified_30187da58242de59f0dec6f3ab641d1a45793d37.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Android\workspace\Git_code\GoDine-New\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.0.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="e70f608219ed6b974644c333249ab2bb7b71de98">
+        <dex dex="D:\Android\workspace\Git_code\GoDine-New\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-24.0.0_8f7bf73c9292c00871826584eae79b21de7f7509.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Android\workspace\Git_code\GoDine-New\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
+        <dex dex="D:\Android\workspace\Git_code\GoDine-New\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-24.0.0_1c1fd24136d80f1917ac4b62613962bebb5817c5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Android\workspace\Git_code\GoDine-New\app\build\intermediates\exploded-aar\GoDine-New\gd_helper-release\unspecified\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.0"
+        sha1="797c80d9c389f7044fa3ee7018fdc781f14cea0d">
+        <dex dex="D:\Android\workspace\Git_code\GoDine-New\app\build\intermediates\pre-dexed\debug\GoDine-New-gd_helper-release-unspecified_eff1355e84d0de15e9899f43c548c7c375ed3c05.jar" />
+    </item>
+
+</items>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="10dp"
+        >
+        <LinearLayout
+            android:layout_margin="10dp"
+            android:padding="20dp"
+            android:background="#dadada"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/btnCurrentLocationSearch"
+                style="@style/GDAppButtonBaseTheme"
+                android:text="Use My Current Location"
+                />
+
+            <TextView
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="or"
+                android:padding="5dp"
+                />
+
+            <TextView
+                android:id="@+id/btnOpenSearchOption"
+                style="@style/GDAppButtonBaseTheme"
+                android:text="Search Options"
+                />
+        </LinearLayout>
+        <TextView
+            android:textColor="#fff"
+            android:gravity="center"
+            android:padding="10dp"
+            android:layout_margin="10dp"
+            android:background="#777777"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Search Options"/>
+
+        <EditText
+            android:id="@+id/etNameOfRestaurant"
+            style="@style/GDRoundedEditTextTheme"
+            android:hint="Name of Restaurant"
+
+            />
+        <Spinner
+            android:id="@+id/etTypeOfCuisine"
+            style="@style/GDRoundedEditTextTheme"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            />
+
+        <LinearLayout
+
+            android:weightSum="2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Spinner
+                android:id="@+id/etRestaurantFeature"
+                android:layout_weight="1"
+                style="@style/GDRoundedEditTextTheme"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:layout_gravity="center"
+                />
+            <EditText
+                android:id="@+id/etRestaurantCity"
+                android:layout_weight="1"
+                style="@style/GDRoundedEditTextTheme"
+                android:hint="City"
+
+                />
+        </LinearLayout>
+        <LinearLayout
+
+            android:weightSum="2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/etRestaurantZipcode"
+                android:layout_weight="1"
+                style="@style/GDRoundedEditTextTheme"
+                android:hint="Zip Code"
+                />
+            <EditText
+                android:id="@+id/etMiles"
+                android:layout_weight="1"
+                style="@style/GDRoundedEditTextTheme"
+                android:hint="Miles"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/btnClearFields"
+                android:layout_margin="10dp"
+                android:layout_width="100dp"
+                style="@style/GDAppButtonBaseTheme"
+                android:text="Clear"
+                />
+
+            <TextView
+                android:id="@+id/btnSearchRestaurants"
+                android:layout_width="100dp"
+                android:layout_margin="10dp"
+                style="@style/GDAppButtonBaseTheme"
+                android:text="Search"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

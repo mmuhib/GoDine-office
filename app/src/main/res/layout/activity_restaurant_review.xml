@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_restaurant_review"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/texture_bg"
+    tools:context="com.netreadystaging.godine.activities.main.RestaurantReviewActivity">
+    <include
+        layout="@layout/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:paddingLeft="10dp"
+        android:paddingStart="10dp"
+        android:paddingRight="10dp"
+        android:paddingEnd="10dp"
+        android:layout_below="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/myReviewForm"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="#000"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:gravity="center_vertical"
+                android:text="Food / Quality"/>
+            <android.support.v7.widget.AppCompatRatingBar
+                android:layout_toRightOf="@+id/lblOverAllExperience"
+                android:layout_toEndOf="@+id/lblOverAllExperience"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:rating="0"
+                android:scaleX=".5"
+                android:scaleY=".5"
+                android:max="5"
+                android:id="@+id/rBarInputFoodQuality"
+                android:isIndicator="false"
+                style="?android:attr/ratingBarStyleIndicator"
+                android:progressTint="#3399ff"
+                />
+
+            <TextView
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="#000"
+                android:layout_below="@+id/rBarInputFoodQuality"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:gravity="center_vertical"
+                android:text="Ambiance"/>
+            <android.support.v7.widget.AppCompatRatingBar
+                android:layout_below="@+id/rBarInputFoodQuality"
+                android:layout_toRightOf="@+id/lblOverAllExperience"
+                android:layout_toEndOf="@+id/lblOverAllExperience"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:scaleX=".5"
+                android:scaleY=".5"
+                android:max="5"
+                android:rating="0"
+                android:id="@+id/rBarInputAmbiance"
+                android:isIndicator="false"
+                style="?android:attr/ratingBarStyleIndicator"
+                android:progressTint="#3399ff"
+                />
+
+
+            <TextView
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="#000"
+                android:layout_below="@+id/rBarInputAmbiance"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:gravity="center_vertical"
+                android:text="Service"/>
+            <android.support.v7.widget.AppCompatRatingBar
+                android:layout_below="@+id/rBarInputAmbiance"
+                android:layout_toRightOf="@+id/lblOverAllExperience"
+                android:layout_toEndOf="@+id/lblOverAllExperience"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:scaleX=".5"
+                android:scaleY=".5"
+                android:rating="0"
+                android:max="5"
+                android:id="@+id/rBarInputService"
+                android:isIndicator="false"
+                style="?android:attr/ratingBarStyleIndicator"
+                android:progressTint="#3399ff"
+                />
+
+            <TextView
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="#000"
+                android:layout_below="@+id/rBarInputService"
+                android:id="@+id/lblOverAllExperience"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:gravity="center_vertical"
+                android:text="Overall Experience"/>
+            <android.support.v7.widget.AppCompatRatingBar
+                android:layout_below="@+id/rBarInputService"
+                android:layout_toRightOf="@+id/lblOverAllExperience"
+                android:layout_toEndOf="@+id/lblOverAllExperience"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:scaleX=".5"
+                android:scaleY=".5"
+                android:rating="0"
+                android:max="5"
+                android:id="@+id/rBarInputOverallExperience"
+                android:isIndicator="false"
+                style="?android:attr/ratingBarStyleIndicator"
+                android:progressTint="#3399ff"
+                />
+
+            <TextView
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="#000"
+                android:layout_below="@+id/rBarInputOverallExperience"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:gravity="center_vertical"
+                android:text="Will You Return"/>
+            <android.support.v7.widget.AppCompatRatingBar
+                android:layout_below="@+id/rBarInputOverallExperience"
+                android:layout_toRightOf="@+id/lblOverAllExperience"
+                android:layout_toEndOf="@+id/lblOverAllExperience"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:scaleX=".5"
+                android:scaleY=".5"
+                android:rating="0"
+                android:max="5"
+                android:progress="1"
+                android:id="@+id/rBarInputWillYouReturn"
+                android:isIndicator="false"
+                style="?android:attr/ratingBarStyleIndicator"
+                android:progressTint="#3399ff"
+                />
+
+        </RelativeLayout>
+        <Button
+            android:layout_below="@+id/myReviewForm"
+            android:id="@+id/btnSubmitRating"
+            style="@style/GDAppButtonBaseTheme"
+            android:layout_centerHorizontal="true"
+            android:text="Submit"
+            android:layout_margin="5dp"
+            />
+
+        <TextView
+            android:layout_below="@+id/btnSubmitRating"
+            android:id="@+id/memberReviewsHeading"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:gravity="center"
+            android:padding="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="member Reviews"
+            android:textAllCaps="true"
+            android:textColor="#fff"
+            android:background="@color/limed_spruce"
+            />
+
+        <RelativeLayout
+
+            android:layout_marginRight="10dp"
+
+            android:layout_marginEnd="10dp"
+            android:layout_below="@+id/memberReviewsHeading"
+            android:id="@+id/overallReviewRatingContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <android.support.v7.widget.AppCompatRatingBar
+                android:id="@+id/rBarOverall"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleX=".7"
+                android:scaleY=".7"
+                android:rating="1"
+                android:max="5"
+                android:isIndicator="true"
+                style="?android:attr/ratingBarStyleIndicator"
+                android:progressTint="#3399ff"
+                />
+
+            <TextView
+                android:layout_toStartOf="@+id/lbl_overall_rating"
+                android:layout_toLeftOf="@+id/lbl_overall_rating"
+                android:layout_centerVertical="true"
+                android:textColor="#3399ff"
+                android:textStyle="bold"
+                android:text="2.30"
+                android:padding="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvRatingValue"/>
+            <TextView
+                android:paddingEnd="10dp"
+                android:paddingRight="10dp"
+                android:id="@+id/lbl_overall_rating"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:textColor="#000"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="overall rating"
+                android:textAllCaps="true"/>
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp"
+            android:layout_below="@+id/overallReviewRatingContainer"
+            android:drawableLeft="@drawable/user_name"
+            android:drawableStart="@drawable/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:drawablePadding="10dp"
+            android:text="4 Reviews"
+            android:textColor="#000"
+            android:id="@+id/tvReviewCount"/>
+
+        <com.netreadystaging.godine.views.RatingCardView
+            android:id="@+id/membersOverAllRatingCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvReviewCount"
+            android:layout_centerHorizontal="true" />
+
+        <ListView
+            android:id="@+id/lvMemberReview"
+            android:divider="@color/limed_spruce"
+            android:layout_below="@+id/membersOverAllRatingCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.netreadystaging.godine">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:hardwareAccelerated="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".activities.onboard.LoginActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".activities.onboard.SplashActivity"
+            android:label="@string/title_activity_splash"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activities.main.WhyJoinActivity"
+            android:label="@string/title_activity_why_join"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.main.Members"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.main.MainPageActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".activities.main.GoDineRestaurantSearchActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".activities.main.Join_GoDine"
+            android:screenOrientation="portrait" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAp-4py1BmVVoF7q4TdYogCkVX5vO5qPPk" />
+
+        <uses-feature
+            android:glEsVersion="0x00020000"
+            android:required="true" />
+
+        <activity
+            android:name=".activities.main.PaymentView"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.main.FilterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.main.AboutRestaurantActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.main.RestaurantOffersActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.main.RestaurantReviewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.filters.SelectFilterActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.FilterActionBar" />
+        <activity
+            android:name=".activities.main.BrowserActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.FilterActionBar" />
+        <activity
+            android:name=".activities.Selectnearbyrestaurant"
+            android:screenOrientation="portrait" />
+        <activity android:name=".activities.main.ChoosePlanActivity"></activity>
+    </application>
+
+</manifest>

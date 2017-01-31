@@ -1,0 +1,1 @@
+include ':app', ':cfab-release', ':gd_helper-release', ':FilterHelper-release'

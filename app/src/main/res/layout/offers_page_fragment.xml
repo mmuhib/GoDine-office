@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+
+    <RelativeLayout
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/go_dine_restaurant_search_sub_heading"
+        android:id="@+id/gdcontainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:gravity="center"
+            android:layout_marginLeft="25dp"
+            android:layout_marginStart="25dp"
+            android:layout_below="@+id/ivGDFilterFormClose"
+            android:layout_toLeftOf="@+id/ivGDFilterFormClose"
+            android:layout_toStartOf="@+id/ivGDFilterFormClose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:orientation="vertical"
+            android:background="@drawable/restaurant_search_form_bg"
+            >
+            <EditText
+                style="@style/GDRoundedEditTextTheme"
+                android:hint="Restaurant Name / City"
+                android:id="@+id/et_offname"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="Or"/>
+            <EditText
+                android:hint="Zip Code"
+                android:inputType="number"
+                style="@style/GDRoundedEditTextTheme"
+                android:id="@+id/et_offzipcode"/>
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+                <CheckBox
+                    android:id="@+id/Ch_offer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:button="@drawable/radio_selector"
+                  />
+                <Button
+
+                    style="@style/GDAppButtonBaseTheme"
+                    android:layout_marginLeft="20dp"
+                    android:text="My Current Location"
+                    android:id="@+id/bt_tapsearchrestaurant"
+                    />
+                <Spinner
+                    style="@style/GDRoundedEditTextTheme"
+                    android:gravity="center"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:textAlignment="center"
+                    android:id="@+id/spinmiles"
+
+               />
+            </LinearLayout>
+            <Button
+                style="@style/GDAppButtonBaseTheme"
+                android:padding="8dp"
+                android:layout_width="100dp"
+                android:layout_marginTop="15dp"
+                android:text="Search"
+                android:id="@+id/searchrestaurant"/>
+        </LinearLayout>
+    </RelativeLayout>
+    <ListView
+        android:descendantFocusability="blocksDescendants"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/listofrest"
+        />
+</LinearLayout>

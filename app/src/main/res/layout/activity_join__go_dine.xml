@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_join__go_dine"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.netreadystaging.godine.activities.main.Join_GoDine">
+    <include
+        android:layout_alignParentTop="true"
+        android:id="@+id/toolbar_gd_rest_search"
+        layout="@layout/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:id="@+id/buttonlay"
+        android:layout_below="@+id/toolbar_gd_rest_search"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <Button
+            android:id="@+id/btchosseplan"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="Choose Plan"
+            android:textColor="#fff"
+            android:background="@drawable/blue_tab_bg"
+            android:textAllCaps="false"
+            android:textSize="12sp"
+            android:layout_weight="1"
+             android:layout_marginLeft="2dp"
+            android:layout_marginRight="3dp"
+            android:onClick="chooseplan"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:id="@+id/btrefferdetails"
+            android:text="Referrer Details"
+            android:textColor="#fff"
+            android:background="@drawable/blue_tab_bg"
+            android:onClick="chooeplan"
+            android:layout_weight="1"
+            android:textAllCaps="false"
+            android:textSize="12sp"
+            android:layout_marginRight="3dp"
+            />
+
+        <Button
+            android:background="@drawable/blue_tab_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:id="@+id/btmemberdetails"
+            android:textColor="#fff"
+            android:text="Member Details"
+            android:layout_weight="1"
+            android:textAllCaps="false"
+            android:textSize="12sp"
+            android:layout_marginRight="2dp"
+            />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_below="@+id/buttonlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/frag"
+
+
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+    </RelativeLayout>
+</RelativeLayout>

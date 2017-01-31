@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single" android:id="@+id/grp1">
+        <item
+            android:id="@+id/nav_explore"
+            android:icon="@drawable/nav_explore"
+            android:title="Explore Restaurants" />
+   <!-- </group>
+    <group android:checkableBehavior="all" android:id="@+id/grp2" >-->
+        <item
+            android:id="@+id/nav_offer"
+
+            android:icon="@drawable/nav_offer"
+            android:title="Offers" />
+   <!-- </group>
+    <group android:checkableBehavior="single" android:id="@+id/grp3">-->
+        <item
+            android:id="@+id/nav_favorite"
+            android:icon="@drawable/nav_favourite"
+            android:title="Favorite" />
+   <!-- </group>
+    <group android:checkableBehavior="single" android:id="@+id/grp4">-->
+        <item
+            android:id="@+id/nav_rating"
+            android:icon="@drawable/nav_rating"
+            android:title="Review &amp; Rating" />
+   <!-- </group>
+    <group android:checkableBehavior="single" android:id="@+id/grp5">-->
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/nav_profile"
+            android:title="Profile" />
+    <!--</group>
+    <group android:checkableBehavior="single" android:id="@+id/grp6">-->
+        <item
+            android:id="@+id/nav_contact"
+            android:icon="@drawable/nav_contact"
+            android:title="Contact GoDine" />
+   <!-- </group>
+    <group android:checkableBehavior="single" android:id="@+id/grp7">-->
+        <item
+            android:id="@+id/nav_billing"
+            android:icon="@drawable/nav_billing"
+            android:title="Billing" />
+   <!-- </group>
+    <group android:checkableBehavior="single" android:id="@+id/grp8">-->
+        <item
+            android:id="@+id/nav_verification"
+            android:icon="@drawable/nav_verification"
+            android:title="Verification" />
+   <!-- </group>
+
+    <group android:checkableBehavior="single" android:id="@+id/grp9">-->
+        <item
+            android:id="@+id/nav_feedback"
+            android:icon="@drawable/nav_feedback"
+            android:title="FeedBack" />
+   <!-- </group>
+    <group android:checkableBehavior="single" android:id="@+id/grp10">-->
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/nav_logout"
+
+            android:title="LogOut" />
+    </group>
+</menu>

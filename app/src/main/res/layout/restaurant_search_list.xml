@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp">
+
+    <FrameLayout
+        android:id="@+id/restaurantImageContainer"
+        android:layout_margin="5dp"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_margin="5dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:srcCompat="@mipmap/ic_launcher"
+            android:layout_gravity="center"
+            android:id="@+id/restaurantImage"/>
+        <ImageView
+            android:id="@+id/restOfferImage"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="bottom"
+            android:src="@drawable/offer_icn"
+            />
+    </FrameLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:orientation="vertical"
+        android:id="@+id/linearLayout">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1253108 miles"
+            android:layout_gravity="right"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            android:id="@+id/distance"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/gl_heading_bg_color"
+            android:text="Avg. Price"
+            android:layout_gravity="right"
+            android:textSize="12sp"
+            android:id="@+id/textView4" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="Lunch:$100"
+            android:layout_gravity="right"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:id="@+id/lunch"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="Dinner:$500"
+            android:textColor="@color/black"
+            android:layout_gravity="right"
+            android:textSize="12sp"
+            android:id="@+id/dinner"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_toLeftOf="@+id/linearLayout"
+        android:layout_toStartOf="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/texts"
+        android:orientation="vertical"
+        android:layout_alignTop="@+id/restaurantImageContainer"
+        android:layout_toRightOf="@+id/restaurantImageContainer"
+        android:layout_toEndOf="@+id/restaurantImageContainer">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/restautname"
+            android:text="Test"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal">
+            <android.support.v7.widget.AppCompatRatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleX=".9"
+                android:scaleY=".9"
+                android:rating="3.4"
+                android:transformPivotX="2dp"
+                android:transformPivotY="15dp"
+                android:id="@+id/ratingBar"
+                android:isIndicator="true"
+                style="?android:attr/ratingBarStyleSmall"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3 Review"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                android:id="@+id/review"
+                android:layout_gravity="bottom" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Test"
+            android:id="@+id/restaurantaddress"
+            android:textSize="13sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="3dp"
+            android:textStyle="bold"/>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_below="@+id/texts"
+        android:layout_toRightOf="@+id/restaurantImageContainer"
+        android:layout_toEndOf="@+id/restaurantImageContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="California,Caribean,80903"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:id="@+id/region"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Afghani, African"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="3dp"
+            android:id="@+id/cuisine"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="1sp"
+            android:id="@+id/idd"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

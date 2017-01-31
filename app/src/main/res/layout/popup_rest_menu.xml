@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+
+    <TextView
+        android:padding="5dp"
+        android:textSize="20sp"
+        android:textColor="#000"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View Our Menu"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/textView5" />
+    <!---->
+    <TextView
+        android:textSize="14sp"
+        android:textColor="#fff"
+        style="@style/GDAppButtonBaseTheme"
+        android:layout_width="100dp"
+        android:text="Lunch"
+        android:id="@+id/tvRestLunchMenu"
+        android:layout_marginBottom="5dp"/>
+
+    <TextView
+        android:id="@+id/tvRestDinnerMenu"
+        android:textSize="14sp"
+        android:textColor="#fff"
+        style="@style/GDAppButtonBaseTheme"
+        android:layout_width="100dp"
+        android:text="Dinner"
+        android:layout_marginBottom="5dp"
+      />
+    <TextView
+        android:id="@+id/tvRestFullMenu"
+        android:textSize="14sp"
+        android:textColor="#fff"
+        style="@style/GDAppButtonBaseTheme"
+        android:layout_width="100dp"
+        android:text="Full"
+        android:layout_marginBottom="5dp"
+       />
+    <TextView
+        android:id="@+id/tvCancelPopup"
+        android:textSize="14sp"
+        android:textColor="#fff"
+        style="@style/GDAppButtonBaseTheme"
+        android:layout_width="100dp"
+        android:text="Cancel"
+        android:layout_marginBottom="5dp"
+       />
+
+</LinearLayout>

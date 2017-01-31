@@ -1,0 +1,123 @@
+<resources>
+    <string name="app_name">GoDine</string>
+
+    <!--<string name="meet_go_dine_body">Join GoDine\u2122 for as little as $19.95 per month and begin receiving 50% Off your entree every single time you dine at any of the thousands of GoDine\u2122 VIP partner Restaurants across the country. The savings on just one meal out can pay for your membership for the month. </string>-->
+    <string name="meet_go_dine_body">\u2022  Join GoDine\u2122 Today \n\u2022  Search GoDine™ Restaurants \n\u2022  Dine out often \n\u2022  Save 50% Off your Entree every time! \n\u2022  Save Hundreds of Dollars every month!\n\u2022 Sign up a friend get your next month Free!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_splash">GoDine</string>
+    <string name="login_bg_content1">Receive 50% Off\nyour entree</string>
+    <string name="login_bg_content2">every time you dine out\nat any GoDine\u2122 Premier Partner\nRestaurant nationwide\n</string>
+    <string name="title_activity_why_join">WhyJoinActivity</string>
+    <string name="meet_go_dine_title">Meet GoDine\u2122</string>
+    <string name="signup">GoDine™ SignUp</string>
+    <string name="Setting">Settings</string>
+    <string name="go_dine_restaurant">GoDine\u2122 Restaurants</string>
+    <string name="go_dine_restaurant_search_heading">Search restaurants from current location / ZipCode</string>
+    <string name="contact_godine">Please enter your message below and we \n\t will respond back to you via email.For\n\t customer support click the link below</string>
+    <string name="Godine">GoDine<sup><small><small><small>TM</small></small></small></sup> FeedBack</string>
+    <string name="feedback">Your opinion is important to us and helps\n us to improve your GoDine\u2122 experience.</string>
+    <string name="feedback1">1.\t Please share your comments\n\t\tabout the GoDine\u2122  App</string>
+    <string name="feedback2">2.\t How satisified are you with\n\t\t GoDine\u2122 overall?</string>
+    <string name="feedback3">We\'re always on the lookout for more great\nGoDine\u2122 Restaurant Partners.If you have\nany favorities  that aren\'t on our list that you\n\t would like to see join our club,add their\n\t\t name and city here.\t (Add up to 3)</string>
+    <string name="why_join_banner_str">Receive 50% Off your Entrée\'s\nevery time you dine out!</string>
+    <string name="how_it_works">
+        <![CDATA["<b>How it Works-</b>Using your GoDine Mobile App is easy and fun! Simply search for GoDine™ Restaurants wherever you are using the location services.
+                Then filter by Cuisine, Price, Features, etc.You can also use the Map option for Turn-by-Turn directions to your restaurant location.<br/><b>Once you arrive-</b>Enjoy your meal(s), with friends,and family. When it’s time to pay your check, let your server know that you are a GoDine™ Member.He / she will ask you to:<br/>               <b>&nbsp;&nbsp;&nbsp;&nbsp; • Open the GoDine™ App<br/>
+               &nbsp;&nbsp;&nbsp;&nbsp; • Pull Up Validation Page – bottom menu (center button)<br/>
+               &nbsp;&nbsp;&nbsp;&nbsp;• Server Validates Membership </b>- He/she will validate your membership by tapping the screen<br/>
+               <b>&nbsp;&nbsp;&nbsp;&nbsp; • Server brings bill to the table
+               <br/> &nbsp;&nbsp;&nbsp;&nbsp;  • You add Total Check  Savings –</b> amounts in the boxes on the membership validation screen<br/><b>
+               &nbsp;&nbsp;&nbsp;&nbsp;• You press “Complete Validation Process” button
+               <br/> &nbsp;&nbsp;&nbsp;&nbsp;• 10 Second Review -</b>You complete the 5 Second Review<br/><b>
+               &nbsp;&nbsp;&nbsp;&nbsp;• Oh yeah, don’t forget to pay the check!<br/>
+               &nbsp;&nbsp;&nbsp;&nbsp;• Tip your Sever generously - </b> Make sure to tip your server on the total amount before the discount is applied. They work just as hard for you even when you get such a great deal."]]></string>
+    <string name="referaldetail">Please click Find a Sponsor to select your sponsor member</string>
+    <string name="terms"><font color="blue">Terms and Conditions</font></string>
+    <string name="refer">Refer as many friends as you can because for every friend that joins GoDine™ using your member number you get one FREE month of membership!\njust add their email below and we\'ll do the rest.</string>
+    <string name="cancelmember">It\'s rare to see a member cancelling a membership with GoDine™ so we\'re sorry to lose you as a member.Please tap here to continue the process.</string>
+    <string name="changeimage">This sends an email to GoDine requesting to change your registration photo.GoDine will send you an email with instructions to provide your User Name, Password, Member #,and new photo for approval and change.</string>
+
+
+    <string-array name="States">
+        <item>States</item>
+        <item>Alabama</item>
+        <item>Alaska</item>
+        <item>Arizona</item>
+        <item>Arkansas</item>
+        <item>California</item>
+        <item>Colorado</item>
+        <item>Connecticut</item>
+        <item>Delaware</item>
+        <item>Florida</item>
+        <item>Georgia</item>
+        <item>Hawaii</item>
+        <item>Idaho</item>
+        <item>Illinois</item>
+        <item>Indiana</item>
+        <item>Iowa</item>
+        <item>Kansas</item>
+        <item>Kentucky</item>
+        <item>Louisiana</item>
+        <item>Maine</item>
+        <item>Maryland</item>
+        <item>Massachusetts</item>
+        <item>Michigan</item>
+        <item>Minnesota</item>
+        <item>Mississippi</item>
+        <item>Missouri</item>
+        <item>Montana</item>
+        <item>Nebraska</item>
+        <item>Nevada</item>
+        <item>New Hampshire</item>
+        <item>New Jersey</item>
+        <item>New Mexico</item>
+        <item>New York</item>
+        <item>North Carolina</item>
+        <item>North Dakota</item>
+        <item>Ohio</item>
+        <item>Oklahoma</item>
+        <item>Oregon</item>
+        <item>Pennsylvania</item>
+        <item>Rhode Island</item>
+        <item>South Carolina</item>
+        <item>South Dakota</item>
+        <item>Tennessee</item>
+        <item>Texas</item>
+        <item>Utah</item>
+        <item>Vermont</item>
+        <item>Virginia</item>
+        <item>Washington</item>
+        <item>West Virginia</item>
+        <item>Wisconsin</item>
+        <item>Wyoming</item>
+    </string-array>
+    <string-array name="paid">
+        <item>$25</item>
+        <item>$54</item>
+        <item>$66</item>
+        <item>$95</item>
+        <item>$668</item>
+    </string-array>
+    <string-array name="Status">
+        <item>Success</item>
+        <item>Cancelled</item>
+        <item>Failed</item>
+        <item>Cancelled</item>
+        <item>Failed</item>
+    </string-array>
+    <string-array name="share">
+        <item>Facebook</item>
+        <item>Twitter</item>
+        <item>Cancel</item>
+    </string-array>
+    <string name="title_activity_join__go_dine">GoDine™ SignUp</string>
+    <string name="titlemember">To Find sponsor enter member or cell number.</string>
+    <string name="topmember">Find a Sponser</string>
+    <string name="signupdiscount"> Receive <font color='red'> 50% Off</font> your Entrée</string>
+    <string name="info">To continue please select your profile\n image for membership verification.\n This photo is used for member verification and MUST be a front facing photo of the member only. Photos of multiple persons or photos of anyone or thing that is not the actual member will not be acceptable. </string>
+    <string name="select_rest_type">Dining Options</string>
+    <string name="select_rest_cuisines">Select Multiple Values for Cuisine.</string>
+    <string name="select_rest_features">Select Multiple Values for Features.</string>
+    <string name="select_rest_price">Select Price Range.</string>
+    <string name="select_rest_rating">Select Rating Value</string>
+</resources>

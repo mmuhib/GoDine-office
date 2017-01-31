@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <!-- Frame One -->
+    <View
+        android:layout_gravity="bottom"
+        android:background="#0a7cff"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        />
+    <!-- Frame Two -->
+    <ImageView
+        android:id="@+id/ivBottomMenu"
+        android:src="@drawable/plus"
+        android:layout_gravity="bottom|center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        />
+
+</FrameLayout>

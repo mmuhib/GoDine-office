@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.netreadystaging.godine.activities.main.GoDineRestaurantSearchActivity">
+
+    <TextView
+        android:id="@+id/go_dine_restaurant_search_heading"
+        android:layout_below="@+id/toolbar_gd_rest_search"
+        style="@style/GDHeadingTheme"
+        android:text="@string/go_dine_restaurant_search_heading"/>
+
+    <TextView
+        android:id="@+id/go_dine_restaurant_search_sub_heading"
+        android:layout_below="@+id/go_dine_restaurant_search_heading"
+        style="@style/GDSubHeadingTheme"
+        android:text="RESTAURANTS"/>
+
+    <RelativeLayout
+        android:layout_margin="5dp"
+        android:layout_below="@+id/go_dine_restaurant_search_sub_heading"
+        android:id="@+id/gd_rest_search_filter_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:id="@+id/ivGDFilterFormClose"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:clickable="true"
+            android:src="@drawable/close_black"
+            android:onClick="closeGDRestFilterSearchForm"
+            />
+
+        <LinearLayout
+            android:gravity="center"
+            android:layout_marginLeft="25dp"
+            android:layout_marginStart="25dp"
+            android:layout_below="@+id/ivGDFilterFormClose"
+            android:layout_toLeftOf="@+id/ivGDFilterFormClose"
+            android:layout_toStartOf="@+id/ivGDFilterFormClose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:orientation="vertical"
+            android:background="@drawable/restaurant_search_form_bg"
+            >
+            <Button
+                style="@style/GDAppButtonBaseTheme"
+                android:text="Use Current Location"
+                android:id="@+id/bt_tapsearchrestaurant"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="Or"/>
+
+            <EditText
+                style="@style/GDRoundedEditTextTheme"
+                android:hint="Restaurant Name / City"
+                android:id="@+id/et_restname"
+                />
+
+            <EditText
+                android:hint="Zip Code"
+                android:inputType="number"
+                style="@style/GDRoundedEditTextTheme"
+                android:id="@+id/et_zipcode"/>
+
+            <Button
+                style="@style/GDAppButtonBaseTheme"
+                android:padding="5dp"
+                android:layout_width="150dp"
+                android:layout_marginTop="5dp"
+                android:text="Search"
+                android:id="@+id/bt_searchrestaurant"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <ListView
+        android:layout_below="@+id/gd_rest_search_filter_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/listrestuant"
+        />
+
+    <include
+        android:id="@+id/toolbar_gd_rest_search"
+        layout="@layout/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+</RelativeLayout>

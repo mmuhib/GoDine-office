@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    >
+    <android.support.v7.widget.AppCompatRatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:scaleX=".5"
+        android:scaleY=".5"
+        android:rating="1"
+        android:max="5"
+        android:transformPivotX="18dp"
+        android:transformPivotY="15dp"
+        android:id="@+id/ratingBar"
+        android:isIndicator="true"
+        style="?android:attr/ratingBarStyle"
+        android:progress="1"
+        android:progressTint="#3399ff"
+        />
+
+    <ImageButton
+        android:id="@+id/checkBox"
+        android:background="@drawable/drawable_chkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="13dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="13dp" />
+</RelativeLayout>
+

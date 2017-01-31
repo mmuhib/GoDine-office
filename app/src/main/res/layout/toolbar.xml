@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar"
+    android:layout_height="70dp"
+    android:layout_width="match_parent"
+    android:fitsSystemWindows="true"
+    android:minHeight="?attr/actionBarSize"
+    app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+    android:background="@drawable/top_bar_bg"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        >
+        <LinearLayout
+            android:id="@+id/toolBarStartIcn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true">
+            <ImageView
+                android:id="@+id/ivToolBarNavigationIcn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/nav_menu"
+                />
+            <ImageView
+                android:id="@+id/ivToolBarBack"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:src="@drawable/back"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="5dp"
+            android:layout_marginEnd="5dp">
+
+
+            <ImageView
+                android:id="@+id/ivToolBarEndIcn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/settings"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="5dp"
+                android:layout_marginEnd="5dp"
+                />
+            <ImageView
+                android:id="@+id/ivToolBarDone"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:src="@drawable/donebutton"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="5dp"
+                android:layout_marginEnd="5dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:gravity="center">
+            <ImageView
+               android:visibility="gone"
+                android:src="@drawable/logo_icn"
+                android:id="@+id/tvMiddleLogo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:gravity="center"/>
+            <TextView
+                android:layout_gravity="center"
+                android:id="@+id/tvToolBarMiddleLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:drawablePadding="5dp"
+                android:textColor="#fff"
+                android:textSize="22sp"
+                android:text="Profile"
+                android:gravity="center"/>
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+</android.support.v7.widget.Toolbar>

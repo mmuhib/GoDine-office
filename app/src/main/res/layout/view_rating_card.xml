@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_gravity="center_horizontal"
+    android:padding="10dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <TextView
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="#000"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:gravity="center_vertical"
+        android:text="Food / Quality"/>
+    <android.support.v7.widget.AppCompatRatingBar
+
+        android:layout_toRightOf="@+id/lblOverAllExperience"
+        android:layout_toEndOf="@+id/lblOverAllExperience"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:scaleX=".5"
+        android:scaleY=".5"
+        android:rating="1"
+        android:max="5"
+        android:id="@+id/rBarFoodQuality"
+        android:isIndicator="true"
+        style="?android:attr/ratingBarStyleIndicator"
+        android:progressTint="#3399ff"
+        />
+
+    <TextView
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="#000"
+        android:layout_below="@+id/rBarFoodQuality"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:gravity="center_vertical"
+        android:text="Ambiance"/>
+    <android.support.v7.widget.AppCompatRatingBar
+        android:layout_below="@+id/rBarFoodQuality"
+        android:layout_toRightOf="@+id/lblOverAllExperience"
+        android:layout_toEndOf="@+id/lblOverAllExperience"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:scaleX=".5"
+        android:scaleY=".5"
+        android:rating="1"
+        android:max="5"
+
+        android:id="@+id/rBarAmbiance"
+        android:isIndicator="true"
+        style="?android:attr/ratingBarStyleIndicator"
+        android:progress="1"
+        android:progressTint="#3399ff"
+        />
+
+
+    <TextView
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="#000"
+        android:layout_below="@+id/rBarAmbiance"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:gravity="center_vertical"
+        android:text="Service"/>
+    <android.support.v7.widget.AppCompatRatingBar
+        android:layout_below="@+id/rBarAmbiance"
+        android:layout_toRightOf="@+id/lblOverAllExperience"
+        android:layout_toEndOf="@+id/lblOverAllExperience"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:scaleX=".5"
+        android:scaleY=".5"
+        android:rating="1"
+        android:max="5"
+
+        android:id="@+id/rBarService"
+        android:isIndicator="true"
+        style="?android:attr/ratingBarStyleIndicator"
+        android:progress="1"
+        android:progressTint="#3399ff"
+        />
+
+    <TextView
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="#000"
+        android:layout_below="@+id/rBarService"
+        android:id="@+id/lblOverAllExperience"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:gravity="center_vertical"
+        android:text="Overall Experience"/>
+    <android.support.v7.widget.AppCompatRatingBar
+        android:layout_below="@+id/rBarService"
+        android:layout_toRightOf="@+id/lblOverAllExperience"
+        android:layout_toEndOf="@+id/lblOverAllExperience"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:scaleX=".5"
+        android:scaleY=".5"
+        android:rating="1"
+        android:max="5"
+
+        android:id="@+id/rBarOverallExperience"
+        android:isIndicator="true"
+        style="?android:attr/ratingBarStyleIndicator"
+        android:progress="1"
+        android:progressTint="#3399ff"
+        />
+
+    <TextView
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="#000"
+        android:layout_below="@+id/rBarOverallExperience"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:gravity="center_vertical"
+        android:text="Will You Return"/>
+    <android.support.v7.widget.AppCompatRatingBar
+        android:layout_below="@+id/rBarOverallExperience"
+        android:layout_toRightOf="@+id/lblOverAllExperience"
+        android:layout_toEndOf="@+id/lblOverAllExperience"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:scaleX=".5"
+        android:scaleY=".5"
+        android:rating="1"
+        android:max="5"
+
+        android:id="@+id/rBarWillYouReturn"
+        android:isIndicator="true"
+        style="?android:attr/ratingBarStyleIndicator"
+        android:progress="1"
+        android:progressTint="#3399ff"
+        />
+
+</RelativeLayout>

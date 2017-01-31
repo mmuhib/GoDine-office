@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="gl_heading_bg_color">#0080ff</color>
+    <color name="gl_sub_heading_bg_color">#6f7179</color>
+    <color name="gl_rounded_et_border_color">#b2b2b2</color>
+    <color name="black">#000</color>
+    <color name="light_grey">#d3d3d3</color>
+
+    <color name="limed_spruce">#39444e</color>
+</resources>

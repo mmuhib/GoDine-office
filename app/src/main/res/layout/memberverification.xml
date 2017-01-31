@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/memberimg"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/img"
+        android:scaleType="fitCenter"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"/>
+    <TextView
+        android:id="@+id/membername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NAME"
+        android:textSize="18dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="9dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal"
+
+        style="@style/GDroundedRectangletColoured">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+             android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Member ID" android:textColor="@color/black"
+                android:layout_marginTop="3dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Membership Level" android:textColor="@color/black"
+                android:layout_marginTop="8dp"/>
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Good Thru"
+                android:textColor="@color/black"
+                android:layout_marginTop="8dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Member Since" android:textColor="@color/black"
+                android:layout_marginTop="8dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Date and Time" android:textColor="@color/black"
+                android:layout_marginTop="8dp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="15dp"
+            >
+            <TextView
+                android:id="@+id/txt_memberid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="45" android:textColor="@color/black"
+                android:layout_marginTop="3dp"/>
+            <TextView
+                android:id="@+id/txt_membershipStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Expired" android:textColor="@color/black"
+                android:layout_marginTop="8dp"/>
+            <TextView
+                android:id="@+id/goodthrough"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="" android:textColor="@color/black"
+                android:layout_marginTop="8dp"/>
+            <TextView
+                android:id="@+id/memberSince"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="09/14/2016" android:textColor="@color/black"
+                android:layout_marginTop="8dp"/>
+            <TextView
+                android:id="@+id/memberdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="01/10/2017"
+                android:textColor="@color/black"
+                android:layout_marginTop="8dp"/>
+        </LinearLayout>
+    </LinearLayout>
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginTop="10dp"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="30dp"
+            android:layout_gravity="center"
+            android:text="  Total Check Amount $"
+            android:textColor="@color/black"/>
+        <EditText
+            android:id="@+id/Etcheckamount"
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:textSize="10sp"
+            android:layout_gravity="center"
+            android:hint=""
+            android:maxLines="1"
+            android:inputType="number"
+            style="@style/GDSimplerectangle"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="3dp"
+            android:text="  GoDine Member Savings $"
+            android:textColor="@color/black"/>
+
+        <EditText
+
+            android:id="@+id/Etcheckmembersaving"
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:textSize="10sp"
+            android:layout_gravity="center"
+            android:hint=""
+            android:maxLines="1"
+            android:inputType="number"
+            style="@style/GDSimplerectangle"
+            />
+    </LinearLayout>
+</LinearLayout>
+    <Button
+        android:id="@+id/checkout"
+        style="@style/GDAppButtonBaseTheme"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="Complete Check-Out"/>
+    <TextView
+        android:id="@+id/wrongpage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Whoops!wrong page"
+        android:layout_gravity="center"
+        android:layout_marginTop="6dp"
+        android:textColor="#00f"/>
+</LinearLayout>

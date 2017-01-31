@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_members"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+      tools:context="com.netreadystaging.godine.activities.main.Members">
+    <TextView
+        android:id="@+id/go_dine_member_heading"
+        android:layout_below="@+id/toolbar_member_search"
+        style="@style/GDHeadingTheme"
+        android:text="@string/titlemember"/>
+    <TextView
+        android:id="@+id/go_dine_restaurant_member_subheading"
+        android:layout_below="@+id/go_dine_member_heading"
+        style="@style/GDSubHeadingTheme"
+        android:text="MEMBERS"/>
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:orientation="vertical"
+        android:background="@drawable/restaurant_search_form_bg"
+        android:layout_below="@+id/go_dine_restaurant_member_subheading"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/memberlinear">
+        <EditText
+            style="@style/GDRoundedEditTextTheme"
+            android:hint="Member Number*"
+            android:inputType="number"
+            android:id="@+id/et_memberNumber"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="Or"/>
+
+        <EditText
+            android:hint="Cell Number*"
+            android:inputType="number"
+            style="@style/GDRoundedEditTextTheme"
+            android:id="@+id/et_memberCell"/>
+
+        <Button
+            style="@style/GDAppButtonBaseTheme"
+            android:padding="5dp"
+            android:layout_width="150dp"
+            android:layout_marginTop="5dp"
+            android:text="Search"
+            android:id="@+id/bt_searchmember"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/memberlinear"
+        android:padding="6dp">
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/memberlist"
+            android:layout_marginLeft="3dp"></ListView>
+    </LinearLayout>
+    <include
+        android:id="@+id/toolbar_member_search"
+        layout="@layout/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+</RelativeLayout>
