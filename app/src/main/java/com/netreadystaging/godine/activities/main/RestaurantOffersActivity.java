@@ -83,7 +83,7 @@ public class RestaurantOffersActivity extends AppBaseActivity {
                         {
                             Utility.hideLoadingPopup();
                             AlertDialog.Builder builder =  new AlertDialog.Builder(RestaurantOffersActivity.this);
-                            builder.setMessage("No offers,please check back soon.") ;
+                            builder.setMessage("No offers, please check back soon.") ;
                             builder.setTitle("Info");
                             builder.create() ;
                             builder.show() ;

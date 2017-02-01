@@ -31,6 +31,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -83,8 +84,11 @@ public class RestaurantProfile extends Fragment  implements OnMapReadyCallback,G
     @Override
     public View onCreateView(LayoutInflater inflater,  ViewGroup container,  Bundle savedInstanceState) {
         view = null ;
-
-        view  = inflater.inflate(R.layout.frag_restaurant_profile,container,false);
+        try{
+            view  = inflater.inflate(R.layout.frag_restaurant_profile,container,false);
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
 
         Bundle bundle  =  getArguments();
 
@@ -126,6 +130,7 @@ public class RestaurantProfile extends Fragment  implements OnMapReadyCallback,G
             public void onClick(View v) {
                 AlertDialog.Builder  builder = new AlertDialog.Builder(getActivity());
                 View view  = LayoutInflater.from(getActivity()).inflate(R.layout.popup_rest_hours,null);
+
                 loadOpeningHours(view);
                 builder.setView(view);
                 builder.setPositiveButton("OK", null);
@@ -160,7 +165,8 @@ public class RestaurantProfile extends Fragment  implements OnMapReadyCallback,G
     }
 
     private void loadOpeningHours(final View view) {
-        Utility.showLoadingPopup(getActivity());
+        final ProgressBar progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.VISIBLE);
         final HashMap<String,String> params=new HashMap<>();
         params.put("RestaurantId",restaurantId);
         new ServiceController(getActivity(), new HttpResponseCallback()
@@ -168,7 +174,7 @@ public class RestaurantProfile extends Fragment  implements OnMapReadyCallback,G
             @Override
             public void response(boolean success, boolean fail, String data)
             {
-                Utility.hideLoadingPopup();
+                progressBar.setVisibility(View.GONE);
                 if(success)
                 {
                     JSONArray jsonArray = null;
@@ -221,17 +227,17 @@ public class RestaurantProfile extends Fragment  implements OnMapReadyCallback,G
                         }
                         else
                         {
-                            Utility.hideLoadingPopup();
+                            progressBar.setVisibility(View.GONE);
                             Toast.makeText(getActivity(), "Something Wrong!", Toast.LENGTH_SHORT).show();
                         }
                     } catch (JSONException e) {
-                        Utility.hideLoadingPopup();
+                        progressBar.setVisibility(View.GONE);
                         e.printStackTrace();
                     }
                 }
                 else
                 {
-                    Utility.hideLoadingPopup();
+                    progressBar.setVisibility(View.GONE);
                     ErrorController.showError(getActivity(),data,success);
                 }
             }

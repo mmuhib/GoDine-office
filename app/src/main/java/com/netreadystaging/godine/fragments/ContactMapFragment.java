@@ -69,4 +69,17 @@ public class ContactMapFragment extends Fragment implements OnMapReadyCallback {
                     .setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker));
         }
     }
+
+
+    public void onDestroyView()
+    {
+        super.onDestroyView();
+        SupportMapFragment fragment = (SupportMapFragment) getChildFragmentManager()
+                .findFragmentById(R.id.map);
+        if(fragment !=null) {
+            FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+            ft.remove(fragment);
+            ft.commit();
+        }
+    }
 }

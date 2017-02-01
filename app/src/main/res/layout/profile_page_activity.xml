@@ -93,6 +93,14 @@
                         android:background="#3399ff"
                         android:scaleType="center"
                         android:src="@drawable/change_profile"/>
+                    <ProgressBar
+                        android:layout_margin="5dp"
+                        style="?android:attr/progressBarStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:id="@+id/progressBar"
+                        android:visibility="gone" />
                 </FrameLayout>
 
                 <!--PROFILE IMAGE CONTAINER (START) -->

@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.internal.pr;
 import com.netreadystaging.godine.R;
 import com.netreadystaging.godine.activities.AppBaseActivity;
 import com.netreadystaging.godine.activities.filters.SelectFilterActivity;
@@ -35,6 +36,10 @@ public class FilterActivity extends AppBaseActivity implements View.OnClickListe
             @Override
             public void onClick(View v) {
                 FilterResponse filterResponse = new FilterResponse();
+                filterResponse.setCuisines(cuisines);
+                filterResponse.setFeatures(features);
+                filterResponse.setPrice(price_range);
+                filterResponse.setRating(rating);
                 Intent filterResIntent =  new Intent();
                 filterResIntent.putExtra(FILTER_RESPONSE,filterResponse);
                 setResult(FILTER_RESPONSE_CODE,filterResIntent);
@@ -118,20 +123,24 @@ public class FilterActivity extends AppBaseActivity implements View.OnClickListe
     private static final int PRICE_FILTER_REQUEST_CODE = 202 ;
     private static final int RATING_FILTER_REQUEST_CODE = 203 ;
 
+    private String cuisines = "";
+    private String features = "";
+    private String price_range = "";
+    private String rating = "";
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(resultCode== com.itsolutionts.filterhelper.activity.FilterActivity.FILTER_RESPONSE_CODE)
         {
-
-
             switch (requestCode) {
                 case CUISINE_FILTER_REQUEST_CODE:
                     final TextView tvSelectRestCuisines = (TextView) findViewById(R.id.tvSelectRestCuisines);
                     if(data!=null) {
                         String response = data.getStringExtra("response");
-                        if(response!=null && !response.isEmpty())
+                        if(response!=null && !response.isEmpty()){
                             tvSelectRestCuisines.setText(response);
+                            cuisines = response ;
+                        }else cuisines = "";
                     }
                     break;
 
@@ -139,8 +148,10 @@ public class FilterActivity extends AppBaseActivity implements View.OnClickListe
                     final TextView tvSelectRestFeatures = (TextView) findViewById(R.id.tvSelectRestFeatures);
                     if(data!=null) {
                         String response = data.getStringExtra("response");
-                        if(response!=null && !response.isEmpty())
+                        if(response!=null && !response.isEmpty()){
                             tvSelectRestFeatures.setText(response);
+                            features = response;
+                        }else features = "";
                     }
                     break;
 
@@ -148,8 +159,10 @@ public class FilterActivity extends AppBaseActivity implements View.OnClickListe
                     final TextView tvSelectRestPrice = (TextView) findViewById(R.id.tvSelectRestPrice);
                     if(data!=null) {
                         String response = data.getStringExtra("response");
-                        if(response!=null && !response.isEmpty())
+                        if(response!=null && !response.isEmpty()){
                             tvSelectRestPrice.setText(response);
+                            price_range = response;
+                        }else price_range = "";
                     }
                     break;
 
@@ -157,8 +170,10 @@ public class FilterActivity extends AppBaseActivity implements View.OnClickListe
                     final TextView tvSelectRestRating = (TextView) findViewById(R.id.tvSelectRestRating);
                     if(data!=null) {
                         String response = data.getStringExtra("response");
-                        if(response!=null && !response.isEmpty())
+                        if(response!=null && !response.isEmpty()){
                             tvSelectRestRating.setText(response);
+                            rating = response ;
+                        }else rating = "";
                     }
                     break;
 

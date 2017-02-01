@@ -179,10 +179,50 @@ public class RestaurantSearchFilterFragment extends Fragment implements View.OnC
             if(resultCode==FilterActivity.FILTER_RESPONSE_CODE)
             {
                 FilterResponse filterResponse  = (FilterResponse)  data.getSerializableExtra(FilterActivity.FILTER_RESPONSE);
-                String cuisines  = filterResponse.getCuisines() ;
-                String features  = filterResponse.getFeatures() ;
-                String price  = filterResponse.getPrice() ;
-                String rating  = filterResponse.getRating() ;
+                String cuisinesStr  = filterResponse.getCuisines() ;
+                String featuresStr  = filterResponse.getFeatures() ;
+                String priceStr  = filterResponse.getPrice() ;
+                String ratingStr  = filterResponse.getRating() ;
+
+              //  filterRestaurantList(cuisinesStr,featuresStr,priceStr,ratingStr) ;
+
+            }
+        }
+    }
+
+    private void filterRestaurantList(String cuisinesStr, String featuresStr, String priceStr, String ratingStr) {
+        String[] cuisines = cuisinesStr.split("[,]");
+        String[] features = featuresStr.split("[,]");
+        int minPrice ,maxPrice;
+
+        int rating=0 ;
+        if(!ratingStr.isEmpty()){
+            rating  = Integer.parseInt(ratingStr) ;
+        }
+        switch(priceStr)
+        {
+            case "$11-$30($$)" :
+                minPrice = 11 ;
+                maxPrice = 30 ;
+                break;
+
+            case "$31-$60($$$)" :
+                minPrice = 31 ;
+                maxPrice = 60 ;
+                break;
+
+            case "$61+" :
+                minPrice = 62 ;
+                maxPrice = -1 ;
+                break;
+        }
+        final ArrayList<Restaurant> filteredRestList =  new ArrayList<>();
+        int restCount =  restlist.size() ;
+        for (int index= 0 ;index<restCount;index++){
+            Restaurant restaurant = restlist.get(index) ;
+            int restRating =  (int) restaurant.getRating();
+            if(restRating==rating) {
+
             }
         }
     }

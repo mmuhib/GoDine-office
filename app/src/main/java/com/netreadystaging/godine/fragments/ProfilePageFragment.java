@@ -18,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.netreadystaging.godine.R;
@@ -91,17 +92,22 @@ public class ProfilePageFragment extends ImageSelectFragment {
         tvMemberSince = (TextView) view.findViewById(R.id.tvMemberSince);
         tvGoodThrough = (TextView) view.findViewById(R.id.tvGoodThrough);
         imgUploadProfile = (ImageView) view.findViewById(R.id.imgUploadProfile);
+        final ProgressBar progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.GONE);
         imgUploadProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                progressBar.setVisibility(View.VISIBLE);
                 selectImage("bitmap",new ImageSelectCallBack()
                 {
                     @Override
                     public void success(String data) {
+                        progressBar.setVisibility(View.GONE);
                     }
                     @Override
                     public void success(final Bitmap bitmap) {
-
+                        progressBar.setVisibility(View.GONE);
                         HashMap<String,String> params =  new HashMap<>();
                         String  bitmapString= Utility.BitMapToString(bitmap);
                         params.put("Base64String",bitmapString);
@@ -154,6 +160,7 @@ public class ProfilePageFragment extends ImageSelectFragment {
                     }
                     @Override
                     public void fail(String error) {
+                        progressBar.setVisibility(View.GONE);
                         Utility.message(getContext(),"Error"+error);
                     }
                 });
@@ -238,6 +245,9 @@ public class ProfilePageFragment extends ImageSelectFragment {
     }
 
     private void loadProfilePic() {
+
+        final ProgressBar progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.VISIBLE);
         HashMap<String,String> params =  new HashMap<>();
         params.put("Username",appGlobal.getUsername());
         params.put("Password",appGlobal.getPassword());
@@ -248,7 +258,7 @@ public class ProfilePageFragment extends ImageSelectFragment {
             public void response(boolean success, boolean fail, String data) {
                 if(success)
                 {
-
+                    progressBar.setVisibility(View.GONE);
                     try {
                         JSONArray jArray = new JSONArray(data);
 
@@ -264,11 +274,13 @@ public class ProfilePageFragment extends ImageSelectFragment {
                             }
                         }
                     } catch (JSONException e) {
+                        progressBar.setVisibility(View.GONE);
                         ErrorController.showError(getActivity(),data,success);
                     }
                 }
                 else
                 {
+                    progressBar.setVisibility(View.GONE);
                     ErrorController.showError(getActivity(),data,success);
                 }
             }
