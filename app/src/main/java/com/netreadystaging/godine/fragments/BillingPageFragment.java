@@ -52,23 +52,17 @@ public class BillingPageFragment extends Fragment
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view =  inflater.inflate(R.layout.billing_page_fragment,container,false);
-
         setupToolBar();
         setuplist();
-
         return view ;
     }
 
     private void setuplist() {
         listView= (ListView) view.findViewById(R.id.billinglist);
-
         date=getResources().getStringArray(R.array.States);
         paid=getResources().getStringArray(R.array.paid);
         status=getResources().getStringArray(R.array.Status);
-
         billingHistories=new ArrayList<>();
-
-
     }
 
     @Override
@@ -95,7 +89,6 @@ public class BillingPageFragment extends Fragment
                     JSONArray jsonArray=null;
                     try {
                         jsonArray = new JSONArray(data);
-
                         for (int i=0;i<jsonArray.length();i++)
                         {
                             JSONObject jsonObjects = jsonArray.getJSONObject(i);
@@ -111,14 +104,11 @@ public class BillingPageFragment extends Fragment
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-
                 }
                 else
                 {
                     ErrorController.showError(getActivity(),data,success);
                 }
-
-
             }
         }).request(ServiceMod.ORDERS_BY_USER,params);
     }

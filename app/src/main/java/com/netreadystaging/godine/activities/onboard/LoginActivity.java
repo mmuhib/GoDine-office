@@ -89,7 +89,6 @@ public class LoginActivity extends AppBaseActivity {
                                     JSONArray jsonArray = null;
                                     try {
                                         jsonArray = new JSONArray(data);
-
                                         for (int i = 0; i < jsonArray.length(); i++) {
                                             JSONObject jsonObjects = jsonArray.getJSONObject(i);
                                             int userId = jsonObjects.getInt("UserId");
