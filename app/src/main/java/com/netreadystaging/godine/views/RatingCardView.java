@@ -40,8 +40,6 @@ public class RatingCardView extends LinearLayout {
         rBarOverallExperience = (AppCompatRatingBar)  view.findViewById(R.id.rBarOverallExperience);
         rBarService = (AppCompatRatingBar) view.findViewById(R.id.rBarService);
         rBarWillYouReturn = (AppCompatRatingBar)  view.findViewById(R.id.rBarWillYouReturn);
-
-
     }
 
     public void setView(RatingCard ratingCard) {

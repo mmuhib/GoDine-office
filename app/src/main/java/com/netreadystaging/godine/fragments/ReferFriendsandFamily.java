@@ -84,7 +84,7 @@ public class ReferFriendsandFamily extends Fragment {
                                     String Message=object.getString("Message");
                                     if(Result.equalsIgnoreCase("Success"))
                                     {
-                                        Utility.Alertbox(getContext(),Result,Message,"OK");
+                                        Utility.message(getContext(),Message);
                                     }
                                     else if(Result.equalsIgnoreCase("Error"))
                                     {
@@ -122,7 +122,6 @@ public class ReferFriendsandFamily extends Fragment {
         ivToolBarBack.setVisibility(View.GONE);
         ivToolBarEndIcn.setVisibility(View.GONE);
         title = (TextView) toolBar.findViewById(R.id.tvToolBarMiddleLabel);
-
         FrameLayout bottomToolBar = (FrameLayout)activity.findViewById(R.id.bottomToolBar) ;
         bottomToolBar.setVisibility(View.VISIBLE);
         ((MainPageActivity)getActivity()).leftCenterButton.setVisibility(View.VISIBLE);
