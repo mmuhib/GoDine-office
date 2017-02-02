@@ -1,151 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:gravity="center_horizontal"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <RelativeLayout
-
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <ImageView
-            android:id="@+id/memberimg"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:src="@drawable/img"
-            android:scaleType="fitCenter"
-            android:layout_marginTop="15dp"/>
+        <RelativeLayout
 
-        <ProgressBar
-            android:visibility="gone"
-            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/memberimg"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:src="@drawable/img"
+                android:scaleType="fitCenter"
+                android:layout_marginTop="15dp"/>
+
+            <ProgressBar
+                android:visibility="gone"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/progressBar" />
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/membername"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:id="@+id/progressBar" />
+            android:text="NAME"
+            android:textSize="18dp"
 
-
-    </RelativeLayout>
-
-    <TextView
-        android:id="@+id/membername"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="NAME"
-        android:textSize="18dp"
-
-        android:layout_marginTop="9dp"
-        android:textColor="@color/black"
-        android:textStyle="bold"/>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="15dp"
-        android:orientation="horizontal"
-
-        style="@style/GDroundedRectangletColoured">
+            android:layout_marginTop="9dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Member ID" android:textColor="@color/black"
-                android:layout_marginTop="3dp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Membership Level" android:textColor="@color/black"
-                android:layout_marginTop="8dp"/>
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Good Thru"
-                android:textColor="@color/black"
-                android:layout_marginTop="8dp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Member Since" android:textColor="@color/black"
-                android:layout_marginTop="8dp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Date and Time" android:textColor="@color/black"
-                android:layout_marginTop="8dp"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="vertical"
-            android:layout_marginLeft="35dp"
-            android:layout_marginRight="15dp"
-            >
-            <TextView
-                android:id="@+id/txt_memberid"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="45" android:textColor="@color/black"
-                android:layout_marginTop="3dp"/>
-            <TextView
-                android:id="@+id/txt_membershipStatus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Expired" android:textColor="@color/black"
-                android:layout_marginTop="8dp"/>
-            <TextView
-                android:id="@+id/goodthrough"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="" android:textColor="@color/black"
-                android:layout_marginTop="8dp"/>
-            <TextView
-                android:id="@+id/memberSince"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="09/14/2016" android:textColor="@color/black"
-                android:layout_marginTop="8dp"/>
-            <TextView
-                android:id="@+id/memberdate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="01/10/2017"
-                android:textColor="@color/black"
-                android:layout_marginTop="8dp"/>
-        </LinearLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_marginTop="10dp"
-        android:orientation="vertical">
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             android:orientation="horizontal"
-            android:layout_gravity="center">
 
-            <TextView
+            style="@style/GDroundedRectangletColoured">
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:layout_weight="1"
-                android:layout_marginLeft="30dp"
                 android:layout_gravity="center"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Member ID" android:textColor="@color/black"
+                    android:layout_marginTop="3dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Membership Level" android:textColor="@color/black"
+                    android:layout_marginTop="8dp"/>
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Good Thru"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="8dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Member Since" android:textColor="@color/black"
+                    android:layout_marginTop="8dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Date and Time" android:textColor="@color/black"
+                    android:layout_marginTop="8dp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:layout_marginLeft="35dp"
+                android:layout_marginRight="15dp"
+                >
+                <TextView
+                    android:id="@+id/txt_memberid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="45" android:textColor="@color/black"
+                    android:layout_marginTop="3dp"/>
+                <TextView
+                    android:id="@+id/txt_membershipStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Expired" android:textColor="@color/black"
+                    android:layout_marginTop="8dp"/>
+                <TextView
+                    android:id="@+id/goodthrough"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="" android:textColor="@color/black"
+                    android:layout_marginTop="8dp"/>
+                <TextView
+                    android:id="@+id/memberSince"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="09/14/2016" android:textColor="@color/black"
+                    android:layout_marginTop="8dp"/>
+                <TextView
+                    android:id="@+id/memberdate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="01/10/2017"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="8dp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_toLeftOf="@+id/Etcheckamount"
+                android:layout_toStartOf="@+id/Etcheckamount"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:gravity="center_vertical"
                 android:text="  Total Check Amount $"
+                android:layout_margin="3dp"
                 android:textColor="@color/black"/>
+
             <EditText
+                android:layout_toRightOf="@+id/lblMemberSaving"
+                android:layout_toEndOf="@+id/lblMemberSaving"
                 android:id="@+id/Etcheckamount"
-                android:layout_width="30dp"
-                android:layout_height="20dp"
-                android:textSize="10sp"
+                android:layout_width="60dp"
+                android:layout_height="25dp"
+                android:textSize="12sp"
                 android:layout_gravity="center"
                 android:hint=""
                 android:maxLines="1"
@@ -153,25 +152,23 @@
                 style="@style/GDSimplerectangleBlue"
                 />
 
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center">
             <TextView
+                android:id="@+id/lblMemberSaving"
+                android:layout_below="@+id/Etcheckamount"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:layout_marginLeft="3dp"
+                android:layout_height="25dp"
+                android:layout_margin="3dp"
+                android:gravity="center_vertical"
                 android:text="  GoDine Member Savings $"
                 android:textColor="@color/black"/>
 
             <EditText
-
+                android:layout_toRightOf="@+id/lblMemberSaving"
+                android:layout_toEndOf="@+id/lblMemberSaving"
+                android:layout_below="@+id/Etcheckamount"
                 android:id="@+id/Etcheckmembersaving"
-                android:layout_width="30dp"
-                android:layout_height="20dp"
+                android:layout_width="60dp"
+                android:layout_height="25dp"
                 android:textSize="10sp"
                 android:layout_gravity="center"
                 android:hint=""
@@ -179,19 +176,25 @@
                 android:inputType="number"
                 style="@style/GDSimplerectangleBlue"
                 />
-        </LinearLayout>
+
+
+
+
+        </RelativeLayout>
+        <Button
+            android:id="@+id/checkout"
+            style="@style/GDAppButtonBaseTheme"
+            android:layout_marginTop="10dp"
+            android:text="Complete Check-Out"/>
+        <TextView
+            android:id="@+id/wrongpage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Back"
+            android:textSize="18sp"
+            android:layout_marginTop="6dp"
+            android:textColor="#00f"/>
     </LinearLayout>
-    <Button
-        android:id="@+id/checkout"
-        style="@style/GDAppButtonBaseTheme"
-        android:layout_marginTop="10dp"
-        android:text="Complete Check-Out"/>
-    <TextView
-        android:id="@+id/wrongpage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Back"
-        android:textSize="18sp"
-        android:layout_marginTop="6dp"
-        android:textColor="#00f"/>
-</LinearLayout>
+
+</ScrollView>
+

@@ -69,8 +69,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">35dp</item>
         <item name="android:gravity">center</item>
-        <item name="android:padding">5dp</item>
-        <item name="android:layout_margin">5dp</item>
+        <item name="android:layout_margin">3dp</item>
     </style>
     <style name="GDSimplerectangletouchborder">
         <item name="android:background">@drawable/edittext_simplerectangle</item>
