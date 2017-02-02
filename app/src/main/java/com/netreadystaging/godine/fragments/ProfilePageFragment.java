@@ -20,6 +20,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.netreadystaging.godine.R;
 import com.netreadystaging.godine.activities.main.MainPageActivity;
@@ -107,7 +108,7 @@ public class ProfilePageFragment extends ImageSelectFragment {
                     }
                     @Override
                     public void success(final Bitmap bitmap) {
-                        progressBar.setVisibility(View.GONE);
+
                         HashMap<String,String> params =  new HashMap<>();
                         String  bitmapString= Utility.BitMapToString(bitmap);
                         params.put("Base64String",bitmapString);
@@ -115,8 +116,10 @@ public class ProfilePageFragment extends ImageSelectFragment {
                         new ServiceController(getActivity(), new HttpResponseCallback() {
                             @Override
                             public void response(boolean success, boolean fail, String data) {
+                                progressBar.setVisibility(View.GONE);
                                 if(success)
                                 {
+
                                     JSONArray jsonArray=null;
                                     String Result="";
                                     String Message="";
@@ -132,23 +135,15 @@ public class ProfilePageFragment extends ImageSelectFragment {
                                             Log.d("Muhib",Message);
                                             if(Result.equalsIgnoreCase("Success"))
                                             {
-                                                Utility.Alertbox(getContext(),"Info",Message,"Ok");
                                                 ivProfileImage.setImageBitmap(bitmap);
-                                                Utility.hideLoadingPopup();
                                             }
-                                            else if(Result.equalsIgnoreCase("Failed"))
-                                            {
-                                                Utility.Alertbox(getContext(),"Info",Message,"Ok");
-                                                ivProfileImage.setImageBitmap(bitmap);
-                                                Utility.hideLoadingPopup();
-                                            }
+
+                                            Toast.makeText(getActivity(), Message, Toast.LENGTH_SHORT).show();
                                         }
                                     } catch (JSONException e) {
                                         e.printStackTrace();
                                     }
                                     Log.d("In Setup",data);
-                                    // ivProfileImage.setImageBitmap(bitmap);
-                                    // ErrorController.showError(getActivity(),data,true);
                                 }
                                 else
                                 {
