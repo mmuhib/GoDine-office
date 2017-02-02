@@ -70,19 +70,6 @@ public class MainPageActivity extends AppBaseActivity implements DrawerLocker {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_page_activity);
-
-      /*  Bundle extra=getIntent().getExtras();
-        try {
-            String Abcd = extra.getString("SAF");
-            if (!Abcd.isEmpty()) {
-                Utility.Alertbox(getApplicationContext(), "Info", "Resoy", "OK");
-            }
-        }
-        catch (Exception e)
-        {
-
-        }*/
-
         setupTopBar();
         setupBottomBar();
         setupDrawer();
@@ -250,7 +237,7 @@ public class MainPageActivity extends AppBaseActivity implements DrawerLocker {
         nvDrawer = (ListView) findViewById(R.id.nvView);
         nvDrawables = new int[] {R.drawable.nav_explore,R.drawable.nav_offer,R.drawable.nav_favourite,R.drawable.nav_rating,
                 R.drawable.nav_profile,R.drawable.nav_contact,R.drawable.nav_billing,R.drawable.nav_verification,
-                R.drawable.nav_feedback,R.drawable.nav_verification,R.drawable.nav_feedback,R.drawable.nav_logout};
+                R.drawable.nav_feedback,R.drawable.nav_how_it_works,R.drawable.nav_got_question,R.drawable.nav_logout};
 
         listNavLabels  =  new ArrayList<>();
 

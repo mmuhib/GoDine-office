@@ -1,6 +1,7 @@
 package com.netreadystaging.godine.fragments;
 
 import android.app.Activity;
+
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
@@ -22,6 +23,10 @@ import com.netreadystaging.godine.callbacks.DrawerLocker;
 import com.netreadystaging.godine.utils.AppGlobal;
 import com.netreadystaging.godine.utils.DownloadImageTask;
 import com.netreadystaging.godine.utils.Utility;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
 
 /**
  * Created by sony on 10-01-2017.
@@ -91,7 +96,10 @@ public class MemberVerification extends Fragment {
         txt_member_id.setText(id);
         txt_memberlevel.setText(appGlobal.getMemberType());
         txt_membersince.setText(appGlobal.getMemberSince());
-        txt_memberdate.setText(appGlobal.getMemberExpiryDate());
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy",Locale.US);
+        String formattedDate = df.format(calendar.getTime());
+        txt_memberdate.setText(formattedDate);
         Log.d("datd",appGlobal.getMemberExpiryDate());
         txt_wrongpage= (TextView) view.findViewById(R.id.wrongpage);
         txt_wrongpage.setOnClickListener(new View.OnClickListener() {

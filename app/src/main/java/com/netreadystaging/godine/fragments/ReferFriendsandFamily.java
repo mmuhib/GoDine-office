@@ -63,6 +63,7 @@ public class ReferFriendsandFamily extends Fragment {
                 emailC=et_email3.getText().toString();
            if(!emailA.isEmpty() || !emailB.isEmpty() || !emailC.isEmpty())
             {
+                Utility.message(getContext(),"Sending...");
                 HashMap<String,String> params=new HashMap<String, String>();
                 params.put("Email1",emailA);
                 params.put("Email2",emailB);

@@ -79,7 +79,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.0"
-        sha1="71a6c7d189f58bfdf3f67418325cd6bde24f21e3">
+        sha1="4ba8f3fa4e0b02b7299751e60b0e546c9d192b9f">
         <dex dex="D:\Android\workspace\Git_code\GoDine-Final\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_b62b697a2770ffa054a4f0295732cd993dc97b14\classes.dex" />
     </item>
     <item
@@ -250,7 +250,7 @@
         jumboMode="true"
         optimize="true"
         revision="24.0.0"
-        sha1="346881f5cf45672566bea1f7efdea1a3074c55b2">
+        sha1="134ce7176dff3db5de506d17b119396778681097">
         <dex dex="D:\Android\workspace\Git_code\GoDine-Final\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_22398528ec39f8495ae82f58e42f0a313fa3fc7f\classes.dex" />
     </item>
     <item

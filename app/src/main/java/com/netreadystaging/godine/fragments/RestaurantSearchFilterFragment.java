@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -69,13 +70,19 @@ public class RestaurantSearchFilterFragment extends Fragment implements View.OnC
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         btnRestList.setSelected(true);
-        selectRestList();
+        selectRestList(restlist);
     }
 
     @Override
     public void onResume() {
         super.onResume();
         title.setText(restType);
+
+        if(isApplyFiltered)
+        {
+            selectRestList(filteredRestList);
+        }
+        isApplyFiltered = false ;
     }
 
     TextView title ;
@@ -104,7 +111,7 @@ public class RestaurantSearchFilterFragment extends Fragment implements View.OnC
 
     }
 
-    private void selectRestList() {
+    private void selectRestList(final ArrayList<Restaurant> rest_list) {
         Fragment fragment = null;
         Class fragmentClass;
         fragmentClass =  SearchedRestaurantListFragment.class ;
@@ -114,7 +121,7 @@ public class RestaurantSearchFilterFragment extends Fragment implements View.OnC
             e.printStackTrace();
         }
         Bundle bundle  = new Bundle();
-        bundle.putSerializable("restaurants",restlist);
+        bundle.putSerializable("restaurants",rest_list);
 
         fragment.setArguments(bundle);
         FragmentManager fragmentManager = getChildFragmentManager();
@@ -149,7 +156,7 @@ public class RestaurantSearchFilterFragment extends Fragment implements View.OnC
             case R.id.btnRestList :
                 btnRestMap.setSelected(false);
                 btnRestList.setSelected(true);
-                selectRestList();
+                selectRestList(restlist);
                 break ;
 
             case R.id.btnRestMap :
@@ -184,16 +191,18 @@ public class RestaurantSearchFilterFragment extends Fragment implements View.OnC
                 String priceStr  = filterResponse.getPrice() ;
                 String ratingStr  = filterResponse.getRating() ;
 
-              //  filterRestaurantList(cuisinesStr,featuresStr,priceStr,ratingStr) ;
+                filterRestaurantList(cuisinesStr,featuresStr,priceStr,ratingStr) ;
 
             }
         }
     }
 
+    private boolean isApplyFiltered = false ;
+    private  ArrayList<Restaurant>  filteredRestList ;
     private void filterRestaurantList(String cuisinesStr, String featuresStr, String priceStr, String ratingStr) {
         String[] cuisines = cuisinesStr.split("[,]");
         String[] features = featuresStr.split("[,]");
-        int minPrice ,maxPrice;
+        int minPrice =0,maxPrice=0;
 
         int rating=0 ;
         if(!ratingStr.isEmpty()){
@@ -216,14 +225,55 @@ public class RestaurantSearchFilterFragment extends Fragment implements View.OnC
                 maxPrice = -1 ;
                 break;
         }
-        final ArrayList<Restaurant> filteredRestList =  new ArrayList<>();
+        filteredRestList =  new ArrayList<>();
         int restCount =  restlist.size() ;
         for (int index= 0 ;index<restCount;index++){
             Restaurant restaurant = restlist.get(index) ;
             int restRating =  (int) restaurant.getRating();
-            if(restRating==rating) {
+            int lunch = (int)Float.parseFloat(!restaurant.getLunch().trim().isEmpty()?restaurant.getLunch().trim():"0") ;
+            int dinner = (int)Float.parseFloat(!restaurant.getDinner().trim().isEmpty()?restaurant.getDinner().trim():"0") ;
+            if(restRating==rating || ( minPrice!=maxPrice &&((lunch >=minPrice && (maxPrice <= 0 || (lunch <= maxPrice)))
+                    || (dinner>=minPrice && (maxPrice <= 0 || (dinner <= maxPrice)))))) {
+                filteredRestList.add(restaurant);
+                Log.d("Filter","rating Match ,Lunch Price Match,Max Price Match");
+                continue ;
+            }
+
+            boolean isCuisineFound = false ;
+            String rest_cuisines_str =  restaurant.getRestaurantCusine().toLowerCase() ;
+            Log.d("Filter_Cuisine",rest_cuisines_str);
+            if(!rest_cuisines_str.isEmpty()){
+                for (String cuisine: cuisines) {
+                    if(!cuisine.isEmpty()){
+                        if(rest_cuisines_str.contains(cuisine.toLowerCase())){
+                            filteredRestList.add(restaurant);
+                            isCuisineFound = true ;
+                            Log.d("Filter","cuisine Match");
+                            break;
+                        }
+                    }
+                }
+                if(isCuisineFound )
+                {
+                    continue ;
+                }
+            }
+
+            String rest_features_str =  restaurant.getRestaurantFeatures().toLowerCase() ;
+            if(!rest_features_str.isEmpty()){
+                for (String feature: features) {
+                    if(!feature.isEmpty()){
+                        if(rest_features_str.contains(feature.toLowerCase())){
+                            filteredRestList.add(restaurant);
+                            Log.d("Filter","feature Match");
+                            break ;
+                        }
+                    }
+                }
 
             }
         }
+        isApplyFiltered= true  ;
     }
+
 }

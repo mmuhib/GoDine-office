@@ -94,7 +94,7 @@ public class ContactPageFragment extends Fragment {
 
                 if(success)
                 {
-                    Toast.makeText(getActivity(),"Your message has been sent",Toast.LENGTH_LONG).show();
+                  Utility.message(getContext(),"Your message has been sent");
                 }
                 else
                 {

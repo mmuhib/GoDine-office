@@ -32,6 +32,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -142,24 +143,26 @@ public class RestaurantProfile extends Fragment  implements OnMapReadyCallback,G
         tvRestRestrictions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder  builder = new AlertDialog.Builder(getActivity());
-                builder.setTitle("Restrictions");
-                builder.setMessage(restaurant.getSpecialRestrictions());
-                builder.setPositiveButton("OK", null);
-                builder.create();
-                builder.show() ;
+//                AlertDialog.Builder  builder = new AlertDialog.Builder(getActivity());
+//                builder.setTitle("Restrictions");
+//                builder.setMessage(restaurant.getSpecialRestrictions());
+//                builder.setPositiveButton("OK", null);
+//                builder.create();
+//                builder.show() ;
+                Utility.Alertbox(getActivity(),"Restrictions",restaurant.getSpecialRestrictions(),"Ok");
             }
         });
         final TextView tvRestFeatures = (TextView) view.findViewById(R.id.tvRestFeatures);
         tvRestFeatures.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder  builder = new AlertDialog.Builder(getActivity());
-                builder.setTitle("Features");
-                builder.setMessage(restaurant.getRestaurantFeatures());
-                builder.setPositiveButton("OK", null);
-                builder.create();
-                builder.show() ;
+//                AlertDialog.Builder  builder = new AlertDialog.Builder(getActivity());
+//                builder.setTitle("Features");
+//                builder.setMessage(restaurant.getRestaurantFeatures());
+//                builder.setPositiveButton("OK", null);
+//                builder.create();
+//                builder.show() ;
+                Utility.Alertbox(getActivity(),"Features",restaurant.getRestaurantFeatures(),"Ok");
             }
         });
     }
@@ -222,7 +225,7 @@ public class RestaurantProfile extends Fragment  implements OnMapReadyCallback,G
 
                                 OpeningDayView openingDayView = new OpeningDayView(getActivity());
                                 openingDayView.setOpeningHourOfDay(day,lunchTiming,dinnerTiming);
-                                ((LinearLayout)view).addView(openingDayView);
+                                ((LinearLayout)view.findViewById(R.id.hourContainer)).addView(openingDayView);
                             }
                         }
                         else
@@ -356,26 +359,38 @@ public class RestaurantProfile extends Fragment  implements OnMapReadyCallback,G
         imgRestShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder builder =  new AlertDialog.Builder(getActivity());
-                builder.setItems(R.array.share, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        switch(which)
-                        {
-                            case 0 :
-                                break ;
+//                AlertDialog.Builder builder =  new AlertDialog.Builder(getActivity());
+//                builder.setItems(R.array.share, new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        switch(which)
+//                        {
+//                            case 0 :
+//                                break ;
+//
+//                            case 1:
+//                                break ;
+//
+//                            case 2 :
+//                                dialog.dismiss();
+//                                break ;
+//                        }
+//                    }
+//                });
+//                builder.create() ;
+//                builder.show();
+                StringBuilder shareContent = new StringBuilder();
+                shareContent.append("Get 50% off your Entree every time at ").append(restaurant.getName()).append(" ")
+                        .append(restaurant.getCity()).append(" ").append("with the GoDine\u2122 App.Enter Sponsor ")
+                        .append(AppGlobal.getInatance().getUserId()).append(" or www.godineclub.com/").append(AppGlobal.getInatance().getUserId());
 
-                            case 1:
-                                break ;
 
-                            case 2 :
-                                dialog.dismiss();
-                                break ;
-                        }
-                    }
-                });
-                builder.create() ;
-                builder.show();
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, shareContent.toString());
+                sendIntent.setType("text/plain");
+                startActivity(Intent.createChooser(sendIntent, "Share"));
+
             }
         });
 
@@ -492,12 +507,15 @@ public class RestaurantProfile extends Fragment  implements OnMapReadyCallback,G
                                 {
                                     v.setSelected(true);
 
-                                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                                    builder.setMessage("Restaurant has been added to your fav list.") ;
-                                    builder.setPositiveButton("Ok",null);
-                                    builder.setTitle("Info");
-                                    builder.create();
-                                    builder.show() ;
+//                                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+//                                    builder.setMessage("Restaurant has been added to your fav list.") ;
+//                                    builder.setPositiveButton("Ok",null);
+//                                    builder.setTitle("Info");
+//                                    builder.create();
+//                                    builder.show() ;
+
+                                    Utility.Alertbox(getActivity(),"Info","Restaurant has been added to your fav list.","Ok");
+
                                 }
                             }
                         }
@@ -544,12 +562,15 @@ public class RestaurantProfile extends Fragment  implements OnMapReadyCallback,G
                                 if(status.trim().toLowerCase().equals("success"))
                                 {
                                     v.setSelected(false);
-                                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                                    builder.setMessage("Restaurant has been removed from your fav list.") ;
-                                    builder.setPositiveButton("Ok",null);
-                                    builder.setTitle("Info");
-                                    builder.create();
-                                    builder.show() ;
+//                                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+//                                    builder.setMessage("Restaurant has been removed from your fav list.") ;
+//                                    builder.setPositiveButton("Ok",null);
+//                                    builder.setTitle("Info");
+//                                    builder.create();
+//                                    builder.show() ;
+
+                                    Utility.Alertbox(getActivity(),"Info","Restaurant has been removed from your fav list.","Ok");
+
                                 }
                             }
                         }

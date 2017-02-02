@@ -14,12 +14,12 @@ public class Restaurant implements Serializable
     private String Review;
     private String Address;
     private String Area;
-    private String RestaurantCusine;
+    private String RestaurantCusine="";
 
     private String city ;
     private String state ;
     private String zipcode ;
-    private String restaurantFeatures;
+    private String restaurantFeatures="";
     private String restaurantDaysOpen;
     private String restaurantOverview;
     private String restaurantMealServiceOffered;
@@ -180,8 +180,8 @@ public class Restaurant implements Serializable
     private String website ;
     private boolean isOpenedNow = false ;
 
-    private String Lunch;
-    private String Dinner;
+    private String Lunch="0";
+    private String Dinner="0";
 
     public double lat;
     public double lng ;

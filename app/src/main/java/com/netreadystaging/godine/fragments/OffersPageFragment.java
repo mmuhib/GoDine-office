@@ -183,18 +183,7 @@ public class OffersPageFragment extends Fragment implements GoogleApiClient.Conn
                                     ivToolBarEndIcn.setVisibility(View.VISIBLE);
                                 }
                             } else {
-                                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                                builder.setTitle("Info");
-                                builder.setCancelable(false);
-                                builder.setMessage("No Restaurant Found with any offer for searched option.Please try something else");
-                                builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        dialog.dismiss();
-                                    }
-                                });
-                                builder.create();
-                                builder.show();
+                                Utility.Alertbox(getActivity(),"Info","No Restaurant Found with any offer for searched option.Please try something else","Ok");
                             }
                             offerAdapter.notifyDataSetChanged();
 
@@ -368,18 +357,7 @@ public class OffersPageFragment extends Fragment implements GoogleApiClient.Conn
                                 ivToolBarEndIcn.setVisibility(View.VISIBLE);
                             }
                         } else {
-                            AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                            builder.setTitle("Info");
-                            builder.setCancelable(false);
-                            builder.setMessage("No Restaurant Found with any offer for searched option.Please try something else");
-                            builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-                                }
-                            });
-                            builder.create();
-                            builder.show();
+                            Utility.Alertbox(getActivity(),"Info","No Restaurant Found with any offer for searched option.Please try something else","Ok");
                         }
                         offerAdapter.notifyDataSetChanged();
 

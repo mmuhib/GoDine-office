@@ -108,32 +108,37 @@ public class RestaurantReviewActivity extends AppBaseActivity {
                                     onBackPressed();
                                     Toast.makeText(RestaurantReviewActivity.this, ratingJsonObject.getString("Message"), Toast.LENGTH_SHORT).show();
                                 }else {
-                                    AlertDialog.Builder builder =  new AlertDialog.Builder(RestaurantReviewActivity.this);
-                                    builder.setMessage("Something Wrong") ;
-                                    builder.setTitle("Info");
-                                    builder.create() ;
-                                    builder.show() ;
+//                                    AlertDialog.Builder builder =  new AlertDialog.Builder(RestaurantReviewActivity.this);
+//                                    builder.setMessage("Something Wrong") ;
+//                                    builder.setTitle("Info");
+//                                    builder.create() ;
+//                                    builder.show() ;
+
+                                    Utility.Alertbox(RestaurantReviewActivity.this,"Info","Something Wrong","Ok");
                                 }
                             }
                         }
                         else
                         {
                             Utility.hideLoadingPopup();
-                            AlertDialog.Builder builder =  new AlertDialog.Builder(RestaurantReviewActivity.this);
-                            builder.setMessage("Something Wrong") ;
-                            builder.setTitle("Info");
-                            builder.create() ;
-                            builder.show() ;
+//                            AlertDialog.Builder builder =  new AlertDialog.Builder(RestaurantReviewActivity.this);
+//                            builder.setMessage("Something Wrong") ;
+//                            builder.setTitle("Info");
+//                            builder.create() ;
+//                            builder.show() ;
+
+                            Utility.Alertbox(RestaurantReviewActivity.this,"Info","Something Wrong","Ok");
 
                         }
                     } catch (JSONException e) {
                         Utility.hideLoadingPopup();
                         e.printStackTrace() ;
-                        AlertDialog.Builder builder =  new AlertDialog.Builder(RestaurantReviewActivity.this);
-                        builder.setMessage("Something Wrong") ;
-                        builder.setTitle("Info");
-                        builder.create() ;
-                        builder.show() ;
+//                        AlertDialog.Builder builder =  new AlertDialog.Builder(RestaurantReviewActivity.this);
+//                        builder.setMessage("Something Wrong") ;
+//                        builder.setTitle("Info");
+//                        builder.create() ;
+//                        builder.show() ;
+                        Utility.Alertbox(RestaurantReviewActivity.this,"Info","Something Wrong","Ok");
                     }
                 }
                 else
@@ -224,11 +229,12 @@ public class RestaurantReviewActivity extends AppBaseActivity {
                         else
                         {
                             Utility.hideLoadingPopup();
-                            AlertDialog.Builder builder =  new AlertDialog.Builder(RestaurantReviewActivity.this);
-                            builder.setMessage("No Review.") ;
-                            builder.setTitle("Info");
-                            builder.create() ;
-                            builder.show() ;
+//                            AlertDialog.Builder builder =  new AlertDialog.Builder(RestaurantReviewActivity.this);
+//                            builder.setMessage("No Review.") ;
+//                            builder.setTitle("Info");
+//                            builder.create() ;
+//                            builder.show() ;
+                            Utility.Alertbox(RestaurantReviewActivity.this,"Info","No Review.","Ok");
                         }
                     } catch (JSONException e) {
                         Utility.hideLoadingPopup();
@@ -294,11 +300,13 @@ public class RestaurantReviewActivity extends AppBaseActivity {
                         else
                         {
                             Utility.hideLoadingPopup();
-                            AlertDialog.Builder builder =  new AlertDialog.Builder(RestaurantReviewActivity.this);
-                            builder.setMessage("No Review.") ;
-                            builder.setTitle("Info");
-                            builder.create() ;
-                            builder.show() ;
+//                            AlertDialog.Builder builder =  new AlertDialog.Builder(RestaurantReviewActivity.this);
+//                            builder.setMessage("No Review.") ;
+//                            builder.setTitle("Info");
+//                            builder.create() ;
+//                            builder.show() ;
+
+                            Utility.Alertbox(RestaurantReviewActivity.this,"Info","No Review.","Ok");
                         }
                     } catch (JSONException e) {
                         Utility.hideLoadingPopup();

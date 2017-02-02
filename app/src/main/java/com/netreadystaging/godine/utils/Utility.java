@@ -1,6 +1,7 @@
 package com.netreadystaging.godine.utils;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -10,6 +11,9 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v7.app.AlertDialog;
 import android.util.Base64;
+import android.view.View;
+import android.view.Window;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -90,20 +94,43 @@ public class Utility {
     {
         Toast.makeText(context,Msg,Toast.LENGTH_SHORT).show();
     }
+
+//    public static void Alertbox(Context context,String title,String Message,String Positve)
+//    {
+//        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+//        builder.setCancelable(false);
+//        builder.setTitle(title);
+//        builder.setMessage(Message);
+//        builder.setPositiveButton(Positve, new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialogInterface, int i) {
+//                dialogInterface.dismiss();
+//            }
+//        });
+//        builder.create();
+//        builder.show();
+//    }
+
     public static void Alertbox(Context context,String title,String Message,String Positve)
     {
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setCancelable(false);
-        builder.setTitle(title);
-        builder.setMessage(Message);
-        builder.setPositiveButton(Positve, new DialogInterface.OnClickListener() {
+        final Dialog dialog=new Dialog(context);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.customalertdesign);
+
+        TextView titlee= (TextView) dialog.findViewById(R.id.tile);
+        titlee.setText(title);
+        TextView message = (TextView) dialog.findViewById(R.id.msg);
+        message.setText(Message);
+        TextView ok= (TextView) dialog.findViewById(R.id.okay);
+        ok.setText(Positve);
+        dialog.setCancelable(false);
+        ok.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.dismiss();
+            public void onClick(View view) {
+                dialog.dismiss();
             }
         });
-        builder.create();
-        builder.show();
+        dialog.show();
     }
 
 

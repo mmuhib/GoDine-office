@@ -440,6 +440,7 @@ public class ExploreRestrauntsPageFragment extends Fragment implements View.OnCl
                                 area.append(", " + jsonObjects.getString("PostalCode"));
                                 restaurantObj.setArea("" + area);
                                 restaurantObj.setRestaurantCusine(jsonObjects.getString("RestaurantCuisine"));
+                                restaurantObj.setRestaurantFeatures(jsonObjects.getString("RestaurantFeatures"));
                                 restaurantObj.setLunch(jsonObjects.getString("RestaurantAverageLunch"));
                                 restaurantObj.setDinner(jsonObjects.getString("RestaurantAverageDinner"));
                                 restaurantObj.setRating((float)jsonObjects.getDouble("Rating"));
@@ -477,17 +478,18 @@ public class ExploreRestrauntsPageFragment extends Fragment implements View.OnCl
                         }
                         else
                         {
-                            AlertDialog.Builder builder =  new AlertDialog.Builder(getActivity());
-                            builder.setTitle("Info");
-                            builder.setMessage("No Restaurant Found Nearby, Please use other search option.");
-                            builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-                                }
-                            });
-                            builder.create();
-                            builder.show();
+//                            AlertDialog.Builder builder =  new AlertDialog.Builder();
+//                            builder.setTitle("Info");
+//                            builder.setMessage();
+//                            builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+//                                @Override
+//                                public void onClick(DialogInterface dialog, int which) {
+//                                    dialog.dismiss();
+//                                }
+//                            });
+//                            builder.create();
+//                            builder.show();
+                            Utility.Alertbox(getActivity(),"Info","No Restaurant Found Nearby, Please use other search option.","Ok");
                         }
                     } catch (JSONException e) {
                         ErrorController.showError(getActivity(),data,true);

@@ -82,11 +82,13 @@ public class RestaurantOffersActivity extends AppBaseActivity {
                         else
                         {
                             Utility.hideLoadingPopup();
-                            AlertDialog.Builder builder =  new AlertDialog.Builder(RestaurantOffersActivity.this);
-                            builder.setMessage("No offers, please check back soon.") ;
-                            builder.setTitle("Info");
-                            builder.create() ;
-                            builder.show() ;
+//                            AlertDialog.Builder builder =  new AlertDialog.Builder(RestaurantOffersActivity.this);
+//                            builder.setMessage("No offers, please check back soon.") ;
+//                            builder.setTitle("Info");
+//                            builder.create() ;
+//                            builder.show() ;
+
+                            Utility.Alertbox(RestaurantOffersActivity.this,"Info","No offers, please check back soon.","Ok");
                         }
 
                         final OfferAdapter offerAdapter = new OfferAdapter(getApplicationContext(), R.layout.offer_row, listRestOffers);
