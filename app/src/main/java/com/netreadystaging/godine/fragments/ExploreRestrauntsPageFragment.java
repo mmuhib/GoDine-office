@@ -164,11 +164,11 @@ public class ExploreRestrauntsPageFragment extends Fragment implements View.OnCl
                                 switch (restType)
                                 {
                                     case "Premier Restuarant":
-                                        restType = "Premier Partner Restaurants\n50% OFF Entree every time" ;
+                                        restType = "Premier Partner Restaurants\nGet 50% Off your Entrée every time you dine out." ;
                                         break ;
 
                                     case "Affiliate Restaurant" :
-                                        restType = "Other Dining Options\nStarting at 30% OFF Entree every time" ;
+                                        restType = "Other Dining Options\nGet 30% Off your Entree, or more, every time you dine out." ;
                                         break ;
                                 }
 

@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.netreadystaging.godine.R;
@@ -79,7 +80,9 @@ public class MemberVerification extends Fragment {
             }
         });
        ((DrawerLocker)getActivity()).setDrawerLocked(true);
-        new DownloadImageTask((ImageView) view.findViewById(R.id.memberimg)).execute("https://godineclub.com/Portals/0/Images/Verification%20images/"+email+".jpg");
+       final ProgressBar progressBar =  (ProgressBar)view.findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.VISIBLE);
+        new DownloadImageTask((ImageView) view.findViewById(R.id.memberimg),progressBar).execute("https://godineclub.com/Portals/0/Images/Verification%20images/"+email+".jpg");
         setupToolBar();
         setupTextviews();
         return view;

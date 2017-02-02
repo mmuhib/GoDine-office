@@ -3,7 +3,9 @@ package com.netreadystaging.godine.utils;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 
 import java.io.InputStream;
@@ -13,9 +15,11 @@ import java.io.InputStream;
  * Created by sony on 12-01-2017.
  */
 public class DownloadImageTask  extends AsyncTask<String, Void, Bitmap> {
+    private final ProgressBar progressBar;
     ImageView bmImage;
-    public DownloadImageTask(ImageView bmImage) {
+    public DownloadImageTask(ImageView bmImage, ProgressBar progressBar) {
         this.bmImage = bmImage;
+        this.progressBar = progressBar ;
     }
 
     protected Bitmap doInBackground(String... urls) {
@@ -32,6 +36,8 @@ public class DownloadImageTask  extends AsyncTask<String, Void, Bitmap> {
     }
 
     protected void onPostExecute(Bitmap result) {
+
         bmImage.setImageBitmap(result);
+        progressBar.setVisibility(View.GONE);
     }
 }

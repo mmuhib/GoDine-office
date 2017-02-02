@@ -240,7 +240,6 @@ public class ProfilePageFragment extends ImageSelectFragment {
     }
 
     private void loadProfilePic() {
-
         final ProgressBar progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
         progressBar.setVisibility(View.VISIBLE);
         HashMap<String,String> params =  new HashMap<>();
@@ -253,7 +252,7 @@ public class ProfilePageFragment extends ImageSelectFragment {
             public void response(boolean success, boolean fail, String data) {
                 if(success)
                 {
-                    progressBar.setVisibility(View.GONE);
+
                     try {
                         JSONArray jArray = new JSONArray(data);
 
@@ -264,7 +263,7 @@ public class ProfilePageFragment extends ImageSelectFragment {
                             Log.d("Image",s);
                             Log.d("In Load",profilePicUrl);
                             if(getActivity()!=null) {
-                                new DownloadImageTask(ivProfileImage).execute(s);
+                                new DownloadImageTask(ivProfileImage,progressBar).execute(s);
                                 Utility.hideLoadingPopup();
                             }
                         }

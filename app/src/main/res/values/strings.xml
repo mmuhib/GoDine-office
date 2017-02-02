@@ -2,7 +2,7 @@
     <string name="app_name">GoDine</string>
 
     <!--<string name="meet_go_dine_body">Join GoDine\u2122 for as little as $19.95 per month and begin receiving 50% Off your entree every single time you dine at any of the thousands of GoDine\u2122 VIP partner Restaurants across the country. The savings on just one meal out can pay for your membership for the month. </string>-->
-    <string name="meet_go_dine_body">\u2022  Join GoDine\u2122 Today \n\u2022  Search GoDine™ Restaurants \n\u2022  Dine out often \n\u2022  Save 50% Off your Entree every time! \n\u2022  Save Hundreds of Dollars every month!\n\u2022 Sign up a friend get your next month Free!</string>
+    <string name="meet_go_dine_body">\u2022  Join GoDine\u2122 Today \n\u2022  Search GoDine™ Restaurants \n\u2022  Dine out often \n\u2022  Save 50% Off your Entree every time! \n\u2022  Save Hundreds of Dollars every month!\n\u2022 Sign up a friend get your next month’s membership free!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_splash">GoDine</string>
     <string name="login_bg_content1">Receive 50% Off\nyour entree</string>
@@ -22,7 +22,7 @@
     <string name="why_join_banner_str">Receive 50% Off your Entrée\'s\nevery time you dine out!</string>
     <string name="how_it_works">
         <![CDATA["<b>How it Works-</b>Using your GoDine Mobile App is easy and fun! Simply search for GoDine™ Restaurants wherever you are using the location services.
-                Then filter by Cuisine, Price, Features, etc.You can also use the Map option for Turn-by-Turn directions to your restaurant location.<br/><b>Once you arrive-</b>Enjoy your meal(s), with friends,and family. When it’s time to pay your check, let your server know that you are a GoDine™ Member.He / she will ask you to:<br/>               <b>&nbsp;&nbsp;&nbsp;&nbsp; • Open the GoDine™ App<br/>
+                Then filter by Cuisine, Price, Features, etc.You can also use the Map option for Turn-by-Turn directions to your restaurant location.<br/><b>Once you arrive-</b>Enjoy your meal(s) with friends and family. When it’s time to pay your check, let your server know that you are a GoDine™ Member.He / she will ask you to:<br/>               <b>&nbsp;&nbsp;&nbsp;&nbsp; • Open the GoDine™ App<br/>
                &nbsp;&nbsp;&nbsp;&nbsp; • Pull Up Validation Page – bottom menu (center button)<br/>
                &nbsp;&nbsp;&nbsp;&nbsp;• Server Validates Membership </b>- He/she will validate your membership by tapping the screen<br/>
                <b>&nbsp;&nbsp;&nbsp;&nbsp; • Server brings bill to the table
