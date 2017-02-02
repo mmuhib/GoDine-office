@@ -287,8 +287,6 @@ public class ProfilePageFragment extends ImageSelectFragment {
         }).request(ServiceMod.ProfilePicDownload,params);
     }
 
-
-
     private void bindModelToView()
     {
         tvMembershipId.setText(appGlobal.getMembershipId()+"");
@@ -352,73 +350,18 @@ public class ProfilePageFragment extends ImageSelectFragment {
                             Message=jsonObject.getString("Message");
                             Log.d("Muhib",Result);
                             Log.d("Muhib",Message);
-                           /* if(Result.equalsIgnoreCase("Success"))
-                            {
-                                Utility.Alertbox(getContext(),"Info",Message,"Ok");
+                            Utility.Alertbox(getContext(),"Info",Message,"Ok");
 
+                            if(Result.equalsIgnoreCase("Success"))
+                            {
+                                verificationOfImage();
                             }
-                            else if(Result.equalsIgnoreCase("Failed"))
-                            {
-                                Utility.Alertbox(getContext(),"Info",Message,"Ok");
 
-                            }*/
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-                    HashMap<String,String> params =  new HashMap<>();
-                    String  bitmapString= Utility.BitMapToString(bitmap);
-                    params.put("Base64String",bitmapString);
-                    params.put("Username",appGlobal.getUsername()+"");
 
-                    new ServiceController(getActivity(), new HttpResponseCallback() {
-                        @Override
-                        public void response(boolean success, boolean fail, String data) {
-                            if(success)
-                            {
-                                JSONArray jsonArray=null;
-                                String Result="";
-                                String Message="";
-                                try {
-                                    jsonArray=new JSONArray(data);
-                                    for (int i=0;i<jsonArray.length();i++)
-                                    {
-                                        JSONObject jsonObject=null;
-                                        jsonObject=jsonArray.getJSONObject(i);
-                                        Result=jsonObject.getString("Result");
-                                        Message=jsonObject.getString("Message");
-                                        Log.d("Muhib",Result);
-                                        Log.d("Muhib",Message);
-                                        if(Result.equalsIgnoreCase("Success"))
-                                        {
-                                            Utility.Alertbox(getContext(),"Info","Profile picture stored successfully","Ok");
-                                            Utility.Alertbox(getContext(),"Info",Message,"Ok");
-                                            ivProfileImage.setImageBitmap(bitmap);
-                                            Utility.hideLoadingPopup();
-                                        }
-                                        else if(Result.equalsIgnoreCase("Failed"))
-                                        {
-                                            Utility.Alertbox(getContext(),"Info","Profile picture stored successfully","Ok");
-                                            Utility.Alertbox(getContext(),"Info",Message,"Ok");
-                                            ivProfileImage.setImageBitmap(bitmap);
-                                            Utility.hideLoadingPopup();
-                                        }
-
-                                    }
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
-                                }
-
-                                Log.d("In imageVerification",data);
-                                //  Utility.hideLoadingPopup();
-                                // ErrorController.showError(getActivity(),data,true);
-                            }
-                            else
-                            {
-                                ErrorController.showError(getActivity(),data,false);
-                            }
-                        }
-                    }).request(ServiceMod.UploadVerificationImage,params);
                 }
                 else
                 {
@@ -426,9 +369,67 @@ public class ProfilePageFragment extends ImageSelectFragment {
                 }
 
             }
+
+            private void verificationOfImage() {
+                HashMap<String,String> params =  new HashMap<>();
+                String  bitmapString= Utility.BitMapToString(bitmap);
+                params.put("Base64String",bitmapString);
+                params.put("Username",appGlobal.getUsername()+"");
+
+                new ServiceController(getActivity(), new HttpResponseCallback() {
+                    @Override
+                    public void response(boolean success, boolean fail, String data) {
+                        if(success)
+                        {
+                            JSONArray jsonArray=null;
+                            String Result="";
+                            String Message="";
+                            try {
+                                jsonArray=new JSONArray(data);
+                                for (int i=0;i<jsonArray.length();i++)
+                                {
+                                    JSONObject jsonObject=null;
+                                    jsonObject=jsonArray.getJSONObject(i);
+                                    Result=jsonObject.getString("Result");
+                                    Message=jsonObject.getString("Message");
+                                    Log.d("Muhib",Result);
+                                    Log.d("Muhib",Message);
+                                    if(Result.equalsIgnoreCase("Success"))
+                                    {
+                                        appGlobal.setIsVerificationImageUploaded("1");
+                                        Utility.Alertbox(getContext(),"Info",Message,"Ok");
+                                        ivProfileImage.setImageBitmap(bitmap);
+                                        Utility.hideLoadingPopup();
+                                    }
+                                    else if(Result.equalsIgnoreCase("Failed"))
+                                    {
+                                        Utility.Alertbox(getContext(),"Info","Profile picture stored successfully","Ok");
+                                        Utility.Alertbox(getContext(),"Info",Message,"Ok");
+                                        ivProfileImage.setImageBitmap(bitmap);
+                                        Utility.hideLoadingPopup();
+                                    }
+
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
+                            Log.d("In imageVerification",data);
+                            //  Utility.hideLoadingPopup();
+                            // ErrorController.showError(getActivity(),data,true);
+                        }
+                        else
+                        {
+                            ErrorController.showError(getActivity(),data,false);
+                        }
+                    }
+                }).request(ServiceMod.UploadVerificationImage,params);
+
+            }
         }).request(ServiceMod.PROFILE_IMAGE_UPLOAD,params);
+
         loadProfilePic();
-        appGlobal.setIsVerificationImageUploaded("1");
+
     }
 
 
