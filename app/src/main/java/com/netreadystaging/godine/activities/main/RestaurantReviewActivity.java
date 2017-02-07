@@ -108,7 +108,7 @@ public class RestaurantReviewActivity extends AppBaseActivity {
                                     onBackPressed();
                                     Toast.makeText(RestaurantReviewActivity.this, ratingJsonObject.getString("Message"), Toast.LENGTH_SHORT).show();
                                 }else {
-                                    Utility.Alertbox(RestaurantReviewActivity.this,"Info","Something Wrong","Ok");
+                                    Utility.Alertbox(RestaurantReviewActivity.this,"Info","Something Wrong","OK");
                                 }
                             }
                         }
@@ -121,7 +121,7 @@ public class RestaurantReviewActivity extends AppBaseActivity {
 //                            builder.create() ;
 //                            builder.show() ;
 
-                            Utility.Alertbox(RestaurantReviewActivity.this,"Info","Something Wrong","Ok");
+                            Utility.Alertbox(RestaurantReviewActivity.this,"Info","Something Wrong","OK");
 
                         }
                     } catch (JSONException e) {
@@ -132,7 +132,7 @@ public class RestaurantReviewActivity extends AppBaseActivity {
 //                        builder.setTitle("Info");
 //                        builder.create() ;
 //                        builder.show() ;
-                        Utility.Alertbox(RestaurantReviewActivity.this,"Info","Something Wrong","Ok");
+                        Utility.Alertbox(RestaurantReviewActivity.this,"Info","Something Wrong","OK");
                     }
                 }
                 else
@@ -228,7 +228,7 @@ public class RestaurantReviewActivity extends AppBaseActivity {
 //                            builder.setTitle("Info");
 //                            builder.create() ;
 //                            builder.show() ;
-                            Utility.Alertbox(RestaurantReviewActivity.this,"Info","No Review.","Ok");
+                            Utility.Alertbox(RestaurantReviewActivity.this,"Info","No Review.","OK");
                         }
                     } catch (JSONException e) {
                         Utility.hideLoadingPopup();
@@ -300,7 +300,7 @@ public class RestaurantReviewActivity extends AppBaseActivity {
 //                            builder.create() ;
 //                            builder.show() ;
 
-                            Utility.Alertbox(RestaurantReviewActivity.this,"Info","No Review.","Ok");
+                            Utility.Alertbox(RestaurantReviewActivity.this,"Info","No Review.","OK");
                         }
                     } catch (JSONException e) {
                         Utility.hideLoadingPopup();

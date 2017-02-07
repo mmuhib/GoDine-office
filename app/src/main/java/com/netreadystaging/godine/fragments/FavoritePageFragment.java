@@ -172,7 +172,7 @@ public class FavoritePageFragment extends Fragment implements GoogleApiClient.Co
                         else
                         {
 
-                            Utility.Alertbox(getActivity(),"Info","No Favorite Restaurant Found ","Ok");
+                            Utility.Alertbox(getActivity(),"Info","No Favorite Restaurant Found ","OK");
                         }
 
 

@@ -75,7 +75,7 @@ public class MemberVerification extends Fragment {
                 }
                 else
                 {
-                    Utility.Alertbox(getContext(),"Info","Please enter your Total Check Amount and GoDine Member Savings amount to complete the checkout process.","Ok");
+                    Utility.Alertbox(getContext(),"Info","Please enter your Total Check Amount and GoDine Member Savings amount to complete the checkout process.","OK");
                 }
             }
         });
@@ -113,6 +113,7 @@ public class MemberVerification extends Fragment {
                 FragmentTransaction transaction=manager.beginTransaction();
                 fragment=new ProfilePageFragment();
                 transaction.replace(R.id.flContent,fragment);
+                transaction.addToBackStack(null);
                 transaction.commit();
             }
         });

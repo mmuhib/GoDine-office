@@ -344,24 +344,20 @@ public class ProfilePageFragment extends ImageSelectFragment {
                             Message=jsonObject.getString("Message");
                             Log.d("Muhib",Result);
                             Log.d("Muhib",Message);
-                            Utility.Alertbox(getContext(),"Info",Message,"Ok");
-
+                            Utility.Alertbox(getContext(),"Info",Message,"OK");
                             if(Result.equalsIgnoreCase("Success"))
                             {
                                 verificationOfImage();
                             }
-
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-
                 }
                 else
                 {
                     ErrorController.showError(getActivity(),data,false);
                 }
-
             }
 
             private void verificationOfImage() {
@@ -391,26 +387,25 @@ public class ProfilePageFragment extends ImageSelectFragment {
                                     if(Result.equalsIgnoreCase("Success"))
                                     {
                                         appGlobal.setIsVerificationImageUploaded("1");
-                                        Utility.Alertbox(getContext(),"Info",Message,"Ok");
+                                      //  Utility.Alertbox(getContext(),"Info",Message,"Ok");
                                         ivProfileImage.setImageBitmap(bitmap);
                                         Utility.hideLoadingPopup();
                                     }
                                     else if(Result.equalsIgnoreCase("Failed"))
                                     {
-                                        Utility.Alertbox(getContext(),"Info","Profile picture stored successfully","Ok");
-                                        Utility.Alertbox(getContext(),"Info",Message,"Ok");
+                                       // Utility.Alertbox(getContext(),"Info","Profile picture stored successfully","Ok");
+                                       // Utility.Alertbox(getContext(),"Info",Message,"Ok");
                                         ivProfileImage.setImageBitmap(bitmap);
                                         Utility.hideLoadingPopup();
                                     }
-
+                                   Utility.message(getContext(),Message);
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
 
                             Log.d("In imageVerification",data);
-                            //  Utility.hideLoadingPopup();
-                            // ErrorController.showError(getActivity(),data,true);
+
                         }
                         else
                         {

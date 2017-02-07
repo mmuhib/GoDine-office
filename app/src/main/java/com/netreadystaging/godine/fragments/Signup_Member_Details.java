@@ -200,6 +200,7 @@ public class Signup_Member_Details extends Fragment implements View.OnClickListe
                                                     try {
                                                         String Result="";
                                                         String Message="";
+                                                        Log.d("Muhib",data);
                                                         jsonArray = new JSONArray(data);
                                                         for (int i=0;i<jsonArray.length();i++)
                                                         {
@@ -263,11 +264,11 @@ public class Signup_Member_Details extends Fragment implements View.OnClickListe
                             }
                             else
                             {
-                                Utility.Alertbox(getContext(),"Error","Please check Password","Ok");
+                                Utility.Alertbox(getContext(),"Error","Please check Password","OK");
                             }
                         }
                         else {
-                            Utility.Alertbox(getContext(),"Error","Provide Valid Emai","Ok");
+                            Utility.Alertbox(getContext(),"Error","Provide Valid Emai","OK");
 
                         }
                     }
@@ -277,7 +278,7 @@ public class Signup_Member_Details extends Fragment implements View.OnClickListe
                 }
                 else
                 {
-                    Utility.Alertbox(getContext(),"Error","Please enter all mandatory fields","Ok");
+                    Utility.Alertbox(getContext(),"Error","Please enter all mandatory fields","OK");
                 }
             }
         });

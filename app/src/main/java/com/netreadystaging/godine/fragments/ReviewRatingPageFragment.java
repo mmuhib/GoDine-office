@@ -139,7 +139,7 @@ public class ReviewRatingPageFragment extends Fragment {
                         else
                         {
                             Utility.hideLoadingPopup();
-                            Utility.Alertbox(getActivity(),"Info","No Review.","Ok");
+                            Utility.Alertbox(getActivity(),"Info","No Review.","OK");
                         }
                     } catch (JSONException e) {
                         Utility.hideLoadingPopup();

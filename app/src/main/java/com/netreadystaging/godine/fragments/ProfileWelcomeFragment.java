@@ -98,7 +98,7 @@ public class ProfileWelcomeFragment extends ImageSelectFragment {
                                     if(success)
                                     {
                                         Utility.hideLoadingPopup();
-                                        Utility.message(getContext(),data);
+                                     //   Utility.message(getContext(),data);
                                         ByteArrayOutputStream stream = new ByteArrayOutputStream();
                                         bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
                                         byte[] byteArray = stream.toByteArray();
@@ -113,7 +113,6 @@ public class ProfileWelcomeFragment extends ImageSelectFragment {
                                         appGlobal.setIsVerificationImageUploaded("1");
                                         transaction.commit();
 
-                                        //   ivProfileImage.setImageBitmap(bitmap);
                                         // ErrorController.showError(getActivity(),data,true);
                                     }
                                     else
@@ -144,7 +143,7 @@ public class ProfileWelcomeFragment extends ImageSelectFragment {
         }
         else
         {
-           // Utility.message(getContext(),isVerificationImageUploaded);
+
         }
         setupToolBar();
         return view ;

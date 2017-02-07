@@ -183,7 +183,7 @@ public class OffersPageFragment extends Fragment implements GoogleApiClient.Conn
                                     ivToolBarEndIcn.setVisibility(View.VISIBLE);
                                 }
                             } else {
-                                Utility.Alertbox(getActivity(),"Info","No Restaurant Found with any offer for searched option.Please try something else","Ok");
+                                Utility.Alertbox(getActivity(),"Info","No Restaurant Found with any offer for searched option.Please try something else","OK");
                             }
                             offerAdapter.notifyDataSetChanged();
 
@@ -357,7 +357,7 @@ public class OffersPageFragment extends Fragment implements GoogleApiClient.Conn
                                 ivToolBarEndIcn.setVisibility(View.VISIBLE);
                             }
                         } else {
-                            Utility.Alertbox(getActivity(),"Info","No Restaurant Found with any offer for searched option.Please try something else","Ok");
+                            Utility.Alertbox(getActivity(),"Info","No Restaurant Found with any offer for searched option.Please try something else","OK");
                         }
                         offerAdapter.notifyDataSetChanged();
 

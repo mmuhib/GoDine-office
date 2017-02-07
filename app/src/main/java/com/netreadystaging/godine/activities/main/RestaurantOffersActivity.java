@@ -82,7 +82,7 @@ public class RestaurantOffersActivity extends AppBaseActivity {
                         else
                         {
                             Utility.hideLoadingPopup();
-                            Utility.Alertbox(RestaurantOffersActivity.this,"Info","No offers, please check back soon.","Ok");
+                            Utility.Alertbox(RestaurantOffersActivity.this,"Info","No offers, please check back soon.","OK");
                         }
 
                         final OfferAdapter offerAdapter = new OfferAdapter(getApplicationContext(), R.layout.offer_row, listRestOffers);

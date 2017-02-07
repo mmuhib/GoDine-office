@@ -149,7 +149,7 @@ public class RestaurantProfile extends Fragment  implements OnMapReadyCallback,G
 //                builder.setPositiveButton("OK", null);
 //                builder.create();
 //                builder.show() ;
-                Utility.Alertbox(getActivity(),"Restrictions",restaurant.getSpecialRestrictions(),"Ok");
+                Utility.Alertbox(getActivity(),"Restrictions",restaurant.getSpecialRestrictions(),"OK");
             }
         });
         final TextView tvRestFeatures = (TextView) view.findViewById(R.id.tvRestFeatures);
@@ -162,7 +162,7 @@ public class RestaurantProfile extends Fragment  implements OnMapReadyCallback,G
 //                builder.setPositiveButton("OK", null);
 //                builder.create();
 //                builder.show() ;
-                Utility.Alertbox(getActivity(),"Features",restaurant.getRestaurantFeatures(),"Ok");
+                Utility.Alertbox(getActivity(),"Features",restaurant.getRestaurantFeatures(),"OK");
             }
         });
     }
@@ -514,7 +514,7 @@ public class RestaurantProfile extends Fragment  implements OnMapReadyCallback,G
 //                                    builder.create();
 //                                    builder.show() ;
 
-                                    Utility.Alertbox(getActivity(),"Info","Restaurant has been added to your fav list.","Ok");
+                                    Utility.Alertbox(getActivity(),"Info","Restaurant has been added to your fav list.","OK");
 
                                 }
                             }
@@ -569,7 +569,7 @@ public class RestaurantProfile extends Fragment  implements OnMapReadyCallback,G
 //                                    builder.create();
 //                                    builder.show() ;
 
-                                    Utility.Alertbox(getActivity(),"Info","Restaurant has been removed from your fav list.","Ok");
+                                    Utility.Alertbox(getActivity(),"Info","Restaurant has been removed from your fav list.","OK");
 
                                 }
                             }

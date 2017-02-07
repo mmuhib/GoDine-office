@@ -489,7 +489,7 @@ public class ExploreRestrauntsPageFragment extends Fragment implements View.OnCl
 //                            });
 //                            builder.create();
 //                            builder.show();
-                            Utility.Alertbox(getActivity(),"Info","No Restaurant Found Nearby, Please use other search option.","Ok");
+                            Utility.Alertbox(getActivity(),"Info","No Restaurant Found Nearby, Please use other search option.","OK");
                         }
                     } catch (JSONException e) {
                         ErrorController.showError(getActivity(),data,true);
