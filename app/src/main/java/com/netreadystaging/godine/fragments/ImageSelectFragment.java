@@ -268,7 +268,44 @@ public class ImageSelectFragment extends Fragment {
         BitmapFactory.Options o2 = new BitmapFactory.Options();
         o2.inSampleSize = scale;
         bitmap = BitmapFactory.decodeFile(filePath, o2);
-        bitmapString= Utility.BitMapToString(bitmap);
+        if(bitmap.getWidth()<bitmap.getHeight())
+        {
+           // Utility.message(getContext(),"Width is greater");
+            bitmapString= Utility.BitMapToString(bitmap);
+            switch(this.format)
+            {
+                case "base64" :
+                    this.callback.success(bitmapString);
+                    break ;
+
+                case "bitmap" :
+                    this.callback.success(bitmap);
+                    break ;
+
+                default :
+                    this.callback.success(filePath);
+                    break ;
+            }
+        }
+        else
+        {
+        //    Utility.message(getContext(),"Please Take Image Vertically");
+       //  Utility.Alertbox(getContext(),"Info","Please Take Image Vertically","OK");
+            AlertDialog.Builder builde=new AlertDialog.Builder(getContext());
+            builde.setTitle("Info");
+            builde.setMessage("Please Take Image Vertically");
+            builde.setCancelable(false);
+            builde.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    selectImage("bitmap", callback);
+                }
+            });
+            builde.create();
+            builde.show();
+
+        }
+       /* bitmapString= Utility.BitMapToString(bitmap);
         switch(this.format)
         {
             case "base64" :
@@ -282,7 +319,7 @@ public class ImageSelectFragment extends Fragment {
             default :
                 this.callback.success(filePath);
                 break ;
-        }
+        }*/
     }
 }
 

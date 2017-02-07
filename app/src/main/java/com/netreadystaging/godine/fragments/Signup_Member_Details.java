@@ -59,7 +59,7 @@ public class Signup_Member_Details extends Fragment implements View.OnClickListe
     String ProductVariantID="N/A";
     String UserId;
     public   String Sstate;
-    public  String Sname,Spassword,Sconfirmpass;
+    public  String Sname,Spassword,Sconfirmpass,Sfirstname,Slname,Stelephone, Sstreet,Scity,Szipcode;
     AppGlobal appGlobal=AppGlobal.getInatance();
     @Nullable
     @Override
@@ -154,16 +154,16 @@ public class Signup_Member_Details extends Fragment implements View.OnClickListe
                 Sname=et_name.getText().toString();
                 Spassword=et_password.getText().toString();
                 Sconfirmpass=et_confirmPass.getText().toString();
-                final String Sfirstname=et_firstname.getText().toString();
-                final String Slname=et_lastname.getText().toString();
-                final String Stelephone=et_telephone.getText().toString();
-                final String Sstreet=et_memberstreet.getText().toString();
-                final String Scity=et_membercity.getText().toString();
+               Sfirstname=et_firstname.getText().toString();
+                 Slname=et_lastname.getText().toString();
+                 Stelephone=et_telephone.getText().toString();
+               Sstreet=et_memberstreet.getText().toString();
+                Scity=et_membercity.getText().toString();
 
-                final String Szipcode=et_zipcode.getText().toString();
+              Szipcode=et_zipcode.getText().toString();
                 final String SdeviceId="31cf203f8d4469ab59f397be5f6df49ac1b2f6e682f6cf15b8d1aeafc72e7c25";
 
-                if(!Sname.isEmpty() && !Spassword.isEmpty() &&!Sconfirmpass.isEmpty())
+                if(!Sname.isEmpty() && !Spassword.isEmpty() &&!Sconfirmpass.isEmpty() && !Sfirstname.isEmpty() && !Slname.isEmpty() && !Sstreet.isEmpty() && !Scity.isEmpty() && !Szipcode.isEmpty() )
                 {
                     if (ch_terms.isChecked()) {
                         if(Utility.checkValidEmail(Sname))
