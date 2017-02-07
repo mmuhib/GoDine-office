@@ -3,11 +3,9 @@ package com.netreadystaging.godine.fragments;
 
 
 import android.app.Activity;
-import android.content.DialogInterface;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -173,17 +171,8 @@ public class FavoritePageFragment extends Fragment implements GoogleApiClient.Co
                         }
                         else
                         {
-                            AlertDialog.Builder builder =  new AlertDialog.Builder(getActivity());
-                            builder.setTitle("Info");
-                            builder.setMessage("No Favorite Restaurant Found ");
-                            builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-                                }
-                            });
-                            builder.create();
-                            builder.show();
+
+                            Utility.Alertbox(getActivity(),"Info","No Favorite Restaurant Found ","Ok");
                         }
 
 

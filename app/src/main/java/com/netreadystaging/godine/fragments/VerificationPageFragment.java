@@ -58,7 +58,7 @@ public class VerificationPageFragment extends Fragment {
             public void onClick(View view) {
                 MemberVerification frag=new MemberVerification();
                 FragmentManager fm =  getActivity().getSupportFragmentManager() ;
-                fm.beginTransaction().replace(R.id.flContent, frag).addToBackStack("Muhib").commit();
+                fm.beginTransaction().replace(R.id.flContent, frag).addToBackStack(null).commit();
             }
         });
              setupToolBar();

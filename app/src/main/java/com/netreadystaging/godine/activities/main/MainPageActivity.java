@@ -3,6 +3,7 @@ package com.netreadystaging.godine.activities.main;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -11,6 +12,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -65,6 +67,7 @@ public class MainPageActivity extends AppBaseActivity implements DrawerLocker {
     int nvDrawables[] ;
     public FloatingActionButton leftCenterButton;
     public FloatingActionMenu leftCenterMenu;
+    private FrameLayout overLayBg;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -77,7 +80,18 @@ public class MainPageActivity extends AppBaseActivity implements DrawerLocker {
 
     private void setupBottomBar() {
         bottomToolBar = (FrameLayout)findViewById(R.id.bottomToolBar) ;
+        setupOverLay();
         setupCFABMenu();
+    }
+
+    private void setupOverLay() {
+
+        overLayBg =  new FrameLayout(this);
+
+        overLayBg.setBackgroundColor(Color.parseColor("#80000000"));
+        overLayBg.setVisibility(View.GONE);
+
+        this.addContentView(overLayBg,new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
     }
 
     private void setupCFABMenu()
@@ -180,7 +194,7 @@ public class MainPageActivity extends AppBaseActivity implements DrawerLocker {
                 // leftCenterMenu.close(true);
                 if(leftCenterMenu.isOpen()) {
                     ReferFriendsandFamily frag = new ReferFriendsandFamily();
-                    getSupportFragmentManager().beginTransaction().replace(R.id.flContent, frag).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.flContent, frag).addToBackStack(null).commit();
                 }
                 closeCFABMenu();
             }
@@ -207,6 +221,8 @@ public class MainPageActivity extends AppBaseActivity implements DrawerLocker {
                 PropertyValuesHolder pvhR = PropertyValuesHolder.ofFloat(View.ROTATION, 135);
                 ObjectAnimator animation = ObjectAnimator.ofPropertyValuesHolder(leftCenterButton, pvhR);
                 animation.start();
+
+                overLayBg.setVisibility(View.VISIBLE);
             }
 
             @Override
@@ -215,6 +231,8 @@ public class MainPageActivity extends AppBaseActivity implements DrawerLocker {
                 PropertyValuesHolder pvhR = PropertyValuesHolder.ofFloat(View.ROTATION, 0);
                 ObjectAnimator animation = ObjectAnimator.ofPropertyValuesHolder(leftCenterButton, pvhR);
                 animation.start();
+
+                overLayBg.setVisibility(View.GONE);
             }
         });
 
@@ -384,6 +402,7 @@ public class MainPageActivity extends AppBaseActivity implements DrawerLocker {
 
     private void closeCFABMenu() {
         if(leftCenterMenu.isOpen()) leftCenterMenu.close(true);
+
     }
 
     private void logoutSession() {

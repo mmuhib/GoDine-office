@@ -108,12 +108,6 @@ public class RestaurantReviewActivity extends AppBaseActivity {
                                     onBackPressed();
                                     Toast.makeText(RestaurantReviewActivity.this, ratingJsonObject.getString("Message"), Toast.LENGTH_SHORT).show();
                                 }else {
-//                                    AlertDialog.Builder builder =  new AlertDialog.Builder(RestaurantReviewActivity.this);
-//                                    builder.setMessage("Something Wrong") ;
-//                                    builder.setTitle("Info");
-//                                    builder.create() ;
-//                                    builder.show() ;
-
                                     Utility.Alertbox(RestaurantReviewActivity.this,"Info","Something Wrong","Ok");
                                 }
                             }

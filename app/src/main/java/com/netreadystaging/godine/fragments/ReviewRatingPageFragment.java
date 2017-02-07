@@ -1,12 +1,9 @@
 package com.netreadystaging.godine.fragments;
 
-
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +12,6 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import com.netreadystaging.godine.R;
 import com.netreadystaging.godine.activities.main.MainPageActivity;
 import com.netreadystaging.godine.adapters.RestaurantMyReviewAdapter;
@@ -143,11 +139,7 @@ public class ReviewRatingPageFragment extends Fragment {
                         else
                         {
                             Utility.hideLoadingPopup();
-                            AlertDialog.Builder builder =  new AlertDialog.Builder(getActivity());
-                            builder.setMessage("No Review.") ;
-                            builder.setTitle("Info");
-                            builder.create() ;
-                            builder.show() ;
+                            Utility.Alertbox(getActivity(),"Info","No Review.","Ok");
                         }
                     } catch (JSONException e) {
                         Utility.hideLoadingPopup();
