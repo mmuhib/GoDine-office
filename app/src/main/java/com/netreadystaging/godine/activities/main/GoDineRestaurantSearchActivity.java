@@ -74,7 +74,6 @@ public class GoDineRestaurantSearchActivity extends AppBaseActivity implements V
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (value.contains("Login"))
                 {
-
                     if (appGlobal.getUsername().trim().isEmpty() || !appGlobal.getPassword().isEmpty()) {
                         final CharSequence[] items = {"Login", "Sign up", "Cancel"};
                         AlertDialog.Builder builder = new AlertDialog.Builder(GoDineRestaurantSearchActivity.this);
@@ -124,15 +123,12 @@ public class GoDineRestaurantSearchActivity extends AppBaseActivity implements V
         search.setOnClickListener(this);
 
         gd_rest_search_filter_container = (RelativeLayout) findViewById(R.id.gd_rest_search_filter_container) ;
-
-
         // Search near By restaurants
         isCurrentLocationSearch = true ;
         if (Utility.checkGooglePlayService(GoDineRestaurantSearchActivity.this))
         {
             setupLocation();
         }
-
     }
 
     protected synchronized void setupLocation()
@@ -351,9 +347,6 @@ public class GoDineRestaurantSearchActivity extends AppBaseActivity implements V
     public void onConnectionSuspended(int i) {
 
     }
-
-
-
 
     @Override
     protected void onResume() {

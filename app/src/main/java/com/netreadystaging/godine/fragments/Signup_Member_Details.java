@@ -59,7 +59,7 @@ public class Signup_Member_Details extends Fragment implements View.OnClickListe
     String ProductVariantID="N/A";
     String UserId;
     public   String Sstate;
-    public  String Sname,Spassword,Sconfirmpass,Sfirstname,Slname,Stelephone, Sstreet,Scity,Szipcode;
+    public  String Sname,Spassword,Sconfirmpass,Sfirstname,Slname,Stelephone, Sstreet,Scity,Szipcode,SMiles;
     AppGlobal appGlobal=AppGlobal.getInatance();
     @Nullable
     @Override
@@ -155,12 +155,12 @@ public class Signup_Member_Details extends Fragment implements View.OnClickListe
                 Spassword=et_password.getText().toString();
                 Sconfirmpass=et_confirmPass.getText().toString();
                Sfirstname=et_firstname.getText().toString();
-                 Slname=et_lastname.getText().toString();
-                 Stelephone=et_telephone.getText().toString();
+               Slname=et_lastname.getText().toString();
+                Stelephone=et_telephone.getText().toString();
                Sstreet=et_memberstreet.getText().toString();
                 Scity=et_membercity.getText().toString();
-
               Szipcode=et_zipcode.getText().toString();
+                 SMiles="25";
                 final String SdeviceId="31cf203f8d4469ab59f397be5f6df49ac1b2f6e682f6cf15b8d1aeafc72e7c25";
 
                 if(!Sname.isEmpty() && !Spassword.isEmpty() &&!Sconfirmpass.isEmpty() && !Sfirstname.isEmpty() && !Slname.isEmpty() && !Sstreet.isEmpty() && !Scity.isEmpty() && !Szipcode.isEmpty() )
@@ -186,6 +186,7 @@ public class Signup_Member_Details extends Fragment implements View.OnClickListe
                                         params.put("PostalCode",Szipcode);
                                         params.put("DeviceId",SdeviceId);
                                         params.put("DeviceType","Android");
+                                        params.put("Miles",SMiles);
                                         Utility.showLoadingPopup(getActivity());
 
                                         new ServiceController(getContext(), new HttpResponseCallback()
@@ -221,6 +222,7 @@ public class Signup_Member_Details extends Fragment implements View.OnClickListe
                                                                         Intent intent=new Intent(getContext(), PaymentView.class);
                                                                         intent.putExtra("username",Sname);
                                                                         appGlobal.setPassword(Spassword);
+                                                                        appGlobal.setMiles(SMiles);
                                                                         intent.putExtra("password",Spassword);
                                                                         intent.putExtra("productvariantid",ProductVariantID);
                                                                         intent.putExtra("UserD",UserId);
