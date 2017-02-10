@@ -8,6 +8,8 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.media.ExifInterface;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
@@ -24,6 +26,7 @@ import com.netreadystaging.godine.callbacks.ImageSelectCallBack;
 import com.netreadystaging.godine.utils.AppGlobal;
 import com.netreadystaging.godine.utils.Utility;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -268,10 +271,32 @@ public class ImageSelectFragment extends Fragment {
         BitmapFactory.Options o2 = new BitmapFactory.Options();
         o2.inSampleSize = scale;
         bitmap = BitmapFactory.decodeFile(filePath, o2);
-        if(bitmap.getWidth()<bitmap.getHeight())
-        {
+
+        /****************/
+        ExifInterface exif = null;
+        try {
+            exif = new ExifInterface(filePath);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        String orientString = exif != null ? exif.getAttribute(ExifInterface.TAG_ORIENTATION) : null;
+        int orientation = orientString != null ? Integer.parseInt(orientString) :  ExifInterface.ORIENTATION_NORMAL;
+
+        int rotationAngle = 0;
+        if (orientation == ExifInterface.ORIENTATION_ROTATE_90) rotationAngle = 90;
+        if (orientation == ExifInterface.ORIENTATION_ROTATE_180) rotationAngle = 180;
+        if (orientation == ExifInterface.ORIENTATION_ROTATE_270) rotationAngle = 270;
+
+        Matrix matrix = new Matrix();
+        matrix.setRotate(rotationAngle, (float) bitmap.getWidth() , (float) bitmap.getHeight() / 2);
+        Bitmap rotatedBitmap = Bitmap.createBitmap(bitmap, 0, 0, width_tmp, height_tmp, matrix, true);
+
+        /**************/
+
+//        if(bitmap.getWidth()<bitmap.getHeight())
+//        {
            // Utility.message(getContext(),"Width is greater");
-            bitmapString= Utility.BitMapToString(bitmap);
+            bitmapString= Utility.BitMapToString(rotatedBitmap);
             switch(this.format)
             {
                 case "base64" :
@@ -286,40 +311,26 @@ public class ImageSelectFragment extends Fragment {
                     this.callback.success(filePath);
                     break ;
             }
-        }
-        else
-        {
-        //    Utility.message(getContext(),"Please Take Image Vertically");
-       //  Utility.Alertbox(getContext(),"Info","Please Take Image Vertically","OK");
-            AlertDialog.Builder builde=new AlertDialog.Builder(getContext());
-            builde.setTitle("Info");
-            builde.setMessage("Please Take Image Vertically");
-            builde.setCancelable(false);
-            builde.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    selectImage("bitmap", callback);
-                }
-            });
-            builde.create();
-            builde.show();
+      //  }
+//        else
+//        {
+//        //    Utility.message(getContext(),"Please Take Image Vertically");
+//       //  Utility.Alertbox(getContext(),"Info","Please Take Image Vertically","OK");
+//            AlertDialog.Builder builde=new AlertDialog.Builder(getContext());
+//            builde.setTitle("Info");
+//            builde.setMessage("Please Take Image Vertically");
+//            builde.setCancelable(false);
+//            builde.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//                @Override
+//                public void onClick(DialogInterface dialogInterface, int i) {
+//                    selectImage("bitmap", callback);
+//                }
+//            });
+//            builde.create();
+//            builde.show();
+//
+//        }
 
-        }
-       /* bitmapString= Utility.BitMapToString(bitmap);
-        switch(this.format)
-        {
-            case "base64" :
-                this.callback.success(bitmapString);
-                break ;
-
-            case "bitmap" :
-                this.callback.success(bitmap);
-                break ;
-
-            default :
-                this.callback.success(filePath);
-                break ;
-        }*/
     }
 }
 

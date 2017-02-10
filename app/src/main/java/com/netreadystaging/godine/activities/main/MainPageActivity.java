@@ -40,7 +40,6 @@ import com.netreadystaging.godine.fragments.ProfilePageFragment;
 import com.netreadystaging.godine.fragments.ProfileWelcomeFragment;
 import com.netreadystaging.godine.fragments.ReviewRatingPageFragment;
 import com.netreadystaging.godine.fragments.VerificationPageFragment;
-import com.netreadystaging.godine.utils.Utility;
 import com.netreadystaging.godine.views.CFABSubIconView;
 
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton;
