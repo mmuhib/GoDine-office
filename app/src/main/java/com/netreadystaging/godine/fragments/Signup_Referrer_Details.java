@@ -9,12 +9,14 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -56,7 +58,7 @@ public class Signup_Referrer_Details extends Fragment implements View.OnClickLis
     TextView txtrestaurentname,txtcityname,txtname,txtcellname;
     Button notrefered,bt_findsponsorbymember,btrefNext,bt_findsponsorbyrest,bt_staff;
     View view;
-    public  String AffiliateId="N/A",ProductVariant="N/A" ;
+    public  String AffiliateId="N/A",ProductVariant="N/A",StaffName="";
     LinearLayout layout_referedbyrestaurant,layout_referedbymember;
 
 
@@ -167,9 +169,49 @@ public class Signup_Referrer_Details extends Fragment implements View.OnClickLis
         }
         if(id==R.id.bt_notReffered)
         {
-            Intent intent=new Intent(getContext(), GoDineRestaurantSearchActivity.class);
+            Utility.showLoadingPopup(getActivity());
+            final HashMap<String,String> params=new HashMap<>();
+            new ServiceController(getActivity(), new HttpResponseCallback()
+            {
+                @Override
+                public void response(boolean success, boolean fail, String data){
+                    if(success){
+                        JSONArray jsonArray=null;
+                        try {
+                            jsonArray=new JSONArray(data);
+                            if (jsonArray.length()>0)
+                            {
+                                for (int i = 0; i < jsonArray.length(); i++)
+                                {
+                                    Utility.hideLoadingPopup();
+                                    JSONObject Aff  = jsonArray.getJSONObject(i);
+                                    String AffiliateI=Aff.getString("AffiliateId");
+                                    Log.d("No",AffiliateI);
+                                    Bundle bundle = new Bundle();
+                                    Fragment fragment=null;
+                                    bundle.putString("AffiliateId", AffiliateI);
+                                    bundle.putString("ProductVariantID", ProductVariant);
+                                    bundle.putString("StaffName", StaffName);
+                                    fragment = new Signup_Member_Details();
+                                    fragment.setArguments(bundle);
+                                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frag, fragment).addToBackStack(null).commit();
+                                }
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                             }
+                    else
+                    {
+                        ErrorController.showError(getActivity(),data,success);
+                    }
+
+
+                }
+            }).request(ServiceMod.DefaultAffiliate,params);
+            /*Intent intent=new Intent(getContext(), GoDineRestaurantSearchActivity.class);
             intent.putExtra("From","Signup");
-            startActivityForResult(intent,3);
+            startActivityForResult(intent,3);*/
         }
         if(id==R.id.bt_findsponsorbyrest)
         {
@@ -236,7 +278,7 @@ public class Signup_Referrer_Details extends Fragment implements View.OnClickLis
         {
 
             String AffiliateId= et_RestaurantmemberNumber.getText().toString();
-            String StaffName=bt_staff.getText().toString();
+          StaffName=bt_staff.getText().toString();
             if (!AffiliateId.isEmpty())
             {
                 if(ProductVariant !="N/A") {
@@ -262,7 +304,7 @@ public class Signup_Referrer_Details extends Fragment implements View.OnClickLis
         {
 
             String AffiliateId= godinememberid.getText().toString();
-            String StaffName="";
+            StaffName="";
             if(!AffiliateId.isEmpty()) {
                 bundle.putString("AffiliateId", AffiliateId);
                 bundle.putString("ProductVariantID", ProductVariant);

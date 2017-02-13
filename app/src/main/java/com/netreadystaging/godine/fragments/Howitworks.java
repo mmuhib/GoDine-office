@@ -109,5 +109,4 @@ public class Howitworks extends Fragment implements View.OnClickListener{
         bottomToolBar.setVisibility(View.VISIBLE);
         ((MainPageActivity)getActivity()).leftCenterButton.setVisibility(View.VISIBLE);
     }
-
 }

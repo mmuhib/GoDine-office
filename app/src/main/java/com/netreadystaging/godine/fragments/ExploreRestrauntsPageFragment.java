@@ -256,11 +256,8 @@ public class ExploreRestrauntsPageFragment extends Fragment implements View.OnCl
                 {
                     ErrorController.showError(getActivity(),data,success);
                 }
-
-
             }
         }).request(ServiceMod.FEATURES_LISTING,params);
-
     }
 
     private void loadTypesOfCuisines() {
@@ -395,15 +392,11 @@ public class ExploreRestrauntsPageFragment extends Fragment implements View.OnCl
             }
             loadRestaurants(name,cuisine,feature,address,latitude,longitude,miles,restRoleId);
         }
-
     }
-
     private void loadRestaurants(String name, String cuisine, String feature,
                                  String address, String latitude, String longitude, String miles,final String restRoleId) {
-
         Utility.showLoadingPopup(getActivity());
         restlist =  new ArrayList<>();
-
         final HashMap<String,String> params=new HashMap<>();
         params.put("RestaurantName",name);
         params.put("lat",latitude);
@@ -467,7 +460,6 @@ public class ExploreRestrauntsPageFragment extends Fragment implements View.OnCl
                                     restType = "Affiliate Restaurants";
                                     break ;
                             }
-
                             RestaurantSearchFilterFragment fragment = new RestaurantSearchFilterFragment();
                             Bundle bundle = new Bundle();
                             bundle.putSerializable("restaurants",restlist);
@@ -502,7 +494,6 @@ public class ExploreRestrauntsPageFragment extends Fragment implements View.OnCl
             }
         }).request(ServiceMod.SEARCH_RESTAURANT,params);
     }
-
     private long calculateMiles(double lat, double lng) {
         Location locationA = new Location("point A");
 
@@ -522,12 +513,9 @@ public class ExploreRestrauntsPageFragment extends Fragment implements View.OnCl
     public void onConnectionSuspended(int i) {
 
     }
-
     @Override
     public void onConnectionFailed(ConnectionResult connectionResult) {
-
     }
-
     @Override
     public void onClick(View v) {
         switch(v.getId())
@@ -554,7 +542,6 @@ public class ExploreRestrauntsPageFragment extends Fragment implements View.OnCl
             mgoogleApiclient.connect();
         }
     }
-
     private static final int PERMISSIONS_REQUEST_LOCATION = 2 ;
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
 

@@ -68,6 +68,9 @@ public class Signup_Member_Details extends Fragment implements View.OnClickListe
             SAffiliateId = getArguments().getString("AffiliateId");
             StaffName = getArguments().getString("StaffName");
             ProductVariantID= getArguments().getString("ProductVariantID");
+            Log.d("Affe",SAffiliateId);
+            Log.d("name",StaffName);
+            Log.d("Product",ProductVariantID);
             if((StaffName.equalsIgnoreCase("Staff Member Name or Number(Optional)")))
             {
                 StaffName="";
