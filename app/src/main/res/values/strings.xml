@@ -21,7 +21,7 @@
     <string name="feedback3">We\'re always on the lookout for more great\nGoDine\u2122 Restaurant Partners.If you have\nany favorities  that aren\'t on our list that you\n\t would like to see join our club,add their\n\t\t name and city here.\t (Add up to 3)</string>
     <string name="why_join_banner_str">Receive 50% Off your Entrée\'s\nevery time you dine out!</string>
     <string name="how_it_works">
-        <![CDATA["<b>How it Works-</b>Using your GoDine Mobile App is easy and fun! Simply search for GoDine™ Restaurants wherever you are using the location services.
+        <![CDATA["<b>How it Works-</b>Using your GoDine™ Mobile App is easy and fun! Simply search for GoDine™ Restaurants wherever you are using the location services.
                 Then filter by Cuisine, Price, Features, etc.You can also use the Map option for Turn-by-Turn directions to your restaurant location.<br/><b>Once you arrive-</b>Enjoy your meal(s) with friends and family. When it’s time to pay your check, let your server know that you are a GoDine™ Member. He/she will ask you to:<br/>               <b>&nbsp;&nbsp;&nbsp;&nbsp; • Open the GoDine™ App<br/>
                &nbsp;&nbsp;&nbsp;&nbsp; • Pull Up Validation Page – bottom menu (center button)<br/>
                &nbsp;&nbsp;&nbsp;&nbsp;• Server Validates Membership </b>- He/she will validate your membership by tapping the screen<br/>
@@ -33,7 +33,7 @@
                &nbsp;&nbsp;&nbsp;&nbsp;• Tip your Sever generously - </b> Make sure to tip your server on the total amount before the discount is applied. They work just as hard for you even when you get such a great deal."]]></string>
     <string name="referaldetail">Please click Find a Sponsor to select your sponsor member</string>
     <string name="terms"><font color="blue">Terms and Conditions</font></string>
-    <string name="refer">Refer as many friends as you can because for every friend that joins GoDine™ using your member number you get one FREE month of membership!\nJust add their email below and we\'ll do the rest.</string>
+    <string name="refer">Refer as many friends as you can because for every friend that joins using your member number, you\'ll get one FREE month of membership.</string>
     <string name="cancelmember">It\'s rare to see a member cancelling a membership with GoDine™ so we\'re sorry to lose you as a member.Please tap here to continue the process.</string>
     <string name="changeimage">This sends an email to GoDine requesting to change your registration photo.GoDine will send you an email with instructions to provide your User Name, Password, Member #,and new photo for approval and change.</string>
 

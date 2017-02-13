@@ -1,6 +1,7 @@
 package com.netreadystaging.godine.fragments;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -57,8 +58,15 @@ public class ReferFriendsandFamily extends Fragment {
         sendmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                StringBuilder shareContent = new StringBuilder();
+                shareContent.append("Refer friend and family");
 
-                emailA=et_email1.getText().toString();
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, shareContent.toString());
+                sendIntent.setType("text/plain");
+                startActivity(Intent.createChooser(sendIntent, "Share"));
+            /*    emailA=et_email1.getText().toString();
                 emailB=et_email2.getText().toString();
                 emailC=et_email3.getText().toString();
            if(!emailA.isEmpty() || !emailB.isEmpty() || !emailC.isEmpty())
@@ -106,7 +114,7 @@ public class ReferFriendsandFamily extends Fragment {
                 else
            {
                Utility.Alertbox(getContext(),"Info","Please enter Email","OK");
-           }
+           }*/
             }
         });
         setupToolBar();
