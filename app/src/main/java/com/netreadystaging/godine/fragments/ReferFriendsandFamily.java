@@ -59,7 +59,8 @@ public class ReferFriendsandFamily extends Fragment {
             @Override
             public void onClick(View view) {
                 StringBuilder shareContent = new StringBuilder();
-                shareContent.append("Refer friend and family");
+                shareContent.append("Get 50% off your Entree every time at with the GoDine™ App.Enter Sponsor ")
+                        .append(AppGlobal.getInatance().getUserId()).append(" or www.godineclub.com/").append(AppGlobal.getInatance().getUserId());
 
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);

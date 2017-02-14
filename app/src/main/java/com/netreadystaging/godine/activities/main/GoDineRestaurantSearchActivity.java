@@ -218,7 +218,7 @@ public class GoDineRestaurantSearchActivity extends AppBaseActivity implements V
         params.put("lat",latitude);
         params.put("lng",longitude);
         params.put("miles",Miles);
-
+        params.put("RestaurantType","253,284" );
         new ServiceController(getApplicationContext(), new HttpResponseCallback()
         {
             @Override

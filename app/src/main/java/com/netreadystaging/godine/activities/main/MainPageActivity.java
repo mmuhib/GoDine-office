@@ -150,7 +150,7 @@ public class MainPageActivity extends AppBaseActivity implements DrawerLocker {
         CFABSubIconView layout4 =  new CFABSubIconView(this);
         layout4.setView(R.drawable.favourite,"Favorite");
         CFABSubIconView layout5 =  new CFABSubIconView(this);
-        layout5.setView(R.drawable.users,"Referal");
+        layout5.setView(R.drawable.users,"Refer Friends");
 
         // Sub Action Buttons Ids
         SubActionButton actionButton1 = lCSubBuilder.setContentView(layout1, blueContentParams).build() ;

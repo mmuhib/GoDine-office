@@ -62,7 +62,7 @@
     </LinearLayout>
     <Button
         android:id="@+id/sendemail"
-       android:layout_marginTop="5dp"
+       android:layout_marginTop="25dp"
         android:layout_marginBottom="10dp"
         android:layout_gravity="center"
         android:text="Refer Friends Now!"
