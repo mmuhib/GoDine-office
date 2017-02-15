@@ -258,7 +258,7 @@ public class ProfilePageFragment extends ImageSelectFragment {
 
                         for (int index = 0; index < jArray.length(); index++) {
                             JSONObject jObj = jArray.getJSONObject(index) ;
-                            String profilePicUrl  ="https://www." +jObj.getString("Url") ;
+                            String profilePicUrl  ="https://" +jObj.getString("Url") ;
                             String s=profilePicUrl.substring(0,profilePicUrl.indexOf("?"));
                             Log.d("Image",s);
                             Log.d("In Load",profilePicUrl);
