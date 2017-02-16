@@ -137,8 +137,8 @@ public class ProfilePageFragment extends ImageSelectFragment {
                                             {
                                                 ivProfileImage.setImageBitmap(bitmap);
                                             }
-
-                                            Toast.makeText(getActivity(), Message, Toast.LENGTH_SHORT).show();
+                                            if(getActivity()!=null)
+                                                Toast.makeText(getActivity(), Message, Toast.LENGTH_SHORT).show();
                                         }
                                     } catch (JSONException e) {
                                         e.printStackTrace();
@@ -259,11 +259,11 @@ public class ProfilePageFragment extends ImageSelectFragment {
                         for (int index = 0; index < jArray.length(); index++) {
                             JSONObject jObj = jArray.getJSONObject(index) ;
                             String profilePicUrl  ="https://" +jObj.getString("Url") ;
-                            String s=profilePicUrl.substring(0,profilePicUrl.indexOf("?"));
-                            Log.d("Image",s);
+                            //   String s=profilePicUrl.substring(0,profilePicUrl.indexOf("?"));
+                            //  Log.d("Image",s);
                             Log.d("In Load",profilePicUrl);
                             if(getActivity()!=null) {
-                                new DownloadImageTask(ivProfileImage,progressBar).execute(s);
+                                new DownloadImageTask(ivProfileImage,progressBar).execute(profilePicUrl);
                                 Utility.hideLoadingPopup();
                             }
                         }
@@ -387,18 +387,18 @@ public class ProfilePageFragment extends ImageSelectFragment {
                                     if(Result.equalsIgnoreCase("Success"))
                                     {
                                         appGlobal.setIsVerificationImageUploaded("1");
-                                      //  Utility.Alertbox(getContext(),"Info",Message,"Ok");
+                                        //  Utility.Alertbox(getContext(),"Info",Message,"Ok");
                                         ivProfileImage.setImageBitmap(bitmap);
                                         Utility.hideLoadingPopup();
                                     }
                                     else if(Result.equalsIgnoreCase("Failed"))
                                     {
-                                       // Utility.Alertbox(getContext(),"Info","Profile picture stored successfully","Ok");
-                                       // Utility.Alertbox(getContext(),"Info",Message,"Ok");
+                                        // Utility.Alertbox(getContext(),"Info","Profile picture stored successfully","Ok");
+                                        // Utility.Alertbox(getContext(),"Info",Message,"Ok");
                                         ivProfileImage.setImageBitmap(bitmap);
                                         Utility.hideLoadingPopup();
                                     }
-                                   Utility.message(getContext(),Message);
+                                    Utility.message(getContext(),Message);
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();
