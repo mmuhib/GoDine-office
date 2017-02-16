@@ -397,6 +397,10 @@ public class ProfilePageFragment extends ImageSelectFragment {
                                         // Utility.Alertbox(getContext(),"Info",Message,"Ok");
                                         ivProfileImage.setImageBitmap(bitmap);
                                         Utility.hideLoadingPopup();
+                                        if(appGlobal.getIsVerificationImageUploaded().equalsIgnoreCase("0"))
+                                        {
+
+                                        }
                                     }
                                     Utility.message(getContext(),Message);
                                 }

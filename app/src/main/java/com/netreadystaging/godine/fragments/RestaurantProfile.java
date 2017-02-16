@@ -568,9 +568,7 @@ public class RestaurantProfile extends Fragment  implements OnMapReadyCallback,G
 //                                    builder.setTitle("Info");
 //                                    builder.create();
 //                                    builder.show() ;
-
                                     Utility.Alertbox(getActivity(),"Info","Restaurant has been removed from your fav list.","OK");
-
                                 }
                             }
                         }

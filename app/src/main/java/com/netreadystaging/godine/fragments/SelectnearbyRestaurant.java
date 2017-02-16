@@ -112,8 +112,10 @@ public class SelectnearbyRestaurant extends Fragment  implements GoogleApiClient
             nearbylist.clear();
         }
 
-        // For Testing
-       // Miles = "100";
+      /*   For Testing
+       Miles = "100";
+      String  latitud="33.6113736000";
+        String longitud="-117.8921022000";*/
         final HashMap<String, String> params = new HashMap<>();
         params.put("RestaurantNameOrCity", name);
         params.put("ZipCode", zipcode);
@@ -134,9 +136,9 @@ public class SelectnearbyRestaurant extends Fragment  implements GoogleApiClient
                         if (jsonArray.length() > 0) {
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject jsonObjects = jsonArray.getJSONObject(i);
-                                Result=jsonObjects.getString("Result");
+                               /* Result=jsonObjects.getString("Result");
                                 Message=jsonObjects.getString("Message");
-                                if(Result.equalsIgnoreCase("Success")) {
+                                if(Result.equalsIgnoreCase("Success")) {*/
                                     Restaurant restaurantObj = new Restaurant();
                                     // String Id=jsonObjects.getString("Id");
                                     restaurantObj.setId(jsonObjects.getString("Id"));
@@ -160,7 +162,7 @@ public class SelectnearbyRestaurant extends Fragment  implements GoogleApiClient
                                     int availableOffers = jsonObjects.getInt("IsOfferAvailable");
                                     restaurantObj.setOffers(availableOffers);
                                     nearbylist.add(restaurantObj);
-                                }
+                              /* }
                                     else
                                 {
                                     AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
@@ -177,7 +179,7 @@ public class SelectnearbyRestaurant extends Fragment  implements GoogleApiClient
                                     });
                                     builder.create();
                                     builder.show();
-                                    }
+                                    }*/
                                 adapter.notifyDataSetChanged();
                             }
                         } else {
