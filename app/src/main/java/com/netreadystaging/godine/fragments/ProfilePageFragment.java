@@ -320,7 +320,6 @@ public class ProfilePageFragment extends ImageSelectFragment {
     }
     public void ImageSignup(final Bitmap bitmap)
     {
-
         HashMap<String,String> params =  new HashMap<>();
         String  bitmapString= Utility.BitMapToString(bitmap);
         params.put("Base64String",bitmapString);

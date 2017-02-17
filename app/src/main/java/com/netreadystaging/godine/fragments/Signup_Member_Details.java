@@ -273,7 +273,7 @@ public class Signup_Member_Details extends Fragment implements View.OnClickListe
                             }
                         }
                         else {
-                            Utility.Alertbox(getContext(),"Error","Provide Valid Emai","OK");
+                            Utility.Alertbox(getContext(),"Error","Provide Valid Email","OK");
 
                         }
                     }
