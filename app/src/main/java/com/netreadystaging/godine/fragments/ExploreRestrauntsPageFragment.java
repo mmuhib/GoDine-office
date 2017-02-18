@@ -381,7 +381,7 @@ public class ExploreRestrauntsPageFragment extends Fragment implements View.OnCl
                 {
                     miles =  AppGlobal.getInatance().getMiles() ;
                     etMiles.setText(miles);
-                }else {
+                }else if(miles.trim().isEmpty()){
                     miles = "0" ;
                 }
 

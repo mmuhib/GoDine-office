@@ -6,7 +6,7 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Firebase" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3a1d18ec-008b-44c2-bad6-935015761beb" name="Default" comment="">
@@ -17,10 +17,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/star.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/star.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/netreadystaging/godine/activities/main/GoDineRestaurantSearchActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/netreadystaging/godine/activities/main/GoDineRestaurantSearchActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/netreadystaging/godine/fragments/Signup_Member_Details.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/netreadystaging/godine/fragments/Signup_Member_Details.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/netreadystaging/godine/fragments/ExploreRestrauntsPageFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/netreadystaging/godine/fragments/ExploreRestrauntsPageFragment.java" />
     </list>
     <ignored path="GoDine-Final.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -81,8 +79,8 @@
       <file leaf-file-name="ExploreRestrauntsPageFragment.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/netreadystaging/godine/fragments/ExploreRestrauntsPageFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="384" column="33" selection-start-line="384" selection-start-column="19" selection-end-line="384" selection-end-column="33" />
+            <state relative-caret-position="792">
+              <caret line="375" column="0" selection-start-line="375" selection-start-column="0" selection-end-line="375" selection-end-column="0" />
               <folding>
                 <element signature="e#9950#11359#0" expanded="true" />
                 <element signature="e#11358#11359#0" expanded="true" />
@@ -2538,7 +2536,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/netreadystaging/godine/activities/main/PaymentView.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/how_it_works.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/netreadystaging/godine/fragments/ImageSelectFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/netreadystaging/godine/fragments/ExploreRestrauntsPageFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/netreadystaging/godine/utils/ServiceMod.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/netreadystaging/godine/fragments/Signup_Referrer_Details.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/referfriends.xml" />
@@ -2551,6 +2548,7 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/netreadystaging/godine/fragments/ProfilePageFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/netreadystaging/godine/fragments/Signup_Member_Details.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/netreadystaging/godine/activities/main/GoDineRestaurantSearchActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/netreadystaging/godine/fragments/ExploreRestrauntsPageFragment.java" />
       </list>
     </option>
   </component>
@@ -3090,7 +3088,14 @@
       <option name="project" value="LOCAL" />
       <updated>1487327663678</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Changes">
+      <created>1487423100939</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1487423100939</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TodoView">
@@ -3157,7 +3162,8 @@
     <MESSAGE value="Payment Issue Resolved" />
     <MESSAGE value="Referr Optiom" />
     <MESSAGE value="Url change" />
-    <option name="LAST_COMMIT_MESSAGE" value="Url change" />
+    <MESSAGE value="Changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -3652,8 +3658,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/netreadystaging/godine/fragments/ExploreRestrauntsPageFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="384" column="33" selection-start-line="384" selection-start-column="19" selection-end-line="384" selection-end-column="33" />
+        <state relative-caret-position="792">
+          <caret line="375" column="0" selection-start-line="375" selection-start-column="0" selection-end-line="375" selection-end-column="0" />
           <folding>
             <element signature="e#9950#11359#0" expanded="true" />
             <element signature="e#11358#11359#0" expanded="true" />
