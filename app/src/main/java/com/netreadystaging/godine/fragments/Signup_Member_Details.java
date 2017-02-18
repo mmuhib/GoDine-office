@@ -243,8 +243,8 @@ public class Signup_Member_Details extends Fragment implements View.OnClickListe
                                                         }
 
                                                     } catch (JSONException e) {
-                                                    //    Utility.Alertbox(getActivity(),"Info",Message,"OK");
-                                                       /* final AlertDialog.Builder aBuilder1=new AlertDialog.Builder(getContext());
+                                                    /*    Utility.Alertbox(getActivity(),"Info",Message,"OK");
+                                                        final AlertDialog.Builder aBuilder1=new AlertDialog.Builder(getContext());
                                                         aBuilder1.setTitle("Info");
                                                         aBuilder1.setMessage("Username already available");
                                                         aBuilder1.setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -364,10 +364,9 @@ public class Signup_Member_Details extends Fragment implements View.OnClickListe
     }
 
     @Override
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l)
+    {
        String abc[]= getResources().getStringArray(R.array.States);
-
         if (i <=0) {
             Sstate=abc[1];
        //     Utility.message(getActivity(), Sstate);
@@ -380,7 +379,6 @@ public class Signup_Member_Details extends Fragment implements View.OnClickListe
   //       Sstate=abc[i];
        // Utility.message(getContext(),Sstate);
     }
-
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
 

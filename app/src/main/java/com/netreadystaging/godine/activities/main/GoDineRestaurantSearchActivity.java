@@ -215,7 +215,7 @@ public class GoDineRestaurantSearchActivity extends AppBaseActivity implements V
         }
 
         // For Testing
-        Miles="100";
+        Miles="25";
         final HashMap<String,String> params=new HashMap<>();
         params.put("RestaurantNameOrCity",name);
         params.put("ZipCode",zipcode);
@@ -247,8 +247,8 @@ public class GoDineRestaurantSearchActivity extends AppBaseActivity implements V
                                 restaurantObj.setAddress(jsonObjects.getString("Address"));
                                 StringBuffer Area = new StringBuffer();
                                 Area.append(jsonObjects.getString("Region"));
-                                Area.append("," + jsonObjects.getString("City"));
-                                Area.append("," + jsonObjects.getString("PostalCode"));
+                                Area.append(", " + jsonObjects.getString("City"));
+                                Area.append(", " + jsonObjects.getString("PostalCode"));
                                 restaurantObj.setArea("" + Area);
                                 restaurantObj.setRestaurantCusine(jsonObjects.getString("RestaurantCuisine"));
                                 restaurantObj.setLunch(jsonObjects.getString("RestaurantAverageLunch"));
@@ -291,14 +291,11 @@ public class GoDineRestaurantSearchActivity extends AppBaseActivity implements V
         }).request(ServiceMod.SEARCHRESTAURANTFORREGISTRATION,params);
     }
 
-    private long calculateMiles(double lat, double lng) {
+        private long calculateMiles(double lat, double lng) {
         Location locationA = new Location("point A");
-
         locationA.setLatitude(currentLat);
         locationA.setLongitude(currentLng);
-
         Location locationB = new Location("point B");
-
         locationB.setLatitude(lat);
         locationB.setLongitude(lng);
 
