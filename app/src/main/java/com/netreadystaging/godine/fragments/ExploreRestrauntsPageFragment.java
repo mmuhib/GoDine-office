@@ -363,7 +363,6 @@ public class ExploreRestrauntsPageFragment extends Fragment implements View.OnCl
                 {
                     feature = (String) etRestaurantFeature.getSelectedItem() ;
                 }
-
                 name = etNameOfRestaurant.getText().toString();
                 StringBuilder builder = new StringBuilder();
                 String  city = etRestaurantCity.getText().toString();
