@@ -43,7 +43,17 @@ public class MemberAdapter extends ArrayAdapter<MemberList> {
              holder= (Viewhold) row.getTag();
         }
         holder.Displayname.setText(listofmember.get(position).getDisplayName());
-        holder.Cellno.setText(listofmember.get(position).getCell());
+        String Cell=listofmember.get(position).getCell();
+        if(Cell.isEmpty())
+        {
+            holder.Cellno.setText(listofmember.get(position).getTelephone());
+            Log.d("Cell",Cell);
+        }
+        else
+        {
+            holder.Cellno.setText(Cell);
+            Log.d("Cell",listofmember.get(position).getCell());
+        }
         holder.profileImage.setImageResource(R.drawable.img);
         holder.Userid.setText(listofmember.get(position).getUserId());
         return row;

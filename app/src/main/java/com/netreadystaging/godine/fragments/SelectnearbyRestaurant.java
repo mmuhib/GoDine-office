@@ -6,13 +6,17 @@ import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -20,6 +24,7 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationServices;
 import com.netreadystaging.godine.R;
+import com.netreadystaging.godine.activities.main.MainPageActivity;
 import com.netreadystaging.godine.adapters.SearchRestaurantAdapter;
 import com.netreadystaging.godine.callbacks.DrawerLocker;
 import com.netreadystaging.godine.controllers.ErrorController;
@@ -112,8 +117,8 @@ public class SelectnearbyRestaurant extends Fragment  implements GoogleApiClient
             nearbylist.clear();
         }
 
-      /*   For Testing
-       Miles = "100";
+      //   For Testing
+    /* Miles = "1000";
       String  latitud="33.6113736000";
         String longitud="-117.8921022000";*/
         final HashMap<String, String> params = new HashMap<>();
@@ -192,7 +197,7 @@ public class SelectnearbyRestaurant extends Fragment  implements GoogleApiClient
                                 public void onClick(DialogInterface dialog, int which) {
                                     dialog.dismiss();
                                     MemberVerification frag=new MemberVerification();
-                                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.flContent,frag).commit();
+                                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.flContent,frag).addToBackStack(null).commit();
                                 }
                             });
                             builder.create();
@@ -208,6 +213,7 @@ public class SelectnearbyRestaurant extends Fragment  implements GoogleApiClient
             }
         }).request(ServiceMod.SEARCH_RESTAURANT, params);
     }
+
 
     private long calculateMiles(double lat, double lng) {
         Location locationA = new Location("point A");
@@ -272,7 +278,7 @@ public class SelectnearbyRestaurant extends Fragment  implements GoogleApiClient
                                     public void onClick(DialogInterface dialogInterface, int i) {
                                         dialogInterface.dismiss();
                                         ProfilePageFragment frag=new ProfilePageFragment();
-                                       getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.flContent,frag).commit();
+                                       getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.flContent,frag).addToBackStack(null).commit();
 
                                     }
                                 });
@@ -311,7 +317,16 @@ public class SelectnearbyRestaurant extends Fragment  implements GoogleApiClient
         Activity activity = getActivity();
         Toolbar toolBar  =  (Toolbar) activity.findViewById(R.id.toolbar) ;
         toolBar.setVisibility(View.VISIBLE);
+        ImageView ivToolBarNavigationIcn = (ImageView)toolBar.findViewById(R.id.ivToolBarNavigationIcn) ;
+        ImageView ivToolBarBack = (ImageView)toolBar.findViewById(R.id.ivToolBarBack) ;
+        ImageView ivToolBarEndIcn = (ImageView)toolBar.findViewById(R.id.ivToolBarEndIcn) ;
+        ivToolBarNavigationIcn.setVisibility(View.GONE);
+        ivToolBarBack.setVisibility(View.GONE);
+        ivToolBarEndIcn.setVisibility(View.GONE);
         mTitle = (TextView) toolBar.findViewById(R.id.tvToolBarMiddleLabel);
+        FrameLayout bottomToolBar = (FrameLayout)activity.findViewById(R.id.bottomToolBar) ;
+        bottomToolBar.setVisibility(View.GONE);
+        ((MainPageActivity)getActivity()).leftCenterButton.setVisibility(View.GONE);
 
     }
 
@@ -319,6 +334,29 @@ public class SelectnearbyRestaurant extends Fragment  implements GoogleApiClient
     public void onResume() {
         super.onResume();
         mTitle.setText("Select Restaurant");
+      /*  getView().setFocusableInTouchMode(true);
+        getView().requestFocus();
+        getView().setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View view, int i, KeyEvent keyEvent) {
+                if( i == KeyEvent.KEYCODE_BACK )
+                {
+                    Utility.message(getContext(),"Hell");
+                   *//* MemberVerification frag=new MemberVerification();
+                    FragmentManager fm =  getActivity().getSupportFragmentManager() ;
+                    fm.beginTransaction().replace(R.id.flContent, frag).addToBackStack(null).commit();*//*
+                    if(getActivity().getSupportFragmentManager().getBackStackEntryCount()>1) {
+                     //   getActivity().getSupportFragmentManager().popBackStack();
+                        MemberVerification frag=new MemberVerification();
+                        FragmentManager fm =  getActivity().getSupportFragmentManager() ;
+                        fm.beginTransaction().replace(R.id.flContent, frag).addToBackStack(null).commit();
+                        Utility.message(getContext(), "Hello");
+                    }
+                    return true;
+                }
+                return false;
+            }
+        });*/
     }
 
 
@@ -326,7 +364,6 @@ public class SelectnearbyRestaurant extends Fragment  implements GoogleApiClient
     public void onDestroyView() {
         super.onDestroyView();
         ((DrawerLocker)getActivity()).setDrawerLocked(false);
-
     }
 }
 

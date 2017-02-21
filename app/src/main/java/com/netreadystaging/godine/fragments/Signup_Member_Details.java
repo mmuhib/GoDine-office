@@ -157,7 +157,7 @@ public class Signup_Member_Details extends Fragment implements View.OnClickListe
                 Sname=et_name.getText().toString();
                 Spassword=et_password.getText().toString();
                 Sconfirmpass=et_confirmPass.getText().toString();
-               Sfirstname=et_firstname.getText().toString();
+                Sfirstname=et_firstname.getText().toString();
                Slname=et_lastname.getText().toString();
                 Stelephone=et_telephone.getText().toString();
                Sstreet=et_memberstreet.getText().toString();
@@ -166,7 +166,7 @@ public class Signup_Member_Details extends Fragment implements View.OnClickListe
                  SMiles="25";
                 final String SdeviceId="31cf203f8d4469ab59f397be5f6df49ac1b2f6e682f6cf15b8d1aeafc72e7c25";
 
-                if(!Sname.isEmpty() && !Spassword.isEmpty() &&!Sconfirmpass.isEmpty() && !Sfirstname.isEmpty() && !Slname.isEmpty() && !Sstreet.isEmpty() && !Scity.isEmpty() && !Szipcode.isEmpty() )
+                if(!Sname.isEmpty() && !Spassword.isEmpty() &&!Sconfirmpass.isEmpty() && !Sfirstname.isEmpty() && !Slname.isEmpty() && !Sstreet.isEmpty() && !Scity.isEmpty() && !Szipcode.isEmpty() &&!Stelephone.isEmpty() )
                 {
                     if (ch_terms.isChecked()) {
                         if(Utility.checkValidEmail(Sname))
@@ -185,7 +185,7 @@ public class Signup_Member_Details extends Fragment implements View.OnClickListe
                                         params.put("Street",Sstreet );
                                         params.put("City" ,Scity );
                                         params.put("Country","United States");
-                                       params.put("Region",Sstate );
+                                        params.put("Region",Sstate );
                                         params.put("PostalCode",Szipcode);
                                         params.put("DeviceId",SdeviceId);
                                         params.put("DeviceType","Android");
@@ -255,7 +255,7 @@ public class Signup_Member_Details extends Fragment implements View.OnClickListe
                                                         });
                                                         aBuilder1.create();
                                                         aBuilder1.show();*/
-
+                                                        Utility.Alertbox(getContext(),"Info","Please Try again","OK");
                                                         e.printStackTrace();
                                                     }
                                                 }

@@ -187,8 +187,6 @@ public class FavoritePageFragment extends Fragment implements GoogleApiClient.Co
 
                final SearchRestaurantAdapter adapter=new SearchRestaurantAdapter(getActivity(),0,restlist);
                 lvRestaurant.setAdapter(adapter);
-
-
             }
 
             private long calculateMiles(double lat, double lng) {

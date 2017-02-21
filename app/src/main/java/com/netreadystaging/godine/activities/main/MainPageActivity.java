@@ -2,6 +2,7 @@ package com.netreadystaging.godine.activities.main;
 
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -10,10 +11,14 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
+import android.text.InputType;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -416,7 +421,36 @@ public class MainPageActivity extends AppBaseActivity implements DrawerLocker {
         if(getSupportFragmentManager().getBackStackEntryCount() >1)
             super.onBackPressed();
         else
-            finish();
+        {
+            final AlertDialog.Builder build=new AlertDialog.Builder(MainPageActivity.this);
+            LayoutInflater inflater=getLayoutInflater();
+            View view1=inflater.inflate(R.layout.dialogbox_activity,null);
+            build.setView(view1);
+            TextView Top=(TextView) view1.findViewById(R.id.pasword);
+            Top.setText("Exit");
+            TextView message= (TextView) view1.findViewById(R.id.message);
+            message.setText("Do you want to exit from GoDine™?");
+            final EditText currentpassword= (EditText) view1.findViewById(R.id.entername);
+            currentpassword.setVisibility(View.GONE);
+            final EditText newpassword= (EditText) view1.findViewById(R.id.enternumber);
+            newpassword.setVisibility(View.GONE);
+            build.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    finish();
+                }
+            });
+            build.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                }
+            });
+            build.create();
+            build.show();
+
+        }
+
     }
 
     @Override

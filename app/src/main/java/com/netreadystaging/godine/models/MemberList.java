@@ -16,6 +16,16 @@ public class MemberList
     String Cell;
     String DisplayName;
     String ProfileImage;
+    String Telephone;
+    public String getTelephone() {
+        return Telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        Telephone = telephone;
+    }
+
+
 
     public String getProfileImage() {
         return ProfileImage;

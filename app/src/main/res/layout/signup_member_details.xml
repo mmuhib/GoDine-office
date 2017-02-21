@@ -120,7 +120,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     style="@style/GDRoundedEditTextTheme"
-                    android:hint="Telephone"
+                    android:hint="Telephone*"
                     android:inputType="phone"
                     android:maxLines="1"
                     android:maxLength="10"

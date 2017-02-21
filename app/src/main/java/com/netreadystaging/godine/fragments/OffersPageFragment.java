@@ -357,7 +357,8 @@ public class OffersPageFragment extends Fragment implements GoogleApiClient.Conn
                                 ivToolBarEndIcn.setVisibility(View.VISIBLE);
                             }
                         } else {
-                            Utility.Alertbox(getActivity(),"Info","No Restaurant Found with any offer for searched option.Please try something else","OK");
+                           // Utility.Alertbox(getActivity(),"Info","No Restaurant Found with any offer for searched option.Please try something else","OK");
+                            Utility.Alertbox(getActivity(),"Info","Sorry no offers found at this time for favorited restaurants","OK");
                         }
                         offerAdapter.notifyDataSetChanged();
 

@@ -411,9 +411,17 @@ public class Signup_Referrer_Details extends Fragment implements View.OnClickLis
                                                 JSONObject jsonObjects = jsonArray.getJSONObject(i);
                                                 String name = jsonObjects.getString("Name");
                                                 String cell = jsonObjects.getString("CellNo");
+                                                String tele=jsonObjects.getString("Telephone");
                                                 //  Utility.message(getContext(), "Success");
+                                                if(cell.isEmpty())
+                                                {
+                                                    txtcellname.setText(tele);
+                                                }
+                                                else
+                                                {
+                                                    txtcellname.setText(cell);
+                                                }
                                                 txtname.setText(name);
-                                                txtcellname.setText(cell);
                                                 btrefNext.setVisibility(View.VISIBLE);
                                             }
                                         }

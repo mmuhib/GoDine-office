@@ -15,6 +15,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -87,7 +88,6 @@ public class ExploreRestrauntsPageFragment extends Fragment implements View.OnCl
 
     private void setupGUI() {
         etNameOfRestaurant = (EditText)view.findViewById(R.id.etNameOfRestaurant) ;
-
         etRestaurantCity = (EditText) view.findViewById(R.id.etRestaurantCity) ;
         etRestaurantZipcode = (EditText)view.findViewById(R.id.etRestaurantZipcode) ;
         etMiles = (EditText)view.findViewById(R.id.etMiles) ;
@@ -206,6 +206,20 @@ public class ExploreRestrauntsPageFragment extends Fragment implements View.OnCl
         builder.setView(viewRestTypes);
         builder.setCancelable(false) ;
         final Dialog dialog = builder.create();
+        dialog.setOnKeyListener(new DialogInterface.OnKeyListener() {
+            @Override
+            public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
+                if(i==KeyEvent.KEYCODE_BACK)
+                {
+
+                        ProfilePageFragment frag=new ProfilePageFragment();
+                        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.flContent,frag).addToBackStack(null).commit();
+                        dialog.dismiss();
+                          return true;
+                }
+                return false;
+            }
+        });
 
         lvRestTypes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -249,7 +263,6 @@ public class ExploreRestrauntsPageFragment extends Fragment implements View.OnCl
                         featuresAdapter.notifyDataSetChanged();
                     } catch (JSONException e) {
                         e.printStackTrace();
-
                     }
                 }
                 else
@@ -469,17 +482,17 @@ public class ExploreRestrauntsPageFragment extends Fragment implements View.OnCl
                         }
                         else
                         {
-//                            AlertDialog.Builder builder =  new AlertDialog.Builder();
-//                            builder.setTitle("Info");
-//                            builder.setMessage();
-//                            builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-//                                @Override
-//                                public void onClick(DialogInterface dialog, int which) {
-//                                    dialog.dismiss();
-//                                }
-//                            });
-//                            builder.create();
-//                            builder.show();
+                          /*  AlertDialog.Builder builder =  new AlertDialog.Builder();
+                          builder.setTitle("Info");
+                            builder.setMessage();
+                           builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                               @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                   dialog.dismiss();
+                               }
+                           });
+                          builder.create();
+                            builder.show();*/
                             Utility.Alertbox(getActivity(),"Info","No Restaurant Found Nearby, Please use other search option.","OK");
                         }
                     } catch (JSONException e) {

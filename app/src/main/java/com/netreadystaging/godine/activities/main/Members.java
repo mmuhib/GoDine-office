@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -88,9 +89,9 @@ public class Members extends AppCompatActivity implements View.OnClickListener, 
         String memberCell=et_memberCell.getText().toString().trim();
         if(!memberNumber.isEmpty() && !memberCell.isEmpty())
         {
-            final AlertDialog.Builder builder=new AlertDialog.Builder(Members.this);
+           final AlertDialog.Builder builder=new AlertDialog.Builder(Members.this);
             builder.setTitle("INFO");
-            builder.setMessage("please fill either Member Number or \n Member Phone");
+            builder.setMessage("Please fill either Member Number or \n Member Phone");
             builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
@@ -110,6 +111,7 @@ public class Members extends AppCompatActivity implements View.OnClickListener, 
                 public void response(boolean success, boolean fail, String data) {
                     Utility.hideLoadingPopup();
                     if (success) {
+                        Log.d("Muhib",data);
                         JSONArray jsonArray = null;
                         try {
 
@@ -121,13 +123,15 @@ public class Members extends AppCompatActivity implements View.OnClickListener, 
                                     memberList.setDisplayName(jsonObjects.getString("DisplayName"));
                                     memberList.setCell(jsonObjects.getString("Cell"));
                                     memberList.setUserId(jsonObjects.getString("UserId"));
+                                    memberList.setTelephone(jsonObjects.getString("Telephone"));
                                     memberLists.add(memberList);
                                 }
                             } else {
+                               // Utility.Alertbox(getApplicationContext(),"Info","Please Fill Value","OK");
                                 AlertDialog.Builder builder = new AlertDialog.Builder(Members.this);
                                 builder.setTitle("Info");
-                                builder.setMessage("please fill value");
-                                builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                builder.setMessage("Please Fill value");
+                                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
                                         dialog.dismiss();

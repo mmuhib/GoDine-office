@@ -15,11 +15,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.netreadystaging.godine.R;
+import com.netreadystaging.godine.activities.main.MainPageActivity;
 import com.netreadystaging.godine.callbacks.DrawerLocker;
 import com.netreadystaging.godine.utils.AppGlobal;
 import com.netreadystaging.godine.utils.DownloadImageTask;
@@ -66,7 +68,7 @@ public class MemberVerification extends Fragment {
                         restBundle.putSerializable("membersaving",membersaving);
                         restBundle.putSerializable("userId",id);
                         frag.setArguments(restBundle);
-                        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.flContent,frag).commit();
+                        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.flContent,frag).addToBackStack(null).commit();
                     }
                     else
                     {
@@ -121,10 +123,21 @@ public class MemberVerification extends Fragment {
 
 
     private void setupToolBar() {
+
         Activity activity = getActivity();
         Toolbar toolBar  =  (Toolbar) activity.findViewById(R.id.toolbar) ;
         toolBar.setVisibility(View.VISIBLE);
+        ImageView ivToolBarNavigationIcn = (ImageView)toolBar.findViewById(R.id.ivToolBarNavigationIcn) ;
+        ImageView ivToolBarBack = (ImageView)toolBar.findViewById(R.id.ivToolBarBack) ;
+        ImageView ivToolBarEndIcn = (ImageView)toolBar.findViewById(R.id.ivToolBarEndIcn) ;
+        ivToolBarNavigationIcn.setVisibility(View.GONE);
+        ivToolBarBack.setVisibility(View.GONE);
+        ivToolBarEndIcn.setVisibility(View.GONE);
         title = (TextView) toolBar.findViewById(R.id.tvToolBarMiddleLabel);
+        FrameLayout bottomToolBar = (FrameLayout)activity.findViewById(R.id.bottomToolBar) ;
+        bottomToolBar.setVisibility(View.GONE);
+        ((MainPageActivity)getActivity()).leftCenterButton.setVisibility(View.GONE);
+
     }
 
     @Override
