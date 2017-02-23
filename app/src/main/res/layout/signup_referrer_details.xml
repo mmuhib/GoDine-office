@@ -228,7 +228,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text=" Restaurent Name"
+                            android:text=" Restaurant Name"
                             android:textColor="@color/black"
                             android:layout_gravity="left"
                             android:textSize="12sp"
@@ -285,10 +285,9 @@
                         />
                 </LinearLayout>
                 <Button
-
                     android:layout_height="40dp"
                     android:text="Next"
-                    android:layout_marginTop="3dp"
+                    android:layout_marginTop="1dp"
                     android:layout_gravity="right"
                     android:visibility="gone"
                     android:id="@+id/bt_refNext"

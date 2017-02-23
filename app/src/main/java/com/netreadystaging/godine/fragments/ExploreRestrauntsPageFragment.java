@@ -17,6 +17,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -206,7 +207,7 @@ public class ExploreRestrauntsPageFragment extends Fragment implements View.OnCl
         builder.setView(viewRestTypes);
         builder.setCancelable(false) ;
         final Dialog dialog = builder.create();
-        dialog.setOnKeyListener(new DialogInterface.OnKeyListener() {
+         dialog.setOnKeyListener(new DialogInterface.OnKeyListener() {
             @Override
             public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
                 if(i==KeyEvent.KEYCODE_BACK)
@@ -226,11 +227,14 @@ public class ExploreRestrauntsPageFragment extends Fragment implements View.OnCl
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 final RestaurantType restaurantType = (RestaurantType) parent.getAdapter().getItem(position);
                 restRoleId = restaurantType.getRoleId() ;
+                isCurrentLocationSearch = true ;
+        if (Utility.checkGooglePlayService(getActivity())) {
+           setupLocation();
+        }
                 dialog.dismiss();
             }
         });
         dialog.show() ;
-
        // dialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
 
     }
@@ -238,6 +242,7 @@ public class ExploreRestrauntsPageFragment extends Fragment implements View.OnCl
     private void loadRestFeatures() {
         listOfFeatures = new ArrayList<>();
         listOfFeatures.add("Features");
+
         final HashMap<String,String> params=new HashMap<>();
 
         new ServiceController(getActivity(), new HttpResponseCallback()
@@ -304,8 +309,6 @@ public class ExploreRestrauntsPageFragment extends Fragment implements View.OnCl
                 {
                     ErrorController.showError(getActivity(),data,success);
                 }
-
-
             }
         }).request(ServiceMod.CUISINES_LISTING,params);
     }
@@ -378,8 +381,9 @@ public class ExploreRestrauntsPageFragment extends Fragment implements View.OnCl
                 }
                 name = etNameOfRestaurant.getText().toString();
                 StringBuilder builder = new StringBuilder();
-                String  city = etRestaurantCity.getText().toString();
-                String zipcode = etRestaurantZipcode.getText().toString();
+                 String  city = etRestaurantCity.getText().toString();
+                 String zipcode = etRestaurantZipcode.getText().toString();
+
                 if(!city.isEmpty()){
                     builder.append(city);
                     if(!zipcode.isEmpty()){builder.append(",").append(zipcode);}
@@ -398,7 +402,8 @@ public class ExploreRestrauntsPageFragment extends Fragment implements View.OnCl
                 }
 
                 if (name.isEmpty() && cuisine.isEmpty() && feature.isEmpty() && city.isEmpty() && zipcode.isEmpty()) {
-                    Toast.makeText(getActivity(), "Please search by one parameter", Toast.LENGTH_SHORT).show();
+                  //  Toast.makeText(getActivity(), "Please search by one parameter", Toast.LENGTH_SHORT).show();
+                    Utility.message(getActivity(),"Please enter City or Zipcode to search by Miles");
                     return ;
                 }
             }
@@ -440,8 +445,8 @@ public class ExploreRestrauntsPageFragment extends Fragment implements View.OnCl
                                 restaurantObj.setReview(jsonObjects.getString("NumberOfReviews"));
                                 restaurantObj.setAddress(jsonObjects.getString("Address"));
                                 StringBuffer area = new StringBuffer();
-                                area.append(jsonObjects.getString("Region"));
-                                area.append(", " + jsonObjects.getString("City"));
+                                area.append(jsonObjects.getString("City"));
+                                area.append(", " + jsonObjects.getString("Region"));
                                 area.append(", " + jsonObjects.getString("PostalCode"));
                                 restaurantObj.setArea("" + area);
                                 restaurantObj.setRestaurantCusine(jsonObjects.getString("RestaurantCuisine"));

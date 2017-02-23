@@ -68,7 +68,7 @@ public class MemberVerification extends Fragment {
                         restBundle.putSerializable("membersaving",membersaving);
                         restBundle.putSerializable("userId",id);
                         frag.setArguments(restBundle);
-                        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.flContent,frag).addToBackStack(null).commit();
+                        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.flContent,frag).commit();
                     }
                     else
                     {
@@ -121,9 +121,7 @@ public class MemberVerification extends Fragment {
         });
     }
 
-
     private void setupToolBar() {
-
         Activity activity = getActivity();
         Toolbar toolBar  =  (Toolbar) activity.findViewById(R.id.toolbar) ;
         toolBar.setVisibility(View.VISIBLE);
@@ -137,7 +135,6 @@ public class MemberVerification extends Fragment {
         FrameLayout bottomToolBar = (FrameLayout)activity.findViewById(R.id.bottomToolBar) ;
         bottomToolBar.setVisibility(View.GONE);
         ((MainPageActivity)getActivity()).leftCenterButton.setVisibility(View.GONE);
-
     }
 
     @Override

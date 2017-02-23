@@ -162,7 +162,7 @@ public class GoDineRestaurantSearchActivity extends AppBaseActivity implements V
         ivToolBarNavigationIcn.setVisibility(View.GONE);
         ivToolBarBack.setVisibility(View.VISIBLE);
         ivToolBarEndIcn.setImageResource(R.drawable.search_icn_toolbar);
-        ivToolBarEndIcn.setVisibility(View.GONE);
+        ivToolBarEndIcn.setVisibility(View.VISIBLE);
         ivToolBarEndIcn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

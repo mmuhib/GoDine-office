@@ -11,6 +11,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v7.app.AlertDialog;
 import android.util.Base64;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.TextView;
@@ -95,23 +96,29 @@ public class Utility {
         Toast.makeText(context,Msg,Toast.LENGTH_SHORT).show();
     }
 
-//    public static void Alertbox(Context context,String title,String Message,String Positve)
-//    {
-//        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-//        builder.setCancelable(false);
-//        builder.setTitle(title);
-//        builder.setMessage(Message);
-//        builder.setPositiveButton(Positve, new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialogInterface, int i) {
-//                dialogInterface.dismiss();
-//            }
-//        });
-//        builder.create();
-//        builder.show();
-//    }
+/*    public static void Alertbox(Context context,String title,String Message,String Positve)
+   {
+       AlertDialog.Builder builder = new AlertDialog.Builder(context);
+       builder.setCancelable(false);
+        builder.setTitle(title);
+        builder.setMessage(Message);
+       builder.setPositiveButton(Positve, new DialogInterface.OnClickListener() {
+           @Override
+           public void onClick(DialogInterface dialogInterface, int i) {
+              dialogInterface.dismiss();
+           }
+      });
+       builder.setOnKeyListener(new DialogInterface.OnKeyListener() {
+           @Override
+           public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
+               return false;
+           }
+       });
+        builder.create();
+        builder.show();
+   }*/
 
-    public static void Alertbox(Context context,String title,String Message,String Positve)
+   public static void Alertbox(Context context,String title,String Message,String Positve)
     {
         final Dialog dialog=new Dialog(context);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -132,7 +139,4 @@ public class Utility {
         });
         dialog.show();
     }
-
-
-
 }

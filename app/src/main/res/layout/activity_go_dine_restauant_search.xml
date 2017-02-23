@@ -18,6 +18,7 @@
         android:text="RESTAURANTS"/>
 
     <RelativeLayout
+        android:visibility="gone"
         android:layout_margin="5dp"
         android:layout_below="@+id/go_dine_restaurant_search_sub_heading"
         android:id="@+id/gd_rest_search_filter_container"
@@ -35,6 +36,7 @@
             />
 
         <LinearLayout
+
             android:gravity="center"
             android:layout_marginLeft="25dp"
             android:layout_marginStart="25dp"
@@ -49,6 +51,7 @@
             android:paddingBottom="10dp"
             android:orientation="vertical"
             android:background="@drawable/restaurant_search_form_bg"
+
             >
             <Button
                 style="@style/GDAppButtonBaseTheme"
