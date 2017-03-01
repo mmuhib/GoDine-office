@@ -41,6 +41,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 
 import in.technobuff.helper.http.HttpResponseCallback;
@@ -277,12 +280,27 @@ public class GoDineRestaurantSearchActivity extends AppBaseActivity implements V
                             builder.create();
                             builder.show();
                         }
+                        Collections.sort(restlist, new Comparator<Restaurant>() {
+                            @Override
+                            public int compare(Restaurant restaurant, Restaurant t1) {
+                             if(restaurant.getMiles()>t1.getMiles())
+                             {
+                                 return 1;
+                             }
+                                else
+                             {
+                                 return -1;
+                             }
+                               // return 0;
+                            }
+                        });
                         adapter.notifyDataSetChanged();
 
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                 }
+
                 else
                 {
                     ErrorController.showError(getApplicationContext(),data,success);

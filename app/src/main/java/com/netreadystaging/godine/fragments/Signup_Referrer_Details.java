@@ -56,7 +56,7 @@ public class Signup_Referrer_Details extends Fragment implements View.OnClickLis
     RadioButton Byrestaurant,Bymember;
     EditText godinememberid,et_RestaurantmemberNumber;
     TextView txtrestaurentname,txtcityname,txtname,txtcellname;
-    Button notrefered,bt_findsponsorbymember,btrefNext,bt_findsponsorbyrest,bt_staff;
+    Button notrefered,bt_findsponsorbymember,btrefNext,bt_findsponsorbyrest,bt_staff,bt_godinememberid,bt_RestaurantmemberNumber;
     View view;
     public  String AffiliateId="N/A",ProductVariant="N/A",StaffName="";
     LinearLayout layout_referedbyrestaurant,layout_referedbymember;
@@ -127,11 +127,15 @@ public class Signup_Referrer_Details extends Fragment implements View.OnClickLis
         bt_findsponsorbymember= (Button) view.findViewById(R.id.bt_findsponsorbymember);
         bt_staff=(Button) view.findViewById(R.id.bt_staffname);
         btrefNext= (Button) view.findViewById(R.id.bt_refNext);
+        bt_godinememberid= (Button) view.findViewById(R.id.bt_godine_memberId);
+        bt_RestaurantmemberNumber=(Button) view.findViewById(R.id.bt_restaurantmembe);
         btrefNext.setOnClickListener(this);
         notrefered.setOnClickListener(this);
         bt_findsponsorbyrest.setOnClickListener(this);
         bt_findsponsorbymember.setOnClickListener(this);
         bt_staff.setOnClickListener(this);
+        bt_godinememberid.setOnClickListener(this);
+        bt_RestaurantmemberNumber.setOnClickListener(this);
     }
     private void setupradiobuttons() {
         radioGroup= (RadioGroup) view.findViewById(R.id.radiogroup);
@@ -265,6 +269,124 @@ public class Signup_Referrer_Details extends Fragment implements View.OnClickLis
         if(id==R.id.bt_refNext)
         {
             Nextbuttonclick();
+        }
+        if(id==R.id.bt_restaurantmembe)
+        {
+           // Utility.message(getContext(),"Hi");
+
+            String chechk=et_RestaurantmemberNumber.getText().toString().trim();
+            if(!chechk.isEmpty()) {
+
+                String numb = et_RestaurantmemberNumber.getText().toString();
+                String refid = "1";
+                HashMap<String, String> params = new HashMap<>();
+                params.put("ReferrerId", numb);
+                params.put("ReferrerType", refid);
+                Utility.showLoadingPopup(getActivity());
+                new ServiceController(getActivity(), new HttpResponseCallback() {
+                    @Override
+                    public void response(boolean success, boolean fail, String data) {
+                        if (success) {
+                            Utility.hideLoadingPopup();
+                            JSONArray jsonArray = null;
+                            try {
+                                jsonArray = new JSONArray(data);
+                                if (jsonArray.length() > 0) {
+                                    for (int i = 0; i < jsonArray.length(); i++) {
+                                        JSONObject jsonObjects = jsonArray.getJSONObject(i);
+                                        String Rname = jsonObjects.getString("RestaurantName");
+                                        String Rcity = jsonObjects.getString("City");
+                                        // Utility.message(getContext(), "Success");
+                                        txtrestaurentname.setText(Rname);
+                                        txtcityname.setText(Rcity);
+                                        btrefNext.setVisibility(View.VISIBLE);
+                                    }
+                                } else {
+                                    Utility.Alertbox(getContext(), "Info", "No Result Found.Please Try again.", "OK");
+                                    txtname.setText("");
+                                    txtcellname.setText("");
+                                    if (btrefNext.getVisibility() == View.VISIBLE) {
+                                        btrefNext.setVisibility(View.INVISIBLE);
+                                    }
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        } else {
+                            ErrorController.showError(getActivity(), data, success);
+
+                        }
+                    }
+                }).request(ServiceMod.ReferSignUp, params);
+
+            }
+            else
+            {
+                Utility.Alertbox(getContext(),"Error","Please enter Refer Number","OK");
+            }
+
+        }
+        if(id==R.id.bt_godine_memberId)
+        {
+          //Utility.message(getContext(),"Hello");
+            String chech = godinememberid.getText().toString().trim();
+            if (!chech.isEmpty()) {
+
+                String numb = godinememberid.getText().toString();
+                String refid = "2";
+                HashMap<String, String> params = new HashMap<>();
+                params.put("ReferrerId", numb);
+                params.put("ReferrerType", refid);
+                Utility.showLoadingPopup(getActivity());
+                new ServiceController(getActivity(), new HttpResponseCallback() {
+                    @Override
+                    public void response(boolean success, boolean fail, String data) {
+                        if (success) {
+                            JSONArray jsonArray = null;
+                            Utility.hideLoadingPopup();
+                            try {
+                                jsonArray = new JSONArray(data);
+                                if(jsonArray.length()>0) {
+                                    for (int i = 0; i < jsonArray.length(); i++) {
+                                        JSONObject jsonObjects = jsonArray.getJSONObject(i);
+                                        String name = jsonObjects.getString("Name");
+                                        String cell = jsonObjects.getString("CellNo");
+                                        String tele=jsonObjects.getString("Telephone");
+                                        //  Utility.message(getContext(), "Success");
+                                        if(cell.isEmpty())
+                                        {
+                                            txtcellname.setText(tele);
+                                        }
+                                        else
+                                        {
+                                            txtcellname.setText(cell);
+                                        }
+                                        txtname.setText(name);
+                                        btrefNext.setVisibility(View.VISIBLE);
+                                    }
+                                }
+                                else {
+                                    Utility.Alertbox(getContext(), "Info", "No Result Found.Please Try again.", "OK");
+                                    txtname.setText("");
+                                    txtcellname.setText("");
+                                    if (btrefNext.getVisibility() == View.VISIBLE) {
+                                        btrefNext.setVisibility(View.INVISIBLE);
+                                    }
+                                }
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+
+                            } else {
+                                ErrorController.showError(getActivity(), data, success);
+                            }
+                        }
+                    }).request(ServiceMod.ReferSignUp, params);
+
+
+            } else {
+                Utility.Alertbox(getContext(), "Error", "Please enter Refer Number", "OK");
+            }
         }
     }
 

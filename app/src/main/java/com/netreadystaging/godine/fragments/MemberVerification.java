@@ -102,7 +102,7 @@ public class MemberVerification extends Fragment {
         txt_memberlevel.setText(appGlobal.getMemberType());
         txt_membersince.setText(appGlobal.getMemberSince());
         Calendar calendar = Calendar.getInstance();
-        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy",Locale.US);
+        SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy",Locale.US);
         String formattedDate = df.format(calendar.getTime());
         txt_memberdate.setText(formattedDate);
         Log.d("datd",appGlobal.getMemberExpiryDate());

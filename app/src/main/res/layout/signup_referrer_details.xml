@@ -79,7 +79,6 @@
                     style="@style/GDSimplerectangletouchborder"
                     android:visibility="gone"
                     >
-
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -91,22 +90,34 @@
                         android:textColor="@color/common_signin_btn_dark_text_default"
                         android:background="@color/common_signin_btn_light_text_focused"
                         />
-                    <EditText
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="6dp">
+                    <EditText
+                        android:layout_weight="1"
+
                         style="@style/GDRoundedEditTextTheme"
-                        android:hint="Godine Member ID"
+                        android:hint="GoDine Member ID"
                         android:textColorHint="@color/black"
                         android:textSize="15sp"
                         android:inputType="number"
                         android:imeOptions="actionSearch"
                         android:id="@+id/et_godine_memberId"
                         />
+                        <Button
+                            android:layout_marginTop="5dp"
+                            android:layout_height="30dp"
+                            android:text="Search"
+                            style="@style/GDAppButtonBaseTheme"
+                            android:id="@+id/bt_godine_memberId" />
+                        </LinearLayout>
                     <TextView
                         android:layout_marginTop="6dp"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="@string/referaldetail"
+                        android:text="Please click Find a Sponsor to select your sponsor member by Member Id or Cell Number"
                         android:textSize="11sp"
                         android:paddingLeft="3dp"
                         android:textColor="@color/black"/>
@@ -125,6 +136,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:paddingLeft="5dp"
+                        android:layout_marginBottom="10dp"
                         android:layout_marginTop="25dp">
                         <TextView
                             android:layout_width="wrap_content"
@@ -137,7 +149,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text=""
-                            android:layout_marginLeft="63dp"
+                            android:layout_marginLeft="73dp"
                             android:textColor="@color/black"
                             android:id="@+id/txt_name"
                             />
@@ -147,14 +159,16 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:paddingLeft="5dp"
+                        android:visibility="gone"
 
                         android:layout_marginTop="25dp">
                         <TextView
+
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
                             android:layout_marginBottom="10dp"
-                            android:text="Cell Name"
+                            android:text="Cell Number"
                             android:layout_gravity="left"
                             />
                         <TextView
@@ -189,16 +203,30 @@
                         android:textColor="@color/common_signin_btn_dark_text_default"
                         android:background="@color/common_signin_btn_light_text_focused"
                         />
-                    <EditText
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        style="@style/GDRoundedEditTextTheme"
-                        android:hint="Restaurant Member Number"
-                        android:id="@+id/Et_restaurantmembernumber"
-                        android:imeOptions="actionSearch"
-                        android:inputType="number"
-                        android:textSize="15sp"
-                        />
+                        android:orientation="horizontal"
+                        android:padding="6dp">
+                        <EditText
+
+                            style="@style/GDRoundedEditTextTheme"
+                            android:textColorHint="@color/black"
+                            android:hint="Restaurant Member Number"
+                            android:id="@+id/Et_restaurantmembernumber"
+                            android:imeOptions="actionSearch"
+                            android:inputType="number"
+                            android:textSize="13sp"
+                            android:layout_weight="1"
+                            />
+                        <Button
+                            android:layout_marginTop="5dp"
+                            android:layout_height="30dp"
+                             android:text="Search"
+                            android:id="@+id/bt_restaurantmembe"
+                            style="@style/GDAppButtonBaseTheme"/>
+                    </LinearLayout>
+                  
                     <TextView
                         android:layout_marginTop="2dp"
                         android:layout_width="match_parent"

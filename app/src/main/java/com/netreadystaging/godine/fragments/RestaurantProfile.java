@@ -180,6 +180,7 @@ public class RestaurantProfile extends Fragment  implements OnMapReadyCallback,G
                 progressBar.setVisibility(View.GONE);
                 if(success)
                 {
+                    Log.d("Muhib",data);
                     JSONArray jsonArray = null;
                     try {
                         jsonArray = new JSONArray(data);
@@ -211,8 +212,16 @@ public class RestaurantProfile extends Fragment  implements OnMapReadyCallback,G
                                         day = "Sunday";
                                         break ;
                                 }
+                                    String OpenTime=hourDayJsonObj.getString("OpenTime");
+                                    String OpenTimeFormat=hourDayJsonObj.getString("OpenTimeFormat");
+                                    String CloseTime=hourDayJsonObj.getString("CloseTime");
+                                    String CloseTimeFormat=hourDayJsonObj.getString("CloseTimeFormat");
+                              /*  String Open="Opening Time:" +OpenTime+ OpenTimeFormat;
+                                String Close="Closing Time:" +CloseTime+ CloseTimeFormat;*/
+                                  String Open= OpenTime+ OpenTimeFormat+ " to " +CloseTime+ CloseTimeFormat;
+                                String Close="";
 
-                                String   LunchTimeOpen=  hourDayJsonObj.getString("LunchTimeOpen");
+                                /*String   LunchTimeOpen=  hourDayJsonObj.getString("LunchTimeOpen");
                                 String    LunchTimeOpenFormat= hourDayJsonObj.getString("LunchTimeOpenFormat");
                                 String   LunchTimeClose=  hourDayJsonObj.getString("LunchTimeClose");
                                 String   LunchTimeCloseFormat=  hourDayJsonObj.getString("LunchTimeCloseFormat");
@@ -221,10 +230,11 @@ public class RestaurantProfile extends Fragment  implements OnMapReadyCallback,G
                                 String   DinnerTimeClose=  hourDayJsonObj.getString("DinnerTimeClose");
                                 String   DinnerTimeCloseFormat=  hourDayJsonObj.getString("DinnerTimeCloseFormat");
                                 String lunchTiming = "Lunch: "+LunchTimeOpen+LunchTimeOpenFormat+" - "+LunchTimeClose+LunchTimeCloseFormat;
-                                String dinnerTiming = "Dinner: "+DinnerTimeOpen+DinnerTimeOpenFormat+" - "+DinnerTimeClose+DinnerTimeCloseFormat;
+                                String dinnerTiming = "Dinner: "+DinnerTimeOpen+DinnerTimeOpenFormat+" - "+DinnerTimeClose+DinnerTimeCloseFormat;*/
 
                                 OpeningDayView openingDayView = new OpeningDayView(getActivity());
-                                openingDayView.setOpeningHourOfDay(day,lunchTiming,dinnerTiming);
+                               // openingDayView.setOpeningHourOfDay(day,lunchTiming,dinnerTiming);
+                                openingDayView.setOpeningHourOfDay(day,Open,Close);
                                 ((LinearLayout)view.findViewById(R.id.hourContainer)).addView(openingDayView);
                             }
                         }
@@ -506,7 +516,6 @@ public class RestaurantProfile extends Fragment  implements OnMapReadyCallback,G
                                 if(status.trim().toLowerCase().equals("success"))
                                 {
                                     v.setSelected(true);
-
 //                                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 //                                    builder.setMessage("Restaurant has been added to your fav list.") ;
 //                                    builder.setPositiveButton("Ok",null);

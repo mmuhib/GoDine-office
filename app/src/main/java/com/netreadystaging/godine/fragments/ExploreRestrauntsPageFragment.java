@@ -53,6 +53,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 
 import com.netreadystaging.godine.models.Restaurant;
@@ -83,6 +85,7 @@ public class ExploreRestrauntsPageFragment extends Fragment implements View.OnCl
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view =  inflater.inflate(R.layout.explore_restaurant_page_fragment,container,false);
         setupToolBar();
+        getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
         setupGUI() ;
         return view ;
     }
@@ -113,7 +116,6 @@ public class ExploreRestrauntsPageFragment extends Fragment implements View.OnCl
 //        if (Utility.checkGooglePlayService(getActivity())) {
 //            setupLocation();
 //        }
-
         etTypeOfCuisine = (Spinner)view.findViewById(R.id.etTypeOfCuisine) ;
 
         listOfCuisinesTypes = new ArrayList<>();
@@ -169,7 +171,7 @@ public class ExploreRestrauntsPageFragment extends Fragment implements View.OnCl
                                         break ;
 
                                     case "Affiliate Restaurant" :
-                                        restType = "Other Dining Options\nGet 30% Off your Entree, or more, every time you dine out." ;
+                                        restType = "Other Dining Options\nGet 25% Off your Entree, or more, every time you dine out." ;
                                         break ;
                                 }
 
@@ -342,7 +344,7 @@ public class ExploreRestrauntsPageFragment extends Fragment implements View.OnCl
     @Override
     public void onResume() {
         super.onResume();
-        title.setText("Restaurant Search");
+        title.setText(" Restaurant Search");
         if(PermissionRequestHandler.requestPermissionToLocation(getActivity(),ExploreRestrauntsPageFragment.this)) {
             ((MainPageActivity) getActivity()).checkGPSStatus();
         }
@@ -466,6 +468,7 @@ public class ExploreRestrauntsPageFragment extends Fragment implements View.OnCl
                                 restaurantObj.currentLng =currentLng ;
                                 restlist.add(restaurantObj);
                             }
+
                             String restType = "";
                             switch (Integer.parseInt(restRoleId))
                             {
@@ -500,6 +503,19 @@ public class ExploreRestrauntsPageFragment extends Fragment implements View.OnCl
                             builder.show();*/
                             Utility.Alertbox(getActivity(),"Info","No Restaurant Found Nearby, Please use other search option.","OK");
                         }
+                        Collections.sort(restlist, new Comparator<Restaurant>() {
+                            @Override
+                            public int compare(Restaurant restaurant, Restaurant t1) {
+                                if(restaurant.getMiles()>t1.getMiles())
+                                {
+                                    return 1;
+                                }
+                                else
+                                {
+                                    return -1;
+                                }
+                            }
+                        });
                     } catch (JSONException e) {
                         ErrorController.showError(getActivity(),data,true);
                     }
@@ -523,6 +539,7 @@ public class ExploreRestrauntsPageFragment extends Fragment implements View.OnCl
         locationB.setLongitude(lng);
 
         float distance = locationA.distanceTo(locationB);
+        Log.d("Dis",""+distance);
         return (long)(distance*0.000621371) ;
     }
 

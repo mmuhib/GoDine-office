@@ -53,15 +53,12 @@ public class Members extends AppCompatActivity implements View.OnClickListener, 
         memberAdapter=new MemberAdapter(getApplicationContext(),R.layout.member_custom_row,memberLists);
         mlist.setAdapter(memberAdapter);
         mlist.setOnItemClickListener(this);
-
         bt_searchmember= (Button) findViewById(R.id.bt_searchmember);
         bt_searchmember.setOnClickListener(this);
-
     }
     Toolbar toolbar_gd_member_search ;
     private void setupToolBar()
     {
-
         toolbar_gd_member_search = (Toolbar) findViewById(R.id.toolbar_member_search);
         mTitle = (TextView) toolbar_gd_member_search.findViewById(R.id.tvToolBarMiddleLabel) ;
         mTitle.setText(getResources().getText(R.string.topmember));
@@ -125,12 +122,13 @@ public class Members extends AppCompatActivity implements View.OnClickListener, 
                                     memberList.setUserId(jsonObjects.getString("UserId"));
                                     memberList.setTelephone(jsonObjects.getString("Telephone"));
                                     memberLists.add(memberList);
+                                    memberAdapter.notifyDataSetChanged();
                                 }
                             } else {
                                // Utility.Alertbox(getApplicationContext(),"Info","Please Fill Value","OK");
                                 AlertDialog.Builder builder = new AlertDialog.Builder(Members.this);
                                 builder.setTitle("Info");
-                                builder.setMessage("Please Fill value");
+                                builder.setMessage("Please fill correct Member number or Cell number");
                                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {

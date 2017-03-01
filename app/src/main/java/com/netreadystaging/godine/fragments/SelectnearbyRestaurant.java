@@ -39,6 +39,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 
 import in.technobuff.helper.http.HttpResponseCallback;
@@ -116,11 +118,11 @@ public class SelectnearbyRestaurant extends Fragment  implements GoogleApiClient
         if (nearbylist != null) {
             nearbylist.clear();
         }
-
       //   For Testing
-    /* Miles = "1000";
+     /*Miles = "1000";
       String  latitud="33.6113736000";
         String longitud="-117.8921022000";*/
+
         final HashMap<String, String> params = new HashMap<>();
         params.put("RestaurantNameOrCity", name);
         params.put("ZipCode", zipcode);
@@ -203,6 +205,19 @@ public class SelectnearbyRestaurant extends Fragment  implements GoogleApiClient
                             builder.create();
                             builder.show();
                         }
+                        Collections.sort(nearbylist, new Comparator<Restaurant>() {
+                            @Override
+                            public int compare(Restaurant restaurant, Restaurant t1) {
+                                if(restaurant.getMiles()>t1.getMiles())
+                                {
+                                    return 1;
+                                }
+                                else
+                                {
+                                    return -1;
+                                }
+                            }
+                        });
                         adapter.notifyDataSetChanged();
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -334,29 +349,28 @@ public class SelectnearbyRestaurant extends Fragment  implements GoogleApiClient
     public void onResume() {
         super.onResume();
         mTitle.setText("Select Restaurant");
-      /*  getView().setFocusableInTouchMode(true);
+        getView().setFocusableInTouchMode(true);
         getView().requestFocus();
         getView().setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View view, int i, KeyEvent keyEvent) {
                 if( i == KeyEvent.KEYCODE_BACK )
                 {
-                    Utility.message(getContext(),"Hell");
-                   *//* MemberVerification frag=new MemberVerification();
-                    FragmentManager fm =  getActivity().getSupportFragmentManager() ;
-                    fm.beginTransaction().replace(R.id.flContent, frag).addToBackStack(null).commit();*//*
-                    if(getActivity().getSupportFragmentManager().getBackStackEntryCount()>1) {
+                  //  Utility.message(getContext(),"Hell");
+                    MemberVerification frag=new MemberVerification();
+                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.flContent, frag).addToBackStack(null).commit();
+                    /*if(getActivity().getSupportFragmentManager().getBackStackEntryCount()>1) {
                      //   getActivity().getSupportFragmentManager().popBackStack();
                         MemberVerification frag=new MemberVerification();
                         FragmentManager fm =  getActivity().getSupportFragmentManager() ;
                         fm.beginTransaction().replace(R.id.flContent, frag).addToBackStack(null).commit();
                         Utility.message(getContext(), "Hello");
-                    }
+                    }*/
                     return true;
                 }
                 return false;
             }
-        });*/
+        });
     }
 
 

@@ -30,6 +30,7 @@
             android:src="@drawable/usericon"
             android:padding="5dp"/>
             <ImageView
+                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/phoneicon"
@@ -55,6 +56,7 @@
             android:layout_marginTop="3dp"
             android:id="@+id/memberlistname"/>
             <TextView
+                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="999"
