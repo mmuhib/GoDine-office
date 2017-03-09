@@ -59,8 +59,7 @@ public class ReferFriendsandFamily extends Fragment {
             @Override
             public void onClick(View view) {
                 StringBuilder shareContent = new StringBuilder();
-                shareContent.append("I joined GoDine™ and now I get 50% OFF my entrees every single time at any GoDine™ Premier Partner Restaurant. I also get 30% Off my entrée when I dine at any GoDine™ Affiliate Partner Restaurant. You can too just by downloading the Free GoDine™ App or going online to")
-                       .append("www.godineclub.com/").append(AppGlobal.getInatance().getUserId()).append(" and joining too. It’s easy to join and save tons of money like me. Just choose your membership level and use my member number which is ").append(AppGlobal.getInatance().getUserId());
+                shareContent.append("I went to ").append("www.godineclub.com/").append(AppGlobal.getInatance().getUserId()).append(" and joined GoDine. Now I get 50% OFF of my entree's every time that I dine out at any GoDine Premier Partner Restaurant in the Spokane / Coeur d'Alene area. You can too by just clicking the link above in this message.");
 
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);

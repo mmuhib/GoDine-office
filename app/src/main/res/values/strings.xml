@@ -107,14 +107,14 @@
     </string-array>
     <string-array name="share">
         <item>Facebook</item>
-        <item>Twitter</item>
+        <item>Twitter</item>7006079781
         <item>Cancel</item>
     </string-array>
     <string name="title_activity_join__go_dine">GoDine™ SignUp</string>
     <string name="titlemember">To Find sponsor enter member or cell number.</string>
     <string name="topmember">Find a Sponser</string>
     <string name="signupdiscount"> Receive <font color='red'> 50% Off</font> your Entrée</string>
-    <string name="info">To continue please select your profile image for membership verification.This photo is used for member verification and MUST be a front facing photo of the member only. Photos of multiple persons or photos of anyone or thing that is not the actual member will not be acceptable. </string>
+    <string name="info">Almost There! The Member Validation Photo is required to validate membership in the restaurant. This photo must be a recent and easily recognizable front view photo of the member only and cannot be a group photo, couple, etc. Just as would be used for an ID card or Driver\'s License</string>
     <string name="select_rest_type">Dining Options</string>
     <string name="select_rest_cuisines">Select Multiple Values for Cuisine.</string>
     <string name="select_rest_features">Select Multiple Values for Features.</string>

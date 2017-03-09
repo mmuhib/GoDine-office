@@ -100,7 +100,11 @@ public class ServiceController extends Application {
             case ServiceMod.CancelMembership :
                 this.service.setAuthToken(AUTH_TOKEN);
                 break ;
+            case ServiceMod.SIGN_UP :
+                this.service.setAuthToken(AUTH_TOKEN);
+                break ;
             default :
+                this.service.setAuthToken(AUTH_TOKEN);
                 break ;
         }
         this.service.setParams(params) ;

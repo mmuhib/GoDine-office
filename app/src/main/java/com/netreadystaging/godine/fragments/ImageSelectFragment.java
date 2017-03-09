@@ -49,8 +49,19 @@ public class ImageSelectFragment extends Fragment {
     public void selectImage(String format , final ImageSelectCallBack callback) {
         this.format  = format ;
         this.callback =  callback ;
+        if(check.equalsIgnoreCase("1")) {
+            final CharSequence[] items = {"Take Photo", "Choose from Gallery", "Cancel"};
+            calldialog(items);
+        }
+        else  if(check.equalsIgnoreCase("0")) {
+            final CharSequence[] items = {"Take Photo","Cancel"};
+            calldialog(items);
+        }
+    }
 
-        final CharSequence[] items = {"Take Photo", "Choose from Gallery", "Cancel"};
+    private void calldialog(final CharSequence[] items) {
+
+       Log.d("Image",""+appGlobal.getIsVerificationImageUploaded());
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle("Select Image");
         builder.setCancelable(false);
@@ -100,6 +111,7 @@ public class ImageSelectFragment extends Fragment {
         });
         builder.show();
     }
+
     private  void gallaryFun(){
 
         try {

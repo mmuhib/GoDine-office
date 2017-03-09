@@ -1,5 +1,7 @@
 package com.netreadystaging.godine.activities.main;
 
+import android.app.Fragment;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -17,8 +19,11 @@ import com.netreadystaging.godine.activities.AppBaseActivity;
 import com.netreadystaging.godine.adapters.MemberReviewAdapter;
 import com.netreadystaging.godine.controllers.ErrorController;
 import com.netreadystaging.godine.controllers.ServiceController;
+import com.netreadystaging.godine.fragments.ProfilePageFragment;
+import com.netreadystaging.godine.fragments.RestaurantProfile;
 import com.netreadystaging.godine.models.MemberReview;
 import com.netreadystaging.godine.models.RatingCard;
+import com.netreadystaging.godine.models.Restaurant;
 import com.netreadystaging.godine.utils.AppGlobal;
 import com.netreadystaging.godine.utils.ServiceMod;
 import com.netreadystaging.godine.utils.Utility;
@@ -105,8 +110,25 @@ public class RestaurantReviewActivity extends AppBaseActivity {
                                 JSONObject ratingJsonObject =  jsonArray.getJSONObject(i);
                                 String result = ratingJsonObject.getString("Result").toLowerCase().trim();
                                 if(result.equals("success")){
-                                    onBackPressed();
-                                    Toast.makeText(RestaurantReviewActivity.this, ratingJsonObject.getString("Message"), Toast.LENGTH_SHORT).show();
+                                  //  onBackPressed();
+                                    //Toast.makeText(RestaurantReviewActivity.this, ratingJsonObject.getString("Message"), Toast.LENGTH_SHORT).show();
+                                    AlertDialog.Builder build=new AlertDialog.Builder(RestaurantReviewActivity.this);
+                                    build.setMessage("Thank You.Your review has been submitted.");
+                                    build.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialogInterface, int i) {
+                                            dialogInterface.dismiss();
+                                        Intent mai=new Intent(RestaurantReviewActivity.this,MainPageActivity.class);
+                                            startActivity(mai);
+                                          /*  RestaurantProfile rest=new RestaurantProfile();
+                                            Bundle restBundle = new Bundle();
+                                            restBundle.putSerializable("rest_id",restId);
+                                            rest.setArguments(restBundle);
+                                            getSupportFragmentManager().beginTransaction().replace(R.id.flContent,rest).addToBackStack(null).commit() ;*/
+                                        }
+                                    });
+                                    build.create();
+                                    build.show();
                                 }else {
                                     Utility.Alertbox(RestaurantReviewActivity.this,"Info","Something Wrong","OK");
                                 }
@@ -140,8 +162,6 @@ public class RestaurantReviewActivity extends AppBaseActivity {
                     Utility.hideLoadingPopup();
                     ErrorController.showError(RestaurantReviewActivity.this,data,success);
                 }
-
-
             }
         }).request(ServiceMod.LEAVE_REVIEW,params);
 

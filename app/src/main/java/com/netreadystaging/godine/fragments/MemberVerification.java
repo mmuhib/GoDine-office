@@ -85,6 +85,9 @@ public class MemberVerification extends Fragment {
        final ProgressBar progressBar =  (ProgressBar)view.findViewById(R.id.progressBar);
         progressBar.setVisibility(View.VISIBLE);
         new DownloadImageTask((ImageView) view.findViewById(R.id.memberimg),progressBar).execute("https://godineclub.com/Portals/0/Images/Verification%20images/"+email+".jpg");
+        Log.d("Img",""+"https://godineclub.com/Portals/0/Images/Verification%20images/"+email+".jpg");
+        Log.d("Email",email);
+
         setupToolBar();
         setupTextviews();
         return view;

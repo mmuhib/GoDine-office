@@ -165,7 +165,7 @@ public class ProfileWelcomeFragment extends ImageSelectFragment {
         // Set Up Welcome Image
         setupWelcomeImage();
 
-        checkForMemberShipType();
+       checkForMemberShipType();
 
     }
 

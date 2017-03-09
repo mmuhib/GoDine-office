@@ -2,6 +2,7 @@ package com.netreadystaging.godine.fragments;
 
 import android.app.Activity;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -25,6 +26,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationServices;
 import com.netreadystaging.godine.R;
 import com.netreadystaging.godine.activities.main.MainPageActivity;
+import com.netreadystaging.godine.activities.main.RestaurantReviewActivity;
 import com.netreadystaging.godine.adapters.SearchRestaurantAdapter;
 import com.netreadystaging.godine.callbacks.DrawerLocker;
 import com.netreadystaging.godine.controllers.ErrorController;
@@ -119,10 +121,10 @@ public class SelectnearbyRestaurant extends Fragment  implements GoogleApiClient
             nearbylist.clear();
         }
       //   For Testing
-     /*Miles = "1000";
-      String  latitud="33.6113736000";
-        String longitud="-117.8921022000";*/
-
+     Miles = "0.2";
+    /*  String  latitud="33.6113736000";
+        String longitud="-117.8921022000";
+*/
         final HashMap<String, String> params = new HashMap<>();
         params.put("RestaurantNameOrCity", name);
         params.put("ZipCode", zipcode);
@@ -260,7 +262,7 @@ public class SelectnearbyRestaurant extends Fragment  implements GoogleApiClient
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        String restid = ((TextView) view.findViewById(R.id.idd)).getText().toString();
+        final String restid = ((TextView) view.findViewById(R.id.idd)).getText().toString();
        HashMap<String, String> params = new HashMap<>();
         params.put("UserId", id);
         params.put("RestaurantId", restid);
@@ -285,16 +287,23 @@ public class SelectnearbyRestaurant extends Fragment  implements GoogleApiClient
 
                                 Log.d("Muhib", data);
                                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                                builder.setTitle("Info");
                                 builder.setCancelable(false);
-                                builder.setMessage("Data saved successfully");
+                                builder.setMessage("Thank You, Please submit your rating , it will take only 10 seconds.");
                                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {
                                         dialogInterface.dismiss();
+                                        Intent intent =  new Intent(getActivity(), RestaurantReviewActivity.class);
+                                        intent.putExtra("rest_id",""+restid);
+                                        startActivity(intent);
+                                     }
+                                });
+                                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        dialogInterface.dismiss();
                                         ProfilePageFragment frag=new ProfilePageFragment();
-                                       getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.flContent,frag).addToBackStack(null).commit();
-
+                                        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.flContent,frag).addToBackStack(null).commit();
                                     }
                                 });
                                 builder.create();
