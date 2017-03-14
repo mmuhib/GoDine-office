@@ -114,7 +114,7 @@
     <string name="titlemember">To Find sponsor enter member or cell number.</string>
     <string name="topmember">Find a Sponser</string>
     <string name="signupdiscount"> Receive <font color='red'> 50% Off</font> your Entrée</string>
-    <string name="info">Almost There! The Member Validation Photo is required to validate membership in the restaurant. This photo must be a recent and easily recognizable front view photo of the member only and cannot be a group photo, couple, etc. Just as would be used for an ID card or Driver\'s License</string>
+    <string name="info">The Member Validation Photo is required to validate membership in the restaurant.\nThis photo must be a recent and easily recognizable front view photo of the member only and cannot be a group photo, couple, etc. Just as would be used for an ID card or Driver\'s License</string>
     <string name="select_rest_type">Dining Options</string>
     <string name="select_rest_cuisines">Select Multiple Values for Cuisine.</string>
     <string name="select_rest_features">Select Multiple Values for Features.</string>

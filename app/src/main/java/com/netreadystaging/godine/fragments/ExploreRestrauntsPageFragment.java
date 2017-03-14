@@ -84,6 +84,8 @@ public class ExploreRestrauntsPageFragment extends Fragment implements View.OnCl
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view =  inflater.inflate(R.layout.explore_restaurant_page_fragment,container,false);
+        Bundle bundle=getArguments();
+
         setupToolBar();
         getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
         setupGUI() ;
@@ -229,7 +231,14 @@ public class ExploreRestrauntsPageFragment extends Fragment implements View.OnCl
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 final RestaurantType restaurantType = (RestaurantType) parent.getAdapter().getItem(position);
                 restRoleId = restaurantType.getRoleId() ;
-                isCurrentLocationSearch = true ;
+                Bundle bundle=getArguments();
+                if(bundle!=null)
+                {
+                    isCurrentLocationSearch=false;
+                }
+                else {
+                    isCurrentLocationSearch = true;
+                }
         if (Utility.checkGooglePlayService(getActivity())) {
            setupLocation();
         }
@@ -414,6 +423,12 @@ public class ExploreRestrauntsPageFragment extends Fragment implements View.OnCl
     }
     private void loadRestaurants(String name, String cuisine, String feature,
                                  String address, String latitude, String longitude, String miles,final String restRoleId) {
+
+        /*//For Testing
+         latitude="33.6113736000";
+         longitude="-117.8921022000";*/
+
+
         Utility.showLoadingPopup(getActivity());
         restlist =  new ArrayList<>();
         final HashMap<String,String> params=new HashMap<>();

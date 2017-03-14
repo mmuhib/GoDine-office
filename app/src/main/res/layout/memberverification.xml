@@ -15,7 +15,7 @@
                 android:id="@+id/memberimg"
                 android:layout_width="200dp"
                 android:layout_height="200dp"
-                android:src="@drawable/img"
+
                 android:scaleType="fitCenter"
                 android:layout_marginTop="15dp"/>
 

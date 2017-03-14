@@ -7,8 +7,8 @@ android {
         applicationId "com.netreadystaging.godine"
         minSdkVersion 15
         targetSdkVersion 24
-        versionCode 9
-        versionName "1.11"
+        versionCode 10
+        versionName "1.12"
     }
     buildTypes {
         release {

@@ -46,6 +46,7 @@ public class Utility {
         progressDialog = new ProgressDialog(activity);
         progressDialog.setMessage("Please Wait...");
         progressDialog.setCanceledOnTouchOutside(false);
+        progressDialog.setCancelable(false);
         progressDialog.show();
         try {
 //            int i = 10 / 0;

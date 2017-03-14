@@ -96,12 +96,18 @@ public class RestaurantSearchFilterFragment extends Fragment implements View.OnC
         ivToolBarNavigationIcn.setVisibility(View.VISIBLE);
         ivToolBarBack.setVisibility(View.GONE);
         ivToolBarEndIcn.setImageResource(R.drawable.search_icn_toolbar);
-        ivToolBarEndIcn.setVisibility(View.GONE);
+        ivToolBarEndIcn.setVisibility(View.VISIBLE);
         title = (TextView) toolBar.findViewById(R.id.tvToolBarMiddleLabel);
 
         ivToolBarEndIcn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ExploreRestrauntsPageFragment fragment=new ExploreRestrauntsPageFragment();
+                Bundle bundle=new Bundle();
+                bundle.putSerializable("turnoff","off");
+                fragment.setArguments(bundle);
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.flContent,fragment).addToBackStack(null).commit();
+
             }
         });
 

@@ -58,6 +58,7 @@ public class MemberReviewAdapter extends BaseAdapter {
             holder.memberRatingCard = (RatingCardView)  convertView.findViewById(R.id.memberRatingCard) ;
             holder.tvMemberReviewDate = (TextView) convertView.findViewById(R.id.tvMemberReviewDate)  ;
             holder.ivMemberPicture = (ImageView) convertView.findViewById(R.id.ivMemberPicture) ;
+            holder.Address= (TextView) convertView.findViewById(R.id.tvMemberPlace);
             convertView.setTag(holder);
         }
         else{
@@ -67,6 +68,7 @@ public class MemberReviewAdapter extends BaseAdapter {
         MemberReview memberReview = listMemberReview.get(position);
         String memberName  = memberReview.getFirstName()+" "+memberReview.getLastName();
         holder.tvMemberName.setText(memberName);
+        holder.Address.setText(memberReview.getCity());
         holder.tvMemberReviewDate.setText(memberReview.getReviewDate());
         String profileImageUrl  = "" ;
         if(!profileImageUrl.isEmpty()) Picasso.with(context).load("").into(holder.ivMemberPicture);
@@ -106,6 +108,7 @@ public class MemberReviewAdapter extends BaseAdapter {
     private static class ViewHolder {
         ImageView ivMemberPicture ;
         TextView tvMemberName  ;
+        TextView Address;
         TextView tvMemberReviewDate;
         RatingCardView memberRatingCard ;
     }

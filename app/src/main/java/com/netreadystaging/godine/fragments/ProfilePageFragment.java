@@ -100,6 +100,7 @@ public class ProfilePageFragment extends ImageSelectFragment {
             public void onClick(View view) {
 
                 progressBar.setVisibility(View.VISIBLE);
+              //  appGlobal.setIsVerificationImageUploaded("1");
                 selectImage("bitmap",new ImageSelectCallBack()
                 {
                     @Override

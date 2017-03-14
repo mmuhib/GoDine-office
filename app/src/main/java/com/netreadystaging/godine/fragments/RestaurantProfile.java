@@ -430,7 +430,7 @@ public class RestaurantProfile extends Fragment  implements OnMapReadyCallback,G
         final  AppCompatRatingBar  ratingBar= (AppCompatRatingBar) view.findViewById(R.id.ratingBar);
         ratingBar.setRating(restaurant.getRating());
         Drawable drawable = ratingBar.getProgressDrawable();
-        drawable.setColorFilter(Color.parseColor("#FF3399FF"), PorterDuff.Mode.SRC_ATOP);
+     //   drawable.setColorFilter(Color.parseColor("#FF3399FF"), PorterDuff.Mode.SRC_ATOP);
 
         final TextView review = (TextView) view.findViewById(R.id.review);
         review.setText(restaurant.getReview()+" Review");

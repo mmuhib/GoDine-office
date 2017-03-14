@@ -295,6 +295,8 @@ public class RestaurantReviewActivity extends AppBaseActivity {
                                 String fName  =  reviewSuccessObj.getString("FirstName");
                                 String lName  =  reviewSuccessObj.getString("LastName");
                                 String reviewDate  =  reviewSuccessObj.getString("ReviewDate");
+                                String City=reviewSuccessObj.getString("City");
+                                String State= reviewSuccessObj.getString("State");
 
                                 RatingCard ratingCard = new RatingCard();
                                 ratingCard.setFood_quality_rating(foodQualityRating);
@@ -308,6 +310,7 @@ public class RestaurantReviewActivity extends AppBaseActivity {
                                 memberReview.setRatingCard(ratingCard);
                                 memberReview.setFirstName(fName);
                                 memberReview.setLastName(lName);
+                                memberReview.setCity(City+", "+State);
                                 listMemberReview.add(memberReview);
                             }
                         }

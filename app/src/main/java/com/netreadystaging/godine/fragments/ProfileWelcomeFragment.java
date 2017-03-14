@@ -68,7 +68,7 @@ public class ProfileWelcomeFragment extends ImageSelectFragment {
         {
 
             AlertDialog.Builder builder=new AlertDialog.Builder(getContext());
-            builder.setTitle("Info");
+            builder.setTitle("Almost There!");
             builder.setMessage(data);
             builder.setCancelable(false);
             builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -165,7 +165,7 @@ public class ProfileWelcomeFragment extends ImageSelectFragment {
         // Set Up Welcome Image
         setupWelcomeImage();
 
-       checkForMemberShipType();
+   //    checkForMemberShipType();
 
     }
 
@@ -203,8 +203,6 @@ public class ProfileWelcomeFragment extends ImageSelectFragment {
                     b.setTextAppearance(getActivity(),R.style.GDAppButtonBaseTheme);
                 }
             }
-
-
         }
     }
 

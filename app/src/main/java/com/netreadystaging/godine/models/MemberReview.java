@@ -13,6 +13,26 @@ public class MemberReview implements Serializable {
     private String firstName ;
     private RatingCard ratingCard ;
     private String reviewDate ;
+    private String City ;
+    private String State;
+
+    public String getCity() {
+        return City;
+    }
+
+    public void setCity(String city) {
+        City = city;
+    }
+
+    public String getState() {
+        return State;
+    }
+
+    public void setState(String state) {
+        State = state;
+    }
+
+
 
     public String getMemberId() {
         return memberId;

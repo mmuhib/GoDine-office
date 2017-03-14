@@ -45,7 +45,7 @@ public class ImageSelectFragment extends Fragment {
     private String format;
     private ImageSelectCallBack callback;
     AppGlobal appGlobal = AppGlobal.getInatance() ;
-    final String check= appGlobal.getIsVerificationImageUploaded();
+   String check= appGlobal.getIsVerificationImageUploaded();
     public void selectImage(String format , final ImageSelectCallBack callback) {
         this.format  = format ;
         this.callback =  callback ;
@@ -61,7 +61,8 @@ public class ImageSelectFragment extends Fragment {
 
     private void calldialog(final CharSequence[] items) {
 
-       Log.d("Image",""+appGlobal.getIsVerificationImageUploaded());
+        Log.d("Image",""+appGlobal.getIsVerificationImageUploaded());
+        Log.d("Check",check);
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle("Select Image");
         builder.setCancelable(false);
@@ -307,23 +308,29 @@ public class ImageSelectFragment extends Fragment {
 
 //        if(bitmap.getWidth()<bitmap.getHeight())
 //        {
-           // Utility.message(getContext(),"Width is greater");
-            bitmapString= Utility.BitMapToString(rotatedBitmap);
-            switch(this.format)
-            {
-                case "base64" :
-                    this.callback.success(bitmapString);
-                    break ;
+        // Utility.message(getContext(),"Width is greater");
+        bitmapString= Utility.BitMapToString(rotatedBitmap);
+        switch(this.format)
+        {
+            case "base64" :
+                this.callback.success(bitmapString);
+           appGlobal.setIsVerificationImageUploaded("1");
+                check="1";
+                break ;
 
-                case "bitmap" :
-                    this.callback.success(bitmap);
-                    break ;
+            case "bitmap" :
+                this.callback.success(bitmap);
+               appGlobal.setIsVerificationImageUploaded("1");
+                check="1";
+                break ;
 
-                default :
-                    this.callback.success(filePath);
-                    break ;
-            }
-      //  }
+            default :
+                this.callback.success(filePath);
+              appGlobal.setIsVerificationImageUploaded("1");
+                check="1";
+                break ;
+        }
+        //  }
 //        else
 //        {
 //        //    Utility.message(getContext(),"Please Take Image Vertically");

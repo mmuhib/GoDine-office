@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
+
 import android.telephony.PhoneNumberFormattingTextWatcher;
+import android.telephony.PhoneNumberUtils;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -124,7 +126,8 @@ public class Signup_Member_Details extends Fragment implements View.OnClickListe
         et_firstname=(EditText) view.findViewById(R.id.et_memberFirstname);
         et_lastname=(EditText) view.findViewById(R.id.et_memberLastname);
         et_telephone=(EditText) view.findViewById(R.id.et_memberTelephone);
-    //    et_telephone.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
+       et_telephone.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
+
         et_memberstreet=(EditText) view.findViewById(R.id.et_memberStreet);
         et_membercity=(EditText) view.findViewById(R.id.et_memberCity);
         et_zipcode=(EditText) view.findViewById(R.id.et_memberZipcode);
@@ -160,6 +163,7 @@ public class Signup_Member_Details extends Fragment implements View.OnClickListe
                 Sfirstname=et_firstname.getText().toString();
                Slname=et_lastname.getText().toString();
                 Stelephone=et_telephone.getText().toString();
+            //    PhoneNumberUtils.formatNumber(Stelephone);
                Sstreet=et_memberstreet.getText().toString();
                 Scity=et_membercity.getText().toString();
               Szipcode=et_zipcode.getText().toString();
@@ -217,7 +221,7 @@ public class Signup_Member_Details extends Fragment implements View.OnClickListe
                                                                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                                                                 builder.setTitle("Info");
                                                                 builder.setCancelable(false);
-                                                                builder.setMessage("You will now be directed to a website for processing your payment.Once completed please click the Done Button at the top right corner of the page and you’ll be returned to the app.");
+                                                                builder.setMessage("Congratulations! Your account has been successfully created with GoDine."+"\n"+"You will now be re-direct to our website to complete the payment portion of your membership. Once you have completed your payment, you will be redirected to the App."+"\n"+"If payment fails for some reason, don’t worry you can simply login to your GoDine App using the user name and password that you created, and it will give you the option to complete your payment.");
                                                                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                                                     @Override
                                                                     public void onClick(DialogInterface dialogInterface, int i) {

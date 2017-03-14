@@ -116,14 +116,14 @@
                     android:id="@+id/et_memberLastname"
                     android:textSize="15sp"
                     />
-                <EditText
+                <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     style="@style/GDRoundedEditTextTheme"
                     android:hint="Telephone*"
                     android:inputType="phone"
                     android:maxLines="1"
-                    android:maxLength="10"
+                    android:maxLength="14"
                     android:textColorHint="@color/black"
                     android:id="@+id/et_memberTelephone"
                     android:textSize="15sp"

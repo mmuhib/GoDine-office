@@ -102,7 +102,7 @@ public class SearchRestaurantAdapter extends ArrayAdapter<Restaurant> {
             ratingBar= (AppCompatRatingBar) v.findViewById(R.id.ratingBar);
             restOfferImage= (ImageView) v.findViewById(R.id.restOfferImage);
             Drawable drawable = ratingBar.getProgressDrawable();
-            drawable.setColorFilter(Color.parseColor("#FF3399FF"), PorterDuff.Mode.SRC_ATOP);
+            //drawable.setColorFilter(Color.parseColor("#FF3399FF"), PorterDuff.Mode.SRC_ATOP);
         }
     }
 }
