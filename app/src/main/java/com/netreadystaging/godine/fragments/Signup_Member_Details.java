@@ -126,8 +126,7 @@ public class Signup_Member_Details extends Fragment implements View.OnClickListe
         et_firstname=(EditText) view.findViewById(R.id.et_memberFirstname);
         et_lastname=(EditText) view.findViewById(R.id.et_memberLastname);
         et_telephone=(EditText) view.findViewById(R.id.et_memberTelephone);
-       et_telephone.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
-
+        et_telephone.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
         et_memberstreet=(EditText) view.findViewById(R.id.et_memberStreet);
         et_membercity=(EditText) view.findViewById(R.id.et_memberCity);
         et_zipcode=(EditText) view.findViewById(R.id.et_memberZipcode);
