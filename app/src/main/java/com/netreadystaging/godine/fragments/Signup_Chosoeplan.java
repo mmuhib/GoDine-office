@@ -42,7 +42,7 @@ public class Signup_Chosoeplan extends Fragment implements View.OnClickListener 
     public  static  Button btjustone,btplusone,btplusthree;
     Button bt_chooseplan,bt_refferdetails,bt_memberdetails;
     String justone,plusone,plusthree;
-
+    TextView planame,Step;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -56,6 +56,15 @@ public class Signup_Chosoeplan extends Fragment implements View.OnClickListener 
         btplusone.setOnClickListener(this);
         btplusthree.setOnClickListener(this);
         return view;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        planame= (TextView) getView().findViewById(R.id.planname);
+        Step= (TextView) getView().findViewById(R.id.step);
+        Step.setText("STEP #1");
+        planame.setText("Choose Membership Level");
     }
 
     @Override

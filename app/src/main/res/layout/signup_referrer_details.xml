@@ -1,13 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <FrameLayout
+        android:id="@+id/images"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonlay"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp">
+        <ImageView
+            android:id="@+id/stepimg"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:src="@drawable/step"
+            android:scaleType="fitXY"
+            />
+        <TextView
+            android:id="@+id/step"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Step 2"
+            android:textSize="18sp"
+            android:textColor="@color/cardview_light_background"
+            android:layout_marginTop="3dp"
+            android:layout_gravity="center_horizontal"/>
+        <TextView
+            android:id="@+id/planname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Step"
+            android:textSize="13sp"
+            android:textColor="@color/cardview_light_background"
+            android:layout_marginTop="3dp"
+            android:layout_gravity="center"/>
+    </FrameLayout>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
+
         android:layout_alignParentStart="true">
         <RelativeLayout
             android:layout_width="match_parent"
@@ -61,6 +96,7 @@
             </LinearLayout>
 
             <LinearLayout
+                style="@style/GDSimplerectangletouchborder"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -76,7 +112,7 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical"
                     android:id="@+id/layout_referedbyMember"
-                    style="@style/GDSimplerectangletouchborder"
+
                     android:visibility="gone"
                     >
                     <TextView
@@ -95,52 +131,36 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:padding="6dp">
-                    <EditText
-                        android:layout_weight="1"
+                        <EditText
+                            android:layout_weight="1"
 
-                        style="@style/GDRoundedEditTextTheme"
-                        android:hint="GoDine Member ID"
-                        android:textColorHint="@color/black"
-                        android:textSize="15sp"
-                        android:inputType="number"
-                        android:imeOptions="actionSearch"
-                        android:id="@+id/et_godine_memberId"
-                        />
+                            style="@style/GDRoundedEditTextTheme"
+                            android:hint="Enter Member Number Here"
+                            android:textColorHint="@color/black"
+                            android:textSize="15sp"
+                            android:inputType="number"
+                            android:imeOptions="actionSearch"
+                            android:id="@+id/et_godine_memberId"
+                            />
                         <Button
                             android:layout_marginTop="5dp"
                             android:layout_height="30dp"
-                            android:text="Search"
+                            android:text="Enter"
                             style="@style/GDAppButtonBaseTheme"
                             android:id="@+id/bt_godine_memberId" />
-                        </LinearLayout>
-                    <TextView
-                        android:layout_marginTop="6dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="Please click Find a Sponsor to select your sponsor member by Member Id or Cell Number"
-                        android:textSize="11sp"
-                        android:paddingLeft="3dp"
-                        android:textColor="@color/black"/>
-                    <Button
-                        android:layout_width="match_parent"
-                        android:text="Find Your Referrer"
-                        android:textAllCaps="false"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="25dp"
-                        android:layout_marginTop="6dp"
-                        android:layout_gravity="center"
-                        style="@style/GDAppButtonBaseTheme"
-                        android:id="@+id/bt_findsponsorbymember"/>
+                    </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:paddingLeft="5dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_marginBottom="10dp"
-                        android:layout_marginTop="25dp">
+                        android:layout_marginTop="5dp">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+
                             android:text="Name"
                             android:textColor="@color/black"
                             android:layout_gravity="left"
@@ -154,13 +174,26 @@
                             android:id="@+id/txt_name"
                             />
                     </LinearLayout>
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:text="Not the Correct Member? Click Here"
+                        android:textAllCaps="false"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginBottom="15dp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:id="@+id/bt_findsponsorbymember"
+                        android:layout_height="wrap_content" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:paddingLeft="5dp"
                         android:visibility="gone"
-
                         android:layout_marginTop="25dp">
                         <TextView
 
@@ -188,8 +221,8 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical"
                     android:id="@+id/layout_referedbyRestaurant"
-                    style="@style/GDSimplerectangletouchborder"
                     android:visibility="gone"
+
                     >
 
                     <TextView
@@ -212,7 +245,7 @@
 
                             style="@style/GDRoundedEditTextTheme"
                             android:textColorHint="@color/black"
-                            android:hint="Restaurant Member Number"
+                            android:hint="Enter Restaurant Number Here"
                             android:id="@+id/Et_restaurantmembernumber"
                             android:imeOptions="actionSearch"
                             android:inputType="number"
@@ -222,40 +255,23 @@
                         <Button
                             android:layout_marginTop="5dp"
                             android:layout_height="30dp"
-                             android:text="Search"
+                            android:text="Enter"
                             android:id="@+id/bt_restaurantmembe"
                             style="@style/GDAppButtonBaseTheme"/>
                     </LinearLayout>
-                  
-                    <TextView
-                        android:layout_marginTop="2dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="@string/referaldetail"
-                        android:textSize="11sp"
-                        android:layout_marginBottom="10dp"
-                        android:paddingLeft="3dp"
-                        android:textColor="@color/black"/>
-                    <Button
-                        android:layout_width="match_parent"
-                        android:text="Find Your Referrer"
-                        android:textAllCaps="false"
-                        android:layout_marginLeft="12dp"
-                        android:layout_marginRight="15dp"
-                        android:layout_gravity="center"
-                        style="@style/GDAppButtonBaseTheme"
-                        android:id="@+id/bt_findsponsorbyrest"
-                        />
+
+
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:paddingLeft="5dp"
-                        android:layout_marginTop="25dp">
+                        android:layout_marginTop="5dp">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text=" Restaurant Name"
+                            android:text=" Restaurant : "
                             android:textColor="@color/black"
                             android:layout_gravity="left"
                             android:textSize="12sp"
@@ -275,13 +291,13 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:paddingLeft="5dp"
-                        android:layout_marginTop="25dp">
+                        android:layout_marginTop="5dp">
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/black"
                             android:layout_marginBottom="10dp"
-                            android:text="City Name"
+                            android:text=" City : "
                             android:textSize="12sp"
                             android:layout_gravity="left"
                             />
@@ -297,11 +313,21 @@
                             android:id="@+id/txt_cityname"
                             />
                     </LinearLayout>
-
+                    <TextView
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:textStyle="bold"
+                        android:text="Not the Correct Restaurant? Click Here"
+                        android:textAllCaps="false"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_gravity="center"
+                        android:id="@+id/bt_findsponsorbyrest"
+                        android:layout_height="wrap_content" />
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
-                        android:text="Staff Member Name or Number(Optional)"
+                        android:text="Enter Staff Member Name or Number Here"
                         android:textColorHint="@color/black"
                         android:textSize="13sp"
                         android:layout_marginTop="5dp"
@@ -310,12 +336,14 @@
                         android:textAllCaps="false"
                         android:id="@+id/bt_staffname"
                         />
+
                 </LinearLayout>
                 <Button
                     android:layout_height="40dp"
                     android:text="Next"
-                    android:layout_marginTop="1dp"
-                    android:layout_gravity="right"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_gravity="center"
                     android:visibility="gone"
                     android:id="@+id/bt_refNext"
                     style="@style/GDAppButtonBaseTheme"
@@ -323,4 +351,4 @@
             </LinearLayout>
         </RelativeLayout>
     </ScrollView>
-</RelativeLayout>
+</LinearLayout>

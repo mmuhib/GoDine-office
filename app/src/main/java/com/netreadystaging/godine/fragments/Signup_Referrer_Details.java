@@ -43,7 +43,6 @@ import org.json.JSONObject;
 import java.util.HashMap;
 
 import in.technobuff.helper.http.HttpResponseCallback;
-
 import static com.netreadystaging.godine.activities.main.Join_GoDine.ProductVariantIDD;
 import static com.netreadystaging.godine.activities.main.Join_GoDine.Values;
 
@@ -55,12 +54,12 @@ public class Signup_Referrer_Details extends Fragment implements View.OnClickLis
     RadioGroup radioGroup;
     RadioButton Byrestaurant,Bymember;
     EditText godinememberid,et_RestaurantmemberNumber;
-    TextView txtrestaurentname,txtcityname,txtname,txtcellname;
-    Button notrefered,bt_findsponsorbymember,btrefNext,bt_findsponsorbyrest,bt_staff,bt_godinememberid,bt_RestaurantmemberNumber;
+    TextView txtrestaurentname,txtcityname,txtname,txtcellname,bt_findsponsorbymember,bt_findsponsorbyrest;
+    Button notrefered,btrefNext,bt_staff,bt_godinememberid,bt_RestaurantmemberNumber;
     View view;
     public  String AffiliateId="N/A",ProductVariant="N/A",StaffName="";
     LinearLayout layout_referedbyrestaurant,layout_referedbymember;
-
+    TextView planame,Step;
 
     @Nullable
     @Override
@@ -97,6 +96,7 @@ public class Signup_Referrer_Details extends Fragment implements View.OnClickLis
                 Utility.message(getContext(),"Varient ID"+ProductVariantIDD);*/
             view = inflater.inflate(R.layout.signup_referrer_details, container, false);
         }
+
         Join_GoDine.bt_chooseplan.setSelected(false);
         Join_GoDine.bt_refferdetails.setSelected(true);
         Join_GoDine.bt_memberdetails.setSelected(false);
@@ -121,10 +121,9 @@ public class Signup_Referrer_Details extends Fragment implements View.OnClickLis
 
     private void handlebuttonclicks()
     {
-
         notrefered= (Button) view.findViewById(R.id.bt_notReffered);
-        bt_findsponsorbyrest= (Button) view.findViewById(R.id.bt_findsponsorbyrest);
-        bt_findsponsorbymember= (Button) view.findViewById(R.id.bt_findsponsorbymember);
+        bt_findsponsorbyrest= (TextView) view.findViewById(R.id.bt_findsponsorbyrest);
+        bt_findsponsorbymember= (TextView) view.findViewById(R.id.bt_findsponsorbymember);
         bt_staff=(Button) view.findViewById(R.id.bt_staffname);
         btrefNext= (Button) view.findViewById(R.id.bt_refNext);
         bt_godinememberid= (Button) view.findViewById(R.id.bt_godine_memberId);
@@ -159,6 +158,8 @@ public class Signup_Referrer_Details extends Fragment implements View.OnClickLis
             {
                 btrefNext.setVisibility(View.GONE);
             }
+            Step.setText("STEP #3");
+            planame.setText("Enter Referrer Restaurant#");
             layout_referedbyrestaurant.setVisibility(View.VISIBLE);
             layout_referedbymember.setVisibility(View.GONE);
         }
@@ -168,6 +169,8 @@ public class Signup_Referrer_Details extends Fragment implements View.OnClickLis
             {
                 btrefNext.setVisibility(View.GONE);
             }
+            Step.setText("STEP #3");
+            planame.setText("Enter Referrer Member#");
             layout_referedbyrestaurant.setVisibility(View.GONE);
             layout_referedbymember.setVisibility(View.VISIBLE);
         }
@@ -615,5 +618,12 @@ public class Signup_Referrer_Details extends Fragment implements View.OnClickLis
         }
     }
 
-
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        planame= (TextView) getView().findViewById(R.id.planname);
+        Step= (TextView) getView().findViewById(R.id.step);
+        Step.setText("STEP #2");
+        planame.setText("Choose Referrer");
+    }
 }

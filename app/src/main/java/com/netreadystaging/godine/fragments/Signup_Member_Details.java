@@ -60,6 +60,8 @@ public class Signup_Member_Details extends Fragment implements View.OnClickListe
     String StaffName = "N/A";
     String ProductVariantID="N/A";
     String UserId;
+    TextView planame,Step;
+
     public   String Sstate;
     public  String Sname,Spassword,Sconfirmpass,Sfirstname,Slname,Stelephone, Sstreet,Scity,Szipcode,SMiles;
     AppGlobal appGlobal=AppGlobal.getInatance();
@@ -85,6 +87,7 @@ public class Signup_Member_Details extends Fragment implements View.OnClickListe
         }
         view = inflater.inflate(R.layout.signup_member_details, container, false);
         Join_GoDine.bt_chooseplan.setSelected(false);
+
         Join_GoDine.bt_refferdetails.setSelected(false);
         Join_GoDine.bt_memberdetails.setSelected(true);
         handleedittexts();
@@ -385,5 +388,20 @@ public class Signup_Member_Details extends Fragment implements View.OnClickListe
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
 
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        planame= (TextView) getView().findViewById(R.id.planname);
+        Step= (TextView) getView().findViewById(R.id.step);
+        Step.setText("STEP #4");
+        planame.setText("Enter Member Details ");
     }
 }

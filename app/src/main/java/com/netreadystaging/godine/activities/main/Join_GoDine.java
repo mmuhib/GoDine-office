@@ -23,6 +23,7 @@ public class Join_GoDine extends AppBaseActivity implements View.OnClickListener
     TextView mTitle;
     public static Button bt_chooseplan,bt_refferdetails,bt_memberdetails;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +31,7 @@ public class Join_GoDine extends AppBaseActivity implements View.OnClickListener
         bt_chooseplan= (Button) findViewById(R.id.btchosseplan);
         bt_refferdetails= (Button) findViewById(R.id.btrefferdetails);
         bt_memberdetails= (Button) findViewById(R.id.btmemberdetails);
+
         bt_chooseplan.setOnClickListener(this);
         bt_refferdetails.setOnClickListener(this);
        // bt_memberdetails.setOnClickListener(this);
