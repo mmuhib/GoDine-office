@@ -16,12 +16,15 @@
         android:layout_below="@+id/go_dine_restaurant_search_heading"
         style="@style/GDSubHeadingTheme"
         android:text="RESTAURANTS"/>
-
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:visibility="gone"
+    android:layout_below="@+id/go_dine_restaurant_search_sub_heading"
+    android:id="@+id/gd_rest_search_filter_container">
     <RelativeLayout
-        android:visibility="gone"
-        android:layout_margin="5dp"
-        android:layout_below="@+id/go_dine_restaurant_search_sub_heading"
-        android:id="@+id/gd_rest_search_filter_container"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageView
@@ -85,14 +88,14 @@
         </LinearLayout>
 
     </RelativeLayout>
+</ScrollView>
 
     <ListView
         android:layout_below="@+id/gd_rest_search_filter_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/listrestuant"
         />
-
     <include
         android:id="@+id/toolbar_gd_rest_search"
         layout="@layout/toolbar"

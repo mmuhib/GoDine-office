@@ -14,9 +14,11 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.netreadystaging.godine.R;
 import com.netreadystaging.godine.models.Restaurant;
+import com.netreadystaging.godine.utils.Utility;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,13 +62,29 @@ public class ContactMapFragment extends Fragment implements OnMapReadyCallback {
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        for (Restaurant restaurant:listRestaurants) {
+        for (final Restaurant restaurant:listRestaurants) {
             LatLng latLng = new LatLng(restaurant.lat, restaurant.lng);
             googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 12));
             googleMap.addMarker(new MarkerOptions()
                     .position(latLng)
                     .title(restaurant.getName()))
+
                     .setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker));
+            googleMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+                @Override
+                public boolean onMarkerClick(Marker marker) {
+
+                    return false;
+                }
+
+            });
+            googleMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+                @Override
+                public void onInfoWindowClick(Marker marker) {
+                    
+                    Utility.message(getContext(),""+restaurant.getAddress());
+                }
+            });
         }
     }
 

@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -48,7 +49,7 @@ public class FeedBackPageFragment extends Fragment implements View.OnClickListen
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view =  inflater.inflate(R.layout.feedback_page_fragment,container,false);
         setupToolBar();
-
+        getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
         setupView();
         return view ;
     }
@@ -85,6 +86,12 @@ public class FeedBackPageFragment extends Fragment implements View.OnClickListen
         ImageView ivToolBarEndIcn = (ImageView)toolBar.findViewById(R.id.ivToolBarEndIcn) ;
         ivToolBarNavigationIcn.setVisibility(View.GONE);
         ivToolBarBack.setVisibility(View.VISIBLE);
+        ivToolBarBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().getSupportFragmentManager().popBackStack();
+            }
+        });
         ivToolBarEndIcn.setVisibility(View.GONE);
         title = (TextView) toolBar.findViewById(R.id.tvToolBarMiddleLabel);
 

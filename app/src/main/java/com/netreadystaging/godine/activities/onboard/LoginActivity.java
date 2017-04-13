@@ -7,11 +7,13 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.netreadystaging.godine.R;
@@ -41,15 +43,19 @@ public class LoginActivity extends AppBaseActivity {
     EditText etPassword;
     String user;
     String pass;
+    TextView logintext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         appGlobal.context =  getApplicationContext() ;
         etUsername = (EditText) findViewById(R.id.etUsername);
         etPassword = (EditText) findViewById(R.id.etPassword);
+        logintext= (TextView) findViewById(R.id.tx_login);
 
+      getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
         final CheckBox cbxRememberMe= (CheckBox) findViewById(R.id.cbxRememberMe);
         if(appGlobal.isRemember())
         {
@@ -62,7 +68,6 @@ public class LoginActivity extends AppBaseActivity {
 
             @Override
             public void onClick(View v) {
-
 
                 user = etUsername.getText().toString().trim();
                 pass = etPassword.getText().toString().trim();
@@ -111,7 +116,7 @@ public class LoginActivity extends AppBaseActivity {
                                             String parentRestaurantIdOrUserId = jsonObjects.getString("ParentRestaurantIdOrUserId");
                                             String isVerificationImageUploaded = jsonObjects.getString("IsVerificationImageUploaded");
 
-                                            /***********************************
+                                          /*  **********************************
                                              * INITIALISE APP GLOBAL PARAM
                                              * **********************************/
                                             appGlobal.setUserId(userId) ;
@@ -129,7 +134,7 @@ public class LoginActivity extends AppBaseActivity {
                                             appGlobal.setMobileNotification(mobileNotification);
                                             if(miles.equalsIgnoreCase(""))
                                             {
-                                                appGlobal.setMiles("25");
+                                                appGlobal.setMiles("75");
                                             }
                                             else {
                                                 appGlobal.setMiles(miles);
@@ -151,12 +156,12 @@ public class LoginActivity extends AppBaseActivity {
                                         }
                                     } catch (JSONException e) {
 
-                                        Toast.makeText(LoginActivity.this, "Error Getting Data!", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(LoginActivity.this, "Username or Password Incorrect", Toast.LENGTH_SHORT).show();
                                     }
                                 }
                                 else
                                 {
-                                    Toast.makeText(LoginActivity.this, "Error Getting Data!", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(LoginActivity.this, "There seems to be some problem.Please try again later", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         }).request(ServiceMod.LOGIN,params);
@@ -188,7 +193,7 @@ public class LoginActivity extends AppBaseActivity {
 
         FrameLayout forgotFormLayout = (FrameLayout) findViewById(R.id.forgotPasswordFormId);
         LinearLayout loginFormLayout = (LinearLayout) findViewById(R.id.loginFormId);
-
+        logintext.setVisibility(View.GONE);
 
         forgotFormLayout.setVisibility(View.VISIBLE);
         loginFormLayout.setVisibility(View.INVISIBLE);
@@ -266,10 +271,11 @@ public class LoginActivity extends AppBaseActivity {
 
         forgotFormLayout.setVisibility(View.INVISIBLE);
         loginFormLayout.setVisibility(View.VISIBLE);
+        logintext.setVisibility(View.VISIBLE);
 
     }
 
-    public void goToWhyJoin(View view) {
+    /*public void goToWhyJoin(View view) {
         try {
             Intent intent = new Intent(LoginActivity.this, WhyJoinActivity.class);
             startActivity(intent);
@@ -279,9 +285,9 @@ public class LoginActivity extends AppBaseActivity {
 
         }
 
-    }
+    }*/
 
-    public void goToRestaurantSearch(View view) {
+   /* public void goToRestaurantSearch(View view) {
         try {
             Intent intent = new Intent(LoginActivity.this, GoDineRestaurantSearchActivity.class);
             intent.putExtra("From","Login");
@@ -290,8 +296,8 @@ public class LoginActivity extends AppBaseActivity {
             ex.printStackTrace();
 
         }
-           }
-    public void  signupGoDine(View view)
+           }*/
+   /* public void  signupGoDine(View view)
     {
         try {
             Intent intent = new Intent(LoginActivity.this, Join_GoDine.class);
@@ -302,7 +308,7 @@ public class LoginActivity extends AppBaseActivity {
 
         }
 
-    }
+    }*/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

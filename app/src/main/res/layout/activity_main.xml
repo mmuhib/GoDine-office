@@ -3,17 +3,36 @@
     android:id="@+id/mainActivity"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/login_bg_blur"
     tools:context=".activities.onboard.LoginActivity">
 
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/imgLogo">
     <ImageView
-        android:id="@+id/imgLogo"
-        android:layout_width="match_parent"
-        android:layout_height="110dp"
-        android:background="@drawable/login_top_bg"
-        android:padding="15dp"
-        android:src="@drawable/logo" />
 
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:scaleType="fitXY"
+        android:background="@drawable/profile_welcome" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="90dp"
+        android:src="@drawable/welcome_godin_text_small"
+        android:padding="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome"
+        android:textSize="15sp"
+        android:textColor="#fff"
+        android:paddingTop="25dp"
+        android:layout_marginTop="25dp"
+        android:layout_gravity="center_horizontal|center"/>
+</FrameLayout>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -31,6 +50,16 @@
             android:paddingBottom="10dp"
             android:paddingLeft="20dp"
             android:paddingRight="20dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:padding="5dp"
+                android:text="Login"
+                android:textSize="14sp"
+                android:textColor="#c9c9c5"
+                android:gravity="center"
+                android:id="@+id/tx_login"/>
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -57,12 +86,12 @@
                         android:drawableStart="@drawable/tv_user_icn"
                         android:drawablePadding="10dp"
                         android:hint="User Name"
-                        android:text="rodm@godineclub.com"
+                        android:text=""
                         android:inputType="textEmailAddress"
                         android:singleLine="true"
                         android:maxLines="1"
-                        android:textColor="#FFF"
-                        android:textColorHint="#FFF" />
+                        android:textColor="@color/black"
+                        android:textColorHint="#c9c9c9" />
 
                     <EditText
                         android:id="@+id/etPassword"
@@ -73,21 +102,20 @@
                         android:drawableLeft="@drawable/tv_pass_icn"
                         android:drawableStart="@drawable/tv_pass_icn"
                         android:drawablePadding="10dp"
+                        android:textColor="@color/black"
                         android:hint="Password"
-                        android:text="netready"
+                        android:text=""
                         android:inputType="textPassword"
                         android:maxLines="1"
-                        android:textColor="#FFF"
-                        android:textColorHint="#FFF" />
+                                             android:textColorHint="#c9c9c9" />
                     <CheckBox
                         android:padding="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Remember Password"
-
+                        android:text="Remember Me"
                         android:button="@drawable/checkbox_selector"
                         android:id="@+id/cbxRememberMe"
-                        android:textColor="#FFF"
+                        android:textColor="@color/common_signin_btn_dark_text_disabled"
                         android:layout_gravity="left"
                         tools:targetApi="lollipop" />
                     <TextView
@@ -95,9 +123,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="20dp"
                         android:clickable="true"
-                        android:onClick="goToForgotPswrd"
+                        android:textColor="#c9c9c9"                        android:onClick="goToForgotPswrd"
                         android:text="Forgot Your Password?"
-                        android:textColor="#FFF" />
+                        />
                     <Button
                         android:id="@+id/btnLoginToGoDine"
                         style="@style/GDAppButtonBaseTheme"
@@ -152,8 +180,8 @@
                             android:hint="E-Mail"
                             android:inputType="textEmailAddress"
                             android:singleLine="true"
-                            android:textColor="#FFF"
-                            android:textColorHint="#FFF" />
+                            android:textColor="#c9c9c9"
+                            android:textColorHint="#c9c9c9"/>
 
                         <Button
                             android:id="@+id/btnFrgtPassword"
@@ -174,51 +202,12 @@
 
             </RelativeLayout>
 
-            <Button
-                style="@style/GDAppButtonBaseTheme"
-                android:layout_marginBottom="20dp"
-                android:text="GoDine\u2122 RESTAURANTS"
-                android:onClick="goToRestaurantSearch"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="2dp"
-                android:gravity="center"
-                android:text="@string/login_bg_content1"
-                android:textColor="#FFF"
-                android:textSize="30sp" />
 
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:gravity="center"
-                android:text="@string/login_bg_content2"
-                android:textColor="#FFF"
-                android:textSize="18sp"
-                android:typeface="sans" />
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center">
-                <Button
-                    android:id="@+id/btnWhyJoin"
-                    style="@style/GDAppButtonBaseTheme"
-                    android:layout_marginRight="30dp"
-                    android:text="Why Join?"
-                    android:onClick="goToWhyJoin"
-                    />
-                <Button
-                    style="@style/GDAppButtonBaseTheme"
-                    android:layout_toRightOf="@+id/btnWhyJoin"
-                    android:text="Join GoDine\u2122"
-                    android:onClick="signupGoDine"
-                    />
-            </RelativeLayout>
+
+
+
         </LinearLayout>
 
     </ScrollView>

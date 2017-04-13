@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
@@ -16,6 +17,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -23,6 +25,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.netreadystaging.godine.R;
+import com.netreadystaging.godine.activities.main.ChoosePlanActivity;
 import com.netreadystaging.godine.activities.main.MainPageActivity;
 import com.netreadystaging.godine.callbacks.ImageSelectCallBack;
 import com.netreadystaging.godine.controllers.ErrorController;
@@ -205,6 +208,7 @@ public class ProfilePageFragment extends ImageSelectFragment {
     public void onResume() {
         super.onResume();
         bindModelToView();
+        checkmembership();
     }
 
 
@@ -285,9 +289,9 @@ public class ProfilePageFragment extends ImageSelectFragment {
     private void bindModelToView()
     {
         tvMembershipId.setText(appGlobal.getMembershipId()+"");
-        tvMembershipLevel.setText(appGlobal.getMemberType());
+     //   tvMembershipLevel.setText(appGlobal.getMemberType());
         tvMemberSince.setText(appGlobal.getMemberSince());
-        tvGoodThrough.setText(appGlobal.getMemberExpiryDate());
+       // tvGoodThrough.setText(appGlobal.getMemberExpiryDate());
     }
     private void Imageverification()
     {
@@ -425,6 +429,86 @@ public class ProfilePageFragment extends ImageSelectFragment {
 
     }
 
+    private void checkmembership() {
+        Utility.showLoadingPopup(getActivity());
+        HashMap<String,String> params =  new HashMap<>();
+        params.put("UserId",appGlobal.getUserId()+"");
+        new ServiceController(getActivity(), new HttpResponseCallback() {
+            @Override
+            public void response(boolean success, boolean fail, String data) {
+                Utility.hideLoadingPopup();
+                if(success)
+                {
+                    JSONArray jsonArray=null;
+                    try {
+                        jsonArray=new JSONArray(data);
+                        for (int i=0;i<jsonArray.length();i++) {
+                            JSONObject jsonObject = null;
+                            jsonObject = jsonArray.getJSONObject(i);
+                            String MembershipType=jsonObject.getString("MembershipType");
+                            tvMembershipLevel.setText(MembershipType);
+                            String ExpiryDate=jsonObject.getString("ExpiryDate");
+                            tvGoodThrough.setText(ExpiryDate);
+                            if(MembershipType.equalsIgnoreCase("Expired") | ExpiryDate.isEmpty())
+                            {
+                                checkForMemberShipType();
+                            }
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    Log.d("Data",data);
+                }
+                else
+                {
+                    ErrorController.showError(getActivity(),data,false);
+                }
+            }
+        }).request(ServiceMod.MembershipValidation,params);
 
+    }
+    private void checkForMemberShipType() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("Info");
+
+        builder.setMessage("oppss! Our system has found you as Inactive member, Please reactive your profile.");
+
+        builder.setPositiveButton("Reactivate", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                Intent intent =  new Intent(getActivity(), ChoosePlanActivity.class);
+                startActivityForResult(intent,200);
+
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent intent = new Intent(getActivity(),MainPageActivity.class) ;
+                startActivity(intent);
+
+            }
+        });
+        builder.setCancelable(false);
+        AlertDialog dialog = builder.create();
+        dialog.show();
+        Button b = dialog.getButton(DialogInterface.BUTTON_POSITIVE);
+        Button c = dialog.getButton(DialogInterface.BUTTON_NEGATIVE);
+
+        if(b != null && c!=null) {
+            b.setBackgroundResource(R.drawable.alertbuttondesign);
+            c.setBackgroundResource(R.drawable.alertbuttondesign);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                b.setTextAppearance(R.style.GDAppButtonBaseTheme);
+                c.setTextAppearance(R.style.GDAppButtonBaseTheme);
+            }else
+            {
+                b.setTextAppearance(getActivity(),R.style.GDAppButtonBaseTheme);
+                c.setTextAppearance(getActivity(),R.style.GDAppButtonBaseTheme);
+            }
+        }
+    }
 }
 

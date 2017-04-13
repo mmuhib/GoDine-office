@@ -3,6 +3,7 @@ package com.netreadystaging.godine.activities.main;
 import android.app.Fragment;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.AppCompatRatingBar;
@@ -42,7 +43,7 @@ public class RestaurantReviewActivity extends AppBaseActivity {
 
 
     private ListView lvMemberReview;
-    String restId;
+    String restId,saving;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +55,8 @@ public class RestaurantReviewActivity extends AppBaseActivity {
         if(intent!=null)
         {
             restId = intent.getStringExtra("rest_id");
+            saving=intent.getStringExtra("From near");
+
             if(Utility.isNetworkConnected(getApplicationContext())) {
                 loadRestaurantReview(restId);
                 loadRestaurantCustomerReviews(restId);
@@ -184,6 +187,8 @@ public class RestaurantReviewActivity extends AppBaseActivity {
 
         final TextView title= (TextView)toolbar.findViewById(R.id.tvToolBarMiddleLabel) ;
         title.setVisibility(View.VISIBLE);
+        title.setTextSize(18);
+        title.setTypeface(Typeface.DEFAULT_BOLD);
         title.setText("Review this Restaurant");
         final ImageView ivToolBarEndIcn = (ImageView)toolbar.findViewById(R.id.ivToolBarEndIcn) ;
         ivToolBarEndIcn.setVisibility(View.GONE);

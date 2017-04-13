@@ -29,6 +29,7 @@ import com.helpshift.support.Support;
 import com.netreadystaging.godine.R;
 import com.netreadystaging.godine.activities.AppBaseActivity;
 import com.netreadystaging.godine.activities.onboard.LoginActivity;
+import com.netreadystaging.godine.activities.onboard.Splash2;
 import com.netreadystaging.godine.adapters.NavListViewAdapter;
 import com.netreadystaging.godine.callbacks.DrawerLocker;
 import com.netreadystaging.godine.fragments.Howitworks;
@@ -410,7 +411,7 @@ public class MainPageActivity extends AppBaseActivity implements DrawerLocker {
     }
 
     private void logoutSession() {
-        Intent intent = new Intent(getApplicationContext(),LoginActivity.class) ;
+        Intent intent = new Intent(getApplicationContext(),Splash2.class) ;
         startActivity(intent);
         finish();
         appGlobal.resetAppGlobalParams();

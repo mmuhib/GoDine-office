@@ -2,12 +2,16 @@ package com.netreadystaging.godine.fragments;
 
 import android.app.Activity;
 
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,15 +25,27 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.netreadystaging.godine.R;
+import com.netreadystaging.godine.activities.main.ChoosePlanActivity;
 import com.netreadystaging.godine.activities.main.MainPageActivity;
+import com.netreadystaging.godine.activities.onboard.Splash2;
 import com.netreadystaging.godine.callbacks.DrawerLocker;
+import com.netreadystaging.godine.controllers.ErrorController;
+import com.netreadystaging.godine.controllers.ServiceController;
 import com.netreadystaging.godine.utils.AppGlobal;
 import com.netreadystaging.godine.utils.DownloadImageTask;
+import com.netreadystaging.godine.utils.ServiceMod;
 import com.netreadystaging.godine.utils.Utility;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.Locale;
+
+import in.technobuff.helper.http.HttpResponseCallback;
 
 /**
  * Created by sony on 10-01-2017.
@@ -58,8 +74,8 @@ public class MemberVerification extends Fragment {
                 String amount=et_checkamount.getText().toString();
                 String membersaving= et_memebersaving.getText().toString();
                 if(!amount.isEmpty() && !membersaving.isEmpty()) {
-                    int amout=Integer.parseInt(amount);
-                    int mem=Integer.parseInt(membersaving);
+                    Float amout= Float.valueOf(amount);
+                    Float mem= Float.valueOf(membersaving);
                     if(amout>mem)
                     {
                         SelectnearbyRestaurant frag=new SelectnearbyRestaurant();
@@ -87,7 +103,6 @@ public class MemberVerification extends Fragment {
         new DownloadImageTask((ImageView) view.findViewById(R.id.memberimg),progressBar).execute("https://godineclub.com/Portals/0/Images/Verification%20images/"+email+".jpg");
         Log.d("Img",""+"https://godineclub.com/Portals/0/Images/Verification%20images/"+email+".jpg");
         Log.d("Email",email);
-
         setupToolBar();
         setupTextviews();
         return view;
@@ -144,10 +159,98 @@ public class MemberVerification extends Fragment {
     public void onResume() {
         super.onResume();
         title.setText("Member Verification");
+        checkmembership();
     }
-  @Override
+
+    public void checkmembership() {
+        Utility.showLoadingPopup(getActivity());
+        HashMap<String,String> params =  new HashMap<>();
+        params.put("UserId",appGlobal.getUserId()+"");
+        new ServiceController(getActivity(), new HttpResponseCallback() {
+            @Override
+            public void response(boolean success, boolean fail, String data) {
+                Utility.hideLoadingPopup();
+                if(success)
+                {
+                    JSONArray jsonArray=null;
+                    try {
+                        Log.d("Data",data);
+                        jsonArray=new JSONArray(data);
+                        for (int i=0;i<jsonArray.length();i++) {
+                            JSONObject jsonObject = null;
+                            jsonObject = jsonArray.getJSONObject(i);
+                            String MembershipType=jsonObject.getString("MembershipType");
+                            txt_memberlevel.setText(MembershipType);
+                            String ExpiryDate=jsonObject.getString("ExpiryDate");
+                            goodthrough.setText(ExpiryDate);
+                            if(MembershipType.equalsIgnoreCase("Expired") | ExpiryDate.isEmpty())
+                            {
+                                checkForMemberShipType();
+                            }
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+                else
+                {
+                    ErrorController.showError(getActivity(),data,false);
+                }
+            }
+        }).request(ServiceMod.MembershipValidation,params);
+
+    }
+
+
+    @Override
     public void onDestroyView() {
         super.onDestroyView();
         ((DrawerLocker)getActivity()).setDrawerLocked(false);
     }
+    private void checkForMemberShipType() {
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            builder.setTitle("Info");
+
+            builder.setMessage("oppss! Our system has found you as Inactive member, Please reactive your profile.");
+
+            builder.setPositiveButton("Reactivate", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                    Intent intent =  new Intent(getActivity(), ChoosePlanActivity.class);
+                    startActivityForResult(intent,200);
+
+                }
+            });
+            builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Intent intent = new Intent(getActivity(),MainPageActivity.class) ;
+                    startActivity(intent);
+
+                }
+            });
+            builder.setCancelable(false);
+            AlertDialog dialog = builder.create();
+            dialog.show();
+            Button b = dialog.getButton(DialogInterface.BUTTON_POSITIVE);
+            Button c = dialog.getButton(DialogInterface.BUTTON_NEGATIVE);
+
+            if(b != null && c!=null) {
+                b.setBackgroundResource(R.drawable.alertbuttondesign);
+                c.setBackgroundResource(R.drawable.alertbuttondesign);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    b.setTextAppearance(R.style.GDAppButtonBaseTheme);
+                    c.setTextAppearance(R.style.GDAppButtonBaseTheme);
+                }else
+                {
+                    b.setTextAppearance(getActivity(),R.style.GDAppButtonBaseTheme);
+                    c.setTextAppearance(getActivity(),R.style.GDAppButtonBaseTheme);
+                }
+            }
+        }
+
+
 }

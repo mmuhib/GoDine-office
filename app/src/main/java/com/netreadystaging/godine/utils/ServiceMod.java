@@ -49,4 +49,5 @@ public interface ServiceMod {
     String CancelMembership="CancelMembership";
     String HOURS_OF_OPERATION="RestaurantHoursOfOperation";
     String DefaultAffiliate="DefaultAffiliate";
+    String MembershipValidation="MembershipValidation";
 }

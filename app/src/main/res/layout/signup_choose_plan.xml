@@ -81,13 +81,16 @@
              android:text="every time you dine at any GoDine Member Restaurant."
              android:textSize="11sp"/>
          <FrameLayout
-             android:layout_width="match_parent"
+             android:layout_width="wrap_content"
              android:layout_height="wrap_content"
              android:layout_marginBottom="15dp">
             <ImageView
-                android:layout_width="match_parent"
+                android:layout_gravity="center"
+
+                android:layout_width="150dp"
                 android:layout_height="140dp"
                 android:src="@drawable/couponjustprime"
+                android:id="@+id/image19"
 
                 />
             <Button
@@ -131,10 +134,11 @@
              android:layout_height="wrap_content"
              android:layout_marginBottom="15dp">
             <ImageView
-
-                android:layout_width="match_parent"
+            android:layout_gravity="center"
+                android:layout_width="150dp"
                 android:layout_height="140dp"
                 android:src="@drawable/couponplusonemember"
+                android:id="@+id/image29"
 
                 />
             <Button
@@ -157,6 +161,7 @@
              android:layout_width="match_parent"
              android:layout_height="80dp"
              android:src="@drawable/plusthreemember"
+
              />
          <TextView
              android:layout_width="match_parent"
@@ -178,8 +183,10 @@
              android:layout_height="wrap_content"
              android:layout_marginBottom="20dp">
             <ImageView
-                android:layout_width="match_parent"
+                android:layout_width="150dp"
                 android:layout_height="140dp"
+                android:id="@+id/image49"
+                android:layout_gravity="center"
                 android:src="@drawable/couponplusthreemember"
                 />
             <Button

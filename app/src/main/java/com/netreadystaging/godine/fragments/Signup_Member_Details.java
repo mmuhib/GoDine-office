@@ -169,7 +169,7 @@ public class Signup_Member_Details extends Fragment implements View.OnClickListe
                Sstreet=et_memberstreet.getText().toString();
                 Scity=et_membercity.getText().toString();
               Szipcode=et_zipcode.getText().toString();
-                 SMiles="25";
+                 SMiles="75";
                 final String SdeviceId="31cf203f8d4469ab59f397be5f6df49ac1b2f6e682f6cf15b8d1aeafc72e7c25";
 
                 if(!Sname.isEmpty() && !Spassword.isEmpty() &&!Sconfirmpass.isEmpty() && !Sfirstname.isEmpty() && !Slname.isEmpty() && !Sstreet.isEmpty() && !Scity.isEmpty() && !Szipcode.isEmpty() &&!Stelephone.isEmpty() )

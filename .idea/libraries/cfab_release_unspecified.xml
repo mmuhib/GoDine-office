@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="cfab-release-unspecified">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/GoDine-Final/cfab-release/unspecified/jars/classes.jar!/" />
-      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/GoDine-Final/cfab-release/unspecified/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/77f733d68820be2cc3dd7e657ac34ee297d70611/output/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.android/build-cache/77f733d68820be2cc3dd7e657ac34ee297d70611/output/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

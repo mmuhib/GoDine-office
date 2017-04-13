@@ -55,7 +55,7 @@ public class Signup_Referrer_Details extends Fragment implements View.OnClickLis
     RadioButton Byrestaurant,Bymember;
     EditText godinememberid,et_RestaurantmemberNumber;
     TextView txtrestaurentname,txtcityname,txtname,txtcellname,bt_findsponsorbymember,bt_findsponsorbyrest;
-    Button notrefered,btrefNext,bt_staff,bt_godinememberid,bt_RestaurantmemberNumber;
+    Button notrefered,btrefNext,bt_staff,bt_godinememberid,bt_RestaurantmemberNumber,membernext;
     View view;
     public  String AffiliateId="N/A",ProductVariant="N/A",StaffName="";
     LinearLayout layout_referedbyrestaurant,layout_referedbymember;
@@ -128,7 +128,9 @@ public class Signup_Referrer_Details extends Fragment implements View.OnClickLis
         btrefNext= (Button) view.findViewById(R.id.bt_refNext);
         bt_godinememberid= (Button) view.findViewById(R.id.bt_godine_memberId);
         bt_RestaurantmemberNumber=(Button) view.findViewById(R.id.bt_restaurantmembe);
+        membernext= (Button) view.findViewById(R.id.bt_refNex);
         btrefNext.setOnClickListener(this);
+        membernext.setOnClickListener(this);
         notrefered.setOnClickListener(this);
         bt_findsponsorbyrest.setOnClickListener(this);
         bt_findsponsorbymember.setOnClickListener(this);
@@ -158,6 +160,7 @@ public class Signup_Referrer_Details extends Fragment implements View.OnClickLis
             {
                 btrefNext.setVisibility(View.GONE);
             }
+
             Step.setText("STEP #3");
             planame.setText("Enter Referrer Restaurant#");
             layout_referedbyrestaurant.setVisibility(View.VISIBLE);
@@ -165,9 +168,9 @@ public class Signup_Referrer_Details extends Fragment implements View.OnClickLis
         }
         if(id==R.id.ch_Refferedbymember)
         {
-            if(btrefNext.getVisibility()==View.VISIBLE)
+            if(membernext.getVisibility()==View.VISIBLE)
             {
-                btrefNext.setVisibility(View.GONE);
+                membernext.setVisibility(View.GONE);
             }
             Step.setText("STEP #3");
             planame.setText("Enter Referrer Member#");
@@ -273,10 +276,16 @@ public class Signup_Referrer_Details extends Fragment implements View.OnClickLis
         {
             Nextbuttonclick();
         }
+        if(id==R.id.bt_refNex)
+        {
+            Nextbuttonclick();
+        }
+        InputMethodManager manager= (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+
         if(id==R.id.bt_restaurantmembe)
         {
            // Utility.message(getContext(),"Hi");
-
+            manager.hideSoftInputFromWindow(bt_RestaurantmemberNumber.getWindowToken(),0);
             String chechk=et_RestaurantmemberNumber.getText().toString().trim();
             if(!chechk.isEmpty()) {
 
@@ -329,8 +338,10 @@ public class Signup_Referrer_Details extends Fragment implements View.OnClickLis
             }
 
         }
+
         if(id==R.id.bt_godine_memberId)
         {
+            manager.hideSoftInputFromWindow( bt_godinememberid.getWindowToken(),0);
           //Utility.message(getContext(),"Hello");
             String chech = godinememberid.getText().toString().trim();
             if (!chech.isEmpty()) {
@@ -365,15 +376,15 @@ public class Signup_Referrer_Details extends Fragment implements View.OnClickLis
                                             txtcellname.setText(cell);
                                         }
                                         txtname.setText(name);
-                                        btrefNext.setVisibility(View.VISIBLE);
+                                        membernext.setVisibility(View.VISIBLE);
                                     }
                                 }
                                 else {
                                     Utility.Alertbox(getContext(), "Info", "No Result Found.Please Try again.", "OK");
                                     txtname.setText("");
                                     txtcellname.setText("");
-                                    if (btrefNext.getVisibility() == View.VISIBLE) {
-                                        btrefNext.setVisibility(View.INVISIBLE);
+                                    if (membernext.getVisibility() == View.VISIBLE) {
+                                        membernext.setVisibility(View.INVISIBLE);
                                     }
                                 }
                                 } catch (JSONException e) {
@@ -547,15 +558,15 @@ public class Signup_Referrer_Details extends Fragment implements View.OnClickLis
                                                     txtcellname.setText(cell);
                                                 }
                                                 txtname.setText(name);
-                                                btrefNext.setVisibility(View.VISIBLE);
+                                                membernext.setVisibility(View.VISIBLE);
                                             }
                                         }
                                         else {
                                             Utility.Alertbox(getContext(),"Info","No Result Found.Please Try again.","OK");
                                             txtname.setText("");
                                             txtcellname.setText("");
-                                            if(btrefNext.getVisibility()==View.VISIBLE) {
-                                                btrefNext.setVisibility(View.INVISIBLE);
+                                            if(membernext.getVisibility()==View.VISIBLE) {
+                                                membernext.setVisibility(View.INVISIBLE);
                                             }
                                         }
                                     } catch (JSONException e) {
@@ -592,7 +603,7 @@ public class Signup_Referrer_Details extends Fragment implements View.OnClickLis
                     txtname.setText(name);
                     txtcellname.setText(cell);
                     godinememberid.setText( AffiliateId);
-                    btrefNext.setVisibility(View.VISIBLE);
+                    membernext.setVisibility(View.VISIBLE);
                 }
             }
             if(requestCode==3)

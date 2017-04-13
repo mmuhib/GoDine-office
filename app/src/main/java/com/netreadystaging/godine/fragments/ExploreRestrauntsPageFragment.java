@@ -4,8 +4,10 @@ package com.netreadystaging.godine.fragments;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
+import android.hardware.input.InputManager;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -21,6 +23,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -38,6 +41,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationServices;
 import com.netreadystaging.godine.R;
 import com.netreadystaging.godine.activities.main.MainPageActivity;
+import com.netreadystaging.godine.activities.onboard.LoginActivity;
 import com.netreadystaging.godine.adapters.RestTypeAdapter;
 import com.netreadystaging.godine.controllers.ErrorController;
 import com.netreadystaging.godine.controllers.ServiceController;
@@ -67,6 +71,7 @@ import in.technobuff.helper.utils.PermissionRequestHandler;
 public class ExploreRestrauntsPageFragment extends Fragment implements View.OnClickListener, GoogleApiClient.ConnectionCallbacks,GoogleApiClient.OnConnectionFailedListener{
 
     View view ;
+  TextView btnSearchRestaurants,btnCurrentLocationSearch;
     EditText etNameOfRestaurant ,etRestaurantCity,etRestaurantZipcode,etMiles ;
     Spinner etTypeOfCuisine,etRestaurantFeature;
     private boolean isCurrentLocationSearch;
@@ -102,15 +107,17 @@ public class ExploreRestrauntsPageFragment extends Fragment implements View.OnCl
         btnClearFields.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                InputMethodManager inputManager= (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                inputManager.hideSoftInputFromWindow(btnClearFields.getWindowToken(),0);
                 etNameOfRestaurant.setText("");
                 etRestaurantCity.setText("");
                 etRestaurantZipcode.setText("");
                 etMiles.setText("");
             }
         });
-        final TextView btnCurrentLocationSearch = (TextView)view.findViewById(R.id.btnCurrentLocationSearch) ;
+ btnCurrentLocationSearch = (TextView)view.findViewById(R.id.btnCurrentLocationSearch) ;
         final TextView btnOpenSearchOption = (TextView)view.findViewById(R.id.btnOpenSearchOption) ;
-        final TextView btnSearchRestaurants = (TextView)view.findViewById(R.id.btnSearchRestaurants) ;
+        btnSearchRestaurants = (TextView)view.findViewById(R.id.btnSearchRestaurants) ;
         btnCurrentLocationSearch.setOnClickListener(this);
         btnSearchRestaurants.setOnClickListener(this);
 
@@ -140,8 +147,10 @@ public class ExploreRestrauntsPageFragment extends Fragment implements View.OnCl
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         showRestaurantTypesAlert();
-
-        loadTypesOfCuisines();
+if(!Utility.isNetworkConnected(getActivity())) {
+    Toast.makeText(getContext(), "No Network Connection!", Toast.LENGTH_SHORT).show();
+    return ;
+}   loadTypesOfCuisines();
         loadRestFeatures();
     }
 
@@ -192,7 +201,8 @@ public class ExploreRestrauntsPageFragment extends Fragment implements View.OnCl
                 }
                 else
                 {
-                    ErrorController.showError(getActivity(),data,success);
+                    Utility.message(getContext(),"Opps!! Found some error. Plese go back and try again");
+                  //  ErrorController.showError(getActivity(),data,success);
                 }
 
 
@@ -427,7 +437,8 @@ public class ExploreRestrauntsPageFragment extends Fragment implements View.OnCl
         /*//For Testing
          latitude="33.6113736000";
          longitude="-117.8921022000";*/
-
+      /*  String  latitud="47.6426815000";
+        String longitud="-117.5193558000";*/
 
         Utility.showLoadingPopup(getActivity());
         restlist =  new ArrayList<>();
@@ -567,14 +578,17 @@ public class ExploreRestrauntsPageFragment extends Fragment implements View.OnCl
     }
     @Override
     public void onClick(View v) {
+        InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
         switch(v.getId())
         {
             case R.id.btnCurrentLocationSearch :
                 isCurrentLocationSearch  = true ;
+                imm.hideSoftInputFromWindow(btnSearchRestaurants.getWindowToken(), 0);
                 break ;
 
             case R.id.btnSearchRestaurants :
                 isCurrentLocationSearch = false ;
+                imm.hideSoftInputFromWindow(btnCurrentLocationSearch.getWindowToken(), 0);
                 break ;
         }
 

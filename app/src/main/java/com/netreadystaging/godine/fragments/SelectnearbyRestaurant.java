@@ -121,17 +121,17 @@ public class SelectnearbyRestaurant extends Fragment  implements GoogleApiClient
             nearbylist.clear();
         }
       //   For Testing
-     Miles = "0.2";
-    /*  String  latitud="33.6113736000";
-        String longitud="-117.8921022000";
-*/
+         Miles = "0.2";
+ /*       String  latitud="47.6426815000";
+        String longitud="-117.5193558000";*/
+
         final HashMap<String, String> params = new HashMap<>();
         params.put("RestaurantNameOrCity", name);
         params.put("ZipCode", zipcode);
         params.put("lat", latitude);
         params.put("lng", longitude);
         params.put("miles", Miles);
-
+        params.put("RestaurantType","253,284" );
         new ServiceController(getActivity(), new HttpResponseCallback() {
             @Override
             public void response(boolean success, boolean fail, String data) {
@@ -295,6 +295,7 @@ public class SelectnearbyRestaurant extends Fragment  implements GoogleApiClient
                                         dialogInterface.dismiss();
                                         Intent intent =  new Intent(getActivity(), RestaurantReviewActivity.class);
                                         intent.putExtra("rest_id",""+restid);
+                                        intent.putExtra("From near","saving");
                                         startActivity(intent);
                                      }
                                 });

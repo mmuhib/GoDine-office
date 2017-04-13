@@ -15,6 +15,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,13 +25,20 @@ import android.widget.TextView;
 
 import com.netreadystaging.godine.R;
 import com.netreadystaging.godine.activities.main.ChoosePlanActivity;
+import com.netreadystaging.godine.activities.main.MainPageActivity;
 import com.netreadystaging.godine.activities.main.PaymentView;
+import com.netreadystaging.godine.activities.onboard.Splash2;
+import com.netreadystaging.godine.callbacks.DrawerLocker;
 import com.netreadystaging.godine.callbacks.ImageSelectCallBack;
 import com.netreadystaging.godine.controllers.ErrorController;
 import com.netreadystaging.godine.controllers.ServiceController;
 import com.netreadystaging.godine.utils.AppGlobal;
 import com.netreadystaging.godine.utils.ServiceMod;
 import com.netreadystaging.godine.utils.Utility;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -165,43 +173,94 @@ public class ProfileWelcomeFragment extends ImageSelectFragment {
         // Set Up Welcome Image
         setupWelcomeImage();
 
-   //    checkForMemberShipType();
+//  checkForMemberShipType();
+        checkmembership();
+    }
+
+    private void checkmembership() {
+        Utility.showLoadingPopup(getActivity());
+        HashMap<String,String> params =  new HashMap<>();
+        params.put("UserId",appGlobal.getUserId()+"");
+        new ServiceController(getActivity(), new HttpResponseCallback() {
+            @Override
+            public void response(boolean success, boolean fail, String data) {
+                Utility.hideLoadingPopup();
+                if(success)
+                {
+                    JSONArray jsonArray=null;
+                    try {
+                        jsonArray=new JSONArray(data);
+                        for (int i=0;i<jsonArray.length();i++) {
+                            JSONObject jsonObject = null;
+                            jsonObject = jsonArray.getJSONObject(i);
+                            String MembershipType=jsonObject.getString("MembershipType");
+
+                            String ExpiryDate=jsonObject.getString("ExpiryDate");
+
+                            if(MembershipType.equalsIgnoreCase("Expired") | ExpiryDate.isEmpty())
+                            {
+                                checkForMemberShipType();
+                            }
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    Log.d("Data",data);
+                }
+                else
+                {
+                    ErrorController.showError(getActivity(),data,false);
+                }
+            }
+        }).request(ServiceMod.MembershipValidation,params);
 
     }
 
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        ((DrawerLocker)getActivity()).setDrawerLocked(false);
+    }
     private void checkForMemberShipType() {
-        if(appGlobal.getMemberType().toLowerCase().trim().equals("expired"))
-        {
-            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-            builder.setTitle("Info");
 
-            builder.setMessage("We're sorry but our system indicates your membership " +
-                    "has either expired or has been cancelled. To renew your membership " +
-                    "now, click on \"Reactivate\" below");
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("Info");
 
-            builder.setPositiveButton("Reactivate", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    dialog.dismiss();
-                    Intent intent =  new Intent(getActivity(), ChoosePlanActivity.class);
-                    startActivityForResult(intent,200);
+        builder.setMessage("oppss! Our system has found you as Inactive member, Please reactive your profile.");
 
-                }
-            });
+        builder.setPositiveButton("Reactivate", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                Intent intent =  new Intent(getActivity(), ChoosePlanActivity.class);
+                startActivityForResult(intent,200);
 
-            builder.setCancelable(false);
-            AlertDialog dialog = builder.create();
-            dialog.show();
-            Button b = dialog.getButton(DialogInterface.BUTTON_POSITIVE);
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+               dialog.dismiss();
 
-            if(b != null) {
-                b.setBackgroundResource(R.drawable.btn_bg);
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    b.setTextAppearance(R.style.GDAppButtonBaseTheme);
-                }else
-                {
-                    b.setTextAppearance(getActivity(),R.style.GDAppButtonBaseTheme);
-                }
+            }
+        });
+        builder.setCancelable(false);
+        AlertDialog dialog = builder.create();
+        dialog.show();
+        Button b = dialog.getButton(DialogInterface.BUTTON_POSITIVE);
+        Button c = dialog.getButton(DialogInterface.BUTTON_NEGATIVE);
+
+        if(b != null && c!=null) {
+            b.setBackgroundResource(R.drawable.alertbuttondesign);
+            c.setBackgroundResource(R.drawable.alertbuttondesign);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                b.setTextAppearance(R.style.GDAppButtonBaseTheme);
+                c.setTextAppearance(R.style.GDAppButtonBaseTheme);
+            }else
+            {
+                b.setTextAppearance(getActivity(),R.style.GDAppButtonBaseTheme);
+                c.setTextAppearance(getActivity(),R.style.GDAppButtonBaseTheme);
             }
         }
     }

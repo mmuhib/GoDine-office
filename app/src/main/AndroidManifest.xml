@@ -29,6 +29,11 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
         <activity
+            android:name=".activities.onboard.Splash2"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
             android:name=".activities.onboard.SplashActivity"
             android:label="@string/title_activity_splash"
             android:screenOrientation="portrait">
@@ -52,7 +57,8 @@
         <activity
             android:name=".activities.main.GoDineRestaurantSearchActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan" />
+            android:windowSoftInputMode="adjustPan"
+            />
         <activity
             android:name=".activities.main.Join_GoDine"
             android:screenOrientation="portrait" />

@@ -24,7 +24,7 @@ public class SplashActivity extends AppBaseActivity {
                 try {
                     appGlobal.context =  getApplicationContext() ;
                     if(!appGlobal.copyLStoAppGlobal()) {
-                        Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
+                        Intent intent = new Intent(SplashActivity.this, Splash2.class);
                         startActivity(intent);
                         finish();
                     }

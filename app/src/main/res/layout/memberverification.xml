@@ -148,7 +148,7 @@
                 android:layout_gravity="center"
                 android:hint=""
                 android:maxLines="1"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 style="@style/GDSimplerectangleBlue"
                 />
 
@@ -173,7 +173,7 @@
                 android:layout_gravity="center"
                 android:hint=""
                 android:maxLines="1"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 style="@style/GDSimplerectangleBlue"
                 />
 

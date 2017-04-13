@@ -182,7 +182,7 @@ public class PaymentView extends AppCompatActivity {
                                                     appGlobal.setMobileNotification(mobileNotification);
                                                     if(miles.equalsIgnoreCase(""))
                                                     {
-                                                        appGlobal.setMiles("25");
+                                                        appGlobal.setMiles("75");
                                                     }
                                                     else {
                                                         appGlobal.setMiles(miles);
@@ -227,7 +227,6 @@ public class PaymentView extends AppCompatActivity {
                                 }).request(ServiceMod.USER_PROFILE,params);
                             }
                         }
-
 
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -298,12 +297,7 @@ public class PaymentView extends AppCompatActivity {
             Log.d("Naughaut",s);
             return super.shouldOverrideUrlLoading(view,request);
         }
-   /* @Override
-        public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-       Log.d("Req",""+request);
-         //  paymentview.loadUrl("https://godineclub.com/api/CheckoutURL?productvariantid="+ProductVariantID+"&username="+username+"&password="+password);
-            return true;
-        }*/
+
         @Override
         public void onPageFinished(WebView view, String url) {
             super.onPageFinished(view, url);

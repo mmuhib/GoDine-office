@@ -1,9 +1,11 @@
 package com.netreadystaging.godine.activities.main;
 
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Typeface;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -11,12 +13,15 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -53,7 +58,7 @@ public class GoDineRestaurantSearchActivity extends AppBaseActivity implements V
 
     GoogleApiClient mgoogleApiclient;
 
-    RelativeLayout  gd_rest_search_filter_container  ;
+    ScrollView gd_rest_search_filter_container  ;
     TextView mTitle;
 
     ArrayList<Restaurant> restlist;
@@ -61,12 +66,14 @@ public class GoDineRestaurantSearchActivity extends AppBaseActivity implements V
     AppGlobal appGlobal = AppGlobal.getInatance() ;
     private boolean isCurrentLocationSearch;
     private double currentLat;
+     Button  search;
     private double currentLng;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_go_dine_restauant_search);
         setupToolBar();
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
         restlist=new ArrayList<>();
         final ListView lvRestaurant = (ListView) findViewById(R.id.listrestuant);
         Bundle extra=getIntent().getExtras();
@@ -122,11 +129,11 @@ public class GoDineRestaurantSearchActivity extends AppBaseActivity implements V
         lvRestaurant.setAdapter(adapter);
 
         final Button bt_tapsearchrestaurant= (Button) findViewById(R.id.bt_tapsearchrestaurant);
-        final Button  search= (Button) findViewById(R.id.bt_searchrestaurant);
+        search= (Button) findViewById(R.id.bt_searchrestaurant);
         bt_tapsearchrestaurant.setOnClickListener(this);
         search.setOnClickListener(this);
 
-        gd_rest_search_filter_container = (RelativeLayout) findViewById(R.id.gd_rest_search_filter_container) ;
+        gd_rest_search_filter_container = (ScrollView) findViewById(R.id.gd_rest_search_filter_container);
 
 
         // Search near By restaurants
@@ -153,6 +160,8 @@ public class GoDineRestaurantSearchActivity extends AppBaseActivity implements V
         toolbar_gd_rest_search = (Toolbar) findViewById(R.id.toolbar_gd_rest_search);
         mTitle = (TextView) toolbar_gd_rest_search.findViewById(R.id.tvToolBarMiddleLabel) ;
         mTitle.setText(getResources().getText(R.string.go_dine_restaurant));
+        mTitle.setTextSize(18);
+        mTitle.setTypeface(Typeface.DEFAULT_BOLD);
         ImageView ivToolBarNavigationIcn = (ImageView)toolbar_gd_rest_search.findViewById(R.id.ivToolBarNavigationIcn) ;
         ImageView ivToolBarBack = (ImageView)toolbar_gd_rest_search.findViewById(R.id.ivToolBarBack) ;
         ivToolBarBack.setOnClickListener(new View.OnClickListener() {
@@ -182,14 +191,19 @@ public class GoDineRestaurantSearchActivity extends AppBaseActivity implements V
     }
     @Override
     public void onClick(View view) {
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         switch(view.getId())
         {
             case R.id.bt_searchrestaurant :
                 isCurrentLocationSearch  = false ;
+
+                imm.hideSoftInputFromWindow(search.getWindowToken(), 0);
                 break ;
 
             case R.id.bt_tapsearchrestaurant :
                 isCurrentLocationSearch = true ;
+
+                imm.hideSoftInputFromWindow(search.getWindowToken(), 0);
                 break ;
         }
 
@@ -216,9 +230,11 @@ public class GoDineRestaurantSearchActivity extends AppBaseActivity implements V
         if(restlist!=null) {
             restlist.clear();
         }
+      /*  String  latitud="47.6426815000";
+        String longitud="-117.5193558000";*/
 
         // For Testing
-        Miles="25";
+        Miles="100";
         final HashMap<String,String> params=new HashMap<>();
         params.put("RestaurantNameOrCity",name);
         params.put("ZipCode",zipcode);
@@ -236,7 +252,6 @@ public class GoDineRestaurantSearchActivity extends AppBaseActivity implements V
                 {
                     JSONArray jsonArray = null;
                     try {
-
                         jsonArray = new JSONArray(data);
                         if(jsonArray.length()>0) {
                             for (int i = 0; i < jsonArray.length(); i++) {

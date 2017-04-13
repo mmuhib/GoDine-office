@@ -6,7 +6,7 @@
             <item>
                 <shape xmlns:android="http://schemas.android.com/apk/res/android">
 
-                    <solid android:color="#78878788"/>
+                    <solid android:color="#fff"/>
                     <!-- view border color and width -->
                     <stroke
                         android:width="2dp"

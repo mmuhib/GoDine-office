@@ -1,5 +1,6 @@
 package com.netreadystaging.godine.activities.main;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
@@ -7,8 +8,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
+import android.telephony.PhoneNumberFormattingTextWatcher;
+import android.telephony.PhoneNumberUtils;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -33,6 +39,7 @@ import org.json.JSONObject;
 import java.lang.reflect.Member;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Locale;
 
 import in.technobuff.helper.http.HttpResponseCallback;
 
@@ -48,9 +55,13 @@ public class Members extends AppCompatActivity implements View.OnClickListener, 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_members);
         setupToolBar();
+        Locale locale=getResources().getConfiguration().locale;
         mlist= (ListView) findViewById(R.id.memberlist);
         memberLists=new ArrayList<>();
+
         memberAdapter=new MemberAdapter(getApplicationContext(),R.layout.member_custom_row,memberLists);
+        et_memberCell= (EditText)findViewById(R.id.et_memberCell);
+        et_memberCell.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
         mlist.setAdapter(memberAdapter);
         mlist.setOnItemClickListener(this);
         bt_searchmember= (Button) findViewById(R.id.bt_searchmember);
@@ -64,6 +75,8 @@ public class Members extends AppCompatActivity implements View.OnClickListener, 
         mTitle.setText(getResources().getText(R.string.topmember));
         ImageView ivToolBarNavigationIcn = (ImageView)toolbar_gd_member_search.findViewById(R.id.ivToolBarNavigationIcn) ;
         ImageView ivToolBarBack = (ImageView)toolbar_gd_member_search.findViewById(R.id.ivToolBarBack) ;
+        ImageView Set= (ImageView) toolbar_gd_member_search.findViewById(R.id.ivToolBarEndIcn);
+        Set.setVisibility(View.GONE);
         ivToolBarBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,19 +88,24 @@ public class Members extends AppCompatActivity implements View.OnClickListener, 
          }
 
     @Override
-    public void onClick(View view) {
+    public void onClick(View view) {//9495544526
+
         if(memberLists!=null)
         {
             memberLists.clear();
         }
+        InputMethodManager methodManager= (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        methodManager.hideSoftInputFromWindow(bt_searchmember.getWindowToken(),0);
         et_memberNumber= (EditText) findViewById(R.id.et_memberNumber);
-        et_memberCell= (EditText) findViewById(R.id.et_memberCell);
+       // et_memberCell.setText("(509) 590-6309");
         String memberNumber=et_memberNumber.getText().toString().trim();
-        String memberCell=et_memberCell.getText().toString().trim();
+        String memberCell=et_memberCell.getText().toString();
+
         if(!memberNumber.isEmpty() && !memberCell.isEmpty())
         {
+
            final AlertDialog.Builder builder=new AlertDialog.Builder(Members.this);
-            builder.setTitle("INFO");
+            builder.setTitle("Info");
             builder.setMessage("Please fill either Member Number or \n Member Phone");
             builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 @Override
@@ -99,6 +117,7 @@ public class Members extends AppCompatActivity implements View.OnClickListener, 
             builder.show();
         }
         else {
+            Utility.showLoadingPopup(Members.this);
             HashMap<String, String> params = new HashMap<>();
             params.put("UserId", memberNumber);
             params.put("CellNo", memberCell);
@@ -117,12 +136,15 @@ public class Members extends AppCompatActivity implements View.OnClickListener, 
                                 for (int i = 0; i < jsonArray.length(); i++) {
                                    JSONObject jsonObjects = jsonArray.getJSONObject(i);
                                     MemberList memberList = new MemberList();
-                                    memberList.setDisplayName(jsonObjects.getString("DisplayName"));
+                                    memberList.setEmail(jsonObjects.getString("Email"));
+                                    memberList.setFirstName(jsonObjects.getString("FirstName"));
+                                    memberList.setLastName(jsonObjects.getString("LastName"));
                                     memberList.setCell(jsonObjects.getString("Cell"));
                                     memberList.setUserId(jsonObjects.getString("UserId"));
                                     memberList.setTelephone(jsonObjects.getString("Telephone"));
                                     memberLists.add(memberList);
                                     memberAdapter.notifyDataSetChanged();
+
                                 }
                             } else {
                                // Utility.Alertbox(getApplicationContext(),"Info","Please Fill Value","OK");
@@ -138,6 +160,7 @@ public class Members extends AppCompatActivity implements View.OnClickListener, 
                                 builder.create();
                                 builder.show();
                             }
+                            Utility.hideLoadingPopup();
                             memberAdapter.notifyDataSetChanged();
 
                         } catch (JSONException e) {

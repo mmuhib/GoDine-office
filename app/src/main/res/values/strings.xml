@@ -5,8 +5,8 @@
     <string name="meet_go_dine_body">\u2022  Join GoDine\u2122 Today \n\u2022  Search GoDine™ Restaurants \n\u2022  Dine out often \n\u2022  Save 50% Off your Entree every time! \n\u2022  Save Hundreds of Dollars every month!\n\u2022 Sign up a friend and get your next month’s membership for free</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_splash">GoDine</string>
-    <string name="login_bg_content1">Receive 50% Off\nyour entree</string>
-    <string name="login_bg_content2">every time you dine out\nat any GoDine\u2122 Premier Partner\nRestaurant nationwide\n</string>
+    <string name="login_bg_content1"><b><font color='red'>GET 50% OFF</font>\n<font size='20'>YOUR  ENTRÉE</font> </b></string>
+    <string name="login_bg_content2">every time you dine out at any \nGoDine\u2122 Premier Partner\nRestaurant nationwide\n</string>
     <string name="title_activity_why_join">WhyJoinActivity</string>
     <string name="meet_go_dine_title">Meet GoDine\u2122</string>
     <string name="signup">GoDine™ SignUp</string>
@@ -120,4 +120,5 @@
     <string name="select_rest_features">Select Multiple Values for Features.</string>
     <string name="select_rest_price">Select Price Range.</string>
     <string name="select_rest_rating">Select Rating Value</string>
+    <string name="GoDineSplash"><font size='16'><b></b></font>\n America\'s Premier Dining Club</string>
 </resources>

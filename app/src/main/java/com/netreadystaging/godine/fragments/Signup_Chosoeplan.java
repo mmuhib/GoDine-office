@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.netreadystaging.godine.R;
@@ -41,6 +42,7 @@ public class Signup_Chosoeplan extends Fragment implements View.OnClickListener 
     View view;
     public  static  Button btjustone,btplusone,btplusthree;
     Button bt_chooseplan,bt_refferdetails,bt_memberdetails;
+    ImageView image_justone,image_plusone,image_plusthree;
     String justone,plusone,plusthree;
     TextView planame,Step;
     @Nullable
@@ -51,10 +53,16 @@ public class Signup_Chosoeplan extends Fragment implements View.OnClickListener 
         btjustone= (Button) view.findViewById(R.id.bt_justone);
         btplusone= (Button) view.findViewById(R.id.bt_plusone);
         btplusthree= (Button) view.findViewById(R.id.bt_plusthee);
+        image_justone= (ImageView) view.findViewById(R.id.image19);
+        image_plusone=(ImageView) view.findViewById(R.id.image29);
+        image_plusthree= (ImageView) view.findViewById(R.id.image49);
 
         btjustone.setOnClickListener(this);
         btplusone.setOnClickListener(this);
         btplusthree.setOnClickListener(this);
+        image_justone.setOnClickListener(this);
+        image_plusone.setOnClickListener(this);
+        image_plusthree.setOnClickListener(this);
         return view;
     }
 
@@ -123,7 +131,8 @@ public class Signup_Chosoeplan extends Fragment implements View.OnClickListener 
 
         int id = view.getId();
         switch (id) {
-            case R.id.bt_justone:
+            case R.id.bt_justone :
+               case R.id.image19:
                 bundle.putString("Product", justone);
                 fragment = new Signup_Referrer_Details();
                 Join_GoDine.ProductVariantIDD=20;
@@ -131,6 +140,7 @@ public class Signup_Chosoeplan extends Fragment implements View.OnClickListener 
 
                 break;
             case R.id.bt_plusone:
+            case R.id.image29:
                 bundle.putString("Product", plusone);
                 fragment = new Signup_Referrer_Details();
                 Join_GoDine.ProductVariantIDD=21;
@@ -138,6 +148,7 @@ public class Signup_Chosoeplan extends Fragment implements View.OnClickListener 
 
                 break;
             case R.id.bt_plusthee:
+            case R.id.image49:
                 bundle.putString("Product", plusthree);
                 fragment = new Signup_Referrer_Details();
                 Join_GoDine.ProductVariantIDD=22;

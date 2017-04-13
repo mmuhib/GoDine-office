@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="FilterHelper-release-unspecified">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/GoDine-Final/FilterHelper-release/unspecified/jars/classes.jar!/" />
-      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/GoDine-Final/FilterHelper-release/unspecified/res" />
+      <root url="file://$USER_HOME$/.android/build-cache/5118e8529bd5b4b21f8a28a516e3d3764fec3ef8/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/5118e8529bd5b4b21f8a28a516e3d3764fec3ef8/output/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
