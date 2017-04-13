@@ -81,8 +81,7 @@ public class ContactMapFragment extends Fragment implements OnMapReadyCallback {
             googleMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
                 @Override
                 public void onInfoWindowClick(Marker marker) {
-                    
-                    Utility.message(getContext(),""+restaurant.getAddress());
+
                 }
             });
         }

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content"
+>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:scaleType="fitXY"
+        android:background="@drawable/profile_welcome" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="90dp"
+            android:src="@drawable/welcome_godin_text_small"
+            android:padding="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal"
+            />
+    </FrameLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/imgLogo"
+
+        >
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingTop="5dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:gravity="center"
+                android:text="@string/login_bg_content1"
+                android:textSize="30sp" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:text="@string/login_bg_content2"
+                android:textColor="#000"
+                android:paddingTop="3dp"
+                android:textSize="18sp"
+                android:typeface="sans" />
+            <Button
+                style="@style/GDAppButtonBaseTheme"
+                android:layout_marginBottom="20dp"
+                android:text="JOIN NOW"
+                android:onClick="signupGoDine"
+                />
+            <Button
+                style="@style/GDAppButtonBaseTheme"
+                android:text="Explore Our Restaurants"
+                android:onClick="goToRestaurantSearch"
+                />
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:src="@drawable/newo"
+                    android:scaleType="centerCrop"/>
+                <RelativeLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:gravity="center|bottom">
+                    <Button
+                        android:id="@+id/btnWhyJoin"
+                        style="@style/GDAppButtonBaseTheme"
+                        android:layout_marginRight="70dp"
+                        android:text="WHY JOIN?"
+                        android:onClick="goToWhyJoin"
+                        />
+                    <Button
+                        style="@style/GDAppButtonBaseTheme"
+                        android:layout_toRightOf="@+id/btnWhyJoin"
+                        android:text="LOGIN"
+                        android:onClick="loginact"
+                        android:layout_marginBottom="5dp"
+                        />
+                </RelativeLayout>
+            </FrameLayout>
+
+        </LinearLayout>
+         </ScrollView>
+
+</LinearLayout>
