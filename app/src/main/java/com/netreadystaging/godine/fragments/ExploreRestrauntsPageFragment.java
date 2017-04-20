@@ -477,6 +477,7 @@ if(!Utility.isNetworkConnected(getActivity())) {
                                 area.append(", " + jsonObjects.getString("Region"));
                                 area.append(", " + jsonObjects.getString("PostalCode"));
                                 restaurantObj.setArea("" + area);
+                                restaurantObj.setRestaurantPhoneNumber(jsonObjects.getString("RestaurantPhoneNumber"));
                                 restaurantObj.setRestaurantCusine(jsonObjects.getString("RestaurantCuisine"));
                                 restaurantObj.setRestaurantFeatures(jsonObjects.getString("RestaurantFeatures"));
                                 restaurantObj.setLunch(jsonObjects.getString("RestaurantAverageLunch"));

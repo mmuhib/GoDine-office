@@ -132,6 +132,7 @@ public class SelectnearbyRestaurant extends Fragment  implements GoogleApiClient
         params.put("lng", longitude);
         params.put("miles", Miles);
         params.put("RestaurantType","253,284" );
+
         new ServiceController(getActivity(), new HttpResponseCallback() {
             @Override
             public void response(boolean success, boolean fail, String data) {

@@ -419,7 +419,7 @@ public class MainPageActivity extends AppBaseActivity implements DrawerLocker {
 
     @Override
     public void onBackPressed() {
-        if(getSupportFragmentManager().getBackStackEntryCount() >1)
+        if(getSupportFragmentManager().getBackStackEntryCount() >0)
             super.onBackPressed();
         else
         {
@@ -438,7 +438,9 @@ public class MainPageActivity extends AppBaseActivity implements DrawerLocker {
             build.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
+
                     finish();
+
                 }
             });
             build.setNegativeButton("No", new DialogInterface.OnClickListener() {

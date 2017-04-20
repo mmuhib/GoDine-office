@@ -65,4 +65,6 @@ public class Splash2  extends AppBaseActivity {
 
         }
     }
+
+
 }

@@ -233,8 +233,14 @@ public class ProfileWelcomeFragment extends ImageSelectFragment {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
-                Intent intent =  new Intent(getActivity(), ChoosePlanActivity.class);
-                startActivityForResult(intent,200);
+              /*  Intent intent =  new Intent(getActivity(), ChoosePlanActivity.class);
+                startActivityForResult(intent,200);*/
+                Intent intent =  new Intent(getActivity(), PaymentView.class);
+                intent.putExtra("username",appGlobal.getUsername());
+                intent.putExtra("password",appGlobal.getPassword());
+                intent.putExtra("productvariantid","21");
+                intent.putExtra("UserD",appGlobal.getUserId()+"");
+                startActivity(intent);
 
             }
         });

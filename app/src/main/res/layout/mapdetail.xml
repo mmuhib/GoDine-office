@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical" android:layout_width="wrap_content"
 
     android:layout_height="match_parent">
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Restaurant Name"
         android:textSize="20sp"
@@ -12,21 +12,22 @@
         android:layout_marginLeft="5dp"
         android:textStyle="bold"/>
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
         android:layout_gravity="center_vertical"
         android:orientation="horizontal">
         <android.support.v7.widget.AppCompatRatingBar
+            android:id="@+id/Rrating"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:scaleX=".4"
-            android:scaleY=".4"
-            android:transformPivotX="18dp"
-            android:transformPivotY="15dp"
+            android:layout_height="wrap_content"
+            android:scaleX=".6"
+            android:scaleY=".6"
+            android:transformPivotX="19dp"
+            android:transformPivotY="10dp"
             android:max="5"
             android:isIndicator="true"
-            style="?android:attr/ratingBarStyle"
+            style="?android:attr/ratingBarStyleIndicator"
             android:progress="5"
             android:progressTint="#3399ff"
             />
@@ -37,14 +38,14 @@
             android:text="3 Review"
 
             android:textSize="16sp"
-            android:id="@+id/review"
+            android:id="@+id/Rreview"
             android:layout_gravity="center" />
     </LinearLayout>
     <LinearLayout
         android:layout_below="@+id/texts"
         android:layout_toRightOf="@+id/restaurantImageContainer"
         android:layout_toEndOf="@+id/restaurantImageContainer"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical">
         <TextView
@@ -54,7 +55,7 @@
             android:textSize="18sp"
             android:layout_marginLeft="5dp"
             android:textColor="@color/black"
-            android:id="@+id/Rregion"/>
+            android:id="@+id/RrestaurantCuisine"/>
 
         <TextView
 
@@ -63,17 +64,18 @@
             android:text="Afghani, African"
             android:textSize="14sp"
             android:textColor="@color/black"
-            android:layout_marginTop="13dp"
+            android:layout_marginTop="6dp"
             android:layout_marginLeft="5dp"
-            android:id="@+id/cuisine"/>
+            android:id="@+id/Raddress"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Afghani, African"
             android:textSize="14sp"
+            android:id="@+id/Rarea"
             android:textColor="@color/black"
-            android:layout_marginTop="3dp"
+            android:layout_marginTop="2dp"
             android:layout_marginLeft="5dp"
           />
 
@@ -84,13 +86,17 @@
             android:textSize="14sp"
             android:layout_marginLeft="5dp"
             android:textColor="@color/black"
-            android:layout_marginTop="13dp"
+            android:layout_marginTop="7dp"
+            android:id="@+id/RCell"
             />
     </LinearLayout>
 <Button
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:id="@+id/Rseedetail"
     android:text="SEE DETAILS"
+    android:layout_marginTop="9dp"
+    android:layout_marginBottom="1dp"
     style="@style/ButtonBaseTheme"
     android:layout_gravity="center"/>
 

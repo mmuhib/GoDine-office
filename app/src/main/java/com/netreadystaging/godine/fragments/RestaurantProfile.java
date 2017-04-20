@@ -481,7 +481,7 @@ public class RestaurantProfile extends Fragment  implements OnMapReadyCallback,G
                 .setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker));
     }
 
-    public void onDestroyView()
+ /*   public void onDestroyView()
     {
         super.onDestroyView();
         Fragment fragment = (getChildFragmentManager().findFragmentById(R.id.map));
@@ -490,7 +490,7 @@ public class RestaurantProfile extends Fragment  implements OnMapReadyCallback,G
             ft.remove(fragment);
             ft.commit();
         }
-    }
+    }*/
 
     private void requestFavorite(final View v,String restId) {
         Utility.showLoadingPopup(getActivity());
