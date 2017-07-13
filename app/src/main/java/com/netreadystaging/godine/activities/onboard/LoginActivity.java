@@ -165,7 +165,8 @@ public class LoginActivity extends AppBaseActivity {
                                 }
                             }
                         }).request(ServiceMod.LOGIN,params);
-                    } else {
+                    }
+                    else {
                         Toast.makeText(LoginActivity.this, "Please Enter valid Name", Toast.LENGTH_SHORT).show();
                     }
                 } else {

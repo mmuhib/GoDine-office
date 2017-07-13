@@ -33,6 +33,7 @@ import com.netreadystaging.godine.activities.onboard.Splash2;
 import com.netreadystaging.godine.adapters.NavListViewAdapter;
 import com.netreadystaging.godine.callbacks.DrawerLocker;
 import com.netreadystaging.godine.fragments.Howitworks;
+import com.netreadystaging.godine.fragments.MemberVerification;
 import com.netreadystaging.godine.fragments.ReferFriendsandFamily;
 import com.netreadystaging.godine.utils.AppGlobal;
 import com.netreadystaging.godine.utils.DrawerConstant;
@@ -350,6 +351,7 @@ public class MainPageActivity extends AppBaseActivity implements DrawerLocker {
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
+
     }
 
     public void selectDrawerItem(int index) {
@@ -367,7 +369,7 @@ public class MainPageActivity extends AppBaseActivity implements DrawerLocker {
             case DrawerConstant.PROFILE :fragmentClass = ProfilePageFragment.class ;break ;
             case DrawerConstant.CONTACT_GODINE : fragmentClass = ContactPageFragment.class ; break ;
             case DrawerConstant.BILLING :fragmentClass = BillingPageFragment.class ; break ;
-            case DrawerConstant.VERIFICATION :fragmentClass = VerificationPageFragment.class ; break;
+            case DrawerConstant.VERIFICATION :fragmentClass = MemberVerification.class ; break;
             case DrawerConstant.FEEDBACK :fragmentClass = FeedBackPageFragment.class ; break ;
             case DrawerConstant.HOW_IT_WORKS :fragmentClass =Howitworks.class ; break;
             case DrawerConstant.GOT_QUESTIONS :
@@ -438,7 +440,6 @@ public class MainPageActivity extends AppBaseActivity implements DrawerLocker {
             build.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-
                     finish();
 
                 }

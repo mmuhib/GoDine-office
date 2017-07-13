@@ -67,8 +67,6 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAp-4py1BmVVoF7q4TdYogCkVX5vO5qPPk" />
 
-
-
         <activity
             android:name=".activities.main.PaymentView"
             android:screenOrientation="portrait" />

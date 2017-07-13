@@ -2,13 +2,22 @@
 <items version="2" >
 
     <item
-        is-multidex="true"
-        jar="C:\Users\sony\.android\build-cache\e667a2db98c0e2889aa03dccd865f47bc0a6b1f6\output\jars\classes.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="C:\Users\sony\.android\build-cache\dffdac91e73f34fa5142563bf9266651cbbe2119\output\jars\libs\internal_impl-24.2.0.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.0"
-        sha1="45f5eda279825ff470e3f51019d374d1ef61e000">
-        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_9678a922c6072ed47d0b84a0f3f4170c3db79d8e\classes.dex" />
+        sha1="045be695d968dd707691cc55d23746dbf8cf569a">
+        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.0_4cd70d0bb22d59c73f91cd34bf77a77bc0bd2a70.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\sony\.android\build-cache\0654f88f4523b2f29289000856809e53ba0f54f7\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="96e33a7aaee00ab64270e2a9887b8f9ef32c8b73">
+        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\pre-dexed\debug\classes_6d752500a19bd33921a4ccf20a9bd3aaf2aabb59.jar" />
     </item>
     <item
         is-multidex="false"
@@ -20,283 +29,49 @@
         <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\pre-dexed\release\classes_11b6071a31af0dc422eb0b48863db7bbc866c378.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="C:\Users\sony\.android\build-cache\a90835028861fc732f49a0b4ecdbce348ecd64d3\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="f3ee23ef25c9a8fe3d40246d0b7097267963a612">
-        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_cf9e36cf648e9ef336a0579fc75f7f6caa5cfe01\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\sony\.android\build-cache\6b55b6f7fd1f25d9859953c3a488c885374a691e\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="dd9247ea0fabe8ee479638c4b4a23e93752be256">
-        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_bdfa9104f16b8c27d864325ed89d9edec377e1dd\classes.dex" />
-    </item>
-    <item
         is-multidex="false"
-        jar="C:\Users\sony\.android\build-cache\f76621002befc5453050911433156b2b102e1cfc\output\jars\classes.jar"
+        jar="C:\Users\sony\.android\build-cache\e077bcd3144c1680a38f9ba6b786021ce36c629e\output\jars\classes.jar"
         jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="c755536e5a100d9c76c8ea0b72f76c018f7a9de2">
-        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\pre-dexed\release\classes_87ba09a915e95a19c2a60db413f01f15f24e8600.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\sony\.android\build-cache\40145dece455d5aa13ce9a7997ba5ce72dc64a5d\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="23eb0d2998a782213b56168cbf23a0688b9111d9">
-        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_7703e0526ac36b9bd2cfa75e151d7d2e3216257d\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\sony\.android\build-cache\2216d66aa45b07b4c9ee72b88fee9e3a05cefabd\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="f9b41622897665678d31d78e57a361cb0cebcb0d">
-        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_118b3ec18cb8215f35c8b176d5b42d173bf3e673\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\sony\.android\build-cache\985a2bf1d6abce9dcdd7ddbfa24e1d13bd018613\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="c3c638be6e650b165ab9ae144857b64e82787fad">
-        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_d4c3c6cceb62dc3d7dbb06c72fe559a3c70499a2\classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\sony\.android\build-cache\31e5196dc898d7d2ef150a4352ef5cd0aaf02a14\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="beac40bcc8a320a896dd15f5109cfcaea5e1e0e3">
-        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\pre-dexed\release\classes_71306ff9355557b27eb4f9850a42deb038dc39cb.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\sony\.android\build-cache\c998f15383792f9f4bd183edbac33768ee1d0b57\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="e01c2dd64fc171c2b2bc6e1f23110f7816dcf2ea">
-        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_3bb97d83ff0dd865440f5bb00925357da65ccbaf\classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\sony\.android\build-cache\2380e43fbaf144bd7eac46b7e4cf8156ea1dc4ef\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="d8bd2268fdcbfd52c76ade65d9900cd8def93a44">
-        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\pre-dexed\release\classes_4824b611cd8bf4707395e01740a80fde3d4d3070.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\sony\.android\build-cache\5118e8529bd5b4b21f8a28a516e3d3764fec3ef8\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="184194a24f8d389a85f41d2f46afc06a3455e635">
-        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_68d3789e8aada56d96cf41a3280df0bcd6dc3059\classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\sony\.android\build-cache\365045cabfbacb329fef80fe20c8041dc5818a52\output\jars\libs\internal_impl-24.2.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="60d7b23621d31e6f42f4f76f16af467e57a20cda">
-        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\pre-dexed\release\internal_impl-24.2.0_b5821651bc59ed3ed28507e9d4846379bcb531df.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\sony\.android\build-cache\0d7c7053786b7f919b34ebc2c3a44ad14050c679\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="96e33a7aaee00ab64270e2a9887b8f9ef32c8b73">
-        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_f12904aba47577154c63f8679b97eaa4bb105030\classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\sony\.android\build-cache\2380e43fbaf144bd7eac46b7e4cf8156ea1dc4ef\output\jars\libs\internal_impl-24.2.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="032a4b53def5e2ceedfc2e793b126c0163cfa1dd">
-        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\pre-dexed\release\internal_impl-24.2.0_c883786c105e2d1cc72dfc47b71a4dbcf41445c5.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\sony\.android\build-cache\3e8c8a4bb2c9b117a7629523527f81dd62551386\output\jars\libs\internal_impl-24.2.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="6e02e34594ebe9c0501ffda8dd48497f81b82977">
-        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.0_bdbc9f198ca0875bbe9ec6792e265f0330c85940\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\sony\.android\build-cache\b98f36f2e10f4ff7a160221e9d4f83be9daf6c30\output\jars\libs\internal_impl-24.2.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="045be695d968dd707691cc55d23746dbf8cf569a">
-        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.0_36f9d6e3d2a8ffc7932a8d6870522c091e74c302\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\sony\.android\build-cache\77f733d68820be2cc3dd7e657ac34ee297d70611\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="abccc64cbf910d77993176eedabdfa2ed8130c65">
-        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_0b6d3813e848a823ce3cd3f7153fb530a5fac755\classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\sony\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
-        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\pre-dexed\release\picasso-2.5.2_658d91b50e69d86bc3ed45aabded7f691b03f95c.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\sony\.android\build-cache\b98f36f2e10f4ff7a160221e9d4f83be9daf6c30\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="6eb9107eb34d2fe2b020662b7fbbec991dcba846">
-        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\pre-dexed\release\classes_2306375bb73d1ed4c3c58d92b07d53c646953ccb.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="D:\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.2.0\support-annotations-24.2.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="6be858a75633b1f0a2d24cad740db57775cb6871">
-        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.2.0_5e4853abd617bb71774eb710ac0cb2af2fcf8c53\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\sony\.android\build-cache\3e8c8a4bb2c9b117a7629523527f81dd62551386\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="c84e216d9bf618464d6b9564d71d9a656433e7c4">
-        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_3bd6d11f6e941b9ebedaa8f6d5f6468a1ab94e7e\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\sony\.android\build-cache\365045cabfbacb329fef80fe20c8041dc5818a52\output\jars\classes.jar"
-        jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="fcc945a86ebcbf527429acb8216ec7dae2c06417">
-        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_d4012e07bcef9368e78ab762c64cc318c820b064\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\sony\.android\build-cache\2d1f77bda6227507aa015fb56689fa1545f59ce4\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="797c80d9c389f7044fa3ee7018fdc781f14cea0d">
-        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_11b6071a31af0dc422eb0b48863db7bbc866c378\classes.dex" />
+        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\pre-dexed\debug\classes_53703b27e79d2b3e2624be4fd885db103f98e045.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\sony\.android\build-cache\6b55b6f7fd1f25d9859953c3a488c885374a691e\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="dd9247ea0fabe8ee479638c4b4a23e93752be256">
-        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\pre-dexed\release\classes_bdfa9104f16b8c27d864325ed89d9edec377e1dd.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\sony\.android\build-cache\40145dece455d5aa13ce9a7997ba5ce72dc64a5d\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="23eb0d2998a782213b56168cbf23a0688b9111d9">
-        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\pre-dexed\release\classes_7703e0526ac36b9bd2cfa75e151d7d2e3216257d.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\sony\.android\build-cache\985a2bf1d6abce9dcdd7ddbfa24e1d13bd018613\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="c3c638be6e650b165ab9ae144857b64e82787fad">
-        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\pre-dexed\release\classes_d4c3c6cceb62dc3d7dbb06c72fe559a3c70499a2.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\sony\.android\build-cache\2216d66aa45b07b4c9ee72b88fee9e3a05cefabd\output\jars\libs\internal_impl-24.2.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="771b3cc0e597b54da25f8086ba73180c59c6bc71">
-        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\pre-dexed\release\internal_impl-24.2.0_c78c61b217e04d302b656c6c1e7213fc9f191821.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\sony\.android\build-cache\f76621002befc5453050911433156b2b102e1cfc\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="c755536e5a100d9c76c8ea0b72f76c018f7a9de2">
-        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_87ba09a915e95a19c2a60db413f01f15f24e8600\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\sony\.android\build-cache\31e5196dc898d7d2ef150a4352ef5cd0aaf02a14\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="beac40bcc8a320a896dd15f5109cfcaea5e1e0e3">
-        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_71306ff9355557b27eb4f9850a42deb038dc39cb\classes.dex" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\sony\.android\build-cache\a90835028861fc732f49a0b4ecdbce348ecd64d3\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="f3ee23ef25c9a8fe3d40246d0b7097267963a612">
-        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\pre-dexed\release\classes_cf9e36cf648e9ef336a0579fc75f7f6caa5cfe01.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\sony\.android\build-cache\2216d66aa45b07b4c9ee72b88fee9e3a05cefabd\output\jars\classes.jar"
+        jar="C:\Users\sony\.android\build-cache\87654e323e5cbaa47760ec48d8371e00ea86f72d\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.0"
         sha1="f9b41622897665678d31d78e57a361cb0cebcb0d">
-        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\pre-dexed\release\classes_118b3ec18cb8215f35c8b176d5b42d173bf3e673.jar" />
+        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\pre-dexed\debug\classes_620e3edff3628860ddf7b60f55e755b546123e12.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\sony\.android\build-cache\e667a2db98c0e2889aa03dccd865f47bc0a6b1f6\output\jars\classes.jar"
+        jar="C:\Users\sony\.android\build-cache\44fc745937c5a8a2608685b5403eec08d323e997\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.0"
-        sha1="45f5eda279825ff470e3f51019d374d1ef61e000">
-        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\pre-dexed\release\classes_9678a922c6072ed47d0b84a0f3f4170c3db79d8e.jar" />
+        sha1="23eb0d2998a782213b56168cbf23a0688b9111d9">
+        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\pre-dexed\debug\classes_66aa11d5c8816d17427813c5f79b3b98ee6e195f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\sony\.android\build-cache\035d7f2b8dad3919a8c468b8eaa0ac9f15f60d9d\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f3ee23ef25c9a8fe3d40246d0b7097267963a612">
+        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\pre-dexed\debug\classes_d4752d61a93f98b5688ef1488c03af1e15a7726a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\sony\.android\build-cache\22cf30658380dc1e518bf96e09e232c8dab2a6d2\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="dd9247ea0fabe8ee479638c4b4a23e93752be256">
+        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\pre-dexed\debug\classes_e0f6bd998ff1f92ce0c3325b1b26aceec2d78cd7.jar" />
     </item>
     <item
         is-multidex="true"
@@ -304,7 +79,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="151925dc2ae5a9e6b43384caa788287eabfd5d8f">
+        sha1="845338aad2991db1262357270d9efe1477b11148">
         <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_3b1bfbdbedfd2017361b58462e202711a8a4d1f6\classes.dex" />
     </item>
     <item
@@ -318,12 +93,21 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\sony\.android\build-cache\3e8c8a4bb2c9b117a7629523527f81dd62551386\output\jars\libs\internal_impl-24.2.0.jar"
+        jar="C:\Users\sony\.android\build-cache\9b9d5877b120c9617ed23b675115a08699e47114\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.0"
-        sha1="6e02e34594ebe9c0501ffda8dd48497f81b82977">
-        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\pre-dexed\release\internal_impl-24.2.0_bdbc9f198ca0875bbe9ec6792e265f0330c85940.jar" />
+        sha1="d8bd2268fdcbfd52c76ade65d9900cd8def93a44">
+        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\pre-dexed\debug\classes_822b9930073c9274f2caaeebdb157a85efd73a88.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\sony\.android\build-cache\a0c5a408bf475da4b70d14a35988c0b3038f0329\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="c755536e5a100d9c76c8ea0b72f76c018f7a9de2">
+        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\pre-dexed\debug\classes_2dc555f062c863be279bd3648e62a6bf7de1c74e.jar" />
     </item>
     <item
         is-multidex="false"
@@ -335,67 +119,31 @@
         <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\pre-dexed\release\classes_68d3789e8aada56d96cf41a3280df0bcd6dc3059.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="C:\Users\sony\.android\build-cache\2380e43fbaf144bd7eac46b7e4cf8156ea1dc4ef\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="d8bd2268fdcbfd52c76ade65d9900cd8def93a44">
-        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_4824b611cd8bf4707395e01740a80fde3d4d3070\classes.dex" />
-    </item>
-    <item
         is-multidex="false"
-        jar="C:\Users\sony\.android\build-cache\b98f36f2e10f4ff7a160221e9d4f83be9daf6c30\output\jars\libs\internal_impl-24.2.0.jar"
+        jar="C:\Users\sony\.android\build-cache\843b74abcf63d71534d83ddf24a92e39414e5dc7\output\jars\libs\internal_impl-24.2.0.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.0"
-        sha1="045be695d968dd707691cc55d23746dbf8cf569a">
-        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\pre-dexed\release\internal_impl-24.2.0_36f9d6e3d2a8ffc7932a8d6870522c091e74c302.jar" />
+        sha1="6e02e34594ebe9c0501ffda8dd48497f81b82977">
+        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.0_2d8c56c22181f6a78bdd8a34a8ffd214cf863973.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="C:\Users\sony\.android\build-cache\b98f36f2e10f4ff7a160221e9d4f83be9daf6c30\output\jars\classes.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="C:\Users\sony\.android\build-cache\dffdac91e73f34fa5142563bf9266651cbbe2119\output\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.0"
         sha1="6eb9107eb34d2fe2b020662b7fbbec991dcba846">
-        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_2306375bb73d1ed4c3c58d92b07d53c646953ccb\classes.dex" />
+        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\pre-dexed\debug\classes_4396da6731762b01a6d42544f56732d41eef7047.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\sony\.android\build-cache\3e8c8a4bb2c9b117a7629523527f81dd62551386\output\jars\classes.jar"
+        jar="C:\Users\sony\.android\build-cache\c9b84d96096a7ec96579c9ba07bd2564f8f67d58\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.0"
-        sha1="c84e216d9bf618464d6b9564d71d9a656433e7c4">
-        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\pre-dexed\release\classes_3bd6d11f6e941b9ebedaa8f6d5f6468a1ab94e7e.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\sony\.android\build-cache\365045cabfbacb329fef80fe20c8041dc5818a52\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="fcc945a86ebcbf527429acb8216ec7dae2c06417">
-        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\pre-dexed\release\classes_d4012e07bcef9368e78ab762c64cc318c820b064.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\sony\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
-        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\transforms\dex\debug\folders\1000\10\picasso-2.5.2_658d91b50e69d86bc3ed45aabded7f691b03f95c\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\sony\.android\build-cache\2380e43fbaf144bd7eac46b7e4cf8156ea1dc4ef\output\jars\libs\internal_impl-24.2.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="032a4b53def5e2ceedfc2e793b126c0163cfa1dd">
-        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.0_c883786c105e2d1cc72dfc47b71a4dbcf41445c5\classes.dex" />
+        sha1="45f5eda279825ff470e3f51019d374d1ef61e000">
+        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\pre-dexed\debug\classes_5c7b2da2fbdc330ea5ec3a2c748b3654bc371fcb.jar" />
     </item>
     <item
         is-multidex="true"
@@ -408,6 +156,33 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\sony\.android\build-cache\22cb8e32229430873fbf535f130c3cceb38fb954\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="c3c638be6e650b165ab9ae144857b64e82787fad">
+        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\pre-dexed\debug\classes_d705ff55055824371f61e33dfad1e9192c8a3c09.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\sony\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\pre-dexed\release\picasso-2.5.2_658d91b50e69d86bc3ed45aabded7f691b03f95c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\sony\.android\build-cache\843b74abcf63d71534d83ddf24a92e39414e5dc7\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="c84e216d9bf618464d6b9564d71d9a656433e7c4">
+        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\pre-dexed\debug\classes_1bfc1a3ff5908c01f2fa538144d1abca1a69577e.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\sony\.android\build-cache\77f733d68820be2cc3dd7e657ac34ee297d70611\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
@@ -416,31 +191,31 @@
         <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\pre-dexed\release\classes_0b6d3813e848a823ce3cd3f7153fb530a5fac755.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="C:\Users\sony\.android\build-cache\365045cabfbacb329fef80fe20c8041dc5818a52\output\jars\libs\internal_impl-24.2.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="60d7b23621d31e6f42f4f76f16af467e57a20cda">
-        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.0_b5821651bc59ed3ed28507e9d4846379bcb531df\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\sony\.android\build-cache\2216d66aa45b07b4c9ee72b88fee9e3a05cefabd\output\jars\libs\internal_impl-24.2.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="771b3cc0e597b54da25f8086ba73180c59c6bc71">
-        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.0_c78c61b217e04d302b656c6c1e7213fc9f191821\classes.dex" />
-    </item>
-    <item
         is-multidex="false"
-        jar="C:\Users\sony\.android\build-cache\0d7c7053786b7f919b34ebc2c3a44ad14050c679\output\jars\classes.jar"
+        jar="C:\Users\sony\.android\build-cache\87654e323e5cbaa47760ec48d8371e00ea86f72d\output\jars\libs\internal_impl-24.2.0.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.0"
-        sha1="96e33a7aaee00ab64270e2a9887b8f9ef32c8b73">
-        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\pre-dexed\release\classes_f12904aba47577154c63f8679b97eaa4bb105030.jar" />
+        sha1="771b3cc0e597b54da25f8086ba73180c59c6bc71">
+        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.0_7b0eb2a8fac6befc50f0ae728518820ce793c7e7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\sony\.android\build-cache\9b9d5877b120c9617ed23b675115a08699e47114\output\jars\libs\internal_impl-24.2.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="032a4b53def5e2ceedfc2e793b126c0163cfa1dd">
+        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.0_9ebacdeefd3cc62371bbb85b5d29db063e748be6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\sony\.android\build-cache\e077bcd3144c1680a38f9ba6b786021ce36c629e\output\jars\libs\internal_impl-24.2.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="60d7b23621d31e6f42f4f76f16af467e57a20cda">
+        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\pre-dexed\debug\internal_impl-24.2.0_42a28b326020719ff7083ac61dda0dc483223432.jar" />
     </item>
     <item
         is-multidex="false"
@@ -450,6 +225,15 @@
         revision="25.0.0"
         sha1="6be858a75633b1f0a2d24cad740db57775cb6871">
         <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\pre-dexed\release\support-annotations-24.2.0_5e4853abd617bb71774eb710ac0cb2af2fcf8c53.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\sony\.android\build-cache\d454edbf85260540f69b1c4774692e0225648df9\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="beac40bcc8a320a896dd15f5109cfcaea5e1e0e3">
+        <dex dex="D:\Android\android_workspace\git_code\GoDine-Final\app\build\intermediates\pre-dexed\debug\classes_bd5db8665492e92921d987f7765c6dcce95df0b0.jar" />
     </item>
 
 </items>

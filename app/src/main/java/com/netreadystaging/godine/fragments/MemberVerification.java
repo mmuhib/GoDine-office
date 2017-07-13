@@ -2,6 +2,7 @@ package com.netreadystaging.godine.fragments;
 
 import android.app.Activity;
 
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
@@ -14,9 +15,11 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -27,6 +30,7 @@ import android.widget.TextView;
 import com.netreadystaging.godine.R;
 import com.netreadystaging.godine.activities.main.ChoosePlanActivity;
 import com.netreadystaging.godine.activities.main.MainPageActivity;
+import com.netreadystaging.godine.activities.main.PaymentView;
 import com.netreadystaging.godine.activities.onboard.Splash2;
 import com.netreadystaging.godine.callbacks.DrawerLocker;
 import com.netreadystaging.godine.controllers.ErrorController;
@@ -103,8 +107,10 @@ public class MemberVerification extends Fragment {
         new DownloadImageTask((ImageView) view.findViewById(R.id.memberimg),progressBar).execute("https://godineclub.com/Portals/0/Images/Verification%20images/"+email+".jpg");
         Log.d("Img",""+"https://godineclub.com/Portals/0/Images/Verification%20images/"+email+".jpg");
         Log.d("Email",email);
+        setupoverlay();
         setupToolBar();
         setupTextviews();
+
         return view;
     }
     private void setupTextviews() {
@@ -159,6 +165,8 @@ public class MemberVerification extends Fragment {
     public void onResume() {
         super.onResume();
         title.setText("Member Verification");
+
+
         checkmembership();
     }
 
@@ -229,6 +237,7 @@ public class MemberVerification extends Fragment {
                 public void onClick(DialogInterface dialog, int which) {
                     Intent intent = new Intent(getActivity(),MainPageActivity.class) ;
                     startActivity(intent);
+                    getActivity().finish();
 
                 }
             });
@@ -251,6 +260,72 @@ public class MemberVerification extends Fragment {
                 }
             }
         }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==200)
+        {
+            if(resultCode==201)
+            {
+                Intent intent =  new Intent(getActivity(), PaymentView.class);
+                intent.putExtra("username",appGlobal.getUsername());
+                intent.putExtra("password",appGlobal.getPassword());
+                intent.putExtra("productvariantid",data.getStringExtra("product_id"));
+                intent.putExtra("UserD",appGlobal.getUserId()+"");
+                startActivity(intent);
+            }
+        }
+    }
+    private void backbuttonCancel()
+    {
+        getView().setFocusableInTouchMode(true);
+        getView().requestFocus();
+        getView().setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View view, int i, KeyEvent keyEvent) {
+                if( i == KeyEvent.KEYCODE_BACK )
+                {
+                    return true;
+                }
+                return false;
+            }
+        });
+    }
 
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        backbuttonCancel();
+    }
+    private void setupoverlay() {
+        final Dialog dialog=new Dialog(getContext(),   android.R.style.Theme_Translucent_NoTitleBar);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.overlaypopup);
 
+        TextView titlee= (TextView) dialog.findViewById(R.id.txt_msg);
+        titlee.setText("Are you in a GoDine Partner Restaurant ready to check out? Yes / No?");
+        Button yes= (Button) dialog.findViewById(R.id.overyes);
+        Button no= (Button) dialog.findViewById(R.id.overno);
+
+        dialog.setCancelable(false);
+        yes.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+        no.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                //getActivity().finish();
+                getActivity().getSupportFragmentManager().getBackStackEntryCount();
+                getActivity().getSupportFragmentManager().popBackStack();
+                FrameLayout bottomToolBar = (FrameLayout)getActivity().findViewById(R.id.bottomToolBar) ;
+                bottomToolBar.setVisibility(View.VISIBLE);
+                ((MainPageActivity)getActivity()).leftCenterButton.setVisibility(View.VISIBLE);
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
+    }
 }

@@ -85,7 +85,7 @@ GoogleMap mymap;
                     .setIcon(BitmapDescriptorFactory.fromResource(R.drawable.marker)
                     );
 
-googleMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+    googleMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
     @Override
     public void onInfoWindowClick(Marker marker) {
         String Id=marker.getSnippet();
@@ -120,7 +120,7 @@ googleMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener()
 
         Log.d("title",Title);
         Log.d("name",Tname);
-       Log.d("rating",TRating);
+         Log.d("rating",TRating);
         Log.d("review",Treview);
         Log.d("cuisine",TCuisine);
         Log.d("address",Taddress);

@@ -177,9 +177,6 @@
                 style="@style/GDSimplerectangleBlue"
                 />
 
-
-
-
         </RelativeLayout>
         <Button
             android:id="@+id/checkout"
@@ -191,6 +188,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Back"
+            android:visibility="gone"
             android:textSize="18sp"
             android:layout_marginTop="6dp"
             android:textColor="#00f"/>

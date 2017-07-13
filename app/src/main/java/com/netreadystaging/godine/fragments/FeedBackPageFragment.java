@@ -187,10 +187,17 @@ public class FeedBackPageFragment extends Fragment implements View.OnClickListen
                 }).request(ServiceMod.FEEDBACK,params);
                 if(!Utility.isNetworkConnected(getActivity()))
                 {
-                    Toast.makeText(getActivity(),"Check ur internet Connection",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(),"Check your internet Connection",Toast.LENGTH_LONG).show();
                 }
                 break;
         }
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        FrameLayout bottomToolBar = (FrameLayout)getActivity().findViewById(R.id.bottomToolBar) ;
+        bottomToolBar.setVisibility(View.VISIBLE);
+        ((MainPageActivity)getActivity()).leftCenterButton.setVisibility(View.VISIBLE);
+    }
 }
