@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <FrameLayout
+        android:id="@+id/frame_titile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/signupbottoncolor"
+        >
+        <ImageView
+           android:layout_gravity="end|top"
+            android:id="@+id/ivGDFilterFormClose"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:clickable="true"
+            android:src="@drawable/close_black"
+            android:onClick="closeGDRestFilterSearchForm"
+            />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select Staff"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="19dp"
+        android:padding="5dp"
+        android:textColor="#fff"
+        android:id="@+id/txt_title"/>
+    </FrameLayout>
+
+        <RadioGroup
+            android:id="@+id/staff_radiogroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="100">
+            <RadioButton
+                android:padding="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="50"
+                android:text="GoDine Staff"/>
+            <RadioButton
+                android:padding="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="50"
+                android:text="GoDine Member"/>
+        </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="10dp">
+
+    <TextView
+        android:id="@+id/txt_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="Enter Staff member name or Number"/>
+    <EditText
+        style="@style/GDSimplerectangle"
+        android:gravity="center"
+        android:maxLines="1"
+        android:inputType="text"
+        android:layout_marginTop="8dp"
+        android:textSize="16sp"
+        android:imeOptions="actionSearch"
+        android:hint="Staff Member Name/Number"
+        android:id="@+id/et_enterstaff"
+        />
+    <TextView
+        android:id="@+id/txt_staffsearch"
+        android:padding="10dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Search"
+        android:textStyle="bold"
+        android:gravity="center"
+        style="@style/GDSignupstyle"/>
+        <FrameLayout
+            android:layout_marginTop="8dp"
+            android:padding="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ProgressBar
+                android:visibility="gone"
+                android:id="@+id/listprogress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"/>
+    <ListView
+        android:id="@+id/stafflist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ></ListView>
+        </FrameLayout>
+    </LinearLayout>
+</LinearLayout>

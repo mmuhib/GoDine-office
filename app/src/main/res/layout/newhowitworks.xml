@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+<ScrollView android:layout_height="match_parent"
+    android:layout_width="match_parent">
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="fitXY"
+            android:background="@drawable/profile_welcome" />
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/ivBack"
+            android:layout_marginTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:layout_height="25dp"
+            android:src="@drawable/back"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:src="@drawable/welcome_godin_text_small"
+            android:padding="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal"
+            />
+    </FrameLayout>
+    <ImageView
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:scaleType="fitXY"
+        android:src="@drawable/howitworks_1" />
+
+        <com.netreadystaging.godine.utils.MyTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            android:text="@string/howitworks"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:text="@string/howitworks1"/>
+
+    <ImageView
+        android:layout_marginTop="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:src="@drawable/tab1"
+        android:layout_gravity="center"
+        />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:src="@drawable/tab2"
+        android:layout_gravity="center"
+        />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:src="@drawable/tab3"
+        android:layout_gravity="center"
+        />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:src="@drawable/tab4"
+        android:layout_gravity="center"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:padding="15dp"
+        android:textSize="10sp"
+        android:textColor="@color/signupbottoncolor"
+        android:text="@string/newhowitworks"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/faq"/>
+        <TextView
+            android:id="@+id/txt_clickhere"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:text="Got Questions? CLICK HERE"/>
+    </LinearLayout>
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/nothanks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No Thanks.Let's GoDine!"
+        android:textColor="#00f"
+        android:layout_gravity="center"/>
+    <Button
+        android:id="@+id/bt_joinnow"
+        android:visibility="gone"
+        style="@style/GDAppButtonBaseTheme"
+        android:layout_marginBottom="20dp"
+        android:text="JOIN NOW"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:onClick="signupGoDine"
+        android:layout_marginTop="10dp"
+        />
+
+</LinearLayout>
+</ScrollView>
+</LinearLayout>

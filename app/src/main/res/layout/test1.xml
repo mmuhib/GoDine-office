@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:id="@+id/ll_step0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="15dp"
+            android:visibility="visible">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.netreadystaging.godine.utils.MyTextView
+                    android:id="@+id/styledtext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textSize="65sp"
+                    android:textStyle="bold"
+                    android:text="Reactivate"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginLeft="15dp"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:text="Please confirm your details below to reactivate your membership!"/>
+            </FrameLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:padding="7dp"
+                android:text="Who Referred You?"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="7dp"
+                android:text="Restaurant or Member ID" />
+
+            <EditText
+                android:id="@+id/et_checkrest"
+                android:imeOptions="actionSearch"
+                android:inputType="number"
+                android:layout_width="205dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/text_field_bg"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:padding="10dp" />
+
+            <TextView
+                android:id="@+id/bt_change"
+                style="@style/GDSignupstyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:padding="15dp"
+                android:text="Click here to change" />
+
+
+            <TextView
+                android:id="@+id/txt_rstname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:padding="10dp"
+                android:text="Member Name:"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/txt_cityname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:padding="10dp"
+                android:text="City Name:"
+                android:textColor="@color/black" />
+            <Button
+                android:visibility="visible"
+                android:id="@+id/bt_next"
+                style="@style/GDSignupstyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="7dp"
+                android:layout_marginTop="3dp"
+                android:text="Next"
+                />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

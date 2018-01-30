@@ -1,0 +1,631 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:gravity="center"
+    android:orientation="vertical">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:scaleType="fitXY"
+            android:background="@drawable/profile_welcome" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="99dp"
+            android:src="@drawable/welcome_godin_text_small"
+            android:padding="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal"
+            />
+    </FrameLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+       android:layout_gravity="center"
+        android:scaleType="fitXY"
+        android:visibility="gone"
+        android:src="@drawable/join" />
+
+    <ScrollView
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_marginTop="2dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:id="@+id/ll_step0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="15dp"
+                    android:visibility="gone">
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <com.netreadystaging.godine.utils.MyTextView
+                            android:id="@+id/styledtext"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:textSize="75sp"
+                            android:textStyle="bold"
+                            android:text="Reactivate"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_marginTop="40dp"
+                            android:layout_marginLeft="15dp"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:layout_gravity="center"
+                            android:text="Please confirm your details below to reactivate your membership!"/>
+                    </FrameLayout>
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:layout_marginTop="4dp"
+                        android:text="Who Referred You?"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:padding="2dp"
+                        android:text="Restaurant or Member ID" />
+
+                    <EditText
+                        android:id="@+id/et_checkrest1"
+                        android:imeOptions="actionSearch"
+                        android:inputType="number"
+                        android:layout_width="205dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/text_field_bg"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:padding="10dp" />
+
+                    <TextView
+                        android:id="@+id/txt_Reacrstname"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="5dp"
+                        android:padding="1dp"
+                        android:text="Member Name:"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/txt_Reaccityname"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="5dp"
+                        android:padding="1dp"
+                        android:text="City Name:"
+                        android:textColor="@color/black" />
+                    <LinearLayout
+                        android:layout_marginTop="40dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="100"
+                        android:padding="10dp"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_weight="40"
+                            android:id="@+id/bt_change"
+                            style="@style/GDSignupstyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:padding="10dp"
+                            android:text="Change " />
+                        <TextView
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="50"
+                            android:id="@+id/bt_next"
+                            style="@style/GDSignupstyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:padding="10dp"
+                            android:text="Next"
+                            />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_step1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="15dp"
+                android:visibility="gone">
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <com.netreadystaging.godine.utils.MyTextView
+                        android:id="@+id/styledtext1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textSize="65sp"
+                        android:textStyle="bold"
+                        android:text="@string/Joinsteps"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginLeft="15dp"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:layout_gravity="center"
+                        android:text="@string/Joinsteps1"/>
+                </FrameLayout>
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/stepa" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="Who Referred You?"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="5dp"
+                    android:text="Restaurant or Member ID" />
+
+                <EditText
+                    android:id="@+id/et_checkrest"
+                    android:imeOptions="actionSearch"
+                    android:inputType="number"
+                    android:layout_width="205dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/text_field_bg"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:padding="10dp" />
+
+                <TextView
+                    android:id="@+id/bt_notReffered"
+                    style="@style/GDSignupstyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:padding="15dp"
+                    android:text="No one Referred me" />
+
+
+                <TextView
+                    android:id="@+id/txt_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="5dp"
+                    android:padding="10dp"
+                    android:text="Member Name:"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/txt_clickhere"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:text="" />
+                <Button
+                    android:visibility="gone"
+                    android:id="@+id/img_arrowdown"
+                    style="@style/GDSignupstyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="7dp"
+                    android:layout_marginTop="3dp"
+                    android:text="Next"
+                   />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_step2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <com.netreadystaging.godine.utils.MyTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textSize="55sp"
+                        android:textStyle="bold"
+                        android:text="@string/enterprofile"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginLeft="15dp"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:layout_gravity="center"
+                        android:text="@string/Joinsteps1"/>
+                </FrameLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_gravity="center"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/step2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="Profile Information"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="100">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50"
+                        android:orientation="vertical"
+                        android:padding="15dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Email"
+                            android:textColor="#000"
+                            android:textSize="13sp" />
+
+                        <EditText
+                            android:id="@+id/et_email"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@drawable/newtext_field_bg"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:maxLines="1"></EditText>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="First Name"
+                            android:textColor="#000"
+                            android:textSize="13sp" />
+
+                        <EditText
+                            android:id="@+id/et_fname"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@drawable/newtext_field_bg"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:text="abc"
+                            android:maxLines="1"></EditText>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Address"
+                            android:textColor="#000"
+                            android:textSize="13sp" />
+
+                        <EditText
+                            android:id="@+id/et_addre"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@drawable/newtext_field_bg"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:text="40 penny ln"
+
+                            android:maxLines="1"></EditText>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="100">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="60"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="State"
+                                    android:textColor="#000"
+                                    android:textSize="13sp" />
+
+                                <EditText
+                                    android:id="@+id/et_state"
+                                    android:layout_width="50dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="3dp"
+                                    android:layout_marginTop="2dp"
+                                    android:background="@drawable/newtext_field_bg"
+                                    android:imeOptions="actionNext"
+                                    android:inputType="text"
+                                    android:maxLength="2"
+                                    android:text="CA"
+
+                                    android:maxLines="1"></EditText>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="40"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Zip Code"
+                                    android:textColor="#000"
+                                    android:textSize="13sp" />
+
+                                <EditText
+                                    android:id="@+id/et_zipcode"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="3dp"
+                                    android:layout_marginTop="2dp"
+                                    android:background="@drawable/newtext_field_bg"
+                                    android:imeOptions="actionNext"
+                                    android:inputType="number"
+                                   android:text="95076"
+                                    android:maxLines="1"></EditText>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50"
+                        android:orientation="vertical"
+                        android:padding="15dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Password"
+                            android:textColor="#000"
+                            android:textSize="13sp" />
+
+                        <EditText
+                            android:id="@+id/et_password"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@drawable/newtext_field_bg"
+                            android:imeOptions="actionNext"
+                            android:inputType="textPassword"
+                            android:text="qwe123"
+                            android:maxLines="1"></EditText>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Last Name"
+                            android:textColor="#000"
+                            android:textSize="13sp" />
+
+                        <EditText
+                            android:id="@+id/et_lastname"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@drawable/newtext_field_bg"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:maxLines="1"></EditText>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="City"
+                            android:textColor="#000"
+                            android:textSize="13sp" />
+
+                        <EditText
+                            android:id="@+id/et_city"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@drawable/newtext_field_bg"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:text="Watson"
+
+                            android:maxLines="1"></EditText>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Cell Number"
+                            android:textColor="#000"
+                            android:textSize="13sp" />
+
+                        <EditText
+                            android:id="@+id/et_cellnumber"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@drawable/newtext_field_bg"
+                            android:imeOptions="actionNext"
+                            android:inputType="phone"
+                            android:text="0123456789"
+                            android:maxLines="1"></EditText>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+                    <LinearLayout
+                        android:padding="5dp"
+                        android:id="@+id/ll_step3"
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <com.netreadystaging.godine.utils.MyTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:textSize="65sp"
+                                android:textStyle="bold"
+                                android:text="@string/steps3"
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:layout_marginTop="30dp"
+                                android:layout_marginLeft="15dp"
+                                android:textSize="10sp"
+                                android:textStyle="bold"
+                                android:layout_gravity="center"
+                                android:text="@string/steps3a"/>
+                        </FrameLayout>
+                        <ImageView
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/step3"
+                            android:scaleType="fitXY"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="5dp"
+                            android:gravity="center"
+                            android:padding="8dp"
+                            android:text="Billing Information"
+                            android:textColor="@color/black" />
+                        <LinearLayout
+                            android:padding="10dp"
+                           android:layout_gravity="center_horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <CheckBox
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=" Agree to "
+                                android:button="@drawable/checkbox_selector"
+                                android:id="@+id/ch_agree"/>
+                            <TextView
+                                android:id="@+id/tvTermCondition"
+                                android:text="@string/terms"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+
+                        <ImageView
+                            android:visibility="gone"
+                            android:layout_marginTop="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/step3text"
+                            android:scaleType="fitXY"
+                            />
+                        <TextView
+                            android:id="@+id/submit"
+                            style="@style/GDSignupstyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="25dp"
+                            android:padding="10dp"
+                            android:text="Input Credit Card Info and Check Out" />
+                    </LinearLayout>
+                 </LinearLayout>
+                </ScrollView>
+              </LinearLayout>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+   android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FDFDFE">
+    <FrameLayout
+        android:id="@+id/welcomePageHeader"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+
+
+        <ImageView
+            android:background="#FDFDFE"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/welcome"
+            android:id="@+id/imageView" />
+        <LinearLayout
+            android:layout_margin="50dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tvWelcomeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:text="Dining Options"
+                android:padding="5dp"
+                android:textColor="#fff"/>
+
+
+        </LinearLayout>
+
+    </FrameLayout>
+<TextView
+    android:layout_margin="7dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:layout_gravity="center"
+    android:text="Your Membership provides two benefit options:"
+    android:textSize="12sp"
+    android:padding="3dp"/>
+    <TextView
+        android:padding="10dp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        style="@style/GDAppButtonBaseTheme"
+        android:text="@string/preimrestoffer"
+     />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:text="and"
+        android:textSize="16sp"
+        android:layout_margin="15dp"
+
+        />
+    <TextView
+        android:padding="10dp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        style="@style/GDAppButtonBaseTheme"
+        android:text="@string/partnerrestoffer"
+        />
+    <TextView
+        android:layout_margin="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:text="(Check each Restaurant profile for restaurant type and offer)"
+        android:textSize="12sp"
+        android:padding="0dp"/>
+    <TextView
+        android:layout_marginBottom="25dp"
+        android:padding="15dp"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        style="@style/GDAppButtonBaseTheme"
+        android:text="Search Now"
+        android:textStyle="bold"
+        android:textSize="18sp"/>
+
+</LinearLayout>
+</ScrollView>
