@@ -31,6 +31,7 @@ import com.google.android.gms.location.LocationServices;
 import com.netreadystaging.godine.R;
 import com.netreadystaging.godine.activities.AppBaseActivity;
 import com.netreadystaging.godine.activities.onboard.LoginActivity;
+import com.netreadystaging.godine.activities.onboard.Splash2;
 import com.netreadystaging.godine.models.Restaurant;
 import com.netreadystaging.godine.adapters.SearchRestaurantAdapter;
 import com.netreadystaging.godine.controllers.ErrorController;
@@ -95,8 +96,10 @@ public class GoDineRestaurantSearchActivity extends AppBaseActivity implements V
                                     startActivity(new Intent(GoDineRestaurantSearchActivity.this, LoginActivity.class));
                                     finish();
                                 } else if (items[item].equals("Sign up")) {
-                                    startActivity(new Intent(GoDineRestaurantSearchActivity.this, Join_GoDine.class));
-                                    finish();
+
+                                    Intent intent=new Intent(GoDineRestaurantSearchActivity.this, Splash2.class);
+                                    intent.putExtra("From","Outside");
+                                    startActivity(intent);
                                     overridePendingTransition(R.anim.slide_in_bottom,R.anim.nothing);
                                 } else if (items[item].equals("Cancel")) {
                                     dialog.dismiss();
@@ -132,9 +135,7 @@ public class GoDineRestaurantSearchActivity extends AppBaseActivity implements V
         search= (Button) findViewById(R.id.bt_searchrestaurant);
         bt_tapsearchrestaurant.setOnClickListener(this);
         search.setOnClickListener(this);
-
         gd_rest_search_filter_container = (ScrollView) findViewById(R.id.gd_rest_search_filter_container);
-
 
         // Search near By restaurants
         isCurrentLocationSearch = true ;
@@ -142,7 +143,6 @@ public class GoDineRestaurantSearchActivity extends AppBaseActivity implements V
         {
             setupLocation();
         }
-
     }
 
     protected synchronized void setupLocation()
@@ -225,7 +225,7 @@ public class GoDineRestaurantSearchActivity extends AppBaseActivity implements V
         }
     }
 
-    private void loadRestaurants(final String name,final String zipcode,final String latitude,final String longitude ,String Miles)    {
+    private void    loadRestaurants(final String name,final String zipcode,final String latitude,final String longitude ,String Miles)    {
         Utility.showLoadingPopup(GoDineRestaurantSearchActivity.this);
         if(restlist!=null) {
             restlist.clear();
@@ -270,6 +270,7 @@ public class GoDineRestaurantSearchActivity extends AppBaseActivity implements V
                                 restaurantObj.setArea("" + Area);
                                 restaurantObj.setRestaurantCusine(jsonObjects.getString("RestaurantCuisine"));
                                 restaurantObj.setLunch(jsonObjects.getString("RestaurantAverageLunch"));
+                                restaurantObj.setResttype(jsonObjects.getString("RestaurantType"));
                                 restaurantObj.setDinner(jsonObjects.getString("RestaurantAverageDinner"));
                                 restaurantObj.setRating((float)jsonObjects.getDouble("Rating"));
                                 double lat = jsonObjects.getDouble("Latitude");

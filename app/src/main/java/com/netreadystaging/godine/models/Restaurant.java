@@ -27,6 +27,17 @@ public class Restaurant implements Serializable
     private String email;
     public double currentLat;
     public double currentLng ;
+    private String resttype;
+
+    public String getResttype() {
+        return resttype;
+    }
+
+    public void setResttype(String resttype) {
+        this.resttype = resttype;
+    }
+
+
 
     public String getCity() {
         return city;

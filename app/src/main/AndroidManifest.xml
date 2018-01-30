@@ -57,8 +57,7 @@
         <activity
             android:name=".activities.main.GoDineRestaurantSearchActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan"
-            />
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".activities.main.Join_GoDine"
             android:screenOrientation="portrait" />
@@ -93,7 +92,8 @@
         <activity
             android:name=".activities.Selectnearbyrestaurant"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.main.ChoosePlanActivity"></activity>
+        <activity android:name=".activities.main.ChoosePlanActivity" />
+        <activity android:name=".activities.main.NewSignUp"></activity>
     </application>
 
 </manifest>

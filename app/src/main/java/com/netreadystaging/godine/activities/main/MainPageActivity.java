@@ -14,6 +14,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.text.InputType;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,9 +33,13 @@ import com.netreadystaging.godine.activities.onboard.LoginActivity;
 import com.netreadystaging.godine.activities.onboard.Splash2;
 import com.netreadystaging.godine.adapters.NavListViewAdapter;
 import com.netreadystaging.godine.callbacks.DrawerLocker;
+import com.netreadystaging.godine.controllers.ErrorController;
+import com.netreadystaging.godine.controllers.ServiceController;
 import com.netreadystaging.godine.fragments.Howitworks;
 import com.netreadystaging.godine.fragments.MemberVerification;
+import com.netreadystaging.godine.fragments.NewMemberVerification;
 import com.netreadystaging.godine.fragments.ReferFriendsandFamily;
+import com.netreadystaging.godine.fragments.newHowItWorks;
 import com.netreadystaging.godine.utils.AppGlobal;
 import com.netreadystaging.godine.utils.DrawerConstant;
 import com.netreadystaging.godine.fragments.BillingPageFragment;
@@ -47,6 +52,8 @@ import com.netreadystaging.godine.fragments.ProfilePageFragment;
 import com.netreadystaging.godine.fragments.ProfileWelcomeFragment;
 import com.netreadystaging.godine.fragments.ReviewRatingPageFragment;
 import com.netreadystaging.godine.fragments.VerificationPageFragment;
+import com.netreadystaging.godine.utils.ServiceMod;
+import com.netreadystaging.godine.utils.Utility;
 import com.netreadystaging.godine.views.CFABSubIconView;
 
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton;
@@ -54,6 +61,9 @@ import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu;
 import com.oguzdev.circularfloatingactionmenu.library.SubActionButton;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+
+import in.technobuff.helper.http.HttpResponseCallback;
 
 /**
  * Created by sony on 19-07-2016.
@@ -74,14 +84,17 @@ public class MainPageActivity extends AppBaseActivity implements DrawerLocker {
     public FloatingActionButton leftCenterButton;
     public FloatingActionMenu leftCenterMenu;
     private FrameLayout overLayBg;
-
+    String cancStatus;
+    NavListViewAdapter adapter;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_page_activity);
+        cancStatus=appGlobal.getCancel();
         setupTopBar();
         setupBottomBar();
         setupDrawer();
+
     }
 
     private void setupBottomBar() {
@@ -98,6 +111,11 @@ public class MainPageActivity extends AppBaseActivity implements DrawerLocker {
         overLayBg.setVisibility(View.GONE);
 
         this.addContentView(overLayBg,new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
 
     private void setupCFABMenu()
@@ -254,14 +272,28 @@ public class MainPageActivity extends AppBaseActivity implements DrawerLocker {
 
 
     private void setupDrawer() {
-
+        cancStatus=appGlobal.getCancel();
         // Find our drawer view
         mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         // nvDrawer = (NavigationView) findViewById(R.id.nvView);
         nvDrawer = (ListView) findViewById(R.id.nvView);
-        nvDrawables = new int[] {R.drawable.nav_explore,R.drawable.nav_offer,R.drawable.nav_favourite,R.drawable.nav_rating,
-                R.drawable.nav_profile,R.drawable.nav_contact,R.drawable.nav_billing,R.drawable.nav_verification,
-                R.drawable.nav_feedback,R.drawable.nav_how_it_works,R.drawable.nav_got_question,R.drawable.nav_logout};
+
+            if(cancStatus== null || cancStatus.isEmpty())
+            {
+                cancStatus="Cancel Mebership";
+            }
+            nvDrawables = new int[] {R.drawable.nav_explore,R.drawable.nav_offer,R.drawable.nav_favourite,R.drawable.nav_rating,
+                    R.drawable.nav_profile,R.drawable.nav_contact,R.drawable.nav_billing,R.drawable.nav_verification,
+                    R.drawable.nav_feedback,R.drawable.nav_how_it_works,R.drawable.nav_got_question,R.drawable.cancellation,R.drawable.nav_logout};
+
+
+       if(cancStatus.equalsIgnoreCase("Withdraw Cancellation"))
+        {
+            nvDrawables = new int[] {R.drawable.nav_explore,R.drawable.nav_offer,R.drawable.nav_favourite,R.drawable.nav_rating,
+                    R.drawable.nav_profile,R.drawable.nav_contact,R.drawable.nav_billing,R.drawable.nav_verification,
+                    R.drawable.nav_feedback,R.drawable.nav_how_it_works,R.drawable.nav_got_question,R.drawable.withdraw,R.drawable.nav_logout};
+
+        }
 
         listNavLabels  =  new ArrayList<>();
 
@@ -276,9 +308,10 @@ public class MainPageActivity extends AppBaseActivity implements DrawerLocker {
         listNavLabels.add("FeedBack");
         listNavLabels.add("How it Works");
         listNavLabels.add("Got Questions?");
+        listNavLabels.add(cancStatus);
         listNavLabels.add("LogOut");
 
-        NavListViewAdapter adapter = new NavListViewAdapter(getApplicationContext(),listNavLabels,nvDrawables);
+        adapter = new NavListViewAdapter(getApplicationContext(),listNavLabels,nvDrawables);
         nvDrawer.setAdapter(adapter);
 
         setupDrawerContent(nvDrawer);
@@ -329,6 +362,81 @@ public class MainPageActivity extends AppBaseActivity implements DrawerLocker {
                             , configBuilder.build());
 
                 }
+                else if(i==DrawerConstant.Cancellation)
+                {
+                    if(cancStatus.equalsIgnoreCase("Cancel Mebership")) {
+
+                        mDrawer.closeDrawers();
+                        final AlertDialog.Builder builder = new AlertDialog.Builder(MainPageActivity.this);
+                        builder.setTitle("Cancel Membership");
+                        builder.setMessage("Are you sure that you would like to cancel your membership?");
+                        builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                            }
+                        });
+                        builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                AlertDialog.Builder builder1 = new AlertDialog.Builder(MainPageActivity.this);
+                                builder1.setTitle("Cancel Membership");
+                                builder1.setMessage(getResources().getString(R.string.cancelmember));
+                                builder1.setPositiveButton("Cancel Membership", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        Utility.showLoadingPopup(MainPageActivity.this);
+                                        HashMap<String, String> params = new HashMap<>();
+                                        params.put("UserId", "" + appGlobal.getUserId());
+                                        new ServiceController(MainPageActivity.this, new HttpResponseCallback() {
+                                            @Override
+                                            public void response(boolean success, boolean fail, String data) {
+                                                if (success) {
+                                                    Utility.hideLoadingPopup();
+                                                    Log.d("Muhib", data);
+                                                    appGlobal.setCancel("Withdraw Cancellation");
+                                                    cancStatus="Withdraw Cancellation";
+                                                    setupDrawer();
+                                                    Utility.Alertbox(MainPageActivity.this, "Message", "Cancellation request sent successfully", "OK");
+                                                } else {
+                                                    Utility.hideLoadingPopup();
+                                                    ErrorController.showError(MainPageActivity.this, data, success);
+                                                }
+                                            }
+                                        }).request(ServiceMod.CancelMembership, params);
+                                    }
+                                });
+                                builder1.create();
+                                builder1.show();
+                            }
+                        });
+                        builder.create();
+                        builder.show();
+                    }
+                    else if(cancStatus.equalsIgnoreCase("Withdraw Cancellation"))
+                    {
+                        mDrawer.closeDrawers();
+                        Utility.showLoadingPopup(MainPageActivity.this);
+                        HashMap<String, String> params = new HashMap<>();
+                        params.put("UserId", "" + appGlobal.getUserId());
+                        new ServiceController(MainPageActivity.this, new HttpResponseCallback() {
+                            @Override
+                            public void response(boolean success, boolean fail, String data) {
+                                if (success) {
+                                    Utility.hideLoadingPopup();
+                                    Log.d("Muhib", data);
+                                    appGlobal.setCancel("Cancel Mebership");
+                                    cancStatus="Cancel Mebership";
+                                    setupDrawer();
+                                    Utility.Alertbox(MainPageActivity.this, "Message", "Withdrawn request sent successfully ", "OK");
+                                } else {
+                                    Utility.hideLoadingPopup();
+                                    ErrorController.showError(MainPageActivity.this, data, success);
+                                }
+                            }
+                        }).request(ServiceMod.WithdrawCancellationRequest, params);
+                    }
+                }
                 else {
                     selectDrawerItem(i);
                 }
@@ -369,15 +477,18 @@ public class MainPageActivity extends AppBaseActivity implements DrawerLocker {
             case DrawerConstant.PROFILE :fragmentClass = ProfilePageFragment.class ;break ;
             case DrawerConstant.CONTACT_GODINE : fragmentClass = ContactPageFragment.class ; break ;
             case DrawerConstant.BILLING :fragmentClass = BillingPageFragment.class ; break ;
-            case DrawerConstant.VERIFICATION :fragmentClass = MemberVerification.class ; break;
+            case DrawerConstant.VERIFICATION :fragmentClass = NewMemberVerification.class ; break;
             case DrawerConstant.FEEDBACK :fragmentClass = FeedBackPageFragment.class ; break ;
-            case DrawerConstant.HOW_IT_WORKS :fragmentClass =Howitworks.class ; break;
+            case DrawerConstant.HOW_IT_WORKS :fragmentClass =newHowItWorks.class ; break;
             case DrawerConstant.GOT_QUESTIONS :
             {
 
             }
             break ;
+            case DrawerConstant.Cancellation: {
 
+            }
+            break;
             default:logoutSession();return ;
         }
         try {

@@ -167,4 +167,12 @@ public class ReviewRatingPageFragment extends Fragment {
         loadUserReviews();
         title.setText("My Reviews");
     }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        FrameLayout bottomToolBar = (FrameLayout)getActivity().findViewById(R.id.bottomToolBar) ;
+        bottomToolBar.setVisibility(View.VISIBLE);
+        ((MainPageActivity)getActivity()).leftCenterButton.setVisibility(View.VISIBLE);
+    }
 }

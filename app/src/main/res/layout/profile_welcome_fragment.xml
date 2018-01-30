@@ -65,7 +65,6 @@
                 android:padding="5dp"
                 android:textColor="#fff"/>
             <TextView
-
                 android:id="@+id/tvWelcomeUsername"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

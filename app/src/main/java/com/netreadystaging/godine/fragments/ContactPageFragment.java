@@ -132,6 +132,6 @@ TextView title ;
     @Override
     public void onResume() {
         super.onResume();
-        title.setText("Contact GoDine");
+        title.setText("Contact GoDine®");
     }
 }

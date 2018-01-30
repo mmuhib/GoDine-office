@@ -1,11 +1,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/splash"
-    android:gravity="center"
+    android:gravity="center_vertical"
+    android:background="@color/black"
     tools:context="com.netreadystaging.godine.activities.onboard.SplashActivity"
     android:orientation="vertical"
-    >
+    android:weightSum="1">
+    <ImageView
+        android:layout_gravity="center"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:paddingLeft="25dp"
+        android:src="@drawable/newsplash"
+        android:scaleType="fitCenter"
+        />
+<!--
+        android:background="@drawable/splash"
+    -->
 
     <!--<ImageView-->
     <!--android:layout_width="match_parent"-->

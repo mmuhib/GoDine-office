@@ -134,7 +134,7 @@ public class Signup_Chosoeplan extends Fragment implements View.OnClickListener 
             case R.id.bt_justone :
                case R.id.image19:
                 bundle.putString("Product", justone);
-                fragment = new Signup_Referrer_Details();
+                fragment = new  Signup_Referrer_Details();
                 Join_GoDine.ProductVariantIDD=20;
                 fragment.setArguments(bundle);
 

@@ -779,6 +779,7 @@ public class RestaurantProfile extends Fragment  implements OnMapReadyCallback,G
                                 restaurant.setSpecialRestrictions(jsonObjects.getString("SpecialRestrictions"));
                                 restaurant.setEmail(jsonObjects.getString("Email"));
                                 restaurant.setSpecialRestrictions(jsonObjects.getString("SpecialRestrictions"));
+                                restaurant.setResttype(jsonObjects.getString("RestaurantType"));
                                 restaurant.setHoursOfOperation(jsonObjects.getString("HoursofOperation"));
                                 restaurant.setRating((float)jsonObjects.getDouble("Rating"));
                                 double lat = jsonObjects.getDouble("Latitude");
@@ -856,6 +857,28 @@ public class RestaurantProfile extends Fragment  implements OnMapReadyCallback,G
         setupRestWebsite();
         setupRatingBar();
         setupMapView();
+        setupoffer();
+    }
+
+    private void setupoffer() {
+        TextView restType= (TextView) view.findViewById(R.id.txt_resttype);
+        TextView txt_offer= (TextView) view.findViewById(R.id.txt_offer);
+        TextView txt_offerdetail= (TextView) view.findViewById(R.id.txt_offerdetail);
+        String type=restaurant.getResttype().toString();
+        if(type.equalsIgnoreCase("Affiliate Restaurant"))
+        {
+            restType.setText("Partner Restaurant");
+            txt_offer.setText("2 for 1");
+            txt_offerdetail.setText("(Buy One Get One)");
+        }
+        else if(type.equalsIgnoreCase("Restaurant"))
+        {
+            restType.setText("Premium Restaurant");
+            txt_offer.setText("50% OFF");
+            txt_offerdetail.setText("(Up to $25 Every Time You Dine)");
+
+        }
+
     }
 
     /***************************************************

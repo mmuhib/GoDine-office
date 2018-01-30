@@ -20,7 +20,7 @@ public class ServiceController extends Application {
     Context context ;
 
 
-    final private String API_BASE_URL = "https://godineclub.com/api/" ;
+    final private String API_BASE_URL = "http://gdcomp.godineclub.com/api/" ;
     final private String AUTH_TOKEN ="CDwbClOOk61h3lQrTMbAkFNK5xB2r25c" ;
 
     public ServiceController(Context context, final HttpResponseCallback callback) {
@@ -100,7 +100,23 @@ public class ServiceController extends Application {
             case ServiceMod.CancelMembership :
                 this.service.setAuthToken(AUTH_TOKEN);
                 break ;
+            case ServiceMod.WithdrawCancellationRequest :
+                this.service.setAuthToken(AUTH_TOKEN);
+                break ;
             case ServiceMod.SIGN_UP :
+                this.service.setAuthToken(AUTH_TOKEN);
+                break ;
+            case ServiceMod.FindAffiliate :
+                this.service.setAuthToken(AUTH_TOKEN);
+                break ;
+
+            case ServiceMod.EmailCheck :
+                this.service.setAuthToken(AUTH_TOKEN);
+                break ;
+            case ServiceMod.ReactivationUserDetails :
+                this.service.setAuthToken(AUTH_TOKEN);
+                break ;
+            case ServiceMod.ReactivationCheckoutUrl :
                 this.service.setAuthToken(AUTH_TOKEN);
                 break ;
             default :

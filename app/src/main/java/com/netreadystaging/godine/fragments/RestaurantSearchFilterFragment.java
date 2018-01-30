@@ -171,7 +171,6 @@ public class RestaurantSearchFilterFragment extends Fragment implements View.OnC
                 selectRestMap();
                 break ;
         }
-
     }
 
     private void selectRestFilter() {

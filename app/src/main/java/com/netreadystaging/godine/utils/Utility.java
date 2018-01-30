@@ -9,8 +9,11 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.util.Base64;
+import android.util.Log;
+import android.util.Patterns;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
@@ -22,6 +25,7 @@ import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.netreadystaging.godine.R;
 
 import java.io.ByteArrayOutputStream;
+import java.util.regex.Pattern;
 
 /**
  * Created by sony on 17-07-2016.
@@ -32,8 +36,14 @@ public class Utility {
     public static boolean checkValidEmail(final String email)
     {
         if(email!=null){
-            String regularExpression = "^(<([a-z0-9_\\.\\-]+)\\@([a-z0-9_\\-]+\\.)+[a-z]{2,6}>|([a-z0-9_\\.\\-]+)\\@([a-z0-9_\\-]+\\.)+[a-z]{2,6})$";
-            return email.trim().matches(regularExpression) ;
+            Pattern pattern= Patterns.EMAIL_ADDRESS;
+
+            if(pattern.matcher(email).matches())
+            {
+                return pattern.matcher(email).matches();
+            }
+/*            String regularExpression = "^(<([a-z0-9_\\.\\-]+)\\@([a-z0-9_\\-]+\\.)+[a-z]{2,6}>|([a-z0-9_\\.\\-]+)\\@([a-z0-9_\\-]+\\.)+[a-z]{2,6})$";
+            return email.trim().matches(regularExpression) ;*/
         }
         return false ;
     }
@@ -118,13 +128,11 @@ public class Utility {
         builder.create();
         builder.show();
    }*/
-
    public static void Alertbox(Context context,String title,String Message,String Positve)
     {
         final Dialog dialog=new Dialog(context);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.customalertdesign);
-
         TextView titlee= (TextView) dialog.findViewById(R.id.tile);
         titlee.setText(title);
         TextView message = (TextView) dialog.findViewById(R.id.msg);

@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="com.helpshift:android-helpshift-aar-4.8.1">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/android-helpshift-aar-4.8.1.aar/9e20e97f8a8ac508f04124c2d5ff248c/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/android-helpshift-aar-4.8.1.aar/9e20e97f8a8ac508f04124c2d5ff248c/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

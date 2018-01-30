@@ -42,6 +42,18 @@ public class AppGlobal extends Application{
     private String isVerificationImageUploaded = "";
     public String p_remember= "";
     public String u_remember = "";
+    public String cancel = "";
+
+    public String getCancel() {
+        return cancel;
+    }
+
+    public void setCancel(String cancel) {
+        SharedPreferenceStore.storeValue(context,LSConstant.Cancellation,cancel);
+        this.cancel = cancel;
+    }
+
+
     public String getAddress()
     {
 
@@ -297,7 +309,7 @@ public class AppGlobal extends Application{
         setParentRestaurantIdOrUserId("");
         setMobileNotification("");
         setZipcode("");
-
+        setCancel("");
         setUsername("");
         setPassword("");
         welcomeText = "Welcome" ;
@@ -326,6 +338,7 @@ public class AppGlobal extends Application{
             zipcode = SharedPreferenceStore.getValue(context, LSConstant.ZIPCODE, zipcode);
             username = SharedPreferenceStore.getValue(context, LSConstant.USERNAME, username);
             pass = SharedPreferenceStore.getValue(context, LSConstant.PASSWORD, pass);
+            cancel= SharedPreferenceStore.getValue(context, LSConstant.Cancellation, cancel);
             welcomeText =  "Welcome Back" ;
             return true ;
         }

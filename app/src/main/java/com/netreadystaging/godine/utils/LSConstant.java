@@ -29,5 +29,6 @@ public interface LSConstant {
     String IS_REMEMBER ="isremember";
     String PASS_REMEMBER ="p_remember";
     String USER_REMEMBER ="u_remember";
+    String Cancellation ="Cancel";
 
 }

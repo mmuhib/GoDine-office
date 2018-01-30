@@ -89,7 +89,7 @@ public class ExploreRestrauntsPageFragment extends Fragment implements View.OnCl
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view =  inflater.inflate(R.layout.explore_restaurant_page_fragment,container,false);
-        Bundle bundle=getArguments();
+       // Bundle bundle=getArguments();
 
         setupToolBar();
         getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
@@ -115,7 +115,7 @@ public class ExploreRestrauntsPageFragment extends Fragment implements View.OnCl
                 etMiles.setText("");
             }
         });
- btnCurrentLocationSearch = (TextView)view.findViewById(R.id.btnCurrentLocationSearch) ;
+        btnCurrentLocationSearch = (TextView)view.findViewById(R.id.btnCurrentLocationSearch) ;
         final TextView btnOpenSearchOption = (TextView)view.findViewById(R.id.btnOpenSearchOption) ;
         btnSearchRestaurants = (TextView)view.findViewById(R.id.btnSearchRestaurants) ;
         btnCurrentLocationSearch.setOnClickListener(this);
@@ -146,11 +146,23 @@ public class ExploreRestrauntsPageFragment extends Fragment implements View.OnCl
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        showRestaurantTypesAlert();
-if(!Utility.isNetworkConnected(getActivity())) {
+     //   showRestaurantTypesAlert();
+    if(!Utility.isNetworkConnected(getActivity())) {
     Toast.makeText(getContext(), "No Network Connection!", Toast.LENGTH_SHORT).show();
     return ;
-}   loadTypesOfCuisines();
+}
+        Bundle bundle=getArguments();
+        if(bundle!=null)
+        {
+            isCurrentLocationSearch=false;
+        }
+        else {
+            isCurrentLocationSearch = true;
+        }
+        if (Utility.checkGooglePlayService(getActivity())) {
+            setupLocation();
+        }
+    loadTypesOfCuisines();
         loadRestFeatures();
     }
 
@@ -217,7 +229,7 @@ if(!Utility.isNetworkConnected(getActivity())) {
         lblHeading.setText(getResources().getString(R.string.select_rest_type));
         final ListView lvRestTypes = (ListView) viewRestTypes.findViewById(R.id.lvRestTypes);
         final ProgressBar progressBar = (ProgressBar) viewRestTypes.findViewById(R.id.progressBar);
-        loadRestaurantTypes(lvRestTypes,progressBar);
+       loadRestaurantTypes(lvRestTypes,progressBar);
         builder.setView(viewRestTypes);
         builder.setCancelable(false) ;
         final Dialog dialog = builder.create();
@@ -227,8 +239,8 @@ if(!Utility.isNetworkConnected(getActivity())) {
                 if(i==KeyEvent.KEYCODE_BACK)
                 {
 
-                        ProfilePageFragment frag=new ProfilePageFragment();
-                        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.flContent,frag).addToBackStack(null).commit();
+                        //ProfilePageFragment frag=new ProfilePageFragment();
+                        //getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.flContent,frag).addToBackStack(null).commit();
                         dialog.dismiss();
                           return true;
                 }
@@ -450,7 +462,7 @@ if(!Utility.isNetworkConnected(getActivity())) {
         params.put("Features",feature);
         params.put("Address",address);
         params.put("CuisineType",cuisine);
-        params.put("RestaurantType",restRoleId);
+   //     params.put("RestaurantType",restRoleId);
         params.put("UserId",AppGlobal.getInatance().getUserId()+"");
         new ServiceController(getActivity(), new HttpResponseCallback()
         {
@@ -483,6 +495,7 @@ if(!Utility.isNetworkConnected(getActivity())) {
                                 restaurantObj.setLunch(jsonObjects.getString("RestaurantAverageLunch"));
                                 restaurantObj.setDinner(jsonObjects.getString("RestaurantAverageDinner"));
                                 restaurantObj.setRating((float)jsonObjects.getDouble("Rating"));
+                                restaurantObj.setResttype(jsonObjects.getString("RestaurantType"));
                                 double lat = jsonObjects.getDouble("Latitude");
                                 double lng = jsonObjects.getDouble("Longitude");
                                 long miles =  calculateMiles(lat,lng);
@@ -497,7 +510,7 @@ if(!Utility.isNetworkConnected(getActivity())) {
                             }
 
                             String restType = "";
-                            switch (Integer.parseInt(restRoleId))
+                          /*  switch (Integer.parseInt(restRoleId))
                             {
                                 case 253 :
                                     restType = "Premier Restaurants";
@@ -506,7 +519,7 @@ if(!Utility.isNetworkConnected(getActivity())) {
                                 case 284 :
                                     restType = "Affiliate Restaurants";
                                     break ;
-                            }
+                            }*/
                             RestaurantSearchFilterFragment fragment = new RestaurantSearchFilterFragment();
                             Bundle bundle = new Bundle();
                             bundle.putSerializable("restaurants",restlist);

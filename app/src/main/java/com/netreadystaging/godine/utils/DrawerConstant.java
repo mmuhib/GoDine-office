@@ -16,6 +16,7 @@ public interface DrawerConstant {
     int FEEDBACK = 8 ;
     int HOW_IT_WORKS = 9 ;
     int GOT_QUESTIONS = 10 ;
+    int Cancellation = 11 ;
 
     int REST_SRCH = 11 ;
     int  REST_FILTER = 12 ;

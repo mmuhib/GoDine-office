@@ -27,6 +27,7 @@ import android.widget.Toast;
 import com.netreadystaging.godine.R;
 import com.netreadystaging.godine.activities.main.ChoosePlanActivity;
 import com.netreadystaging.godine.activities.main.MainPageActivity;
+import com.netreadystaging.godine.activities.main.PaymentView;
 import com.netreadystaging.godine.callbacks.ImageSelectCallBack;
 import com.netreadystaging.godine.controllers.ErrorController;
 import com.netreadystaging.godine.controllers.ServiceController;
@@ -168,7 +169,7 @@ public class ProfilePageFragment extends ImageSelectFragment {
         if(Utility.isNetworkConnected(getActivity()))
         {
             loadProfilePic();
-            loadMemberShipSavings();
+            //loadMemberShipSavings();
         }
         title.setText("My Profile");
     }
@@ -193,7 +194,7 @@ public class ProfilePageFragment extends ImageSelectFragment {
             @Override
             public void onClick(View view) {
                 Settings fragmen=new Settings();
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.flContent,fragmen).commit();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.flContent,fragmen).addToBackStack(null).commit();
             }
         });
         /**** ToolBar Setting ****/
@@ -225,13 +226,13 @@ public class ProfilePageFragment extends ImageSelectFragment {
                         JSONArray jArray = new JSONArray(data);
                         for (int index = 0; index < jArray.length(); index++) {
                             JSONObject jObj = jArray.getJSONObject(index) ;
-                            final TextView tvMemberMonthlySavings = (TextView) view.findViewById(R.id.tvMemberMonthlySavings) ;
+                           /* final TextView tvMemberMonthlySavings = (TextView) view.findViewById(R.id.tvMemberMonthlySavings) ;
                             final TextView tvMemberYearlySavings = (TextView) view.findViewById(R.id.tvMemberYearlySavings) ;
                             final  TextView tvMemberLifetimeSavings = (TextView) view.findViewById(R.id.tvMemberLifetimeSavings) ;
                             tvMemberMonthlySavings.setText("$"+jObj.getString("ThisMonthSavings"));
                             tvMemberYearlySavings.setText("$"+jObj.getString("ThisYearSavings"));
                             tvMemberLifetimeSavings.setText("$"+jObj.getString("OverallSavings"));
-                        }
+                        */}
                     } catch (JSONException e) {
                         ErrorController.showError(getActivity(),data,success);
                     }
@@ -263,7 +264,7 @@ public class ProfilePageFragment extends ImageSelectFragment {
 
                         for (int index = 0; index < jArray.length(); index++) {
                             JSONObject jObj = jArray.getJSONObject(index) ;
-                            String profilePicUrl  ="https://" +jObj.getString("Url") ;
+                            String profilePicUrl  ="http://" +jObj.getString("Url").trim() ;
                             //   String s=profilePicUrl.substring(0,profilePicUrl.indexOf("?"));
                             //  Log.d("Image",s);
                             Log.d("In Load",profilePicUrl);
@@ -478,8 +479,14 @@ public class ProfilePageFragment extends ImageSelectFragment {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
-                Intent intent =  new Intent(getActivity(), ChoosePlanActivity.class);
-                startActivityForResult(intent,200);
+                Intent intent =  new Intent(getActivity(), PaymentView.class);
+                intent.putExtra("username",appGlobal.getUsername());
+                intent.putExtra("password",appGlobal.getPassword());
+                intent.putExtra("productvariantid","94");
+                intent.putExtra("UserD",appGlobal.getUserId()+"");
+                startActivity(intent);
+                /*Intent intent =  new Intent(getActivity(), ChoosePlanActivity.class);
+                startActivityForResult(intent,200);*/
 
             }
         });
@@ -488,6 +495,7 @@ public class ProfilePageFragment extends ImageSelectFragment {
             public void onClick(DialogInterface dialog, int which) {
                 Intent intent = new Intent(getActivity(),MainPageActivity.class) ;
                 startActivity(intent);
+                getActivity().finish();
 
             }
         });
@@ -507,6 +515,22 @@ public class ProfilePageFragment extends ImageSelectFragment {
             {
                 b.setTextAppearance(getActivity(),R.style.GDAppButtonBaseTheme);
                 c.setTextAppearance(getActivity(),R.style.GDAppButtonBaseTheme);
+            }
+        }
+    }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==200)
+        {
+            if(resultCode==201)
+            {
+                Intent intent =  new Intent(getActivity(), PaymentView.class);
+                intent.putExtra("username",appGlobal.getUsername());
+                intent.putExtra("password",appGlobal.getPassword());
+                intent.putExtra("productvariantid",data.getStringExtra("product_id"));
+                intent.putExtra("UserD",appGlobal.getUserId()+"");
+                startActivity(intent);
             }
         }
     }

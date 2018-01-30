@@ -147,6 +147,7 @@ public class FavoritePageFragment extends Fragment implements GoogleApiClient.Co
                                 restaurantObj.setId(jsonObjects.getString("RestaurantId"));//
                                 restaurantObj.setReview(jsonObjects.getString("NumberOfReviews"));//
                                 restaurantObj.setAddress(jsonObjects.getString("Address"));//
+                                restaurantObj.setResttype(jsonObjects.getString("RestaurantType"));//
                                 StringBuffer area = new StringBuffer();
                                 area.append(jsonObjects.getString("State"));//
                                 area.append("," + jsonObjects.getString("City"));//

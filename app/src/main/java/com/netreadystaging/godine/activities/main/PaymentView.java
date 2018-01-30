@@ -25,6 +25,7 @@ import com.netreadystaging.godine.controllers.ErrorController;
 import com.netreadystaging.godine.controllers.ServiceController;
 import com.netreadystaging.godine.fragments.Howitworks;
 import com.netreadystaging.godine.fragments.Signup_Referrer_Details;
+import com.netreadystaging.godine.fragments.newHowItWorks;
 import com.netreadystaging.godine.utils.AppGlobal;
 import com.netreadystaging.godine.utils.ServiceMod;
 import com.netreadystaging.godine.utils.Utility;
@@ -41,7 +42,7 @@ public class PaymentView extends AppCompatActivity {
     AppGlobal appGlobal = AppGlobal.getInatance() ;
     TextView mTitle;
     WebView paymentview;
-    String UserID;
+    String UserID,RecruiterID;
     String password;
     String ProductVariantID;
     String username;
@@ -49,20 +50,33 @@ public class PaymentView extends AppCompatActivity {
     FragmentManager fragmentManager=getSupportFragmentManager();
     FragmentTransaction transaction=fragmentManager.beginTransaction();
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment_view);
         paymentview= (WebView) findViewById(R.id.paymentview);
         Bundle intent=getIntent().getExtras();
         username=intent.getString("username");
         password=intent.getString("password");
-        ProductVariantID=intent.getString("productvariantid");
+        RecruiterID=intent.getString("RecruiterID");
+        ProductVariantID="94";
         UserID=intent.getString("UserD");
      // Utility.message(getApplicationContext(),username+" "+password+""+ProductVariantID);
         paymentview.setWebViewClient(new myWebViewClient());
         paymentview.setWebChromeClient(new WebChromeClient());
         paymentview.getSettings().setJavaScriptEnabled(true);
-        paymentview.loadUrl("https://godineclub.com/api/CheckoutURL?productvariantid="+ProductVariantID+"&username="+username+"&password="+password);
+        if(RecruiterID!=null)
+        {
+            if(!RecruiterID.isEmpty())
+            {
+                paymentview.loadUrl("http://gdcomp.godineclub.com/api/ReactivationCheckoutUrl?Email="+username+"&Password="+password+"&RecruiterID="+RecruiterID);
+
+            }
+        }
+        else
+        {
+            paymentview.loadUrl("http://gdcomp.godineclub.com/api/CheckoutURL?productvariantid="+ProductVariantID+"&username="+username+"&password="+password);
+        }
         setupToolBar();
     }
     private void setupToolBar()
@@ -202,7 +216,7 @@ public class PaymentView extends AppCompatActivity {
                                                         @Override
                                                         public void onClick(DialogInterface dialogInterface, int i) {
                                                             Bundle bundle=new Bundle();
-                                                            fragment=new Howitworks();
+                                                            fragment=new newHowItWorks();
                                                             String Abc="From Payment";
                                                             bundle.putString("Abc",Abc);
                                                             transaction.replace(R.id.activity_p,fragment);
@@ -259,13 +273,13 @@ public class PaymentView extends AppCompatActivity {
            {
             e.printStackTrace();
            }
-           if(s.equalsIgnoreCase("https://godineclub.com/confirmation"))
+           if(s.equalsIgnoreCase("http://gdcomp.godineclub.com/confirmation"))
            {
                Checkpay();
             //   Utility.message(getApplicationContext(),"Payment done");
                Log.d("In if",url);
            }
-           else if(s.equalsIgnoreCase("https://godineclub.com/products/checkout"))
+           else if(s.equalsIgnoreCase("http://gdcomp.godineclub.com/products/checkout"))
            {
                Log.d("In else",url);
            }
@@ -284,13 +298,13 @@ public class PaymentView extends AppCompatActivity {
             {
 
             }
-              if(s.equalsIgnoreCase("https://godineclub.com/confirmation"))
+              if(s.equalsIgnoreCase("https://gdcomp.godineclub.com/confirmation"))
             {
                 Checkpay();
                 Utility.message(getApplicationContext(),"Payment done");
                 Log.d("In if",url);
             }
-            else if(s.equalsIgnoreCase("https://godineclub.com/products/checkout"))
+            else if(s.equalsIgnoreCase("https://gdcomp.godineclub.com/products/checkout"))
             {
                 Log.d("In else",url);
             }

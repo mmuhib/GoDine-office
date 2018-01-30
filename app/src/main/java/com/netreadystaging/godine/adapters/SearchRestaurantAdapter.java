@@ -12,11 +12,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.netreadystaging.godine.R;
 
 
+import com.netreadystaging.godine.utils.Utility;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -30,7 +32,6 @@ import com.netreadystaging.godine.models.Restaurant;
 public class SearchRestaurantAdapter extends ArrayAdapter<Restaurant> {
     Context context;
     ArrayList<Restaurant> listRestaurant;
-    TextView t1,t2,t3,t4,t5,t6,t7;
     LayoutInflater inflater;
     int Resource;
     public SearchRestaurantAdapter(Context context, int resource, ArrayList<Restaurant> listRestaurant) {
@@ -64,6 +65,11 @@ public class SearchRestaurantAdapter extends ArrayAdapter<Restaurant> {
             }
             Picasso.with(getContext()).load(restaurantImageURL).fit().into(holder.imageresataurant);
         }
+        else
+        {
+            Picasso.with(getContext()).load(R.mipmap.ic_launcher).fit().into(holder.imageresataurant);
+
+        }
 
         holder.idd.setText(restaurantModel.getId());
         holder.restautname.setText(restaurantModel.getName());
@@ -75,18 +81,42 @@ public class SearchRestaurantAdapter extends ArrayAdapter<Restaurant> {
         holder.dinner.setText("Dinner:$"+restaurantModel.getDinner());
         holder.distance.setText(restaurantModel.getMiles()+" miles");
         holder.ratingBar.setRating(restaurantModel.getRating());
+        String type=restaurantModel.getResttype().toString();
+        if(type.equalsIgnoreCase("Affiliate Restaurant"))
+        {
+            holder.txt_rstype.setText("Partner");
+            holder.txt_restoffer.setText("2 for 1");
+
+        }
+        else if(type.equalsIgnoreCase("Restaurant"))
+        {
+            holder.txt_rstype.setText("Premium Partner");
+            holder.txt_restoffer.setText("50% OFF");
+        }
+
         if(restaurantModel.getOffers()>0)
             holder.restOfferImage.setVisibility(View.VISIBLE);
         else
             holder.restOfferImage.setVisibility(View.GONE);
+        String name=context.getClass().getName().toString();
+
+        Log.d("Name",name);
+        if(name.equalsIgnoreCase("com.netreadystaging.godine.activities.main.NewSignUp"))
+        {
+            holder.lloffer.setVisibility(View.GONE);
+            holder.lunch.setVisibility(View.GONE);
+            holder.dinner.setVisibility(View.GONE);
+            holder.cuisine.setVisibility(View.GONE);
+            holder.txt_avgprice.setVisibility(View.GONE);
+        }
         return row;
     }
     class  ViewHolder
     {
         ImageView imageresataurant,restOfferImage;
-        TextView restautname,restaurantaddress,region,review,cuisine,lunch,dinner,distance,idd;
+        TextView restautname,restaurantaddress,region,review,cuisine,lunch,dinner,distance,idd,txt_avgprice,txt_rstype,txt_restoffer;
         AppCompatRatingBar ratingBar ;
-
+        LinearLayout lloffer;
         ViewHolder(View v)
         {
             imageresataurant= (ImageView) v.findViewById(R.id.restaurantImage);
@@ -94,6 +124,7 @@ public class SearchRestaurantAdapter extends ArrayAdapter<Restaurant> {
             restautname= (TextView) v.findViewById(R.id.restautname);
             restaurantaddress= (TextView) v.findViewById(R.id.restaurantaddress);
             region= (TextView) v.findViewById(R.id.region);
+            txt_avgprice= (TextView) v.findViewById(R.id.txt_avgprice);
             review= (TextView) v.findViewById(R.id.review);
             cuisine= (TextView) v.findViewById(R.id.cuisine);
             lunch= (TextView) v.findViewById(R.id.lunch);
@@ -101,6 +132,10 @@ public class SearchRestaurantAdapter extends ArrayAdapter<Restaurant> {
             distance= (TextView) v.findViewById(R.id.distance);
             ratingBar= (AppCompatRatingBar) v.findViewById(R.id.ratingBar);
             restOfferImage= (ImageView) v.findViewById(R.id.restOfferImage);
+           lloffer= (LinearLayout) v.findViewById(R.id.ll_offer);
+            txt_rstype=(TextView) v.findViewById(R.id.txt_rs);
+            txt_restoffer=(TextView) v.findViewById(R.id.rest_offer);
+
             Drawable drawable = ratingBar.getProgressDrawable();
             //drawable.setColorFilter(Color.parseColor("#FF3399FF"), PorterDuff.Mode.SRC_ATOP);
         }

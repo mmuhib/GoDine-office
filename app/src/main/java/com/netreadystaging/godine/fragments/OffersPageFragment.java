@@ -49,7 +49,7 @@ import java.util.HashMap;
 
 import in.technobuff.helper.http.HttpResponseCallback;
 
-/**
+/*
  * Created by sony on 19-07-2016.
  */
 public class OffersPageFragment extends Fragment implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {

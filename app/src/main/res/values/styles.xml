@@ -29,6 +29,19 @@
         <item name="android:background">@drawable/btn_bg</item>
         <item name="android:textAllCaps">false</item>
     </style>
+    <style name="GDSignupstyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:typeface">sans</item>
+        <item name="android:shadowRadius">2</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDy">+1</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:background">@drawable/newbtn_bg</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
     <style name="GDRoundedEditTextTheme">
         <item name="android:background">@drawable/editetext_rounded_bg</item>
         <item name="android:layout_width">match_parent</item>

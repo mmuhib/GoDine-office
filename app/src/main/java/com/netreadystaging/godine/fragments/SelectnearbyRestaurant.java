@@ -57,7 +57,7 @@ public class SelectnearbyRestaurant extends Fragment  implements GoogleApiClient
     AppGlobal appGlobal=AppGlobal.getInatance();
     ListView listView;
     TextView mTitle;
-    ArrayList<Restaurant> nearbylist = new ArrayList<>();
+        ArrayList<Restaurant> nearbylist = new ArrayList<>();
     SearchRestaurantAdapter adapter;
     private boolean isCurrentLocationSearch;
     GoogleApiClient mgoogleApiclient;

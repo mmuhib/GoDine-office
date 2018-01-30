@@ -47,7 +47,14 @@ public interface ServiceMod {
     String REST_TYPE_LISTING="RestaurantTypes";
     String InsertRestaurantSavings="InsertRestaurantSavings";
     String CancelMembership="CancelMembership";
+    String WithdrawCancellationRequest="WithdrawCancellationRequest";
     String HOURS_OF_OPERATION="RestaurantHoursOfOperation";
     String DefaultAffiliate="DefaultAffiliate";
     String MembershipValidation="MembershipValidation";
+    String FindAffiliate="FindAffiliate";
+    String SearchServer="SearchServer";
+    String EmailCheck="EmailCheck";
+    String ReactivationUserDetails="ReactivationUserDetails";
+    String ReactivationCheckoutUrl="ReactivationCheckoutUrl";
+
 }

@@ -115,7 +115,16 @@ public class LoginActivity extends AppBaseActivity {
                                             String memberSince = jsonObjects.getString("MemberSince");
                                             String parentRestaurantIdOrUserId = jsonObjects.getString("ParentRestaurantIdOrUserId");
                                             String isVerificationImageUploaded = jsonObjects.getString("IsVerificationImageUploaded");
+                                            String CancelStatus=jsonObjects.getString("IsCancellationRequested");
+                                            if(CancelStatus.equalsIgnoreCase("0"))
+                                            {
+                                                CancelStatus="Cancel Mebership";
+                                            }
+                                            else
+                                            {
+                                                CancelStatus="Withdraw Cancellation";
 
+                                            }
                                           /*  **********************************
                                              * INITIALISE APP GLOBAL PARAM
                                              * **********************************/
@@ -146,7 +155,7 @@ public class LoginActivity extends AppBaseActivity {
                                             appGlobal.setParentRestaurantIdOrUserId(parentRestaurantIdOrUserId);
                                             appGlobal.setIsVerificationImageUploaded(isVerificationImageUploaded);
                                             appGlobal.welcomeText = "Welcome" ;
-
+                                            appGlobal.setCancel(CancelStatus);
                                             final CheckBox cbxRememberMe= (CheckBox) findViewById(R.id.cbxRememberMe);
                                             appGlobal.setRemember(cbxRememberMe.isChecked());
 

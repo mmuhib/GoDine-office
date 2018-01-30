@@ -110,13 +110,9 @@ public class RestaurantMyReviewAdapter extends BaseAdapter {
                     selectedIndex =  position ;
                     notifyDataSetChanged();
                 }
-
             }
         });
-
-
-
-        return convertView;
+                return convertView;
     }
 
     private static class ViewHolder {

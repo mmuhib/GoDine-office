@@ -160,7 +160,6 @@ public class Signup_Referrer_Details extends Fragment implements View.OnClickLis
             {
                 btrefNext.setVisibility(View.GONE);
             }
-
             Step.setText("STEP #3");
             planame.setText("Enter Referrer Restaurant#");
             layout_referedbyrestaurant.setVisibility(View.VISIBLE);

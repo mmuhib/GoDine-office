@@ -21,6 +21,7 @@ import com.helpshift.support.ApiConfig;
 import com.helpshift.support.Support;
 import com.netreadystaging.godine.R;
 import com.netreadystaging.godine.activities.main.MainPageActivity;
+import com.netreadystaging.godine.utils.MyTextView;
 import com.netreadystaging.godine.utils.Utility;
 
 /**
@@ -34,6 +35,7 @@ public class Howitworks extends Fragment implements View.OnClickListener{
     String SAffiliateId = "N/A";
     String Data = "N/A";
     private ImageView back;
+    TextView Clickhere;
 
     @Nullable
     @Override

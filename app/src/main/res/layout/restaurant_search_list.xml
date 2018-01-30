@@ -26,10 +26,21 @@
             android:src="@drawable/offer_icn"
             />
     </FrameLayout>
+    <TextView
+        android:id="@+id/txt_rs"
+        android:layout_width="87dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/restaurantImageContainer"
+        android:text="Priemeier partner"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="9sp"
+     />
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
+        android:layout_marginLeft="10dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:orientation="vertical"
@@ -50,7 +61,7 @@
             android:text="Avg. Price"
             android:layout_gravity="right"
             android:textSize="12sp"
-            android:id="@+id/textView4" />
+            android:id="@+id/txt_avgprice" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -70,6 +81,33 @@
             android:layout_gravity="right"
             android:textSize="12sp"
             android:id="@+id/dinner"/>
+        <LinearLayout
+            android:id="@+id/ll_offer"
+            android:layout_marginTop="2dp"
+            android:layout_gravity="end"
+            android:layout_width="wrap_content"
+            android:layout_height="22dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:background="@color/black"
+            >
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/restprofilelogo" />
+            <TextView
+                android:id="@+id/rest_offer"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="3dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="50% OFF"
+                android:textColor="#fff"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
@@ -115,7 +153,7 @@
                 android:layout_height="wrap_content"
                 android:text="3 Review"
                 android:textColor="@color/black"
-                android:textSize="13sp"
+                android:textSize="12sp"
                 android:id="@+id/review"
                 android:layout_gravity="bottom" />
         </LinearLayout>
@@ -134,16 +172,17 @@
     </LinearLayout>
     <LinearLayout
         android:layout_below="@+id/texts"
-        android:layout_toRightOf="@+id/restaurantImageContainer"
-        android:layout_toEndOf="@+id/restaurantImageContainer"
-        android:layout_width="match_parent"
+        android:layout_toRightOf="@+id/txt_rs"
+        android:layout_toEndOf="@+id/txt_rs"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical">
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="California,Caribean,80903"
-            android:textSize="14sp"
+            android:textSize="12sp"
+
             android:textColor="@color/black"
             android:id="@+id/region"/>
 

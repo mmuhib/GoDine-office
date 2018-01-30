@@ -26,6 +26,7 @@ import android.widget.TextView;
 import com.netreadystaging.godine.R;
 import com.netreadystaging.godine.activities.main.ChoosePlanActivity;
 import com.netreadystaging.godine.activities.main.MainPageActivity;
+import com.netreadystaging.godine.activities.main.NewSignUp;
 import com.netreadystaging.godine.activities.main.PaymentView;
 import com.netreadystaging.godine.activities.onboard.Splash2;
 import com.netreadystaging.godine.callbacks.DrawerLocker;
@@ -55,7 +56,7 @@ import in.technobuff.helper.http.HttpResponseCallback;
 public class ProfileWelcomeFragment extends ImageSelectFragment {
 
     AppGlobal appGlobal = AppGlobal.getInatance() ;
-   View view  ;
+    View view  ;
 
 
     @Nullable
@@ -71,82 +72,121 @@ public class ProfileWelcomeFragment extends ImageSelectFragment {
         tvWelcomeUsername.setText(fullname);
         String data=getResources().getString(R.string.info);
         String  isVerificationImageUploaded=appGlobal.getIsVerificationImageUploaded();
-     //   Utility.message(getContext(),appGlobal.getIsVerificationImageUploaded());
+        //   Utility.message(getContext(),appGlobal.getIsVerificationImageUploaded());
         if(isVerificationImageUploaded.equalsIgnoreCase("0"))
         {
 
-            AlertDialog.Builder builder=new AlertDialog.Builder(getContext());
-            builder.setTitle("Almost There!");
-            builder.setMessage(data);
-            builder.setCancelable(false);
-            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            try {
+                AlertDialog.Builder builder=new AlertDialog.Builder(getContext());
+                builder.setTitle("Almost There!");
+                builder.setMessage(data);
+                builder.setCancelable(false);
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
 
-                    selectImage("bitmap",new ImageSelectCallBack()
-                    {
-                        @Override
-                        public void success(String data) {
+                        selectImage("bitmap",new ImageSelectCallBack()
+                        {
+                            @Override
+                            public void success(String data) {
 
-                        }
-                        @Override
-                        public void success(final Bitmap bitmap) {
-                            Utility.showLoadingPopup(getActivity());
+                            }
+                            @Override
+                            public void success(final Bitmap bitmap) {
+                                Utility.showLoadingPopup(getActivity());
+                                HashMap<String,String> params =  new HashMap<>();
+                                String  bitmapString= Utility.BitMapToString(bitmap);
+                                params.put("Base64String",bitmapString);
+                                params.put("Username",appGlobal.getUsername()+"");
+
+                                new ServiceController(getActivity(), new HttpResponseCallback() {
+                                    @Override
+                                    public void response(boolean success, boolean fail, String data) {
+                                        if(success)
+                                        {
+                                            Utility.hideLoadingPopup();
+                                            JSONArray jsonArray=null;
+                                            String Result="";
+                                            String Message="";
+                                            try {
+                                                jsonArray=new JSONArray(data);
+                                                for (int i=0;i<jsonArray.length();i++) {
+                                                    JSONObject jsonObject=null;
+                                                    jsonObject=jsonArray.getJSONObject(i);
+                                                    Result=jsonObject.getString("Result");
+                                                    Message=jsonObject.getString("Message");
+                                                    Log.d("Muhib",Result);
+                                                    Log.d("Muhib",Message);
+                                                    if(Result.equalsIgnoreCase("Success"))
+                                                    {
+                                                        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                                                        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                                                        byte[] byteArray = stream.toByteArray();
+                                                        Bundle bundle=new Bundle();
+                                                        bundle.putByteArray("Pic",byteArray);
+                                                        Fragment fragment=null;
+                                                        fragment=new ProfilePageFragment();
+                                                        FragmentManager manager=getActivity().getSupportFragmentManager();
+                                                        FragmentTransaction transaction=manager.beginTransaction();
+                                                        fragment.setArguments(bundle);
+                                                        transaction.replace(R.id.flContent,fragment);
+                                                        appGlobal.setIsVerificationImageUploaded("1");
+                                                        transaction.commit();
+                                                    }
+                                                    else if(Result.equalsIgnoreCase("Failed"))
+                                                    {
+                                                        Utility.hideLoadingPopup();
+                                                        Log.d("Mui",Message);
+                                                        // Utility.message(getActivity(),Message);
+                                                        Fragment fragment=null;
+                                                        FragmentManager manager=getActivity().getSupportFragmentManager();
+                                                        FragmentTransaction transaction=manager.beginTransaction();
+                                                        fragment=new ProfilePageFragment();
+                                                        transaction.replace(R.id.flContent,fragment);
+                                                        transaction.commit();
+                                                        Utility.Alertbox(getContext(),"Info",Message,"Ok");
+                                                    }
+
+                                                }
+                                            }
+                                            catch (Exception e) {
+                                                e.printStackTrace();
+                                                Log.d("Mui",""+e);
+                                            }
+                                            //   Utility.message(getContext(),data);
 
 
-                            HashMap<String,String> params =  new HashMap<>();
-                            String  bitmapString= Utility.BitMapToString(bitmap);
-                            params.put("Base64String",bitmapString);
-                            params.put("Username",appGlobal.getUsername()+"");
+                                            // ErrorController.showError(getActivity(),data,true);
+                                        }
+                                        else
+                                        {
+                                            ErrorController.showError(getActivity(),data,false);
+                                        }
 
-                            new ServiceController(getActivity(), new HttpResponseCallback() {
-                                @Override
-                                public void response(boolean success, boolean fail, String data) {
-                                    if(success)
-                                    {
-                                        Utility.hideLoadingPopup();
-                                     //   Utility.message(getContext(),data);
-                                        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                                        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
-                                        byte[] byteArray = stream.toByteArray();
-                                        Bundle bundle=new Bundle();
-                                        bundle.putByteArray("Pic",byteArray);
-                                        Fragment fragment=null;
-                                        FragmentManager manager=getActivity().getSupportFragmentManager();
-                                        FragmentTransaction transaction=manager.beginTransaction();
-                                        fragment=new ProfilePageFragment();
-                                        fragment.setArguments(bundle);
-                                        transaction.replace(R.id.flContent,fragment);
-                                        appGlobal.setIsVerificationImageUploaded("1");
-                                        transaction.commit();
-
-                                        // ErrorController.showError(getActivity(),data,true);
                                     }
-                                    else
-                                    {
-                                        ErrorController.showError(getActivity(),data,false);
-                                    }
-
-                                }
-                            }).request(ServiceMod.UploadVerificationImage,params);
+                                }).request(ServiceMod.UploadVerificationImage,params);
 
 
-                        }
-                        @Override
-                        public void fail(String error) {
-                            Fragment fragment=null;
-                            FragmentManager manager=getActivity().getSupportFragmentManager();
-                            FragmentTransaction transaction=manager.beginTransaction();
-                            fragment=new ProfilePageFragment();
-                            transaction.replace(R.id.flContent,fragment);
-                            transaction.commit();
-                        }
-                    });
+                            }
+                            @Override
+                            public void fail(String error) {
+                                Fragment fragment=null;
+                                FragmentManager manager=getActivity().getSupportFragmentManager();
+                                FragmentTransaction transaction=manager.beginTransaction();
+                                fragment=new ProfilePageFragment();
+                                transaction.replace(R.id.flContent,fragment);
+                                transaction.commit();
+                            }
+                        });
                     }
-            });
-            builder.create();
-            builder.show();
+                });
+                builder.create();
+                builder.show();
+            } catch (Exception e) {
+                e.printStackTrace();
+                Log.d("Error",""+e);
+            }
 
         }
         else
@@ -197,9 +237,18 @@ public class ProfileWelcomeFragment extends ImageSelectFragment {
 
                             String ExpiryDate=jsonObject.getString("ExpiryDate");
 
-                            if(MembershipType.equalsIgnoreCase("Expired") | ExpiryDate.isEmpty())
+                            if(MembershipType.equalsIgnoreCase("Expired") )
                             {
                                 checkForMemberShipType();
+                            }
+                            else if(MembershipType.equalsIgnoreCase("Inactive") )
+                            {
+                                checkForMemberShipType();
+                            }
+                            else if(MembershipType.equalsIgnoreCase("Cancelled"))
+                            {
+                                checkForCancelledMemberShipType();
+
                             }
                         }
                     } catch (JSONException e) {
@@ -214,6 +263,49 @@ public class ProfileWelcomeFragment extends ImageSelectFragment {
             }
         }).request(ServiceMod.MembershipValidation,params);
 
+    }
+
+    private void checkForCancelledMemberShipType()
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("Info");
+
+        builder.setMessage("oppss! Our system has found you as Cancelled member, Please reactive your profile.");
+
+        builder.setPositiveButton("Reactivate", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                Reactivate();
+            }
+        });
+        builder.setNegativeButton("Logout", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                startActivity(new Intent(getActivity(),Splash2.class));
+                getActivity().finish();
+                appGlobal.resetAppGlobalParams();
+                dialog.dismiss();
+            }
+        });
+        builder.setCancelable(false);
+        AlertDialog dialog = builder.create();
+        dialog.show();
+        Button b = dialog.getButton(DialogInterface.BUTTON_POSITIVE);
+        Button c = dialog.getButton(DialogInterface.BUTTON_NEGATIVE);
+
+        if(b != null && c!=null) {
+            b.setBackgroundResource(R.drawable.alertbuttondesign);
+            c.setBackgroundResource(R.drawable.alertbuttondesign);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                b.setTextAppearance(R.style.GDAppButtonBaseTheme);
+                c.setTextAppearance(R.style.GDAppButtonBaseTheme);
+            }else
+            {
+                b.setTextAppearance(getActivity(),R.style.GDAppButtonBaseTheme);
+                c.setTextAppearance(getActivity(),R.style.GDAppButtonBaseTheme);
+            }
+        }
     }
 
 
@@ -233,21 +325,25 @@ public class ProfileWelcomeFragment extends ImageSelectFragment {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
-              /*  Intent intent =  new Intent(getActivity(), ChoosePlanActivity.class);
-                startActivityForResult(intent,200);*/
                 Intent intent =  new Intent(getActivity(), PaymentView.class);
                 intent.putExtra("username",appGlobal.getUsername());
                 intent.putExtra("password",appGlobal.getPassword());
-                intent.putExtra("productvariantid","21");
+                intent.putExtra("productvariantid","94");
                 intent.putExtra("UserD",appGlobal.getUserId()+"");
                 startActivity(intent);
+               /* Intent intent =  new Intent(getActivity(), ChoosePlanActivity.class);
+                startActivityForResult(intent,200);*/
+
 
             }
         });
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("Logout", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-               dialog.dismiss();
+                startActivity(new Intent(getActivity(),Splash2.class));
+                getActivity().finish();
+                appGlobal.resetAppGlobalParams();
+                dialog.dismiss();
 
             }
         });
@@ -305,5 +401,65 @@ public class ProfileWelcomeFragment extends ImageSelectFragment {
         }
         catch(IOException ex) {
         }
+    }
+    public void Reactivate()
+    {
+        Utility.showLoadingPopup(getActivity());
+        HashMap<String,String> params =  new HashMap<>();
+        params.put("Username",appGlobal.getEmailId());
+        new ServiceController(getActivity(), new HttpResponseCallback() {
+            @Override
+            public void response(boolean success, boolean fail, String data) {
+                Utility.hideLoadingPopup();
+                if(success)
+                {
+                    JSONArray jsonArray=null;
+                    try {
+                        jsonArray=new JSONArray(data);
+                        for (int i=0;i<jsonArray.length();i++) {
+                            JSONObject jsonObject = null;
+                            jsonObject = jsonArray.getJSONObject(i);
+                            String AffiliateID=jsonObject.getString("AffiliateID");
+                            String Username=jsonObject.getString("Username");
+                            String FirstName=jsonObject.getString("FirstName");
+                            String LastName=jsonObject.getString("LastName");
+                            String Email=jsonObject.getString("Email");
+                            String Cell=jsonObject.getString("Cell");
+                            String Telephone=jsonObject.getString("Telephone");
+                            String Street=jsonObject.getString("Street");
+                            String City=jsonObject.getString("City");
+                            String State=jsonObject.getString("State");
+                            String Country=jsonObject.getString("Country");
+                            String ZipCode=jsonObject.getString("ZipCode");
+                            String RestaurantName=jsonObject.getString("RestaurantName");
+                            String BusinessName=jsonObject.getString("BusinessName");
+                            String AffiliateMemberType=jsonObject.getString("AffiliateMemberType");
+                            String RecruiterID=jsonObject.getString("RecruiterID");
+                            String AffiliateFirstName=jsonObject.getString("AffiliateFirstName");
+                            String AffiliateLastName=jsonObject.getString("AffiliateLastName");
+
+                            Intent intent=new Intent(getActivity(), NewSignUp.class);
+                            intent.putExtra("Email",Email);
+                            intent.putExtra("AffiliateID",AffiliateID);
+                            intent.putExtra("RecruiterID",RecruiterID);
+                            intent.putExtra("RestaurantName",RestaurantName);
+                            intent.putExtra("City",City);
+                            intent.putExtra("From","Reactivate");
+
+                            startActivity(intent);
+
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    Log.d("Data",data);
+                }
+                else
+                {
+                    ErrorController.showError(getActivity(),data,false);
+                }
+            }
+        }).request(ServiceMod.ReactivationUserDetails,params);
+
     }
 }
